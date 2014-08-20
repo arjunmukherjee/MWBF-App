@@ -27,11 +27,6 @@
 
 @implementation LoginViewController
 
-@synthesize emailTextField = _emailTextField;
-@synthesize passwordTextField = _passwordTextField;
-@synthesize loginButton = _loginButton;
-@synthesize userButton = _userButton;
-@synthesize aboutButton = _aboutButton;
 @synthesize success = _success;
 @synthesize fbSuccess;
 @synthesize activityIndicator;
@@ -43,6 +38,7 @@ NSString* ADMIN_PASSWORD = @"admin";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.success = NO;
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"running6.jpg"]];
     
     [self.view addSubview:backgroundImage];
@@ -98,8 +94,6 @@ NSString* ADMIN_PASSWORD = @"admin";
     Activity *activityList = [Activity getInstance];
     self.fbSuccess = YES;
     
-    //NSLog(@"Got FB info Email[%@], Name[%@]",user.userEmail,user.userName);
-    
     NSString *response = nil;
     MWBFService *service = [[MWBFService alloc] init];
     self.success = [service loginFaceBookUser:user.userEmail withFirstName:[fbUser first_name] withLastName:[fbUser last_name] withResponse:&response];
@@ -107,8 +101,8 @@ NSString* ADMIN_PASSWORD = @"admin";
     [self.activityIndicator stopAnimating];
     
     // Get the list of friends
-    user.friendsList = [service getFriendsList];
-
+    if ([user.friendsList count] <= 0 )
+        user.friendsList = [service getFriendsList];
     
     if (self.success && self.fbSuccess)
         [self performSegueWithIdentifier:@"login_success" sender:self];
@@ -171,54 +165,6 @@ NSString* ADMIN_PASSWORD = @"admin";
 }
 
 /////////// END FACEBOOK STUFF ////////////
-
-
-- (IBAction)signinClicked:(id)sender
-{
-    self.success = NO;
-    @try
-    {
-        
-        if([[self.emailTextField text] isEqualToString:@""] || [[self.passwordTextField text] isEqualToString:@""] )
-            [Utils alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
-        else
-        {
-            self.activityIndicator.hidden = NO;
-            [self.activityIndicator startAnimating];
-            
-            NSString *response = nil;
-            // Hack in an admin username and password
-            if ( !( [[self.emailTextField text] isEqualToString:ADMIN_USERNAME] && [[self.passwordTextField text] isEqualToString:ADMIN_PASSWORD] ) )
-            {
-                
-                MWBFService *service = [[MWBFService alloc] init];
-                self.success = [service loginUser:[self.emailTextField text] withPassword:[self.passwordTextField text] withResponse:&response];
-            }
-            else
-                self.success = YES;
-            
-            if (self.success)
-            {
-                // TODO : Parse the json from the server and set the user obj
-                User *user = [User getInstance];
-                user.userEmail = [self.emailTextField text];
-                user.userId = [self.emailTextField text];
-                user.userName = [self.emailTextField text];
-                
-                Activity *activityList = [Activity getInstance];
-                
-                [self performSegueWithIdentifier:@"login_success" sender:self];
-            }
-            else
-                [Utils alertStatus:@"Sign in Failed." :response :0];
-        }
-    }
-    @catch (NSException * e)
-    {
-        NSLog(@"Exception: %@", e);
-        [Utils alertStatus:@"Sign in Failed." :@"Error!" :0];
-    }
-}
 
 
 // Dismiss the keyboard when the GO button is hit

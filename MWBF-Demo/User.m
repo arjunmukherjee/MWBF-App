@@ -37,7 +37,7 @@
     self = [super init];
     if (self)
     {
-        // Set the instance varialbles
+        self.friendsList = [NSMutableArray array];
     }
     
     return self;

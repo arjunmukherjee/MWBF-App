@@ -12,9 +12,13 @@
 #import "HTTPGetRequest.h"
 #import "User.h"
 #import "MWBFActivities.h"
+#import "Friend.h"
 
 /*
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/login"
+#define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/friends"
+#define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf/user/findFriend"
+#define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://localhost:8080/MWBFServer/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/fbLogin"
 #define USER_ADD_ENDPOINT_FORMAT                        @"http://localhost:8080/MWBFServer/mwbf/user/add"
 #define FB_USER_ADD_ENDPOINT_FORMAT                     @"http://localhost:8080/MWBFServer/mwbf/user/fbAdd"
@@ -25,8 +29,10 @@
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://localhost:8080/MWBFServer/mwbf/user/deleteUserActivities"
 */
 
-
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://mwbf.herokuapp.com/mwbf/user/login"
+#define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf/user/friends"
+#define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf/user/findFriend"
+#define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://mwbf.herokuapp.com/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/fbLogin"
 #define USER_ADD_ENDPOINT_FORMAT                        @"http://mwbf.herokuapp.com/mwbf/user/add"
 #define FB_USER_ADD_ENDPOINT_FORMAT                     @"http://mwbf.herokuapp.com/mwbf/user/fbAdd"
@@ -293,12 +299,12 @@
     return NO;
 }
 
-- (NSArray*) getFriendsList
+- (NSMutableArray*) getFriendsList
 {
     User *user = [User getInstance];
     
     NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\"}",user.userId];
-    NSURL *url=[NSURL URLWithString:USER_ACTIVITIES_BY_ACTIVITY_ENDPOINT_FORMAT];
+    NSURL *url=[NSURL URLWithString:USER_FRIENDS_ENDPOINT_FORMAT];
     
     HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
     NSData *urlData = [service sendPostRequest:post toURL:url];
@@ -306,10 +312,60 @@
     NSError *error = nil;
     NSArray *jsonData = [NSJSONSerialization
                          JSONObjectWithData:urlData
-                         options:NSJSONReadingMutableContainers
+                         options:0
                          error:&error];
     
-    return jsonData;
+    NSMutableArray *returnFriendsArray = [NSMutableArray array];
+    for (int i=0; i < [jsonData count]; i++)
+    {
+        NSDictionary *friendDict = [jsonData[i] objectForKey:@"friend"];
+        
+        Friend *friend = [[Friend alloc] init];
+        friend.email = [friendDict objectForKey:@"email"];
+        friend.name = [NSString stringWithFormat:@"%@ %@",[friendDict objectForKey:@"firstName"],[friendDict objectForKey:@"lastName"]];
+        
+        [returnFriendsArray addObject:friend];
+    }
+    
+    return returnFriendsArray;
+}
+
+- (BOOL) addFriendWithId:(NSString*) friendId
+{
+    User *user = [User getInstance];
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\",\"friend_user_id\"=\"%@\"}",user.userEmail,friendId];
+    NSURL *url=[NSURL URLWithString:USER_ADD_FRIEND_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSDictionary *jsonData = [NSJSONSerialization
+                              JSONObjectWithData:urlData
+                              options:NSJSONReadingMutableContainers
+                              error:&error];
+    NSInteger success = [jsonData[@"success"] integerValue];
+    if(success == 1)
+        return YES;
+    else
+        return NO;
+    
+    return NO;
+}
+
+- (NSDictionary *) findFriendWithId:(NSString*) friendId
+{
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\"}",friendId];
+    NSURL *url=[NSURL URLWithString:USER_FIND_FRIEND_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+    
+    return jsonDict;
 }
 
 @end

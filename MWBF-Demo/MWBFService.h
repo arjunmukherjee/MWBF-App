@@ -26,6 +26,8 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 
 - (BOOL) deleteAllActivitiesForUser;
 
-- (NSArray*) getFriendsList;
+- (NSMutableArray*) getFriendsList;
+- (BOOL) addFriendWithId:(NSString*) friendId;
+- (NSDictionary*) findFriendWithId:(NSString*) friendId;
 
 @end

@@ -1,0 +1,5 @@
+1. Change the Friendslist in the User class to be a dictionary
+2. When a user tries to lookup a friend, we first lookup the users friends list. This is done by traversing the entire array of the users friends. Need to change this to a hash lookup.
+3. Add an option to signup by email.
+4. Check the activity animation. It does not show (maybe it needs to be run on a separate thread).
+5. Delete friends.

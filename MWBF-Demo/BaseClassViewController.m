@@ -23,4 +23,11 @@
     [self.view sendSubviewToBack:backgroundImage];
 }
 
+// Dismiss the keyboard when the GO button is hit
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end

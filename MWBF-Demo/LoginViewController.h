@@ -15,14 +15,6 @@
     Activity *activity;
 }
 
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet UIButton *userButton;
-@property (weak, nonatomic) IBOutlet UIButton *aboutButton;
-
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-
-- (IBAction) signinClicked:(id)sender;
 - (IBAction) backgroundTap:(id)sender;
 
 

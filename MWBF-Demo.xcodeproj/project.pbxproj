@@ -76,6 +76,8 @@
 		91CF0EE619A2F2D6007B668A /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CF0EE519A2F2D6007B668A /* AddFriendViewController.m */; };
 		91CF0EE819A2F3F8007B668A /* search_08_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0EE719A2F3F8007B668A /* search_08_256.png */; };
 		91CF0EEB19A2FB97007B668A /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CF0EEA19A2FB97007B668A /* FriendsListViewController.m */; };
+		91CFEBE219A42A9B00B0C27A /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CFEBE119A42A9B00B0C27A /* Friend.m */; };
+		91CFEBE419A42E8D00B0C27A /* README in Resources */ = {isa = PBXBuildFile; fileRef = 91CFEBE319A42E8D00B0C27A /* README */; };
 		91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB0427199C7AC1000014A7 /* icn_menu_20.png */; };
 		91DB042F199C7EB8000014A7 /* AppIcon260x60_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB042B199C7EB8000014A7 /* AppIcon260x60_2x.png */; };
 		91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */; };
@@ -189,6 +191,9 @@
 		91CF0EE719A2F3F8007B668A /* search_08_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_08_256.png; sourceTree = "<group>"; };
 		91CF0EE919A2FB96007B668A /* FriendsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsListViewController.h; sourceTree = "<group>"; };
 		91CF0EEA19A2FB97007B668A /* FriendsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsListViewController.m; sourceTree = "<group>"; };
+		91CFEBE019A42A9B00B0C27A /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		91CFEBE119A42A9B00B0C27A /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
+		91CFEBE319A42E8D00B0C27A /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		91DB0427199C7AC1000014A7 /* icn_menu_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icn_menu_20.png; sourceTree = "<group>"; };
 		91DB042B199C7EB8000014A7 /* AppIcon260x60_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon260x60_2x.png; sourceTree = "<group>"; };
 		91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon560x60_2x.png; sourceTree = "<group>"; };
@@ -274,6 +279,7 @@
 				9147D915198315E700183220 /* Services */,
 				9147D8F51983127100183220 /* Images.xcassets */,
 				918F6924198710FC00776052 /* Supporting Files */,
+				91CFEBE319A42E8D00B0C27A /* README */,
 			);
 			path = "MWBF-Demo";
 			sourceTree = "<group>";
@@ -431,6 +437,8 @@
 				919EE969198BF8EA00F12411 /* Activity.m */,
 				91C665191992775300A56D61 /* MWBFActivities.h */,
 				91C6651A1992775300A56D61 /* MWBFActivities.m */,
+				91CFEBE019A42A9B00B0C27A /* Friend.h */,
+				91CFEBE119A42A9B00B0C27A /* Friend.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -529,6 +537,7 @@
 				91CF0E6819A10C1B007B668A /* column_chart_256.png in Resources */,
 				919EE989198D297700F12411 /* add-icon1.png in Resources */,
 				918F69521988953500776052 /* runningLong.jpg in Resources */,
+				91CFEBE419A42E8D00B0C27A /* README in Resources */,
 				91CF0E7719A1393B007B668A /* Logout-icon-01.png in Resources */,
 				914720601995DB5900F94A80 /* Game-controller-1128030308.png in Resources */,
 				91CF0E7519A12040007B668A /* trash.png in Resources */,
@@ -606,6 +615,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				919EE983198CBD6A00F12411 /* HTTPGetRequest.m in Sources */,
+				91CFEBE219A42A9B00B0C27A /* Friend.m in Sources */,
 				918D5EF919910E1800597147 /* BaseClassViewController.m in Sources */,
 				918D5EE819909ED600597147 /* MoreViewController.m in Sources */,
 				91C665181991790F00A56D61 /* DLPieChart.m in Sources */,

@@ -8,62 +8,71 @@
 
 #import "FriendsListViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "User.h"
+#import "Friend.h"
 
 @interface FriendsListViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *friendsListTable;
+@property (strong,nonatomic) User *user;
+
 
 @end
 
 @implementation FriendsListViewController
 
+@synthesize friendsListTable;
+@synthesize user;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-// Pick Friends button handler
-- (IBAction)pickFriendsClick:(UIButton *)sender
-{
-    FBFriendPickerViewController *friendPickerController = [[FBFriendPickerViewController alloc] init];
-    friendPickerController.title = @"Pick Friends";
-    [friendPickerController loadData];
     
-    // Use the modal wrapper method to display the picker.
-    [friendPickerController presentModallyFromViewController:self animated:YES handler:
-     ^(FBViewController *innerSender, BOOL donePressed) {
-         if (!donePressed) {
-             return;
-         }
-         
-         NSString *message;
-         
-         if (friendPickerController.selection.count == 0) {
-             message = @"<No Friends Selected>";
-         } else {
-             
-             NSMutableString *text = [[NSMutableString alloc] init];
-             
-             // we pick up the users from the selection, and create a string that we use to update the text view
-             // at the bottom of the display; note that self.selection is a property inherited from our base class
-             for (id<FBGraphUser> user in friendPickerController.selection) {
-                 if ([text length]) {
-                     [text appendString:@", "];
-                 }
-                 [text appendString:user.name];
-             }
-             message = text;
-         }
-         
-         [[[UIAlertView alloc] initWithTitle:@"You Picked:"
-                                     message:message
-                                    delegate:nil
-                           cancelButtonTitle:@"OK"
-                           otherButtonTitles:nil]
-          show];
-     }];
+    self.user = [User getInstance];
 }
 
+
+///////// UITABLEVIEW METHODS /////////
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.user.friendsList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"FriendDetailsCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    Friend *friendObj = [self.user.friendsList objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = friendObj.name;
+    
+    return cell;
+    
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        // Delete the row from the array
+        //[self.addedActivityArray removeObjectAtIndex:indexPath.row];
+        //[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
 
 
 @end
