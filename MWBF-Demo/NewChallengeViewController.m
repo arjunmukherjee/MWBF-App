@@ -52,6 +52,7 @@
     self.addedActivityArray = [NSMutableArray array];
     self.friendsList = [NSMutableArray arrayWithArray:[User getInstance].friendsList];
     self.pickedFriendsArray = [NSMutableArray array];
+    self.challengeNameTextField.delegate = self;
     
     Activity *localActivityObj = [Activity getInstance];
     if ( [localActivityObj.activityDict count] == 0 )
@@ -125,6 +126,12 @@
     }
 }
 
+// Dismiss the keyboard when the GO button is hit
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 ///// PICKER VIEW METHODS ////
 

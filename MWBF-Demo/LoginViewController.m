@@ -21,7 +21,7 @@
 @property BOOL fbSuccess;
 @property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet FBLoginView *fbLoginView;
-
+@property (strong, nonatomic) UIAlertView *noNetworkAlert;
 
 @end
 
@@ -31,6 +31,7 @@
 @synthesize fbSuccess;
 @synthesize activityIndicator;
 @synthesize fbLoginView;
+@synthesize noNetworkAlert;
 
 NSString* ADMIN_USERNAME = @"admin";
 NSString* ADMIN_PASSWORD = @"admin";
@@ -50,14 +51,6 @@ NSString* ADMIN_PASSWORD = @"admin";
     self.fbLoginView.delegate = self;
     self.fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
   
-    BOOL network = [self currentNetworkStatus];
-    if(!network)
-    {
-        NSLog(@"No Network Available");
-        [Utils alertStatus:@"No available data network was found. Please contact your internet provider." :@"Sign in Failed" :0];
-        exit(0);
-    }
-    
     [self.view addSubview:self.fbLoginView];
 }
 
@@ -77,6 +70,11 @@ NSString* ADMIN_PASSWORD = @"admin";
     return isConnected;
 }
 
+/////// BUTTON STUFF ///////
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    exit(0);
+}
 
 //////// FACEBOOK STUFF //////////
 
@@ -86,28 +84,40 @@ NSString* ADMIN_PASSWORD = @"admin";
 {
     [self.activityIndicator startAnimating];
     
-    User *user = [User getInstance];
-    user.userEmail = fbUser[@"email"];
-    user.userId = fbUser[@"email"];
-    user.userName = [NSString stringWithFormat:@"%@ %@",[fbUser first_name],[fbUser last_name]];
-    
-    Activity *activityList = [Activity getInstance];
-    self.fbSuccess = YES;
-    
-    NSString *response = nil;
-    MWBFService *service = [[MWBFService alloc] init];
-    self.success = [service loginFaceBookUser:user.userEmail withFirstName:[fbUser first_name] withLastName:[fbUser last_name] withResponse:&response];
-    
-    [self.activityIndicator stopAnimating];
-    
-    // Get the list of friends
-    if ([user.friendsList count] <= 0 )
-        user.friendsList = [service getFriendsList];
-    
-    if (self.success && self.fbSuccess)
-        [self performSegueWithIdentifier:@"login_success" sender:self];
+    BOOL network = [self currentNetworkStatus];
+    if(!network)
+    {
+        [Utils alertStatus:@"No available data network was found. Please contact your internet provider." :@"Sign in Failed" :0];
+        
+        self.noNetworkAlert = [[UIAlertView alloc] initWithTitle: @"Login Failed" message: @"No available data network was found. Please contact your internet provider." delegate: self cancelButtonTitle: nil  otherButtonTitles:@"OK", nil ];
+        
+        [self.noNetworkAlert show];
+    }
     else
-        [Utils alertStatus:response :@"Sign in Failed" :0];
+    {
+        User *user = [User getInstance];
+        user.userEmail = fbUser[@"email"];
+        user.userId = fbUser[@"email"];
+        user.userName = [NSString stringWithFormat:@"%@ %@",[fbUser first_name],[fbUser last_name]];
+        
+        Activity *activityList = [Activity getInstance];
+        self.fbSuccess = YES;
+        
+        NSString *response = nil;
+        MWBFService *service = [[MWBFService alloc] init];
+        self.success = [service loginFaceBookUser:user.userEmail withFirstName:[fbUser first_name] withLastName:[fbUser last_name] withResponse:&response];
+        
+        [self.activityIndicator stopAnimating];
+        
+        // Get the list of friends
+        if ([user.friendsList count] <= 0 )
+            user.friendsList = [service getFriendsList];
+        
+        if (self.success && self.fbSuccess)
+            [self performSegueWithIdentifier:@"login_success" sender:self];
+        else
+            [Utils alertStatus:response :@"Sign in Failed" :0];
+    }
 }
 
 // Implement the loginViewShowingLoggedInUser: delegate method to modify your app's UI for a logged-in user experience

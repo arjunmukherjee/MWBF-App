@@ -32,7 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.friendsEmailTextField.delegate = self;
     
     self.friendEmailLabel.hidden = NO;
     self.friendNameLabel.hidden = NO;
@@ -42,6 +43,13 @@
     
     self.friendEmail.hidden = YES;
     self.friendName.hidden = YES;
+}
+
+// Dismiss the keyboard when the GO button is hit
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (IBAction)searchButtonClicked:(id)sender

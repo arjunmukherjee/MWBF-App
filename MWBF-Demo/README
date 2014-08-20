@@ -3,3 +3,4 @@
 3. Add an option to signup by email.
 4. Check the activity animation. It does not show (maybe it needs to be run on a separate thread).
 5. Delete friends.
+6. Add an option to register with Email only (not using Facebook).

@@ -8,6 +8,6 @@
 
 #import "BaseClassViewController.h"
 
-@interface NewChallengeViewController : BaseClassViewController
+@interface NewChallengeViewController : BaseClassViewController <UITextFieldDelegate>
 
 @end
