@@ -376,8 +376,9 @@
                                 <rect key="frame" x="81" y="154" width="161" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="31"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -608,7 +609,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Challenge Name" minimumFontSize="17" clearButtonMode="always" id="S8z-aw-Os3">
-                                <rect key="frame" x="8" y="78" width="189" height="30"/>
+                                <rect key="frame" x="70" y="76" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -616,7 +617,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" id="e8f-J4-DGn">
-                                <rect key="frame" x="-13" y="86" width="183" height="162"/>
+                                <rect key="frame" x="-13" y="86" width="174" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="O0t-G2-sT0" id="Sxm-PU-vxc"/>
@@ -624,7 +625,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R1M-1N-j72" userLabel="AddButton">
-                                <rect key="frame" x="189" y="152" width="27" height="26"/>
+                                <rect key="frame" x="172" y="154" width="27" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="add-icon1.png"/>
                                 <connections>
@@ -632,15 +633,15 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="32" sectionHeaderHeight="22" sectionFooterHeight="22" id="fpB-Xy-eSM">
-                                <rect key="frame" x="0.0" y="264" width="142" height="180"/>
+                                <rect key="frame" x="0.0" y="264" width="148" height="180"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="32" id="mcd-bz-tcG">
-                                        <rect key="frame" x="0.0" y="22" width="142" height="32"/>
+                                        <rect key="frame" x="0.0" y="22" width="148" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mcd-bz-tcG" id="Gcp-T0-XcM">
-                                            <rect key="frame" x="0.0" y="0.0" width="142" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="148" height="31"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -652,30 +653,34 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t28-hD-0Ht">
-                                <rect key="frame" x="0.0" y="242" width="142" height="21"/>
+                                <rect key="frame" x="0.0" y="242" width="148" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="La0-I8-DTR">
-                                <rect key="frame" x="90" y="454" width="140" height="43"/>
+                                <rect key="frame" x="90" y="456" width="158" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="31"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="36"/>
                                 <state key="normal" title="Create Challenge">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="createChallengeButtonClicked:" destination="O0t-G2-sT0" eventType="touchUpInside" id="4wJ-L5-Weu"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="32" sectionHeaderHeight="22" sectionFooterHeight="22" id="sxx-Ga-0qh">
-                                <rect key="frame" x="180" y="264" width="142" height="180"/>
+                                <rect key="frame" x="156" y="264" width="164" height="180"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PlayersCell" rowHeight="32" id="i8P-Ap-Cz9">
-                                        <rect key="frame" x="0.0" y="22" width="142" height="32"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="FriendsPickedCell" rowHeight="32" id="i8P-Ap-Cz9">
+                                        <rect key="frame" x="0.0" y="22" width="164" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i8P-Ap-Cz9" id="cns-ZU-5uh">
-                                            <rect key="frame" x="0.0" y="0.0" width="142" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="164" height="31"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -687,30 +692,63 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MH3-bh-x7x">
-                                <rect key="frame" x="180" y="242" width="142" height="21"/>
+                                <rect key="frame" x="156" y="242" width="164" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" id="8ma-4k-O5m">
-                                <rect key="frame" x="43" y="148" width="211" height="180"/>
+                                <rect key="frame" x="24" y="148" width="272" height="215"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h1b-E9-cd1">
-                                        <rect key="frame" x="0.0" y="0.0" width="211" height="27"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="70h-Ij-lvg">
-                                        <rect key="frame" x="177" y="149" width="22" height="22"/>
+                                        <rect key="frame" x="250" y="183" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addFriendButtonClicked:" destination="O0t-G2-sT0" eventType="touchUpInside" id="ZLS-rq-yyL"/>
+                                        </connections>
                                     </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="37" sectionHeaderHeight="22" sectionFooterHeight="22" id="ESu-zy-kUL">
+                                        <rect key="frame" x="2" y="25" width="244" height="165"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FriendsPickerCell" textLabel="6zO-HE-hvO" rowHeight="37" style="IBUITableViewCellStyleDefault" id="s6Q-r4-im5">
+                                                <rect key="frame" x="0.0" y="22" width="244" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s6Q-r4-im5" id="v3N-mO-xnY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6zO-HE-hvO">
+                                                            <rect key="frame" x="15" y="0.0" width="194" height="36"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="O0t-G2-sT0" id="UJT-uy-hoo"/>
+                                            <outlet property="delegate" destination="O0t-G2-sT0" id="sgf-T3-wbk"/>
+                                        </connections>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                             </view>
@@ -736,9 +774,11 @@
                         <outlet property="activityPicker" destination="e8f-J4-DGn" id="18i-ge-fIU"/>
                         <outlet property="activityTable" destination="fpB-Xy-eSM" id="U93-s2-INj"/>
                         <outlet property="addActivityButton" destination="R1M-1N-j72" id="inH-1c-RXd"/>
-                        <outlet property="addFriendsButton" destination="70h-Ij-lvg" id="bm9-n0-4Md"/>
+                        <outlet property="addFriendButton" destination="70h-Ij-lvg" id="Npg-4q-RdD"/>
                         <outlet property="addFriendsView" destination="8ma-4k-O5m" id="NGQ-9G-iY0"/>
+                        <outlet property="challengeNameTextField" destination="S8z-aw-Os3" id="CdD-sT-uU6"/>
                         <outlet property="createChallengeButton" destination="La0-I8-DTR" id="t2n-nr-zDD"/>
+                        <outlet property="friendsPickerTable" destination="ESu-zy-kUL" id="OFq-eL-xC3"/>
                         <outlet property="playersTable" destination="sxx-Ga-0qh" id="vDZ-4V-lMR"/>
                         <outlet property="showFriendsListViewButton" destination="ryD-ye-LRR" id="PlD-RU-Hh8"/>
                     </connections>
