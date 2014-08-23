@@ -4,3 +4,4 @@
 4. Check the activity animation. It does not show (maybe it needs to be run on a separate thread).
 5. Delete friends.
 6. Add an option to register with Email only (not using Facebook).
+7. StatsViewController : the quick stats and the picker both use the same code, but the code has been repeated across two methods, extract that out to a single method and call that instead.

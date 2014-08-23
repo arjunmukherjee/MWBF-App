@@ -19,7 +19,7 @@
 
 @property BOOL success;
 @property BOOL fbSuccess;
-@property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet FBLoginView *fbLoginView;
 @property (strong, nonatomic) UIAlertView *noNetworkAlert;
 
@@ -45,8 +45,11 @@ NSString* ADMIN_PASSWORD = @"admin";
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
-    self.activityIndicator = [[UIActivityIndicatorView alloc] init];
-
+    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator.center = self.view.center;
+    self.activityIndicator.color = [UIColor blueColor];
+    [self.view addSubview: self.activityIndicator];
+    
     // Set this loginViewController to be the loginView button's delegate
     self.fbLoginView.delegate = self;
     self.fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
@@ -82,7 +85,6 @@ NSString* ADMIN_PASSWORD = @"admin";
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>) fbUser
 {
-    [self.activityIndicator startAnimating];
     
     BOOL network = [self currentNetworkStatus];
     if(!network)
@@ -95,28 +97,45 @@ NSString* ADMIN_PASSWORD = @"admin";
     }
     else
     {
-        User *user = [User getInstance];
-        user.userEmail = fbUser[@"email"];
-        user.userId = fbUser[@"email"];
-        user.userName = [NSString stringWithFormat:@"%@ %@",[fbUser first_name],[fbUser last_name]];
+        self.activityIndicator.hidden = NO;
+        [self.activityIndicator startAnimating];
+        self.view.userInteractionEnabled = NO;
         
-        Activity *activityList = [Activity getInstance];
-        self.fbSuccess = YES;
+        dispatch_queue_t queue = dispatch_get_global_queue(0,0);
         
-        NSString *response = nil;
-        MWBFService *service = [[MWBFService alloc] init];
-        self.success = [service loginFaceBookUser:user.userEmail withFirstName:[fbUser first_name] withLastName:[fbUser last_name] withResponse:&response];
-        
-        [self.activityIndicator stopAnimating];
-        
-        // Get the list of friends
-        if ([user.friendsList count] <= 0 )
-            user.friendsList = [service getFriendsList];
-        
-        if (self.success && self.fbSuccess)
-            [self performSegueWithIdentifier:@"login_success" sender:self];
-        else
-            [Utils alertStatus:response :@"Sign in Failed" :0];
+        dispatch_async(queue, ^{
+            
+            User *user = [User getInstance];
+            user.userEmail = fbUser[@"email"];
+            user.userId = fbUser[@"email"];
+            user.userName = [NSString stringWithFormat:@"%@ %@",[fbUser first_name],[fbUser last_name]];
+            
+            Activity *activityList = [Activity getInstance];
+            self.fbSuccess = YES;
+            
+            NSString *response = nil;
+            MWBFService *service = [[MWBFService alloc] init];
+            self.success = [service loginFaceBookUser:user.userEmail withFirstName:[fbUser first_name] withLastName:[fbUser last_name] withResponse:&response];
+            
+            // Get the list of friends
+            if ([user.friendsList count] <= 0 )
+                user.friendsList = [service getFriendsList];
+            
+            // Get the all time highs
+            [service getAllTimeHighs];
+            
+            if ( !(self.success && self.fbSuccess) )
+                [Utils alertStatus:response :@"Sign in Failed" :0];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.activityIndicator stopAnimating];
+                self.activityIndicator.hidden = YES;
+                self.view.userInteractionEnabled = YES;
+                
+                if (self.success && self.fbSuccess)
+                    [self performSegueWithIdentifier:@"login_success" sender:self];
+            });
+        });
     }
 }
 

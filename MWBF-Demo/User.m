@@ -14,6 +14,7 @@
 @synthesize userEmail = _userEmail;
 @synthesize userName = _userName;
 @synthesize friendsList = _friendsList;
+@synthesize bestDay,bestMonth,bestYear,bestDayPoints,bestMonthPoints,bestYearPoints;
 
 + (User *) getInstance
 {

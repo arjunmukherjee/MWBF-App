@@ -25,6 +25,8 @@
 @property NSMutableArray *monthsArray;
 @property NSMutableArray *daysArray;
 
+@property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
+
 @end
 
 @implementation LogActivityViewController
@@ -36,6 +38,7 @@
 @synthesize pointsHeaderLable = _pointsHeaderLable;
 @synthesize user = _user;
 @synthesize activity = _activity;
+@synthesize activityIndicator;
 
 - (void)viewDidLoad
 {
@@ -93,8 +96,14 @@
         [self.daysArray addObject:value];
     }
     
-    // TODO : Check would want to start the page with this showing
     [self pickActivityClicked:self];
+
+    // Activity Indicator
+    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator.center = self.view.center;
+    self.activityIndicator.color = [UIColor blueColor];
+    [self.view addSubview: self.activityIndicator];
+
 }
 
 - (IBAction) logActivityClicked:(id)sender
@@ -107,48 +116,64 @@
     }
     
     NSError *error = nil;
-    BOOL success = NO;
+    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[self toNSArray] options:NSJSONWritingPrettyPrinted error:&error];
     
     if ([jsonData length] > 0 && error == nil)
     {
         NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
        
-        NSString *response = nil;
-        MWBFService *service = [[MWBFService alloc] init];
-        success = [service logActivity:jsonString withResponse:&response];
-    }
-    
-    if ( !success )
-    {
-        if ([jsonData length] == 0 && error == nil)
-            NSLog(@"No data was returned after serialization.");
-        else if (error != nil)
-            NSLog(@"An error happened = %@", error);
-
-        [self alertStatus:@"Unable to log activity, please try again." :@"Oops!!" :0];
-    }
-    else
-    {
-        [self alertStatus:@"Activity logged." :@"Wohoo!!" :0];
+        self.activityIndicator.hidden = NO;
+        [self.activityIndicator startAnimating];
+        self.view.userInteractionEnabled = NO;
         
-        self.addActivityButton.hidden = NO;
-        self.activityPicker.hidden = NO;
+        dispatch_queue_t queue = dispatch_get_global_queue(0,0);
         
-        // Hidden components
-        self.activityPickerButton.hidden = YES;
-        
-        self.logActivityButton.hidden = NO;
-        self.activityTable.hidden = NO;
-        self.activityNameHeaderLable.hidden = NO;
-        self.unitsHeaderLable.hidden = NO;
-        self.dateHeaderLable.hidden = NO;
-        self.pointsHeaderLable.hidden = NO;
-        
-        self.addedActivityArray = [[NSMutableArray alloc] init];
-        [self.activityTable reloadData];
-        
-        [self resetActivityPicker];
+        dispatch_async(queue, ^{
+            
+            BOOL success = NO;
+            NSString *response = nil;
+            MWBFService *service = [[MWBFService alloc] init];
+            success = [service logActivity:jsonString withResponse:&response];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.activityIndicator stopAnimating];
+                self.activityIndicator.hidden = YES;
+                self.view.userInteractionEnabled = YES;
+                
+                if ( !success )
+                {
+                    if ([jsonData length] == 0 && error == nil)
+                        NSLog(@"No data was returned after serialization.");
+                    else if (error != nil)
+                        NSLog(@"An error happened = %@", error);
+                    
+                    [self alertStatus:@"Unable to log activity, please try again." :@"Oops!!" :0];
+                }
+                else
+                {
+                    [self alertStatus:@"Activity logged." :@"Wohoo!!" :0];
+                    
+                    self.addActivityButton.hidden = NO;
+                    self.activityPicker.hidden = NO;
+                    
+                    // Hidden components
+                    self.activityPickerButton.hidden = YES;
+                    
+                    self.logActivityButton.hidden = NO;
+                    self.activityTable.hidden = NO;
+                    self.activityNameHeaderLable.hidden = NO;
+                    self.unitsHeaderLable.hidden = NO;
+                    self.dateHeaderLable.hidden = NO;
+                    self.pointsHeaderLable.hidden = NO;
+                    
+                    self.addedActivityArray = [[NSMutableArray alloc] init];
+                    [self.activityTable reloadData];
+                    
+                    [self resetActivityPicker];
+                }
+            });
+        });
     }
 }
 

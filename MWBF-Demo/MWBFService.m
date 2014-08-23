@@ -14,15 +14,19 @@
 #import "MWBFActivities.h"
 #import "Friend.h"
 
+
 /*
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/login"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/friends"
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf/user/findFriend"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://localhost:8080/MWBFServer/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/fbLogin"
+#define USER_HIGHS_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/allTimeHighs"
 #define USER_ADD_ENDPOINT_FORMAT                        @"http://localhost:8080/MWBFServer/mwbf/user/add"
 #define FB_USER_ADD_ENDPOINT_FORMAT                     @"http://localhost:8080/MWBFServer/mwbf/user/fbAdd"
 #define LOG_ACTIVITY_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/activity/log"
+#define ADD_CHALLENGE_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/challenge/add"
+#define GET_CHALLENGES_ENDPOINT_FORMAT                  @"http://localhost:8080/MWBFServer/mwbf/user/challenge/getAll"
 #define USER_ACTIVITIES_BY_ACTIVITY_ENDPOINT_FORMAT     @"http://localhost:8080/MWBFServer/mwbf/user/activitiesByActivity"
 #define USER_ACTIVITIES_BY_TIME_ENDPOINT_FORMAT         @"http://localhost:8080/MWBFServer/mwbf/user/activitiesByTime"
 #define MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf/mwbf/activities"
@@ -34,15 +38,19 @@
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf/user/findFriend"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://mwbf.herokuapp.com/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/fbLogin"
+#define USER_HIGHS_ENDPOINT_FORMAT                      @"http://mwbf.herokuapp.com/mwbf/user/allTimeHighs"
 #define USER_ADD_ENDPOINT_FORMAT                        @"http://mwbf.herokuapp.com/mwbf/user/add"
 #define FB_USER_ADD_ENDPOINT_FORMAT                     @"http://mwbf.herokuapp.com/mwbf/user/fbAdd"
 #define LOG_ACTIVITY_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf/user/activity/log"
+#define ADD_CHALLENGE_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/challenge/add"
+#define GET_CHALLENGES_ENDPOINT_FORMAT                  @"http://mwbf.herokuapp.com/mwbf/user/challenge/getAll"
 #define USER_ACTIVITIES_BY_ACTIVITY_ENDPOINT_FORMAT     @"http://mwbf.herokuapp.com/mwbf/user/activitiesByActivity"
 #define USER_ACTIVITIES_BY_TIME_ENDPOINT_FORMAT         @"http://mwbf.herokuapp.com/mwbf/user/activitiesByTime"
 #define MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/mwbf/activities"
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://mwbf.herokuapp.com/mwbf/user/deleteUserActivities"
 
-
+ 
+ 
 @implementation MWBFService
 
 
@@ -367,5 +375,92 @@
     
     return jsonDict;
 }
+
+
+- (BOOL) addChallenge:(NSString*) post
+{
+    NSURL *url=[NSURL URLWithString:ADD_CHALLENGE_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSDictionary *jsonData = [NSJSONSerialization
+                              JSONObjectWithData:urlData
+                              options:NSJSONReadingMutableContainers
+                              error:&error];
+    
+    NSInteger success = [jsonData[@"success"] integerValue];
+    if(success == 1)
+        return YES;
+    else
+        return NO;
+    
+    return NO;
+}
+
+- (NSMutableArray*) getChallenges
+{
+    
+    User *user = [User getInstance];
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\"}",user.userId];
+    NSURL *url=[NSURL URLWithString:GET_CHALLENGES_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSArray *jsonData = [NSJSONSerialization
+                         JSONObjectWithData:urlData
+                         options:0
+                         error:&error];
+    
+    return jsonData;
+}
+
+- (void) getAllTimeHighs
+{
+    
+    User *user = [User getInstance];
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\"}",user.userId];
+    NSURL *url=[NSURL URLWithString:USER_HIGHS_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSArray *jsonData = [NSJSONSerialization
+                         JSONObjectWithData:urlData
+                         options:0
+                         error:&error];
+    
+    int i = 0;
+    for (id key in jsonData)
+    {
+        NSString *date = [key objectForKey:@"date"];
+        NSString *points = [key objectForKey:@"points"];
+        
+        if (i == 0)
+        {
+            user.bestDay = date;
+            user.bestDayPoints = points;
+        }
+        else if (i == 1)
+        {
+            user.bestMonth = date;
+            user.bestMonthPoints = points;
+        }
+        else
+        {
+            user.bestYear = date;
+            user.bestYearPoints = points;
+        }
+        
+        i = i + 1;
+    }
+}
+
 
 @end

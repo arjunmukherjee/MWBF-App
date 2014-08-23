@@ -11,11 +11,17 @@
 #import "MWBFService.h"
 #import "ActivityViewController.h"
 
+#define TODAY_INDEX 0
+#define MONTH_INDEX 1
+
 @interface StatsViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *getActivityButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *datePicker;
-@property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *quickStatsSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
 
 
 @property NSMutableArray *yearsArray;
@@ -34,6 +40,9 @@
 @synthesize datePicker,getActivityButton;
 @synthesize yearsArray, monthsArray, fromDaysArray, toDaysArray, userActivitiesArrayByActivity, userActivitiesArrayByTime, activityDate;
 @synthesize activityIndicator;
+@synthesize quickStatsSegmentedControl;
+@synthesize infoView;
+@synthesize infoButton;
 
 - (void)viewDidLoad
 {
@@ -45,6 +54,8 @@
     self.fromDaysArray = [NSMutableArray array];
     self.toDaysArray = [NSMutableArray array];
     self.activityIndicator = [[UIActivityIndicatorView alloc] init];
+    
+    self.infoView.hidden = YES;
     
     // Date : years value (2014 to current year)
     NSDate *currentTime = [NSDate date];
@@ -58,7 +69,7 @@
     }
     
     // Date month
-    self.monthsArray = @[@"--",@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun",@"Jul",@"Aug",@"Sept",@"Oct",@"Nov",@"Dec"];
+    self.monthsArray = @[@"--",@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun",@"Jul",@"Aug",@"Sep",@"Oct",@"Nov",@"Dec"];
     
     // Date days : From & To
     [self.fromDaysArray addObject:@"--"];
@@ -70,7 +81,101 @@
         [self.toDaysArray addObject:value];
     }
     
+    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator.center = self.view.center;
+    self.activityIndicator.color = [UIColor blueColor];
+    [self.view addSubview: self.activityIndicator];
+    
 }
+
+- (IBAction)infoButtonClicked:(id)sender
+{
+    if (self.infoView.hidden == YES)
+        self.infoView.hidden = NO;
+    else
+        self.infoView.hidden = YES;
+}
+
+- (IBAction)backgroundTapped:(id)sender
+{
+    self.infoView.hidden = YES;
+}
+
+- (void)getUserActivities:(NSString *)toDate fromDate:(NSString *)fromDate
+{
+    self.activityIndicator.hidden = NO;
+    [self.activityIndicator startAnimating];
+    self.view.userInteractionEnabled = NO;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(0,0);
+    
+    dispatch_async(queue, ^{
+        
+        // Get the list of activities from the server
+        MWBFService *service = [[MWBFService alloc] init];
+        self.userActivitiesArrayByActivity = [service getActivitiesForUserByActivityFromDate:fromDate toDate:toDate];
+        self.userActivitiesArrayByTime = [service getActivitiesForUserByTimeFromDate:fromDate toDate:toDate];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.activityIndicator stopAnimating];
+            self.activityIndicator.hidden = YES;
+            self.view.userInteractionEnabled = YES;
+            
+            if ([self.userActivitiesArrayByActivity count] <= 0 )
+                [Utils alertStatus:[NSString stringWithFormat:@"No activity found for %@",self.activityDate] :@"Get to work!" :0];
+            else
+                [self performSegueWithIdentifier:@"user_activities" sender:self];
+        });
+    });
+}
+
+- (IBAction)segmentedControlClicked
+{
+    // Year
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY"];
+    NSString *year = [dateFormatter stringFromDate: currentTime] ;
+    
+    // Month
+    [dateFormatter setDateFormat:@"MM"];
+    NSInteger monthInteger = [[dateFormatter stringFromDate: currentTime] integerValue];
+    NSString *month  = [self.monthsArray objectAtIndex:monthInteger];
+    
+    NSString *fromDate = [[NSString alloc] init];
+    NSString *toDate = [[NSString alloc] init];
+    
+    self.activityDate = [NSString stringWithFormat:@"%@",year];
+    
+    if (self.quickStatsSegmentedControl.selectedSegmentIndex == TODAY_INDEX)
+    {
+        // Today
+        [dateFormatter setDateFormat:@"dd"];
+        NSString *today = [dateFormatter stringFromDate: currentTime] ;
+        
+        self.activityDate = [activityDate stringByAppendingString:[NSString stringWithFormat:@"  %@,%@",month,today]];
+        
+        fromDate = [NSString stringWithFormat:@"%@ %@, %@ 00:00:01 AM",month,today,year];
+        toDate = [NSString stringWithFormat:@"%@ %@, %@ 11:59:59 PM",month,today,year];
+        
+    }
+    else if (self.quickStatsSegmentedControl.selectedSegmentIndex == MONTH_INDEX)
+    {
+        self.activityDate = [activityDate stringByAppendingString:[NSString stringWithFormat:@" %@",month]];
+        
+        fromDate = [NSString stringWithFormat:@"%@ 01, %@ 00:00:01 AM",month,year];
+        toDate = [NSString stringWithFormat:@"%@ 31, %@ 11:59:59 PM",month,year];
+    }
+    else // YEAR
+    {
+        fromDate = [NSString stringWithFormat:@"Jan 01, %@ 00:00:01 AM",year];
+        toDate = [NSString stringWithFormat:@"Dec 31, %@ 11:59:59 PM",year];
+    }
+    
+    [self getUserActivities:toDate fromDate:fromDate];
+    
+}
+
 
 
 - (IBAction)getUserActivity:(id)sender
@@ -100,15 +205,13 @@
     }
     else
     {
-        [self.activityIndicator startAnimating];
-        
         if ( (toDayRow != 0)  && (fromDayRow != 0))
             self.activityDate = [activityDate stringByAppendingString:[NSString stringWithFormat:@" from %@,%@ to %@,%@",month,fromDay,month,toDay]];
         else if ( (toDayRow == 0)  && (fromDayRow != 0))
-            self.activityDate = [activityDate stringByAppendingString:[NSString stringWithFormat:@" for %@,%@",month,fromDay]];
+            self.activityDate = [activityDate stringByAppendingString:[NSString stringWithFormat:@" %@,%@",month,fromDay]];
         else if ( (toDayRow == 0)  && (fromDayRow == 0) && (monthRow != 0))
             self.activityDate = [activityDate stringByAppendingString:[NSString stringWithFormat:@" %@",month]];
-
+        
         NSString *fromMonth = month;
         NSString *toMonth = month;
         if( monthRow == 0)
@@ -128,16 +231,8 @@
         
         NSString *fromDate = [NSString stringWithFormat:@"%@ %@, %@ 00:00:01 AM",fromMonth,fromDay,year];
         NSString *toDate = [NSString stringWithFormat:@"%@ %@, %@ 11:59:59 PM",toMonth,toDay,year];
-        
-        // Get the list of activities from the server
-        MWBFService *service = [[MWBFService alloc] init];
-        self.userActivitiesArrayByActivity = [service getActivitiesForUserByActivityFromDate:fromDate toDate:toDate];
-        self.userActivitiesArrayByTime = [service getActivitiesForUserByTimeFromDate:fromDate toDate:toDate];
-        
-        if ([self.userActivitiesArrayByActivity count] <= 0 )
-            [Utils alertStatus:[NSString stringWithFormat:@"No activity found for %@.",self.activityDate] :@"Get to work!" :0];
-        else
-            [self performSegueWithIdentifier:@"user_activities" sender:self];
+     
+        [self getUserActivities:toDate fromDate:fromDate];
     }
 }
 

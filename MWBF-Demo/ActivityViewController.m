@@ -25,9 +25,6 @@
 @property (strong,nonatomic) IBOutlet DLPieChart *activityPieView;
 @property (strong,nonatomic) IBOutlet DLPieChart *activityPieViewByTime;
 
-@property (strong,nonatomic) IBOutlet UIBarButtonItem *refreshButton;
-
-@property (strong,nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @property (weak, nonatomic) IBOutlet UIView *activityBarView;
 @property (weak, nonatomic) IBOutlet UIView *activityBarViewByTime;
@@ -76,7 +73,6 @@
 @synthesize chartTypeSegmentedControl;
 @synthesize aggregationTypeSegmentedControl;
 @synthesize barResultsLabel;
-@synthesize loadingIndicator;
 
 @synthesize eColumnChart, eColumnChartByTime;
 @synthesize data,eFloatBox,eColumnSelected,tempColor, pointsArray, labelArray, labelArrayWithValues, unitsArray;
@@ -501,16 +497,6 @@
     
     if (self.eColumnSelectedByTime)
         self.eColumnSelectedByTime.barColor = self.tempColorByTime;
-}
-
-- (IBAction)refreshButtonClicked:(id)sender
-{
-    [UIView animateWithDuration:3 delay:1 options:UIViewAnimationOptionTransitionNone animations:^{
-        self.loadingIndicator.hidden = NO;
-        [self.loadingIndicator startAnimating];
-    } completion:^(BOOL finished) {
-        [self.loadingIndicator stopAnimating];
-    }];
 }
 
 @end

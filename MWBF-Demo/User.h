@@ -15,6 +15,15 @@
 @property (strong,nonatomic) NSString *userName;
 @property (strong,nonatomic) NSMutableArray *friendsList;
 
+// Stats
+@property (strong,nonatomic) NSString *bestDay;
+@property (strong,nonatomic) NSString *bestMonth;
+@property (strong,nonatomic) NSString *bestYear;
+
+@property (strong,nonatomic) NSString *bestDayPoints;
+@property (strong,nonatomic) NSString *bestMonthPoints;
+@property (strong,nonatomic) NSString *bestYearPoints;
+
 + (User *) getInstance;
 - (NSMutableDictionary *)toNSDictionary;
 

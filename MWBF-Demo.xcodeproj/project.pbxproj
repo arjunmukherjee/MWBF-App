@@ -25,6 +25,7 @@
 		9147D90A1983127100183220 /* MWBF_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9147D9091983127100183220 /* MWBF_DemoTests.m */; };
 		9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9147D913198312B200183220 /* MainStoryBoard.storyboard */; };
 		9147D91B1983162800183220 /* MWBFService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9147D9191983162800183220 /* MWBFService.m */; };
+		9152133719A9387700EF7E18 /* FriendDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9152133619A9387700EF7E18 /* FriendDetailsViewController.m */; };
 		918D5EE519909E5100597147 /* ChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE419909E5100597147 /* ChallengeViewController.m */; };
 		918D5EE819909ED600597147 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE719909ED600597147 /* MoreViewController.m */; };
 		918D5EEE1990AB4C00597147 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 918D5EEA1990AB4C00597147 /* Home.png */; };
@@ -78,6 +79,7 @@
 		91CF0EEB19A2FB97007B668A /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CF0EEA19A2FB97007B668A /* FriendsListViewController.m */; };
 		91CFEBE219A42A9B00B0C27A /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CFEBE119A42A9B00B0C27A /* Friend.m */; };
 		91CFEBE419A42E8D00B0C27A /* README in Resources */ = {isa = PBXBuildFile; fileRef = 91CFEBE319A42E8D00B0C27A /* README */; };
+		91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */; };
 		91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB0427199C7AC1000014A7 /* icn_menu_20.png */; };
 		91DB042F199C7EB8000014A7 /* AppIcon260x60_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB042B199C7EB8000014A7 /* AppIcon260x60_2x.png */; };
 		91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */; };
@@ -119,6 +121,8 @@
 		9147D913198312B200183220 /* MainStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard.storyboard; sourceTree = "<group>"; };
 		9147D9181983162800183220 /* MWBFService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWBFService.h; sourceTree = "<group>"; };
 		9147D9191983162800183220 /* MWBFService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBFService.m; sourceTree = "<group>"; };
+		9152133519A9387700EF7E18 /* FriendDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailsViewController.h; sourceTree = "<group>"; };
+		9152133619A9387700EF7E18 /* FriendDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailsViewController.m; sourceTree = "<group>"; };
 		918D5EE319909E5100597147 /* ChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeViewController.h; sourceTree = "<group>"; };
 		918D5EE419909E5100597147 /* ChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeViewController.m; sourceTree = "<group>"; };
 		918D5EE619909ED600597147 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 		91CFEBE019A42A9B00B0C27A /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
 		91CFEBE119A42A9B00B0C27A /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 		91CFEBE319A42E8D00B0C27A /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		91CFEBE519A5A4D500B0C27A /* PersonalHealthStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHealthStatsViewController.h; sourceTree = "<group>"; };
+		91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHealthStatsViewController.m; sourceTree = "<group>"; };
 		91DB0427199C7AC1000014A7 /* icn_menu_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icn_menu_20.png; sourceTree = "<group>"; };
 		91DB042B199C7EB8000014A7 /* AppIcon260x60_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon260x60_2x.png; sourceTree = "<group>"; };
 		91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon560x60_2x.png; sourceTree = "<group>"; };
@@ -349,9 +355,46 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		9152133819A9388500EF7E18 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				91CF0EE919A2FB96007B668A /* FriendsListViewController.h */,
+				91CF0EEA19A2FB97007B668A /* FriendsListViewController.m */,
+				91CF0EE419A2F2D6007B668A /* AddFriendViewController.h */,
+				91CF0EE519A2F2D6007B668A /* AddFriendViewController.m */,
+				9152133519A9387700EF7E18 /* FriendDetailsViewController.h */,
+				9152133619A9387700EF7E18 /* FriendDetailsViewController.m */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		9152133919A938AC00EF7E18 /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				918D5EE319909E5100597147 /* ChallengeViewController.h */,
+				918D5EE419909E5100597147 /* ChallengeViewController.m */,
+				914720621995DC9900F94A80 /* NewChallengeViewController.m */,
+				914720611995DC9900F94A80 /* NewChallengeViewController.h */,
+			);
+			name = Challenge;
+			sourceTree = "<group>";
+		};
+		9152133A19A938E700EF7E18 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				918F691D19844BF500776052 /* LoginViewController.h */,
+				918F691E19844BF500776052 /* LoginViewController.m */,
+				918F692619872A2400776052 /* NewUserViewController.h */,
+				918F692719872A2400776052 /* NewUserViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		918D5F081991347900597147 /* Stats */ = {
 			isa = PBXGroup;
 			children = (
+				91CFEBE519A5A4D500B0C27A /* PersonalHealthStatsViewController.h */,
+				91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */,
 				918D5F05199127B200597147 /* ActivityViewController.h */,
 				918D5F06199127B200597147 /* ActivityViewController.m */,
 				919EE98C198DBAA000F12411 /* StatsViewController.h */,
@@ -364,27 +407,18 @@
 			isa = PBXGroup;
 			children = (
 				918F69531988A47D00776052 /* Cells */,
-				918F691D19844BF500776052 /* LoginViewController.h */,
-				918F691E19844BF500776052 /* LoginViewController.m */,
-				918F692619872A2400776052 /* NewUserViewController.h */,
-				918F692719872A2400776052 /* NewUserViewController.m */,
+				9152133A19A938E700EF7E18 /* Login */,
 				918F693619886CE300776052 /* LogActivityViewController.h */,
 				918F693719886CE300776052 /* LogActivityViewController.m */,
 				918D5F081991347900597147 /* Stats */,
 				919EE999198DE41B00F12411 /* MainViewController.h */,
 				919EE99A198DE41B00F12411 /* MainViewController.m */,
-				918D5EE319909E5100597147 /* ChallengeViewController.h */,
-				918D5EE419909E5100597147 /* ChallengeViewController.m */,
 				918D5EE619909ED600597147 /* MoreViewController.h */,
 				918D5EE719909ED600597147 /* MoreViewController.m */,
 				918D5EF719910E1800597147 /* BaseClassViewController.h */,
 				918D5EF819910E1800597147 /* BaseClassViewController.m */,
-				914720611995DC9900F94A80 /* NewChallengeViewController.h */,
-				914720621995DC9900F94A80 /* NewChallengeViewController.m */,
-				91CF0EE419A2F2D6007B668A /* AddFriendViewController.h */,
-				91CF0EE519A2F2D6007B668A /* AddFriendViewController.m */,
-				91CF0EE919A2FB96007B668A /* FriendsListViewController.h */,
-				91CF0EEA19A2FB97007B668A /* FriendsListViewController.m */,
+				9152133919A938AC00EF7E18 /* Challenge */,
+				9152133819A9388500EF7E18 /* Friends */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -617,6 +651,7 @@
 				919EE983198CBD6A00F12411 /* HTTPGetRequest.m in Sources */,
 				91CFEBE219A42A9B00B0C27A /* Friend.m in Sources */,
 				918D5EF919910E1800597147 /* BaseClassViewController.m in Sources */,
+				91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */,
 				918D5EE819909ED600597147 /* MoreViewController.m in Sources */,
 				91C665181991790F00A56D61 /* DLPieChart.m in Sources */,
 				91CF0EE619A2F2D6007B668A /* AddFriendViewController.m in Sources */,
@@ -634,6 +669,7 @@
 				914720631995DC9900F94A80 /* NewChallengeViewController.m in Sources */,
 				91CF0EEB19A2FB97007B668A /* FriendsListViewController.m in Sources */,
 				918F692819872A2400776052 /* NewUserViewController.m in Sources */,
+				9152133719A9387700EF7E18 /* FriendDetailsViewController.m in Sources */,
 				919EE99B198DE41B00F12411 /* MainViewController.m in Sources */,
 				919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */,
 				918F6956198ADB0700776052 /* LogActivityListCell.m in Sources */,
@@ -697,8 +733,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -716,7 +752,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "D5C9C573-E613-4FB1-B911-B99553E61D61";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -737,8 +773,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Arjun MUKHERJEE (HAHKBN22W9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Arjun MUKHERJEE (HAHKBN22W9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -749,7 +785,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "D5C9C573-E613-4FB1-B911-B99553E61D61";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -847,8 +883,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Arjun MUKHERJEE (HAHKBN22W9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Arjun MUKHERJEE (HAHKBN22W9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -859,7 +895,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "D5C9C573-E613-4FB1-B911-B99553E61D61";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

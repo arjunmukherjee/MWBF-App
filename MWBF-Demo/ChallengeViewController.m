@@ -7,6 +7,7 @@
 //
 
 #import "ChallengeViewController.h"
+#import "MWBFService.h"
 
 @implementation ChallengeViewController
 
@@ -14,6 +15,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    MWBFService *service = [[MWBFService alloc] init];
+    //[service getChallenges];
 }
 
 @end

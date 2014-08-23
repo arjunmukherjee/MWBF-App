@@ -11,6 +11,8 @@
 #import "Utils.h"
 #import "User.h"
 #import "Friend.h"
+#import "MWBFService.h"
+
 
 @interface NewChallengeViewController ()
 @property (weak, nonatomic) IBOutlet UIPickerView *activityPicker;
@@ -123,6 +125,9 @@
     else
     {
         NSLog(@"Creating new challenge [%@]",self.challengeNameTextField.text);
+        
+        MWBFService *service = [[MWBFService alloc] init];
+        //[service addChallenge:@"Test Challenge"];
     }
 }
 
