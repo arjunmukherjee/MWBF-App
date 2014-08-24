@@ -46,7 +46,9 @@ NSString* ADMIN_PASSWORD = @"admin";
     [self.view sendSubviewToBack:backgroundImage];
     
     self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    self.activityIndicator.center = self.view.center;
+    //self.activityIndicator.center = self.view.center;
+    CGPoint point = CGPointMake(self.view.center.x, self.view.center.y +20);
+    self.activityIndicator.center = point;
     self.activityIndicator.color = [UIColor blueColor];
     [self.view addSubview: self.activityIndicator];
     

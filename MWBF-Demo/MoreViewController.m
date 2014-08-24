@@ -21,6 +21,8 @@
 @property (strong, nonatomic) UIAlertView *logoutAlert;
 @property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UITextView *infoView;
 
 @end
 
@@ -34,6 +36,23 @@
     [super viewDidLoad];
     User *user = [User getInstance];
     self.userNameLabel.text = [NSString stringWithFormat:@"Welcome %@",user.userName];
+    
+    self.infoView.hidden = YES;
+    [Utils setMaskTo:self.infoView byRoundingCorners:UIRectCornerAllCorners];
+}
+
+- (IBAction)infoButtonClicked:(id)sender
+{
+    if (self.infoView.hidden == YES)
+        self.infoView.hidden = NO;
+    else
+        self.infoView.hidden = YES;
+}
+
+// Dismiss the keyboard when the background is tapped
+- (IBAction)backgroundTap:(id)sender
+{
+    self.infoView.hidden = YES;
 }
 
 - (IBAction)resetUserDataClicked:(id)sender

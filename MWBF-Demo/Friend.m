@@ -10,8 +10,15 @@
 
 @implementation Friend
 
-@synthesize name = _name;
+@synthesize firstName = _firstName;
+@synthesize lastName = _lastName;
 @synthesize email = _email;
 @synthesize userName = _userName;
+
+- (NSString*) description
+{
+    return [NSString stringWithFormat:@"%@, %@, %@",self.firstName,self.email,self.userName];
+}
+
 
 @end

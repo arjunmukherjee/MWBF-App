@@ -14,7 +14,6 @@
 #import "MWBFActivities.h"
 #import "Friend.h"
 
-
 /*
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/login"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/friends"
@@ -175,43 +174,6 @@
 }
 
 // Send a request to the server to get the list of all the activities
-- (void) getActivityListWithResponse:(NSString**)response completionBlock:(ServiceCompletionBlock) completionBlock
-{
-    NSURL *url = [NSURL URLWithString:MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT];
-    
-    SuccessBlock successBlock = ^(NSData *response){
-        NSError *error;
-        NSMutableDictionary *returnDict = [NSMutableDictionary dictionary];
-        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
-        if (jsonArray)
-        {
-            for (id activity in jsonArray)
-            {
-                MWBFActivities *mwbfActivity = [[MWBFActivities alloc] init];
-                
-                mwbfActivity.activityName = [activity objectForKey:@"activityName"];
-                mwbfActivity.activityId = [[activity objectForKey:@"id"] integerValue];
-                mwbfActivity.measurementUnits = [activity objectForKey:@"measurementUnit"];
-                mwbfActivity.pointsPerUnit = [[activity objectForKey:@"pointsPerUnit"] doubleValue];
-                
-                [returnDict setObject:mwbfActivity forKey:mwbfActivity.activityName];
-            }
-            completionBlock(returnDict,nil);
-        }
-        else
-            completionBlock(nil,error);
-    };
-    
-    FailureBlock failureBlock = ^(NSError *error){
-        completionBlock(nil,error);
-    };
-    
-    HTTPGetRequest *request = [[HTTPGetRequest alloc] initWithUrl:url successBlock:successBlock failureBlock:failureBlock];
-    [request startRequest];
-    
-}
-
-// Send a request to the server to get the list of all the activities
 - (NSMutableDictionary*) getActivityListWithResponseUsingPost
 {
     NSURL *url = [NSURL URLWithString:MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT];
@@ -307,6 +269,45 @@
     return NO;
 }
 
+//////////////// FRIENDS //////////////////////
+
+// Send a request to the server to get the users activites for a given date
+- (NSArray*) getActivitiesForFriend:(Friend*)friend byActivityFromDate:(NSString *) fromDate toDate:(NSString*) toDate
+{
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\",\"from_date\"=\"%@\",\"to_date\"=\"%@\"}",friend.email,fromDate,toDate];
+    NSURL *url=[NSURL URLWithString:USER_ACTIVITIES_BY_ACTIVITY_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSArray *jsonData = [NSJSONSerialization
+                         JSONObjectWithData:urlData
+                         options:NSJSONReadingMutableContainers
+                         error:&error];
+    
+    return jsonData;
+}
+
+// Send a request to the server to get the users activites for a given date
+- (NSArray*) getActivitiesForFriend:(Friend*)friend byTimeFromDate:(NSString *) fromDate toDate:(NSString*) toDate
+{
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\",\"from_date\"=\"%@\",\"to_date\"=\"%@\"}",friend.email,fromDate,toDate];
+    NSURL *url=[NSURL URLWithString:USER_ACTIVITIES_BY_TIME_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSArray *jsonData = [NSJSONSerialization
+                         JSONObjectWithData:urlData
+                         options:NSJSONReadingMutableContainers
+                         error:&error];
+    
+    return jsonData;
+}
+
+
 - (NSMutableArray*) getFriendsList
 {
     User *user = [User getInstance];
@@ -330,7 +331,8 @@
         
         Friend *friend = [[Friend alloc] init];
         friend.email = [friendDict objectForKey:@"email"];
-        friend.name = [NSString stringWithFormat:@"%@ %@",[friendDict objectForKey:@"firstName"],[friendDict objectForKey:@"lastName"]];
+        friend.firstName = [friendDict objectForKey:@"firstName"];
+        friend.lastName = [friendDict objectForKey:@"lastName"];
         
         [returnFriendsArray addObject:friend];
     }

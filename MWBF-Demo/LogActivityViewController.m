@@ -24,6 +24,8 @@
 @property NSMutableArray *addedActivityArray;
 @property NSMutableArray *monthsArray;
 @property NSMutableArray *daysArray;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UITextView *infoView;
 
 @property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
 
@@ -47,6 +49,9 @@
     self.user  = [User getInstance];
     
     self.activityPickerButton.hidden = NO;
+    
+    self.infoView.hidden = YES;
+    [Utils setMaskTo:self.infoView byRoundingCorners:UIRectCornerAllCorners];
  
     // Hidden components
     self.logActivityButton.hidden = NO;
@@ -106,12 +111,20 @@
 
 }
 
+- (IBAction)infoButtonClicked:(id)sender
+{
+    if (self.infoView.hidden == YES)
+        self.infoView.hidden = NO;
+    else
+        self.infoView.hidden = YES;
+}
+
 - (IBAction) logActivityClicked:(id)sender
 {
     // Check to ensure an activity is selected
     if (!self.addedActivityArray || !self.addedActivityArray.count)
     {
-        [self alertStatus:@"Please select an activity." :@"Forget something ?" :0];
+        [Utils alertStatus:@"Please select an activity." :@"Forget something ?" :0];
         return;
     }
     
@@ -148,11 +161,11 @@
                     else if (error != nil)
                         NSLog(@"An error happened = %@", error);
                     
-                    [self alertStatus:@"Unable to log activity, please try again." :@"Oops!!" :0];
+                    [Utils alertStatus:@"Unable to log activity, please try again." :@"Oops!!" :0];
                 }
                 else
                 {
-                    [self alertStatus:@"Activity logged." :@"Wohoo!!" :0];
+                    [Utils alertStatus:@"Activity logged." :@"Wohoo!!" :0];
                     
                     self.addActivityButton.hidden = NO;
                     self.activityPicker.hidden = NO;
@@ -207,10 +220,10 @@
     NSString *day  = [self.daysArray objectAtIndex:row];
     
     if ([value isEqualToString:@"0"] && [decimal isEqualToString:@"0"])
-       [self alertStatus:@"Please pick a value for the exercise." :@"Oops! Miss something?" :0];
+       [Utils alertStatus:@"Please pick a value for the exercise." :@"Oops! Miss something?" :0];
     else if([self isDateInTheFutureWithDay:day])
     {
-        [self alertStatus:@"Don't log what you haven't yet done." :@"Hold your horses!" :0];
+        [Utils alertStatus:@"Don't log what you haven't yet done." :@"Hold your horses!" :0];
     }
     else
     {
@@ -322,24 +335,11 @@
     
 }
 
-- (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                        message:msg
-                                                       delegate:self
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil, nil];
-    alertView.tag = tag;
-    [alertView show];
-}
 
 // Dismiss the keyboard when the background is tapped
 - (IBAction)backgroundTap:(id)sender
 {
-    //[self.view endEditing:YES];
-    //self.activityPicker.hidden = YES;
-    //self.activityPickerButton.hidden = NO;
-    //self.addActivityButton.hidden = YES;
+    self.infoView.hidden = YES;
 }
 
 

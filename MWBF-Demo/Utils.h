@@ -12,4 +12,11 @@
 
 + (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag;
 
++ (void) convertJsonArrayByTimeToActivityObjectArrayWith:(NSArray*)jsonArray withLabelArray:(NSMutableArray*)labelArray withPointsArray:(NSMutableArray*)pointsArray;
++ (NSMutableArray*) convertJsonArrayByActivityToActivityObjectArrayWith:(NSArray*)jsonArray;
+
++ (NSString*) getMonthStringFromInt:(NSInteger) monthInt;
++ (void) setMaskTo:(UIView*)view byRoundingCorners:(UIRectCorner)corners;
+
+
 @end

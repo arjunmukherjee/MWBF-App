@@ -210,7 +210,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         Friend *friendObj = [self.pickedFriendsArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = friendObj.name;
+        cell.textLabel.text = friendObj.firstName;
         
         return cell;
     }
@@ -220,7 +220,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         Friend *friendObj = [self.friendsList objectAtIndex:indexPath.row];
-        cell.textLabel.text = friendObj.name;
+        cell.textLabel.text = friendObj.firstName;
         
         return cell;
     }

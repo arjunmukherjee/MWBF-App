@@ -25,7 +25,6 @@
 		9147D90A1983127100183220 /* MWBF_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9147D9091983127100183220 /* MWBF_DemoTests.m */; };
 		9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9147D913198312B200183220 /* MainStoryBoard.storyboard */; };
 		9147D91B1983162800183220 /* MWBFService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9147D9191983162800183220 /* MWBFService.m */; };
-		9152133719A9387700EF7E18 /* FriendDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9152133619A9387700EF7E18 /* FriendDetailsViewController.m */; };
 		918D5EE519909E5100597147 /* ChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE419909E5100597147 /* ChallengeViewController.m */; };
 		918D5EE819909ED600597147 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE719909ED600597147 /* MoreViewController.m */; };
 		918D5EEE1990AB4C00597147 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 918D5EEA1990AB4C00597147 /* Home.png */; };
@@ -121,8 +120,6 @@
 		9147D913198312B200183220 /* MainStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard.storyboard; sourceTree = "<group>"; };
 		9147D9181983162800183220 /* MWBFService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWBFService.h; sourceTree = "<group>"; };
 		9147D9191983162800183220 /* MWBFService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBFService.m; sourceTree = "<group>"; };
-		9152133519A9387700EF7E18 /* FriendDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailsViewController.h; sourceTree = "<group>"; };
-		9152133619A9387700EF7E18 /* FriendDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailsViewController.m; sourceTree = "<group>"; };
 		918D5EE319909E5100597147 /* ChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeViewController.h; sourceTree = "<group>"; };
 		918D5EE419909E5100597147 /* ChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeViewController.m; sourceTree = "<group>"; };
 		918D5EE619909ED600597147 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
@@ -362,8 +359,6 @@
 				91CF0EEA19A2FB97007B668A /* FriendsListViewController.m */,
 				91CF0EE419A2F2D6007B668A /* AddFriendViewController.h */,
 				91CF0EE519A2F2D6007B668A /* AddFriendViewController.m */,
-				9152133519A9387700EF7E18 /* FriendDetailsViewController.h */,
-				9152133619A9387700EF7E18 /* FriendDetailsViewController.m */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -390,9 +385,31 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		9152133B19A983E700EF7E18 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				918D5EF719910E1800597147 /* BaseClassViewController.h */,
+				918D5EF819910E1800597147 /* BaseClassViewController.m */,
+				919EE999198DE41B00F12411 /* MainViewController.h */,
+				919EE99A198DE41B00F12411 /* MainViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		9152133C19A9841A00EF7E18 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				918D5EE619909ED600597147 /* MoreViewController.h */,
+				918D5EE719909ED600597147 /* MoreViewController.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		918D5F081991347900597147 /* Stats */ = {
 			isa = PBXGroup;
 			children = (
+				918F693619886CE300776052 /* LogActivityViewController.h */,
+				918F693719886CE300776052 /* LogActivityViewController.m */,
 				91CFEBE519A5A4D500B0C27A /* PersonalHealthStatsViewController.h */,
 				91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */,
 				918D5F05199127B200597147 /* ActivityViewController.h */,
@@ -406,17 +423,11 @@
 		918F691C19844BBD00776052 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9152133C19A9841A00EF7E18 /* Misc */,
 				918F69531988A47D00776052 /* Cells */,
 				9152133A19A938E700EF7E18 /* Login */,
-				918F693619886CE300776052 /* LogActivityViewController.h */,
-				918F693719886CE300776052 /* LogActivityViewController.m */,
 				918D5F081991347900597147 /* Stats */,
-				919EE999198DE41B00F12411 /* MainViewController.h */,
-				919EE99A198DE41B00F12411 /* MainViewController.m */,
-				918D5EE619909ED600597147 /* MoreViewController.h */,
-				918D5EE719909ED600597147 /* MoreViewController.m */,
-				918D5EF719910E1800597147 /* BaseClassViewController.h */,
-				918D5EF819910E1800597147 /* BaseClassViewController.m */,
+				9152133B19A983E700EF7E18 /* Main */,
 				9152133919A938AC00EF7E18 /* Challenge */,
 				9152133819A9388500EF7E18 /* Friends */,
 			);
@@ -669,7 +680,6 @@
 				914720631995DC9900F94A80 /* NewChallengeViewController.m in Sources */,
 				91CF0EEB19A2FB97007B668A /* FriendsListViewController.m in Sources */,
 				918F692819872A2400776052 /* NewUserViewController.m in Sources */,
-				9152133719A9387700EF7E18 /* FriendDetailsViewController.m in Sources */,
 				919EE99B198DE41B00F12411 /* MainViewController.m in Sources */,
 				919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */,
 				918F6956198ADB0700776052 /* LogActivityListCell.m in Sources */,

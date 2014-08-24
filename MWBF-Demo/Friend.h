@@ -12,7 +12,8 @@
 
 @property (strong,nonatomic) NSString *email;
 @property (strong,nonatomic) NSString *userName;
-@property (strong,nonatomic) NSString *name;
+@property (strong,nonatomic) NSString *firstName;
+@property (strong,nonatomic) NSString *lastName;
 
 
 @end

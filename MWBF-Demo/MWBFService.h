@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Arjun Mukherjee, LLC. All rights reserved.
 //
 
+#import "Friend.h"
+
 typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 
 @interface MWBFService : NSObject
@@ -33,6 +35,8 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 - (NSMutableArray*) getFriendsList;
 - (BOOL) addFriendWithId:(NSString*) friendId;
 - (NSDictionary*) findFriendWithId:(NSString*) friendId;
+- (NSArray*) getActivitiesForFriend:(Friend*)friend byActivityFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
+- (NSArray*) getActivitiesForFriend:(Friend*)friend byTimeFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
 
 
 // CHALLENGES

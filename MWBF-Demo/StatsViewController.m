@@ -56,6 +56,8 @@
     self.activityIndicator = [[UIActivityIndicatorView alloc] init];
     
     self.infoView.hidden = YES;
+    [Utils setMaskTo:self.infoView byRoundingCorners:UIRectCornerAllCorners];
+    
     
     // Date : years value (2014 to current year)
     NSDate *currentTime = [NSDate date];

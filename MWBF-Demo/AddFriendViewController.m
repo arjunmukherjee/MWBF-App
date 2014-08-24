@@ -20,14 +20,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *friendNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addFriendButton;
 @property (weak, nonatomic) IBOutlet UILabel *friendEmail;
-@property (weak, nonatomic) IBOutlet UILabel *friendName;
+@property (weak, nonatomic) IBOutlet UILabel *friendFirstName;
+@property (weak, nonatomic) IBOutlet UILabel *friendLastName;
 
 @end
 
 @implementation AddFriendViewController
 
 @synthesize friendsEmailTextField,searchFriendButton,friendEmailLabel,friendNameLabel,addFriendButton;
-@synthesize friendEmail,friendName;
+@synthesize friendEmail,friendFirstName,friendLastName;
 
 - (void)viewDidLoad
 {
@@ -42,7 +43,8 @@
     self.addFriendButton.enabled = NO;
     
     self.friendEmail.hidden = YES;
-    self.friendName.hidden = YES;
+    self.friendFirstName.hidden = YES;
+    self.friendLastName.hidden = YES;
 }
 
 // Dismiss the keyboard when the GO button is hit
@@ -92,19 +94,22 @@
     
     if ([email length] <= 1)
     {
-        [Utils alertStatus:@"Friend not found. Do ask them to join us." :@"Where is this person ?" :0];
+        [Utils alertStatus:@"Friend not found, do ask them to join us." :@"Where is this person ?" :0];
         
         self.addFriendButton.enabled = NO;
         
         self.friendEmail.hidden = YES;
-        self.friendName.hidden = YES;
+        self.friendFirstName.hidden = YES;
+        self.friendLastName.hidden = YES;
     }
     else
     {
         self.friendEmail.hidden = NO;
-        self.friendName.hidden = NO;
+        self.friendFirstName.hidden = NO;
+        self.friendLastName.hidden = NO;
         self.friendEmail.text = email;
-        self.friendName.text = [NSString stringWithFormat:@"%@ %@",firstName,lastName];
+        self.friendFirstName.text = firstName;
+        self.friendLastName.text = lastName;
         
         self.addFriendButton.hidden = NO;
         self.addFriendButton.enabled = YES;
@@ -117,14 +122,15 @@
     MWBFService *service = [[MWBFService alloc] init];
     if ( [service addFriendWithId:self.friendEmail.text] )
     {
-       [Utils alertStatus:[NSString stringWithFormat:@"%@ added to your friends list.",self.friendName.text] :@"Success" :0];
+       [Utils alertStatus:[NSString stringWithFormat:@"%@ added to your friends list.",self.friendFirstName.text] :@"Success" :0];
         
         User *user = [User getInstance];
         
         // Construct the new friend object
         Friend *newFriend = [[Friend alloc] init];
         newFriend.email = self.friendEmail.text;
-        newFriend.name = self.friendName.text;
+        newFriend.firstName = self.friendFirstName.text;
+        newFriend.lastName = self.friendLastName.text;
         
         NSMutableArray *tempFriendsNameArray = [NSMutableArray array];
         [tempFriendsNameArray addObject:newFriend];
@@ -139,10 +145,11 @@
         self.addFriendButton.enabled = NO;
         
         self.friendEmail.hidden = YES;
-        self.friendName.hidden = YES;
+        self.friendFirstName.hidden = YES;
+        self.friendLastName.hidden = YES;
     }
     else
-        [Utils alertStatus:[NSString stringWithFormat:@"Unable to add %@ to your friends list.",self.friendName.text]  :@"Oops!" :0];
+        [Utils alertStatus:[NSString stringWithFormat:@"Unable to add %@ to your friends list.",self.friendFirstName.text]  :@"Oops!" :0];
         
 }
 

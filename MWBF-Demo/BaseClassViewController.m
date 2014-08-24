@@ -7,6 +7,7 @@
 //
 
 #import "BaseClassViewController.h"
+#import "Utils.h"
 
 @interface BaseClassViewController ()
 

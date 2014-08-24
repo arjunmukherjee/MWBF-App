@@ -135,17 +135,17 @@
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Arjun Mukherjee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sdB-53-WpJ">
-                                <rect key="frame" x="20" y="515" width="254" height="46"/>
+                                <rect key="frame" x="20" y="537" width="254" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="roU-Y3-gex">
-                                <rect key="frame" x="9" y="173" width="302" height="333"/>
+                                <rect key="frame" x="9" y="173" width="302" height="353"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Get out, get fit.  1. Log your daily activities. 2. See your progress over time and by activity. 3. Share with friends. 4. The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information and do not post on FB on your behalf. 5. Do let us know what you think about the app using the feedback button (in the more tab). </string>
+                                <mutableString key="text">Get out, get fit.  1. Log your daily activities. 2. See your progress over time and by activity. 3. Share with friends. 4. The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post on FB on your behalf. 5. Do let us know what you think about the app using the feedback button (in the more tab). </mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -280,6 +280,25 @@
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="J7d-Rh-LrF">
+                                <rect key="frame" x="289" y="69" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="infoButtonClicked:" destination="3dX-vG-sg8" eventType="touchUpInside" id="rh7-zt-wpc"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="scaleToFill" editable="NO" id="Q6h-Vn-saE">
+                                <rect key="frame" x="20" y="91" width="280" height="318"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">Use this page to log your daily activities/exercises. 1. Pick an execise. 2. Pick the amount your exercised. The first number picker is for the whole number and the second is for the decimal. 3. Pick the date. 4. Add the exercise to the list of activities you want to log. 5. Add multiple activities at the same time if you wish to. 6. You may also delete activities once added by swiping left on the particular row. 7. Hit the button (at the bottom) to log the activities to your account. </mutableString>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -297,6 +316,8 @@
                         <outlet property="activityTable" destination="xlb-aX-HRf" id="ui7-oR-H7V"/>
                         <outlet property="addActivityButton" destination="F1n-kP-TtX" id="5Vu-dG-SFE"/>
                         <outlet property="dateHeaderLable" destination="bmK-OW-cZN" id="wtM-uO-WX6"/>
+                        <outlet property="infoButton" destination="J7d-Rh-LrF" id="890-8H-5d3"/>
+                        <outlet property="infoView" destination="Q6h-Vn-saE" id="qAn-pc-rDh"/>
                         <outlet property="logActivityButton" destination="2I8-mE-dU4" id="b20-hY-VPO"/>
                         <outlet property="pointsHeaderLable" destination="MOT-Ji-nAv" id="rJ0-d7-GuL"/>
                         <outlet property="unitsHeaderLable" destination="OyF-9D-OZW" id="Qlt-Fl-DyY"/>
@@ -418,7 +439,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="muM-Mc-RXt">
-                                <rect key="frame" x="237" y="229" width="22" height="22"/>
+                                <rect key="frame" x="291" y="68" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -427,11 +448,11 @@
                                     <action selector="infoButtonClicked:" destination="BwW-eE-215" eventType="touchUpInside" id="HtG-0W-8oD"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999987" contentMode="scaleToFill" editable="NO" id="Cm2-cw-82w">
-                                <rect key="frame" x="20" y="252" width="280" height="200"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999999999999991" contentMode="scaleToFill" editable="NO" id="Cm2-cw-82w">
+                                <rect key="frame" x="21" y="97" width="280" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Select a date from the picker below. You may : 1. Select just a year . 2. Select a year and a month. 3. Select a year, month and a day (will display all the activities for the selected day). 4. Select a year, month, and a date range Ex : 5 to 10. Will display all the activities for the 5th day of the month to the 10th day of the month.</mutableString>
+                                <mutableString key="text">Select a time range directly from the buttons (today, month or year).  OR  Select a date from the picker. You may : 1. Select just a year . 2. Select a year and a month. 3. Select a year, month and a day (will display all the activities for the selected day). 4. Select a year, month, and a date range Ex : 5 to 10. Will display all the activities for the 5th day of the month to the 10th day of the month.</mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -463,9 +484,9 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2896" y="109"/>
+            <point key="canvasLocation" x="2924" y="867"/>
         </scene>
-        <!--Activity View Controller - My Stats-->
+        <!--Activity View Controller-->
         <scene sceneID="9k3-zu-uTQ">
             <objects>
                 <viewController id="EPn-Zb-cx1" customClass="ActivityViewController" sceneMemberID="viewController">
@@ -606,7 +627,7 @@
                             <outletCollection property="gestureRecognizers" destination="3Vd-tz-fxs" appends="YES" id="dsi-P7-YdE"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="My Stats" id="C4o-zO-vHv"/>
+                    <navigationItem key="navigationItem" id="C4o-zO-vHv"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="activityBarView" destination="sfF-TM-EId" id="QHA-lU-Cwl"/>
@@ -620,6 +641,7 @@
                         <outlet property="aggregationTypeSegmentedControl" destination="LPM-iD-2eS" id="q7r-Gf-zxE"/>
                         <outlet property="barResultsLabel" destination="IR7-MY-ct5" id="Tkr-Rx-IGS"/>
                         <outlet property="chartTypeSegmentedControl" destination="b64-QX-J52" id="ZAE-dl-oCd"/>
+                        <outlet property="navigationBar" destination="C4o-zO-vHv" id="7SB-gK-pd4"/>
                         <outlet property="pointsHeaderLabel" destination="hWi-vx-zrC" id="nbv-0K-Yzp"/>
                     </connections>
                 </viewController>
@@ -630,7 +652,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3352" y="109"/>
+            <point key="canvasLocation" x="3464" y="1651"/>
         </scene>
         <!--Challenge View Controller - Challenges-->
         <scene sceneID="okr-KR-QPX">
@@ -653,7 +675,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOb-oa-Klw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2896" y="785"/>
+            <point key="canvasLocation" x="2924" y="109"/>
         </scene>
         <!--New Challenge View Controller - New Challenge-->
         <scene sceneID="VgM-uS-ne5">
@@ -865,7 +887,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3360" y="785"/>
+            <point key="canvasLocation" x="3338" y="109"/>
         </scene>
         <!--More View Controller - More-->
         <scene sceneID="O0x-cU-qyO">
@@ -875,7 +897,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nQB-59-BZL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nQB-59-BZL" userLabel="FeedBackButton">
                                 <rect key="frame" x="182" y="340" width="116" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="24-feedback_icon.gif">
@@ -885,7 +907,7 @@
                                     <action selector="sendFeedback:" destination="xUN-mq-44E" eventType="touchUpInside" id="Gob-jx-iQU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aaA-sf-eLi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aaA-sf-eLi" userLabel="PersonalBestButton">
                                 <rect key="frame" x="184" y="237" width="97" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="14"/>
@@ -897,7 +919,7 @@
                                     <segue destination="s8L-IH-iWg" kind="push" id="4VA-9C-qfq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="God-Eq-Gp5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="God-Eq-Gp5" userLabel="SettingsButton">
                                 <rect key="frame" x="41" y="143" width="56" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -906,7 +928,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Vq-nM-8Q2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Vq-nM-8Q2" userLabel="LogoutButton">
                                 <rect key="frame" x="131" y="454" width="59" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -918,7 +940,7 @@
                                     <action selector="logoutButtonClicked:" destination="xUN-mq-44E" eventType="touchUpInside" id="aC6-eu-qzp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AHd-KH-e5k">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AHd-KH-e5k" userLabel="DeleteButton">
                                 <rect key="frame" x="45" y="237" width="48" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -931,7 +953,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sz2-TM-SV3">
-                                <rect key="frame" x="9" y="72" width="236" height="33"/>
+                                <rect key="frame" x="45" y="71" width="236" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -950,7 +972,7 @@
                                     <segue destination="p1F-gQ-n0Z" kind="modal" modalTransitionStyle="partialCurl" id="o4k-VB-4vh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LsW-dM-sod">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LsW-dM-sod" userLabel="FriendsButton">
                                 <rect key="frame" x="214" y="145" width="57" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="icon_addfriend.png">
@@ -960,11 +982,36 @@
                                     <segue destination="KV4-fb-xLw" kind="push" id="KQv-ey-tCV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="S81-Ih-T31" userLabel="InfoButton">
+                                <rect key="frame" x="290" y="69" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="infoButtonClicked:" destination="xUN-mq-44E" eventType="touchUpInside" id="zfw-8u-PfA"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="scaleToFill" editable="NO" id="ZRE-pA-ahU">
+                                <rect key="frame" x="20" y="97" width="280" height="284"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">Use this page to do a variety of things.  - Take a look at your friends activities by clicking on the friends button. You can also add friends form there. - Check your personal stats (and try to beat them). Click on the button that looks like a bar graph. - You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can. - Find out about the app by clicking on the About button. - Send us feedback about your experience using the app, by clicking the Feedback button.</mutableString>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
                         </subviews>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vlk-8Z-w0d" appends="YES" id="cOL-Hg-0jM"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="More" id="Gvv-fP-r9V"/>
                     <connections>
                         <outlet property="feedbackButton" destination="nQB-59-BZL" id="E1S-y6-Tob"/>
+                        <outlet property="infoButton" destination="S81-Ih-T31" id="1Ak-KL-iHE"/>
+                        <outlet property="infoView" destination="ZRE-pA-ahU" id="rQe-Wq-lEd"/>
                         <outlet property="logoutButton" destination="8Vq-nM-8Q2" id="lel-cu-pZI"/>
                         <outlet property="resetUserDataButton" destination="AHd-KH-e5k" id="coa-j7-NBW"/>
                         <outlet property="userNameLabel" destination="Sz2-TM-SV3" id="BL5-bW-tg5"/>
@@ -972,6 +1019,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDT-Ul-9ly" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vlk-8Z-w0d">
+                    <connections>
+                        <action selector="backgroundTap:" destination="xUN-mq-44E" id="Kea-1L-uCk"/>
+                        <outlet property="delegate" destination="cQF-bK-t2x" id="6eU-FO-BhJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1295" y="1026"/>
         </scene>
@@ -1049,11 +1102,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Personal Stats" id="C6C-2c-Fe8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CGu-bv-gZz">
-                            <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Personal Stats" id="C6C-2c-Fe8"/>
                     <connections>
                         <outlet property="bestDayLabel" destination="jLB-pC-k1t" id="ZKP-e0-HSm"/>
                         <outlet property="bestDayPointsLabel" destination="SSe-dF-Cbo" id="19j-kq-xFc"/>
@@ -1097,9 +1146,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="8Y4-2O-hWb" kind="modal" id="hdx-T2-URT"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1120,25 +1166,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="friendsListTable" destination="QyA-8A-4AG" id="ocz-2j-uMW"/>
+                        <segue destination="EPn-Zb-cx1" kind="push" identifier="FriendDetails" id="xvs-qu-nf5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5F-pr-HCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="1759"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="C6P-bz-qQP">
-            <objects>
-                <viewController id="8Y4-2O-hWb" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GIq-2r-OAo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vES-XA-y7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2485" y="1529"/>
+            <point key="canvasLocation" x="1936" y="1651"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W2U-SW-KRX">
@@ -1178,7 +1211,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgA-k1-evK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="109"/>
+            <point key="canvasLocation" x="2468" y="867"/>
         </scene>
         <!--Navigation Controller - Challenges-->
         <scene sceneID="F1C-kg-CQf">
@@ -1200,7 +1233,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSB-v9-mvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="785"/>
+            <point key="canvasLocation" x="2468" y="109"/>
         </scene>
         <!--Navigation Controller - Log It-->
         <scene sceneID="clV-ZH-xqA">
@@ -1286,8 +1319,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Friend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ggN-US-sok">
-                                <rect key="frame" x="133" y="269" width="172" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ggN-US-sok">
+                                <rect key="frame" x="133" y="269" width="80" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LastName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Okq-fO-qaP">
+                                <rect key="frame" x="216" y="269" width="89" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1315,7 +1355,8 @@
                         <outlet property="addFriendButton" destination="Pfw-hV-RO8" id="DGt-bR-8aJ"/>
                         <outlet property="friendEmail" destination="7Bf-Bh-QO0" id="HId-Sj-yUA"/>
                         <outlet property="friendEmailLabel" destination="HVZ-gW-NwO" id="bPc-1T-l4u"/>
-                        <outlet property="friendName" destination="ggN-US-sok" id="ouX-fC-0ai"/>
+                        <outlet property="friendFirstName" destination="ggN-US-sok" id="Raf-qN-pxx"/>
+                        <outlet property="friendLastName" destination="Okq-fO-qaP" id="3yW-ec-PlO"/>
                         <outlet property="friendNameLabel" destination="7gF-Ko-nYI" id="mhe-gC-9F0"/>
                         <outlet property="friendsEmailTextField" destination="ohE-MO-57L" id="nZ2-Ka-y8h"/>
                         <outlet property="searchFriendButton" destination="PFA-Ph-oTg" id="JKO-7F-uAH"/>
@@ -1329,7 +1370,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2485" y="2267"/>
+            <point key="canvasLocation" x="2485" y="2007"/>
         </scene>
     </scenes>
     <resources>
@@ -1356,5 +1397,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="95M-O1-mDK"/>
         <segue reference="o4k-VB-4vh"/>
+        <segue reference="Q4w-Ge-8PF"/>
     </inferredMetricsTieBreakers>
 </document>

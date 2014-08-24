@@ -9,6 +9,7 @@
 // All other classes used in the tab view inherit from this class.
 
 #import <UIKit/UIKit.h>
+#import "Utils.h"
 
 @interface BaseClassViewController : UIViewController
 

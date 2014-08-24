@@ -59,6 +59,7 @@
 @property (nonatomic,strong) NSMutableArray *pointsArrayByTime;
 @property (nonatomic,strong) NSMutableArray *labelArrayByTime;
 
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 @end
 
@@ -80,6 +81,8 @@
 
 @synthesize activityBarViewByTime;
 @synthesize columnChartdataByTime,eFloatBoxByTime,eColumnSelectedByTime,tempColorByTime;
+@synthesize title;
+@synthesize navigationBar;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -89,6 +92,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if ( [self.title length] > 0 )
+        self.navigationBar.title = self.title;
+    else
+        self.navigationBar.title = @"My Stats";
+    
     self.activityPieView.hidden = NO;
     self.activityPieViewByTime.hidden = YES;
     self.activityBarView.hidden = YES;
@@ -111,33 +120,9 @@
     
     Activity *activityList = [Activity getInstance];
     
-    for (id object in self.userActivitiesByActivityJsonArray)
-    {
-        NSString *activityId = [object objectForKey:@"activityId"];
-        NSString *measurement = [object objectForKey:@"exerciseUnits"];
-        NSString *points = [object objectForKey:@"points"];
-        
-        measurement = [NSString stringWithFormat:@"%.1f",[measurement floatValue]];
-        
-        MWBFActivities *mwbfActivity = [activityList.activityDict objectForKey:activityId];
-        
-        UserActivity *ua = [[UserActivity alloc] init];
-        ua.points = [NSString stringWithFormat:@"%.1f",[points floatValue]];
-        ua.activity = activityId;
-        ua.activityValue = [NSString stringWithFormat:@"%@ %@",measurement,mwbfActivity.measurementUnits];
-        
-        [self.userActivityArray addObject:ua];
-     }
-   
-    // Get the stats aggregated by time
-    for (id object in self.userActivitiesByTimeJsonArray)
-    {
-        NSString *dateStr = [object objectForKey:@"date"];
-        NSString *pointsStr = [object objectForKey:@"points"];
-        //NSLog(@"ID [%@][%@]",dateStr,pointsStr);
-        [self.labelArrayByTime addObject:dateStr];
-        [self.pointsArrayByTime addObject:pointsStr];
-    }
+    // Convert the jsonArrays to object arrays
+    self.userActivityArray = [Utils convertJsonArrayByActivityToActivityObjectArrayWith:self.userActivitiesByActivityJsonArray];
+    [Utils convertJsonArrayByTimeToActivityObjectArrayWith:self.userActivitiesByTimeJsonArray withLabelArray:self.labelArrayByTime withPointsArray:self.pointsArrayByTime];
     
     // Sort the activites by the total points
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"points" ascending:NO];
