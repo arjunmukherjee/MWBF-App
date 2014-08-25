@@ -15,6 +15,9 @@
 @property (strong,nonatomic) NSString *userName;
 @property (strong,nonatomic) NSMutableArray *friendsList;
 
+// Challenges
+@property (strong,nonatomic) NSMutableArray *challengesList;
+
 // Stats
 @property (strong,nonatomic) NSString *bestDay;
 @property (strong,nonatomic) NSString *bestMonth;

@@ -28,7 +28,6 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 - (NSArray*) getActivitiesForUserByActivityFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
 - (NSArray*) getActivitiesForUserByTimeFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
 - (BOOL) deleteAllActivitiesForUser;
-- (void) getActivityListWithResponse:(NSString**)response completionBlock:(ServiceCompletionBlock) completionBlock;
 - (NSMutableDictionary*) getActivityListWithResponseUsingPost;
 
 // FRIENDS
@@ -41,6 +40,6 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 
 // CHALLENGES
 - (BOOL) addChallenge:(NSString*) post;
-- (NSMutableArray*) getChallenges;
+- (void) getChallenges;
 
 @end

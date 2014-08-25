@@ -22,6 +22,7 @@
 @property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet FBLoginView *fbLoginView;
 @property (strong, nonatomic) UIAlertView *noNetworkAlert;
+@property int runCount;
 
 @end
 
@@ -32,6 +33,7 @@
 @synthesize activityIndicator;
 @synthesize fbLoginView;
 @synthesize noNetworkAlert;
+@synthesize runCount;
 
 NSString* ADMIN_USERNAME = @"admin";
 NSString* ADMIN_PASSWORD = @"admin";
@@ -46,11 +48,12 @@ NSString* ADMIN_PASSWORD = @"admin";
     [self.view sendSubviewToBack:backgroundImage];
     
     self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    //self.activityIndicator.center = self.view.center;
     CGPoint point = CGPointMake(self.view.center.x, self.view.center.y +20);
     self.activityIndicator.center = point;
     self.activityIndicator.color = [UIColor blueColor];
     [self.view addSubview: self.activityIndicator];
+    
+    self.runCount = 0;
     
     // Set this loginViewController to be the loginView button's delegate
     self.fbLoginView.delegate = self;
@@ -112,30 +115,43 @@ NSString* ADMIN_PASSWORD = @"admin";
             user.userId = fbUser[@"email"];
             user.userName = [NSString stringWithFormat:@"%@ %@",[fbUser first_name],[fbUser last_name]];
             
-            Activity *activityList = [Activity getInstance];
             self.fbSuccess = YES;
             
             NSString *response = nil;
             MWBFService *service = [[MWBFService alloc] init];
             self.success = [service loginFaceBookUser:user.userEmail withFirstName:[fbUser first_name] withLastName:[fbUser last_name] withResponse:&response];
             
-            // Get the list of friends
-            if ([user.friendsList count] <= 0 )
-                user.friendsList = [service getFriendsList];
-            
-            // Get the all time highs
-            [service getAllTimeHighs];
-            
             if ( !(self.success && self.fbSuccess) )
+            {
                 [Utils alertStatus:response :@"Sign in Failed" :0];
+                return;
+            }
             
             dispatch_sync(dispatch_get_main_queue(), ^{
-                [self.activityIndicator stopAnimating];
-                self.activityIndicator.hidden = YES;
-                self.view.userInteractionEnabled = YES;
                 
-                if (self.success && self.fbSuccess)
-                    [self performSegueWithIdentifier:@"login_success" sender:self];
+                // For some reason this function runs twice, dont want it to hit the server for the same thing twice though
+                self.runCount = self.runCount + 1;
+                if (self.runCount == 2)
+                {
+                    Activity *activityList = [Activity getInstance];
+                    
+                    // Get the list of friends
+                    if ([user.friendsList count] <= 0 )
+                        user.friendsList = [service getFriendsList];
+                    
+                    // Get the all time highs
+                    [service getAllTimeHighs];
+                    
+                    // Get all the challenges the user is involved in
+                    [service getChallenges];
+                    
+                    [self.activityIndicator stopAnimating];
+                    self.activityIndicator.hidden = YES;
+                    self.view.userInteractionEnabled = YES;
+                    
+                    if (self.success && self.fbSuccess)
+                        [self performSegueWithIdentifier:@"login_success" sender:self];
+                }
             });
         });
     }

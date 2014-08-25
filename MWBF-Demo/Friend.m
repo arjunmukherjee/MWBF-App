@@ -20,5 +20,12 @@
     return [NSString stringWithFormat:@"%@, %@, %@",self.firstName,self.email,self.userName];
 }
 
+- (NSMutableDictionary *)toNSDictionary
+{
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:self.email forKey:@"id"];
+    
+    return dictionary;
+}
 
 @end

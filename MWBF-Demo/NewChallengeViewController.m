@@ -12,19 +12,23 @@
 #import "User.h"
 #import "Friend.h"
 #import "MWBFService.h"
+#import "Challenge.h"
 
 
 @interface NewChallengeViewController ()
+
 @property (weak, nonatomic) IBOutlet UIPickerView *activityPicker;
 @property (weak, nonatomic) IBOutlet UIView *addFriendsView;
 @property (weak, nonatomic) IBOutlet UITableView *playersTable;
 @property (weak, nonatomic) IBOutlet UITableView *activityTable;
 @property (weak, nonatomic) IBOutlet UIButton *createChallengeButton;
 @property (weak, nonatomic) IBOutlet UIButton *addActivityButton;
-@property (weak, nonatomic) IBOutlet UIButton *addFriendButton;
 @property (weak, nonatomic) IBOutlet UIButton *showFriendsListViewButton;
 @property (weak, nonatomic) IBOutlet UITableView *friendsPickerTable;
 @property (weak, nonatomic) IBOutlet UITextField *challengeNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *startDateTextField;
+@property (weak, nonatomic) IBOutlet UITextField *endDateTextField;
+@property (weak, nonatomic) IBOutlet UIButton *pickActivityButton;
 
 @property (strong,nonatomic) NSMutableArray *activityListArray;
 @property (strong,nonatomic) NSMutableArray *addedActivityArray;
@@ -33,18 +37,22 @@
 @property (strong,nonatomic) NSMutableArray *friendsList;
 @property (strong,nonatomic) NSMutableArray *pickedFriendsArray;
 
+@property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
+
 @end
 
 @implementation NewChallengeViewController
 
 
 @synthesize activityListArray, addedActivityArray, addedFriendsArray;
-@synthesize activityPicker,addActivityButton,addFriendButton,addFriendsView;
+@synthesize activityPicker,addActivityButton,addFriendsView;
 @synthesize playersTable,activityTable;
 @synthesize createChallengeButton,showFriendsListViewButton;
 @synthesize friendsList;
 @synthesize pickedFriendsArray;
 @synthesize challengeNameTextField;
+@synthesize pickActivityButton;
+@synthesize activityIndicator;
 
 - (void)viewDidLoad
 {
@@ -55,6 +63,16 @@
     self.friendsList = [NSMutableArray arrayWithArray:[User getInstance].friendsList];
     self.pickedFriendsArray = [NSMutableArray array];
     self.challengeNameTextField.delegate = self;
+    self.activityPicker.hidden = YES;
+    self.addActivityButton.hidden = YES;
+    
+    // Activity Indicator
+    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator.center = self.view.center;
+    self.activityIndicator.color = [UIColor blueColor];
+    [self.view addSubview: self.activityIndicator];
+    
+    [Utils setMaskTo:self.addFriendsView byRoundingCorners:UIRectCornerAllCorners];
     
     Activity *localActivityObj = [Activity getInstance];
     if ( [localActivityObj.activityDict count] == 0 )
@@ -73,6 +91,19 @@
         self.addFriendsView.hidden = YES;
 }
 
+- (IBAction)pickActivityButtonClicked:(id)sender
+{
+    if (self.activityPicker.hidden == YES)
+    {
+        self.activityPicker.hidden = NO;
+        self.addActivityButton.hidden = NO;
+    }
+    else
+    {
+        self.activityPicker.hidden = YES;
+        self.addActivityButton.hidden = YES;
+    }
+}
 
 - (IBAction) addActivityClicked:(id)sender
 {
@@ -81,7 +112,7 @@
  
     if ([self.addedActivityArray containsObject:activity])
     {
-        [Utils alertStatus:@"Activity already added." :@"It's done" :0];
+        [Utils alertStatus:@"Activity already added." :@"Not again.." :0];
         return;
     }
     
@@ -96,22 +127,8 @@
 - (IBAction)backgroundTap:(id)sender
 {
     [self.view endEditing:YES];
-    //self.addFriendsView.hidden = YES;
-}
-
-- (IBAction)addFriendButtonClicked:(id)sender
-{
-    NSIndexPath *selectedIndexPath = [self.friendsPickerTable indexPathForSelectedRow];
-    
-    Friend *pickedFriend = [self.friendsList objectAtIndex:selectedIndexPath.row];
-    
-    [self.pickedFriendsArray addObject:pickedFriend];
-    [self.playersTable reloadData];
-    
-    [self.friendsList removeObject:pickedFriend];
-    if ([self.friendsList count] <= 0 )
-        self.addFriendButton.enabled = NO;
-    [self.friendsPickerTable reloadData];
+    self.activityPicker.hidden = YES;
+    self.addActivityButton.hidden = YES;
 }
 
 - (IBAction)createChallengeButtonClicked:(id)sender
@@ -122,12 +139,75 @@
         [Utils alertStatus:@"Please add atleast one friend to the challenge." :@"Oops! Miss something ?" :0];
     else if ( [self.challengeNameTextField.text length] <= 0 )
         [Utils alertStatus:@"Please name your challenge." :@"Oops! Miss something ?" :0];
+    else if ( [self.startDateTextField.text length] <= 0 )
+        [Utils alertStatus:@"Please choose a start date for your challenge." :@"Oops! Miss something ?" :0];
+    else if ( [self.endDateTextField.text length] <= 0 )
+        [Utils alertStatus:@"Please choose an end date for your challenge." :@"Oops! Miss something ?" :0];
+    else if ( [self.challengeNameTextField.text rangeOfString:@","].location != NSNotFound )
+        [Utils alertStatus:@"Please choose a challenge name without commas." :@"Oops! Not allowed ?" :0];
     else
     {
-        NSLog(@"Creating new challenge [%@]",self.challengeNameTextField.text);
+        // Year
+        NSDate *currentTime = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"YYYY"];
+        NSString *year = [dateFormatter stringFromDate: currentTime] ;
         
-        MWBFService *service = [[MWBFService alloc] init];
-        //[service addChallenge:@"Test Challenge"];
+        // Month
+        [dateFormatter setDateFormat:@"MM"];
+        NSInteger monthInteger = [[dateFormatter stringFromDate: currentTime] integerValue];
+        NSString *month  = [Utils getMonthStringFromInt:monthInteger];
+        
+        NSString *fromDate = fromDate = [NSString stringWithFormat:@"%@ 01, %@ 00:00:01 AM",month,year];
+        NSString *toDate = [NSString stringWithFormat:@"%@ 31, %@ 11:59:59 PM",month,year];
+        
+        // Construct the new challenge object
+        Challenge *newChallenge = [[Challenge alloc] init];
+        newChallenge.name = self.challengeNameTextField.text;
+        newChallenge.startDate = fromDate;
+        newChallenge.endDate = toDate;
+        
+        NSMutableArray *tempFriendEmailArray = [NSMutableArray array];
+        for (Friend *friendObj in self.pickedFriendsArray)
+             [tempFriendEmailArray addObject:friendObj.email];
+       
+        // Add the app user to the list of users too (the challenge creator gets automatically added 
+        [tempFriendEmailArray addObject:[User getInstance].userEmail];
+            
+        newChallenge.playersSet = [NSArray arrayWithArray:tempFriendEmailArray];
+        newChallenge.activitySet = [NSArray arrayWithArray:self.addedActivityArray];
+        
+        NSError *error = nil;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[newChallenge toNSDictionary] options:NSJSONWritingPrettyPrinted error:&error];
+        if ([jsonData length] > 0 && error == nil)
+        {
+            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
+            self.activityIndicator.hidden = NO;
+            [self.activityIndicator startAnimating];
+            self.view.userInteractionEnabled = NO;
+            
+            dispatch_queue_t queue = dispatch_get_global_queue(0,0);
+            
+            dispatch_async(queue, ^{
+                MWBFService *service = [[MWBFService alloc] init];
+                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    
+                    [self.activityIndicator stopAnimating];
+                    self.activityIndicator.hidden = YES;
+                    self.view.userInteractionEnabled = YES;
+                    
+                    if ([service addChallenge:jsonString] )
+                    {
+                        [Utils alertStatus:@"Now, it's time to get to work." :@"Wohoo! Challenge created." :0];
+                        [self performSegueWithIdentifier:@"NewChallengeAdded" sender:self];
+                    }
+                    else
+                        [Utils alertStatus:@"Unable to create challenge. Please try again." :@"Oops! Embarassing" :0];
+                });
+            });
+        }
     }
 }
 
@@ -228,7 +308,24 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    if (tableView == self.friendsPickerTable)
+        return NO;
+    else
+        return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.friendsPickerTable)
+    {
+        Friend *pickedFriend = [self.friendsList objectAtIndex:indexPath.row];
+        
+        [self.pickedFriendsArray addObject:pickedFriend];
+        [self.playersTable reloadData];
+        
+        [self.friendsList removeObject:pickedFriend];
+        [self.friendsPickerTable reloadData];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -252,6 +349,9 @@
             Friend *pickedFriend = [self.pickedFriendsArray objectAtIndex:indexPath.row];
             [self.pickedFriendsArray removeObject:pickedFriend];
             
+            // Add the friend to the friends list
+            [self.friendsList addObject:pickedFriend];
+            [self.friendsPickerTable reloadData];
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
     }

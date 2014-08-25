@@ -25,6 +25,7 @@
 		9147D90A1983127100183220 /* MWBF_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9147D9091983127100183220 /* MWBF_DemoTests.m */; };
 		9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9147D913198312B200183220 /* MainStoryBoard.storyboard */; };
 		9147D91B1983162800183220 /* MWBFService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9147D9191983162800183220 /* MWBFService.m */; };
+		9152133F19AA407E00EF7E18 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9152133E19AA407E00EF7E18 /* Challenge.m */; };
 		918D5EE519909E5100597147 /* ChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE419909E5100597147 /* ChallengeViewController.m */; };
 		918D5EE819909ED600597147 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE719909ED600597147 /* MoreViewController.m */; };
 		918D5EEE1990AB4C00597147 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 918D5EEA1990AB4C00597147 /* Home.png */; };
@@ -58,6 +59,8 @@
 		919EE996198DCD4100F12411 /* facebook2.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE991198DCD4100F12411 /* facebook2.png */; };
 		919EE99B198DE41B00F12411 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE99A198DE41B00F12411 /* MainViewController.m */; };
 		919EE9A5198ECA0900F12411 /* barChart.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE9A3198ECA0900F12411 /* barChart.png */; };
+		91BBC4C219AA51DF00EBFD25 /* ChallengeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */; };
+		91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */; };
 		91C665181991790F00A56D61 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C665171991790F00A56D61 /* DLPieChart.m */; };
 		91C6651B1992775300A56D61 /* MWBFActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C6651A1992775300A56D61 /* MWBFActivities.m */; };
 		91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */; };
@@ -120,6 +123,8 @@
 		9147D913198312B200183220 /* MainStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard.storyboard; sourceTree = "<group>"; };
 		9147D9181983162800183220 /* MWBFService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWBFService.h; sourceTree = "<group>"; };
 		9147D9191983162800183220 /* MWBFService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBFService.m; sourceTree = "<group>"; };
+		9152133D19AA407E00EF7E18 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
+		9152133E19AA407E00EF7E18 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Challenge.m; sourceTree = "<group>"; };
 		918D5EE319909E5100597147 /* ChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeViewController.h; sourceTree = "<group>"; };
 		918D5EE419909E5100597147 /* ChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeViewController.m; sourceTree = "<group>"; };
 		918D5EE619909ED600597147 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
@@ -170,6 +175,10 @@
 		919EE999198DE41B00F12411 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		919EE99A198DE41B00F12411 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		919EE9A3198ECA0900F12411 /* barChart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barChart.png; sourceTree = "<group>"; };
+		91BBC4C019AA51DF00EBFD25 /* ChallengeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeDetailsViewController.h; sourceTree = "<group>"; };
+		91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeDetailsViewController.m; sourceTree = "<group>"; };
+		91BBC4C319AA59FA00EBFD25 /* ChallengeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeCell.h; sourceTree = "<group>"; };
+		91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeCell.m; sourceTree = "<group>"; };
 		91C665161991790F00A56D61 /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPieChart.h; sourceTree = "<group>"; };
 		91C665171991790F00A56D61 /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
 		91C665191992775300A56D61 /* MWBFActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWBFActivities.h; sourceTree = "<group>"; };
@@ -368,8 +377,10 @@
 			children = (
 				918D5EE319909E5100597147 /* ChallengeViewController.h */,
 				918D5EE419909E5100597147 /* ChallengeViewController.m */,
-				914720621995DC9900F94A80 /* NewChallengeViewController.m */,
 				914720611995DC9900F94A80 /* NewChallengeViewController.h */,
+				914720621995DC9900F94A80 /* NewChallengeViewController.m */,
+				91BBC4C019AA51DF00EBFD25 /* ChallengeDetailsViewController.h */,
+				91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */,
 			);
 			name = Challenge;
 			sourceTree = "<group>";
@@ -467,6 +478,8 @@
 				918F6955198ADB0700776052 /* LogActivityListCell.m */,
 				919E7A7119933502008D410F /* ActivityStatCell.h */,
 				919E7A7219933502008D410F /* ActivityStatCell.m */,
+				91BBC4C319AA59FA00EBFD25 /* ChallengeCell.h */,
+				91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -484,6 +497,8 @@
 				91C6651A1992775300A56D61 /* MWBFActivities.m */,
 				91CFEBE019A42A9B00B0C27A /* Friend.h */,
 				91CFEBE119A42A9B00B0C27A /* Friend.m */,
+				9152133D19AA407E00EF7E18 /* Challenge.h */,
+				9152133E19AA407E00EF7E18 /* Challenge.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -672,6 +687,7 @@
 				918F695A198B080A00776052 /* UserActivity.m in Sources */,
 				918F69221987076700776052 /* HTTPPostRequest.m in Sources */,
 				919EE96A198BF8EA00F12411 /* Activity.m in Sources */,
+				9152133F19AA407E00EF7E18 /* Challenge.m in Sources */,
 				918D5F041991216900597147 /* Utils.m in Sources */,
 				9147D91B1983162800183220 /* MWBFService.m in Sources */,
 				919E7A7319933502008D410F /* ActivityStatCell.m in Sources */,
@@ -683,7 +699,9 @@
 				919EE99B198DE41B00F12411 /* MainViewController.m in Sources */,
 				919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */,
 				918F6956198ADB0700776052 /* LogActivityListCell.m in Sources */,
+				91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */,
 				918D5F07199127B200597147 /* ActivityViewController.m in Sources */,
+				91BBC4C219AA51DF00EBFD25 /* ChallengeDetailsViewController.m in Sources */,
 				91C6651B1992775300A56D61 /* MWBFActivities.m in Sources */,
 				9147D8ED1983127100183220 /* main.m in Sources */,
 			);

@@ -13,6 +13,7 @@
 #import "User.h"
 #import "MWBFActivities.h"
 #import "Friend.h"
+#import "Challenge.h"
 
 /*
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/login"
@@ -48,7 +49,6 @@
 #define MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/mwbf/activities"
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://mwbf.herokuapp.com/mwbf/user/deleteUserActivities"
 
- 
  
 @implementation MWBFService
 
@@ -271,7 +271,7 @@
 
 //////////////// FRIENDS //////////////////////
 
-// Send a request to the server to get the users activites for a given date
+// Send a request to the server to get the friends activites for a given date
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byActivityFromDate:(NSString *) fromDate toDate:(NSString*) toDate
 {
     NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\",\"from_date\"=\"%@\",\"to_date\"=\"%@\"}",friend.email,fromDate,toDate];
@@ -379,6 +379,8 @@
 }
 
 
+////////////////// CHALLENGES ///////////////////
+
 - (BOOL) addChallenge:(NSString*) post
 {
     NSURL *url=[NSURL URLWithString:ADD_CHALLENGE_ENDPOINT_FORMAT];
@@ -401,7 +403,7 @@
     return NO;
 }
 
-- (NSMutableArray*) getChallenges
+- (void) getChallenges
 {
     
     User *user = [User getInstance];
@@ -418,7 +420,30 @@
                          options:0
                          error:&error];
     
-    return jsonData;
+    NSMutableArray *returnArray = [NSMutableArray array];
+    for (id challenge in jsonData)
+    {
+        Challenge *ch = [[Challenge alloc] init];
+        
+        NSString *startDate = [challenge objectForKey:@"startDate"];
+        NSString *endDate = [challenge objectForKey:@"endDate"];
+        NSString *name = [challenge objectForKey:@"name"];
+        NSString *ch_id = [challenge objectForKey:@"id"];
+        
+        NSArray *playerPointsArr =[challenge objectForKey:@"playerPointsSet"];
+        NSArray *activityArr =[challenge objectForKey:@"activitySet"];
+        
+        ch.name = name;
+        ch.startDate = startDate;
+        ch.endDate = endDate;
+        ch.challenge_id = ch_id;
+        ch.activitySet = [NSArray arrayWithArray:activityArr];
+        ch.playersSet = [NSArray arrayWithArray:playerPointsArr];
+        
+        [returnArray addObject:ch];
+    }
+    
+    user.challengesList = [NSMutableArray arrayWithArray:returnArray];
 }
 
 - (void) getAllTimeHighs
