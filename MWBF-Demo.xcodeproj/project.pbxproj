@@ -44,9 +44,6 @@
 		915B426A19AD526800DC79FE /* trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 915B426919AD526800DC79FE /* trophy.png */; };
 		918D5EE519909E5100597147 /* ChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE419909E5100597147 /* ChallengeViewController.m */; };
 		918D5EE819909ED600597147 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE719909ED600597147 /* MoreViewController.m */; };
-		918D5EEE1990AB4C00597147 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 918D5EEA1990AB4C00597147 /* Home.png */; };
-		918D5EF41990ACDA00597147 /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 918D5EF11990ACDA00597147 /* Add.png */; };
-		918D5EF51990ACDA00597147 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 918D5EF21990ACDA00597147 /* icon_home.png */; };
 		918D5EF61990ACDA00597147 /* icon_pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 918D5EF31990ACDA00597147 /* icon_pencil.png */; };
 		918D5EF919910E1800597147 /* BaseClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EF819910E1800597147 /* BaseClassViewController.m */; };
 		918D5EFB19911E4D00597147 /* Forward_arrow_button_next_right_media_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 918D5EFA19911E4D00597147 /* Forward_arrow_button_next_right_media_mail.png */; };
@@ -65,7 +62,6 @@
 		919E7A7319933502008D410F /* ActivityStatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 919E7A7219933502008D410F /* ActivityStatCell.m */; };
 		919EE963198BEBB700F12411 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE962198BEBB700F12411 /* User.m */; };
 		919EE96A198BF8EA00F12411 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE969198BF8EA00F12411 /* Activity.m */; };
-		919EE972198C0A3D00F12411 /* Map-My-Fitness-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE970198C0A3D00F12411 /* Map-My-Fitness-Icon.png */; };
 		919EE978198C40BB00F12411 /* mwbf-run.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE977198C40BB00F12411 /* mwbf-run.png */; };
 		919EE97E198CB70000F12411 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 919EE97D198CB70000F12411 /* background.jpg */; };
 		919EE980198CB8C800F12411 /* Network-Upload-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE97F198CB8C800F12411 /* Network-Upload-icon.png */; };
@@ -99,7 +95,6 @@
 		91CFEBE419A42E8D00B0C27A /* README in Resources */ = {isa = PBXBuildFile; fileRef = 91CFEBE319A42E8D00B0C27A /* README */; };
 		91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */; };
 		91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB0427199C7AC1000014A7 /* icn_menu_20.png */; };
-		91DB042F199C7EB8000014A7 /* AppIcon260x60_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB042B199C7EB8000014A7 /* AppIcon260x60_2x.png */; };
 		91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */; };
 		EC6C4E21FFAA4C6A9C12A6B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429F78ACE8DF4BD8A4A9C08F /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -174,9 +169,6 @@
 		918D5EE419909E5100597147 /* ChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeViewController.m; sourceTree = "<group>"; };
 		918D5EE619909ED600597147 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		918D5EE719909ED600597147 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
-		918D5EEA1990AB4C00597147 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
-		918D5EF11990ACDA00597147 /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Add.png; sourceTree = "<group>"; };
-		918D5EF21990ACDA00597147 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home.png; sourceTree = "<group>"; };
 		918D5EF31990ACDA00597147 /* icon_pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pencil.png; sourceTree = "<group>"; };
 		918D5EF719910E1800597147 /* BaseClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClassViewController.h; sourceTree = "<group>"; };
 		918D5EF819910E1800597147 /* BaseClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseClassViewController.m; sourceTree = "<group>"; };
@@ -207,7 +199,6 @@
 		919EE962198BEBB700F12411 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		919EE968198BF8EA00F12411 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		919EE969198BF8EA00F12411 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
-		919EE970198C0A3D00F12411 /* Map-My-Fitness-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map-My-Fitness-Icon.png"; sourceTree = "<group>"; };
 		919EE977198C40BB00F12411 /* mwbf-run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mwbf-run.png"; sourceTree = "<group>"; };
 		919EE97D198CB70000F12411 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		919EE97F198CB8C800F12411 /* Network-Upload-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Network-Upload-icon.png"; sourceTree = "<group>"; };
@@ -252,7 +243,6 @@
 		91CFEBE519A5A4D500B0C27A /* PersonalHealthStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHealthStatsViewController.h; sourceTree = "<group>"; };
 		91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHealthStatsViewController.m; sourceTree = "<group>"; };
 		91DB0427199C7AC1000014A7 /* icn_menu_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icn_menu_20.png; sourceTree = "<group>"; };
-		91DB042B199C7EB8000014A7 /* AppIcon260x60_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon260x60_2x.png; sourceTree = "<group>"; };
 		91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon560x60_2x.png; sourceTree = "<group>"; };
 		DCCA5EEA60AB4EE78F889D1B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -356,21 +346,16 @@
 				91DB0427199C7AC1000014A7 /* icn_menu_20.png */,
 				919EE977198C40BB00F12411 /* mwbf-run.png */,
 				91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */,
-				91DB042B199C7EB8000014A7 /* AppIcon260x60_2x.png */,
 				91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */,
 				91CF0E7419A12040007B668A /* trash.png */,
 				919EE991198DCD4100F12411 /* facebook2.png */,
-				918D5EEA1990AB4C00597147 /* Home.png */,
 				919EE985198D297700F12411 /* add-icon1.png */,
-				918D5EF11990ACDA00597147 /* Add.png */,
-				918D5EF21990ACDA00597147 /* icon_home.png */,
 				918D5EFA19911E4D00597147 /* Forward_arrow_button_next_right_media_mail.png */,
 				918D5EF31990ACDA00597147 /* icon_pencil.png */,
 				91CF0E6E19A10EAC007B668A /* acount-information.png */,
 				918D5F001991208200597147 /* goRight1.png */,
 				919EE9A3198ECA0900F12411 /* barChart.png */,
 				91CF0E6619A10C1B007B668A /* column_chart_256.png */,
-				919EE970198C0A3D00F12411 /* Map-My-Fitness-Icon.png */,
 				919EE97F198CB8C800F12411 /* Network-Upload-icon.png */,
 				919EE97D198CB70000F12411 /* background.jpg */,
 				918F69511988953500776052 /* runningLong.jpg */,
@@ -690,7 +675,6 @@
 			files = (
 				919EE9A5198ECA0900F12411 /* barChart.png in Resources */,
 				918F694A1988933200776052 /* running6.jpg in Resources */,
-				91DB042F199C7EB8000014A7 /* AppIcon260x60_2x.png in Resources */,
 				919EE978198C40BB00F12411 /* mwbf-run.png in Resources */,
 				91CF0ED519A27B17007B668A /* Default.png in Resources */,
 				91CF0E6819A10C1B007B668A /* column_chart_256.png in Resources */,
@@ -707,22 +691,18 @@
 				91CF0E7919A19B17007B668A /* icon_addfriend.png in Resources */,
 				9147D8EB1983127100183220 /* InfoPlist.strings in Resources */,
 				915B423D19ABE73700DC79FE /* background.png in Resources */,
-				918D5EEE1990AB4C00597147 /* Home.png in Resources */,
 				91CF0ED619A27B17007B668A /* Default@2x.png in Resources */,
 				918D5F011991208200597147 /* goRight1.png in Resources */,
 				918D5EF61990ACDA00597147 /* icon_pencil.png in Resources */,
 				91CF0EE819A2F3F8007B668A /* search_08_256.png in Resources */,
-				918D5EF51990ACDA00597147 /* icon_home.png in Resources */,
 				915B423F19ABE73700DC79FE /* default.plist in Resources */,
 				91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */,
 				915B426819AC0CD500DC79FE /* calendar3.png in Resources */,
 				919EE996198DCD4100F12411 /* facebook2.png in Resources */,
 				91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */,
 				918F694E198893C000776052 /* reasons-to-run.jpg in Resources */,
-				919EE972198C0A3D00F12411 /* Map-My-Fitness-Icon.png in Resources */,
 				91CF0ED419A27B17007B668A /* Default-568h@2x.png in Resources */,
 				91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */,
-				918D5EF41990ACDA00597147 /* Add.png in Resources */,
 				91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */,
 				915B424019ABE73700DC79FE /* apple calendar.plist in Resources */,
 				919EE980198CB8C800F12411 /* Network-Upload-icon.png in Resources */,
