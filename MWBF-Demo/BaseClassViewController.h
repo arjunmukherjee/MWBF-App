@@ -13,4 +13,6 @@
 
 @interface BaseClassViewController : UIViewController
 
+@property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
+
 @end

@@ -10,32 +10,114 @@
 #import "ChallengeCell.h"
 #import "User.h"
 #import "Challenge.h"
+#import "ChallengeDetailsViewController.h"
+
+#define CURRENT_INDEX 0
+#define PAST_INDEX 1
+#define FUTURE_INDEX 2
 
 @interface ChallengeViewController ()
 
 @property NSMutableArray *currentChallengesArray;
 @property NSMutableArray *pastChallengesArray;
-@property NSMutableArray *upcomingChallengesArray;
+@property NSMutableArray *futureChallengesArray;
 @property User *user;
+@property Challenge *chosenChallenge;
+@property (weak, nonatomic) IBOutlet UITableView *currentChallengesTableView;
+@property (weak, nonatomic) IBOutlet UITableView *pastChallengesTableView;
+@property (weak, nonatomic) IBOutlet UITableView *futureChallengesTableView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *challengeTypeSegmentedController;
 
 @end
 
 
 @implementation ChallengeViewController
 
-@synthesize currentChallengesArray, pastChallengesArray, upcomingChallengesArray;
+@synthesize currentChallengesArray, pastChallengesArray, futureChallengesArray;
 @synthesize user;
+@synthesize chosenChallenge;
+@synthesize currentChallengesTableView,pastChallengesTableView,futureChallengesTableView;
+@synthesize challengeTypeSegmentedController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.user = [User getInstance];
+    self.currentChallengesArray = [NSMutableArray array];
+    self.pastChallengesArray = [NSMutableArray array];
+    self.futureChallengesArray = [NSMutableArray array];
     
-    self.currentChallengesArray = [NSMutableArray arrayWithArray:user.challengesList];
+    // Hidden views
+    self.pastChallengesTableView.hidden = YES;
+    self.futureChallengesTableView.hidden = YES;
     
+    // Assign the challengs to the correct arrays
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMM d, yyyy hh:mm:ss a"];
+    for (Challenge *challengeObj in user.challengesList)
+    {
+        
+        NSDate *startDate = [dateFormat dateFromString:challengeObj.startDate];
+        NSDate *endDate = [dateFormat dateFromString:challengeObj.endDate];
+        
+        components = [gregorianCalendar components:NSDayCalendarUnit
+                                            fromDate:[NSDate date]
+                                            toDate:endDate
+                                           options:0];
+        NSInteger daysRemaining = [components day];
+        
+        // Look for challenges in the past
+        if (daysRemaining < 0)
+            [self.pastChallengesArray addObject:challengeObj];
+        else
+        {
+            // Look for challenges in the future
+            components = [gregorianCalendar components:NSDayCalendarUnit
+                                             fromDate:[NSDate date]
+                                               toDate:startDate
+                                              options:0];
+            NSInteger daysToStart = [components day];
+            if (daysToStart > 0)
+                [self.futureChallengesArray addObject:challengeObj];
+            else
+                [self.currentChallengesArray addObject:challengeObj];
+        }
+    }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ChallengeDetails"])
+    {
+        ChallengeDetailsViewController *controller = [segue destinationViewController];
+        controller.challenge = self.chosenChallenge;
+    }
+}
+
+- (IBAction)segmentedControllerClicked:(id)sender
+{
+    if (self.challengeTypeSegmentedController.selectedSegmentIndex == CURRENT_INDEX)
+    {
+        self.currentChallengesTableView.hidden = NO;
+        self.pastChallengesTableView.hidden = YES;
+        self.futureChallengesTableView.hidden = YES;
+    }
+    else if (self.challengeTypeSegmentedController.selectedSegmentIndex == PAST_INDEX)
+    {
+        self.currentChallengesTableView.hidden = YES;
+        self.pastChallengesTableView.hidden = NO;
+        self.futureChallengesTableView.hidden = YES;
+    }
+    else
+    {
+        self.currentChallengesTableView.hidden = YES;
+        self.pastChallengesTableView.hidden = YES;
+        self.futureChallengesTableView.hidden = NO;
+    }
+}
 
 
 ///////// UITABLEVIEW METHODS /////////
@@ -47,48 +129,128 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.currentChallengesArray count];
+    if (tableView == self.currentChallengesTableView)
+        return [self.currentChallengesArray count];
+    else if (tableView == self.pastChallengesTableView)
+        return [self.pastChallengesArray count];
+    else
+        return [self.futureChallengesArray count];
+        
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.futureChallengesTableView)
+        return;
+    
+    Challenge *ch = [[Challenge alloc] init];
+    if (tableView == self.currentChallengesTableView)
+        ch = [self.currentChallengesArray objectAtIndex:indexPath.row];
+    else
+        ch = [self.pastChallengesArray objectAtIndex:indexPath.row];
+
+    self.chosenChallenge = ch;
+    [self performSegueWithIdentifier:@"ChallengeDetails" sender:self];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ChallengeDetailsCell";
+    NSString *cellIdentifier = @"CurrentChallengeDetailsCell";
+    Challenge *challengeObj = [[Challenge alloc] init];
     
-    ChallengeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    Challenge *challengeObj = [self.currentChallengesArray objectAtIndex:indexPath.row];
+    if (tableView == self.currentChallengesTableView)
+    {
+        cellIdentifier = @"CurrentChallengeDetailsCell";
+        challengeObj = [self.currentChallengesArray objectAtIndex:indexPath.row];
+    }
+    else if (tableView == self.pastChallengesTableView)
+    {
+        cellIdentifier = @"PastChallengeDetailsCell";
+        challengeObj = [self.pastChallengesArray objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        cellIdentifier = @"FutureChallengeDetailsCell";
+        challengeObj = [self.futureChallengesArray objectAtIndex:indexPath.row];
+    }
+    
+    ChallengeCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.name.text = challengeObj.name;
     
+    // Calculate the progress of the challenge
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMM d, yyyy hh:mm:ss a"];
+    NSDate *startDate = [dateFormat dateFromString:challengeObj.startDate];
+    NSDate *endDate = [dateFormat dateFromString:challengeObj.endDate];
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
+                                                        fromDate:startDate
+                                                          toDate:endDate
+                                                         options:0];
+    NSInteger totalNumberOfDays = [components day];
+    
+    NSDate *today = [NSDate date];
+    components = [gregorianCalendar components:NSDayCalendarUnit
+                                      fromDate:today
+                                        toDate:endDate
+                                       options:0];
+    NSInteger remainingDays = [components day];
+  
+    float progress = (float) ( 1 - (float)remainingDays/totalNumberOfDays);
+    cell.challengeProgressBar.progress = progress;
+    if (progress > 1)
+        cell.challengeProgressBar.progressTintColor = [UIColor purpleColor];
+    else if (progress > 0.75)
+        cell.challengeProgressBar.progressTintColor = [UIColor redColor];
+    else if (progress > 0.5)
+        cell.challengeProgressBar.progressTintColor = [UIColor orangeColor];
+   [cell.challengeProgressBar setTransform:CGAffineTransformMakeScale(1.0, 3.0)];
+    
     NSArray *tempDateArr = [challengeObj.startDate componentsSeparatedByString:@" "];
-    cell.startDate.text = [NSString stringWithFormat:@"%@ %@%@  to",tempDateArr[0],tempDateArr[1],tempDateArr[2]];
+    cell.startDate.text = [NSString stringWithFormat:@"%@ %@%@  to ",tempDateArr[0],tempDateArr[1],tempDateArr[2]];
     
     tempDateArr = [challengeObj.endDate componentsSeparatedByString:@" "];
     cell.endDate.text = [NSString stringWithFormat:@"%@ %@%@",tempDateArr[0],tempDateArr[1],tempDateArr[2]];
     
-    
-    
     // Parse the string and sort the points
     NSMutableArray *pointsArr = [NSMutableArray array];
-    NSString *myPoints;
+    NSNumber *myPoints;
     for (id playerPoints in challengeObj.playersSet)
     {
         NSArray *tempArr = [playerPoints componentsSeparatedByString:@","];
-        [pointsArr addObject:tempArr[1]];
+        CGFloat points =[tempArr[1] floatValue];
+        NSNumber *num = [NSNumber numberWithFloat:points];
+        [pointsArr addObject:num];
         if ([tempArr[0] isEqualToString:user.userEmail] )
-            myPoints = tempArr[1];
+            myPoints = num;
     }
     
     // Sort the activites by the total points
-    NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES];
+    NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:nil ascending:NO];
     NSArray *sortedPointsArr = [pointsArr sortedArrayUsingDescriptors:@[sd]];
     
     int myPosition = 0;
     for (myPosition=0; myPosition < [sortedPointsArr count]; myPosition++)
     {
-        if ( [sortedPointsArr[myPosition] isEqualToString:myPoints])
+        if ( sortedPointsArr[myPosition] == myPoints )
             break;
     }
     
-    cell.myPosition.text = [NSString stringWithFormat:@"%d(%lu)",(myPosition+1),(unsigned long)[sortedPointsArr count]];
+    cell.myPosition.text = [NSString stringWithFormat:@"%d/%lu",(myPosition+1),(unsigned long)[sortedPointsArr count]];
+    
+    challengeObj.yourPosition = [NSString stringWithFormat:@"%d of %lu players",(myPosition+1),(unsigned long)[sortedPointsArr count]];
+    
+    // Show the tropy button , only if the challenge is in the past and also only if the player won it
+    if ( (myPosition+1 == 1) && (tableView == self.pastChallengesTableView) )
+        cell.trophyButton.hidden = NO;
+    else
+        cell.trophyButton.hidden = YES;
+    
+    UIColor *selectionColor = [[UIColor alloc] initWithRed:20.0 / 255 green:59.0 / 255 blue:102.0 / 255 alpha:0.5];
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = selectionColor;
+    [cell setSelectedBackgroundView:bgColorView];
     
     return cell;
     

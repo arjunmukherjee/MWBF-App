@@ -12,6 +12,7 @@
 #import "LogActivityListCell.h"
 #import "User.h"
 #import "MWBFActivities.h"
+#import "PMCalendar.h"
 
 #define MONTH_COMPONENT_INDEX 3
 #define DAY_COMPONENT_INDEX 4
@@ -19,15 +20,17 @@
 @interface LogActivityViewController ()
 
 @property NSArray *activityListArray;
-@property NSMutableArray *activityValueArray;
-@property NSMutableArray *activityValueDecimalArray;
 @property NSMutableArray *addedActivityArray;
-@property NSMutableArray *monthsArray;
-@property NSMutableArray *daysArray;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITextView *infoView;
+@property (weak, nonatomic) IBOutlet UIButton *pickDateButton;
+@property (weak, nonatomic) IBOutlet UITextField *activityValueTextField;
+@property (weak, nonatomic) IBOutlet UILabel *unitsLabel;
 
 @property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
+
+// Calendar
+@property (nonatomic, strong) PMCalendarController *pmCC;
 
 @end
 
@@ -41,14 +44,13 @@
 @synthesize user = _user;
 @synthesize activity = _activity;
 @synthesize activityIndicator;
+@synthesize pmCC;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.user  = [User getInstance];
-    
-    self.activityPickerButton.hidden = NO;
     
     self.infoView.hidden = YES;
     [Utils setMaskTo:self.infoView byRoundingCorners:UIRectCornerAllCorners];
@@ -65,42 +67,7 @@
     
     // Initializers
     self.addedActivityArray = [NSMutableArray array];
-    self.activityValueArray = [NSMutableArray array];
-    self.monthsArray = [NSMutableArray array];
-    self.activityValueDecimalArray = [NSMutableArray array];
-    self.daysArray = [NSMutableArray array];
   
-    // Activity whole number value
-    for(int i=0; i <201; i++)
-    {
-        NSString *value = [NSString stringWithFormat:@"%d",i];
-        [self.activityValueArray addObject:value];
-    }
-    
-    // Activity decimal number value
-    for(int i=0; i <100; i++)
-    {
-        NSString *value = [NSString stringWithFormat:@"%d",i];
-        [self.activityValueDecimalArray addObject:value];
-    }
- 
-    // Date month : Only display months until the current month
-    NSDate *currentDate =[NSDate date ];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM"];
-    int currentMonth = [[dateFormatter stringFromDate: currentDate] intValue];
-    
-    NSArray *tempMonthsArray = @[@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun",@"Jul",@"Aug",@"Sep",@"Oct",@"Nov",@"Dec"];
-    for (int i=0;i<currentMonth; i++)
-        [self.monthsArray addObject:tempMonthsArray[i]];
-    
-    // Date days number value
-    for(int i=1; i <32; i++)
-    {
-        NSString *value = [NSString stringWithFormat:@"%d",i];
-        [self.daysArray addObject:value];
-    }
-    
     [self pickActivityClicked:self];
 
     // Activity Indicator
@@ -108,13 +75,23 @@
     self.activityIndicator.center = self.view.center;
     self.activityIndicator.color = [UIColor blueColor];
     [self.view addSubview: self.activityIndicator];
-
+    
+    
+    // Calendar
+    self.pmCC = [[PMCalendarController alloc] initWithThemeName:@"default"];
+    self.pmCC.delegate = self;
+    
+    self.pmCC.mondayFirstDayOfWeek = NO;
+    self.pmCC.allowsPeriodSelection = NO;
 }
 
 - (IBAction)infoButtonClicked:(id)sender
 {
     if (self.infoView.hidden == YES)
+    {
         self.infoView.hidden = NO;
+        [self.view bringSubviewToFront:self.infoView];
+    }
     else
         self.infoView.hidden = YES;
 }
@@ -171,7 +148,6 @@
                     self.activityPicker.hidden = NO;
                     
                     // Hidden components
-                    self.activityPickerButton.hidden = YES;
                     
                     self.logActivityButton.hidden = NO;
                     self.activityTable.hidden = NO;
@@ -183,7 +159,7 @@
                     self.addedActivityArray = [[NSMutableArray alloc] init];
                     [self.activityTable reloadData];
                     
-                    [self resetActivityPicker];
+                    //[self resetActivityPicker];
                 }
             });
         });
@@ -207,24 +183,27 @@
     NSInteger row = [self.activityPicker selectedRowInComponent:0];
     NSString *activity  = [self.activityListArray objectAtIndex:row];
     
-    row = [self.activityPicker selectedRowInComponent:1];
-    NSString *value  = [self.activityValueArray objectAtIndex:row];
+    NSString *activityValue  = self.activityValueTextField.text;
     
-    row = [self.activityPicker selectedRowInComponent:2];
-    NSString *decimal  = [self.activityValueDecimalArray objectAtIndex:row];
+    // Get the activity time
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy hh:mm:ss a"];
+    NSString *yearTimeStr = [dateFormatter stringFromDate: currentTime];
     
-    row = [self.activityPicker selectedRowInComponent:3];
-    NSString *month  = [self.monthsArray objectAtIndex:row];
+    [dateFormatter setDateFormat:@"MMM dd"];
+    NSString *date = [dateFormatter stringFromDate: [self.pmCC.period startDate]];
+    date = [NSString stringWithFormat:@"%@, %@",date,yearTimeStr];
     
-    row = [self.activityPicker selectedRowInComponent:4];
-    NSString *day  = [self.daysArray objectAtIndex:row];
+    NSDate *selectedDate = [self.pmCC.period startDate];
+    NSDate *today = [NSDate date];
     
-    if ([value isEqualToString:@"0"] && [decimal isEqualToString:@"0"])
+    if ( selectedDate == NULL )
+        [Utils alertStatus:@"Please pick a date." :@"Oops! Miss something?" :0];
+    else if ((activityValue == NULL) || ([activityValue length] <= 0 ))
        [Utils alertStatus:@"Please pick a value for the exercise." :@"Oops! Miss something?" :0];
-    else if([self isDateInTheFutureWithDay:day])
-    {
+    else if([[selectedDate earlierDate:today] isEqualToDate:today])
         [Utils alertStatus:@"Don't log what you haven't yet done." :@"Hold your horses!" :0];
-    }
     else
     {
         self.activityTable.hidden = NO;
@@ -235,14 +214,6 @@
         self.pointsHeaderLable.hidden = NO;
         
         self.logActivityButton.hidden = NO;
-        
-        NSDate *currentTime = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy hh:mm:ss a"];
-        NSString *yearTimeStr = [dateFormatter stringFromDate: currentTime];
-        NSString *date = [NSString stringWithFormat:@"%@ %@, %@",month,day,yearTimeStr];
-        
-        NSString *activityValue = [NSString stringWithFormat:@"%@.%@",value,decimal];
         
         UserActivity *userActivityObj = [[UserActivity alloc] init];
         userActivityObj.activity = activity;
@@ -260,32 +231,19 @@
         [self.addedActivityArray addObject:userActivityObj];
         
         [self.activityTable reloadData];
+        
+        // Reset the activityValue field
+        self.activityValueTextField.text = @"";
     }
 }
 
-- (Boolean) isDateInTheFutureWithDay:(NSString*) chosenDay
-{
-    NSDate *currentDate =[NSDate date ];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"d"];
-    NSString *currentDay = [dateFormatter stringFromDate: currentDate];
-    
-    if ([chosenDay intValue] > [currentDay intValue])
-        return YES;
-    else
-        return NO;
-}
-
-- (IBAction) pickActivityClicked:(id)sender
+- (void)  pickActivityClicked:(id)sender
 {
     self.activity = [Activity getInstance];
-    if ( [self.activity.activityDict count] == 0 )
-        NSLog(@"Waiting to download the list of activities form the server.");
     
     self.activityListArray = [NSMutableArray arrayWithArray:[self.activity.activityDict allKeys]];
-        [self.activityPicker reloadAllComponents];
+    [self.activityPicker reloadAllComponents];
         
-    self.activityPickerButton.hidden = YES;
     self.addActivityButton.hidden = NO;
     
     if([self.activityPicker isHidden])
@@ -294,45 +252,8 @@
         self.activityPicker.hidden = NO;
     
     [UIView animateWithDuration:0.25 animations:^{
-        
         self.activityPicker.alpha = 1.0f;
-        
     }];
-    
-    NSDate *currentTime = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-   
-    [dateFormatter setDateFormat:@"MM"];
-    NSInteger monthInt = [[dateFormatter stringFromDate: currentTime] integerValue];
-    
-    [dateFormatter setDateFormat:@"dd"];
-    NSInteger dayInt = [[dateFormatter stringFromDate: currentTime] integerValue];
-    
-    [self.activityPicker selectRow:(monthInt-1) inComponent:3 animated:NO];
-    [self.activityPicker selectRow:(dayInt-1) inComponent:4 animated:NO];
-}
-
-
-- (void) resetActivityPicker
-{
-    int numberOfComponents = [self.activityPicker numberOfComponents];
-    for (int i=0; i<numberOfComponents; i++)
-        [self.activityPicker selectRow:0 inComponent:i animated:NO];
-    
-    NSDate *currentTime = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    [dateFormatter setDateFormat:@"MM"];
-    NSInteger monthInt = [[dateFormatter stringFromDate: currentTime] integerValue];
-    
-    [dateFormatter setDateFormat:@"dd"];
-    NSInteger dayInt = [[dateFormatter stringFromDate: currentTime] integerValue];
-    
-    [self.activityPicker selectRow:(monthInt-1) inComponent:MONTH_COMPONENT_INDEX animated:NO];
-    [self.activityPicker selectRow:(dayInt-1) inComponent:DAY_COMPONENT_INDEX animated:NO];
-    
-    [self.activityPicker reloadAllComponents];
-    
 }
 
 
@@ -340,42 +261,37 @@
 - (IBAction)backgroundTap:(id)sender
 {
     self.infoView.hidden = YES;
+    [self.view endEditing:YES];
+    [self.pmCC dismissCalendarAnimated:NO];
 }
 
+
+#pragma - Calendar methods
+/////////// CALENDAR METHODS /////////////////
+
+- (IBAction)pickDateClicked:(id)sender
+{
+    [self.pmCC presentCalendarFromView:sender
+                  permittedArrowDirections:PMCalendarArrowDirectionAny
+                                 isPopover:YES
+                                  animated:YES];
+}
 
 ///// PICKER VIEW METHODS ////
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 5;
+    return 1;
 }
 
 - (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (component == 0)
-        return [self.activityListArray count];
-    else if (component == 1)
-        return [self.activityValueArray count];
-    else if (component == 2)
-        return [self.activityValueDecimalArray count];
-    else if (component == 3)
-        return [self.monthsArray count];
-    else
-        return [self.daysArray count];
+    return [self.activityListArray count];
 }
 
 - (NSString*) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (component == 0)
-        return self.activityListArray[row];
-    else if (component == 1)
-        return self.activityValueArray[row];
-    else if (component == 2)
-        return self.activityValueDecimalArray[row];
-    else if (component == 3)
-        return self.monthsArray[row];
-    else
-        return self.daysArray[row];
+    return self.activityListArray[row];
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
@@ -383,10 +299,6 @@
     switch(component)
     {
         case 0: return 115;
-        case 1: return 50;
-        case 2: return 34;
-        case 3: return 52;
-        case 4: return 34;
         default: return 30;
     }
 }
@@ -397,18 +309,12 @@
     UILabel *label = [[UILabel alloc] init];
     label.font = [UIFont fontWithName:@"Trebuchet MS" size:16];
     
-    if (component == 0)
-        label.text =  self.activityListArray[row];
-    else if (component == 1)
-        label.text =  self.activityValueArray[row];
-    else if (component == 2)
-        label.text = self.activityValueDecimalArray[row];
-    else if (component == 3)
-        label.text = self.monthsArray[row];
-    else
-        label.text = self.daysArray[row];
-    
-    
+    label.text =  self.activityListArray[row];
+   
+    NSInteger index = [self.activityPicker selectedRowInComponent:0];
+    MWBFActivities *activity = [self.activity.activityDict objectForKey:self.activityListArray[index]];
+    self.unitsLabel.text = activity.measurementUnits;
+  
     return label;
 }
 

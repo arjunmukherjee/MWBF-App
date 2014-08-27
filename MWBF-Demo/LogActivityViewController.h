@@ -10,14 +10,14 @@
 #import "User.h"
 #import "Activity.h"
 #import "BaseClassViewController.h"
+#import "PMCalendar.h"
 
-@interface LogActivityViewController : BaseClassViewController <UIPickerViewDataSource,UIPickerViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface LogActivityViewController : BaseClassViewController <UIPickerViewDataSource,UIPickerViewDelegate,UITableViewDelegate,UITableViewDataSource,PMCalendarControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *activityPicker;
 
 @property (weak, nonatomic) IBOutlet UIButton *logActivityButton;
 @property (weak, nonatomic) IBOutlet UIButton *addActivityButton;
-@property (weak, nonatomic) IBOutlet UIButton *activityPickerButton;
 
 @property (nonatomic, weak) IBOutlet UITableView *activityTable;
 
@@ -31,7 +31,6 @@
 
 - (IBAction) logActivityClicked:(id)sender;
 - (IBAction) addActivityClicked:(id)sender;
-- (IBAction) pickActivityClicked:(id)sender;
 - (IBAction) backgroundTap:(id)sender;
 
 

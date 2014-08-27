@@ -26,6 +26,22 @@
 		9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9147D913198312B200183220 /* MainStoryBoard.storyboard */; };
 		9147D91B1983162800183220 /* MWBFService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9147D9191983162800183220 /* MWBFService.m */; };
 		9152133F19AA407E00EF7E18 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9152133E19AA407E00EF7E18 /* Challenge.m */; };
+		915B423D19ABE73700DC79FE /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 915B423919ABE73700DC79FE /* background.png */; };
+		915B423E19ABE73700DC79FE /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 915B423A19ABE73700DC79FE /* background@2x.png */; };
+		915B423F19ABE73700DC79FE /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 915B423B19ABE73700DC79FE /* default.plist */; };
+		915B424019ABE73700DC79FE /* apple calendar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 915B423C19ABE73700DC79FE /* apple calendar.plist */; };
+		915B425619ABE74C00DC79FE /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B424319ABE74C00DC79FE /* NSDate+Helpers.m */; };
+		915B425719ABE74C00DC79FE /* PMCalendarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B424519ABE74C00DC79FE /* PMCalendarBackgroundView.m */; };
+		915B425819ABE74C00DC79FE /* PMCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B424819ABE74C00DC79FE /* PMCalendarController.m */; };
+		915B425919ABE74C00DC79FE /* PMCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B424A19ABE74C00DC79FE /* PMCalendarView.m */; };
+		915B425A19ABE74C00DC79FE /* PMPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B424C19ABE74C00DC79FE /* PMPeriod.m */; };
+		915B425B19ABE74C00DC79FE /* PMSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B424E19ABE74C00DC79FE /* PMSelectionView.m */; };
+		915B425C19ABE74C00DC79FE /* PMDimmingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B425019ABE74C00DC79FE /* PMDimmingView.m */; };
+		915B425D19ABE74C00DC79FE /* PMThemeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B425319ABE74C00DC79FE /* PMThemeEngine.m */; };
+		915B425E19ABE74C00DC79FE /* PMThemeShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B425519ABE74C00DC79FE /* PMThemeShadow.m */; };
+		915B426019ABE78400DC79FE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915B425F19ABE78400DC79FE /* CoreText.framework */; };
+		915B426819AC0CD500DC79FE /* calendar3.png in Resources */ = {isa = PBXBuildFile; fileRef = 915B426719AC0CD500DC79FE /* calendar3.png */; };
+		915B426A19AD526800DC79FE /* trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 915B426919AD526800DC79FE /* trophy.png */; };
 		918D5EE519909E5100597147 /* ChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE419909E5100597147 /* ChallengeViewController.m */; };
 		918D5EE819909ED600597147 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D5EE719909ED600597147 /* MoreViewController.m */; };
 		918D5EEE1990AB4C00597147 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 918D5EEA1990AB4C00597147 /* Home.png */; };
@@ -125,6 +141,35 @@
 		9147D9191983162800183220 /* MWBFService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBFService.m; sourceTree = "<group>"; };
 		9152133D19AA407E00EF7E18 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
 		9152133E19AA407E00EF7E18 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Challenge.m; sourceTree = "<group>"; };
+		915B423819ABE72300DC79FE /* PMCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendar.h; sourceTree = "<group>"; };
+		915B423919ABE73700DC79FE /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		915B423A19ABE73700DC79FE /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		915B423B19ABE73700DC79FE /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
+		915B423C19ABE73700DC79FE /* apple calendar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "apple calendar.plist"; sourceTree = "<group>"; };
+		915B424119ABE74C00DC79FE /* PMTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTheme.h; sourceTree = "<group>"; };
+		915B424219ABE74C00DC79FE /* NSDate+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helpers.h"; sourceTree = "<group>"; };
+		915B424319ABE74C00DC79FE /* NSDate+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helpers.m"; sourceTree = "<group>"; };
+		915B424419ABE74C00DC79FE /* PMCalendarBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarBackgroundView.h; sourceTree = "<group>"; };
+		915B424519ABE74C00DC79FE /* PMCalendarBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCalendarBackgroundView.m; sourceTree = "<group>"; };
+		915B424619ABE74C00DC79FE /* PMCalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarConstants.h; sourceTree = "<group>"; };
+		915B424719ABE74C00DC79FE /* PMCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarController.h; sourceTree = "<group>"; };
+		915B424819ABE74C00DC79FE /* PMCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCalendarController.m; sourceTree = "<group>"; };
+		915B424919ABE74C00DC79FE /* PMCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarView.h; sourceTree = "<group>"; };
+		915B424A19ABE74C00DC79FE /* PMCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCalendarView.m; sourceTree = "<group>"; };
+		915B424B19ABE74C00DC79FE /* PMPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMPeriod.h; sourceTree = "<group>"; };
+		915B424C19ABE74C00DC79FE /* PMPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPeriod.m; sourceTree = "<group>"; };
+		915B424D19ABE74C00DC79FE /* PMSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSelectionView.h; sourceTree = "<group>"; };
+		915B424E19ABE74C00DC79FE /* PMSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSelectionView.m; sourceTree = "<group>"; };
+		915B424F19ABE74C00DC79FE /* PMDimmingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDimmingView.h; sourceTree = "<group>"; };
+		915B425019ABE74C00DC79FE /* PMDimmingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDimmingView.m; sourceTree = "<group>"; };
+		915B425119ABE74C00DC79FE /* PMCalendarHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarHelpers.h; sourceTree = "<group>"; };
+		915B425219ABE74C00DC79FE /* PMThemeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMThemeEngine.h; sourceTree = "<group>"; };
+		915B425319ABE74C00DC79FE /* PMThemeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMThemeEngine.m; sourceTree = "<group>"; };
+		915B425419ABE74C00DC79FE /* PMThemeShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMThemeShadow.h; sourceTree = "<group>"; };
+		915B425519ABE74C00DC79FE /* PMThemeShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMThemeShadow.m; sourceTree = "<group>"; };
+		915B425F19ABE78400DC79FE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		915B426719AC0CD500DC79FE /* calendar3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar3.png; sourceTree = "<group>"; };
+		915B426919AD526800DC79FE /* trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trophy.png; sourceTree = "<group>"; };
 		918D5EE319909E5100597147 /* ChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeViewController.h; sourceTree = "<group>"; };
 		918D5EE419909E5100597147 /* ChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeViewController.m; sourceTree = "<group>"; };
 		918D5EE619909ED600597147 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
@@ -217,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915B426019ABE78400DC79FE /* CoreText.framework in Frameworks */,
 				91CF0EDB19A2DF73007B668A /* SystemConfiguration.framework in Frameworks */,
 				91CF0E7F19A23AB8007B668A /* Social.framework in Frameworks */,
 				91CF0E7B19A1AA29007B668A /* MessageUI.framework in Frameworks */,
@@ -267,6 +313,7 @@
 		9147D8DD1983127100183220 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				915B425F19ABE78400DC79FE /* CoreText.framework */,
 				91CF0EDA19A2DF73007B668A /* SystemConfiguration.framework */,
 				91CF0E7E19A23AB8007B668A /* Social.framework */,
 				91CF0E7C19A23AA7007B668A /* FacebookSDK.framework */,
@@ -284,6 +331,7 @@
 		9147D8E61983127100183220 /* MWBF-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				915B420E19ABE6AB00DC79FE /* PMCalendar */,
 				91C665151991790F00A56D61 /* Pie Chart Library */,
 				918F6957198B07ED00776052 /* Model */,
 				918F693519886CC800776052 /* Utils */,
@@ -301,8 +349,10 @@
 			children = (
 				91CF0E7619A1393B007B668A /* Logout-icon-01.png */,
 				91CF0EE719A2F3F8007B668A /* search_08_256.png */,
+				915B426919AD526800DC79FE /* trophy.png */,
 				91CF0E7819A19B17007B668A /* icon_addfriend.png */,
 				9147205F1995DB5900F94A80 /* Game-controller-1128030308.png */,
+				915B426719AC0CD500DC79FE /* calendar3.png */,
 				91DB0427199C7AC1000014A7 /* icn_menu_20.png */,
 				919EE977198C40BB00F12411 /* mwbf-run.png */,
 				91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */,
@@ -414,6 +464,55 @@
 				918D5EE719909ED600597147 /* MoreViewController.m */,
 			);
 			name = Misc;
+			sourceTree = "<group>";
+		};
+		915B420E19ABE6AB00DC79FE /* PMCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				915B423819ABE72300DC79FE /* PMCalendar.h */,
+				915B422E19ABE6F000DC79FE /* Theme */,
+				915B420F19ABE6CF00DC79FE /* src */,
+			);
+			name = PMCalendar;
+			sourceTree = "<group>";
+		};
+		915B420F19ABE6CF00DC79FE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				915B424119ABE74C00DC79FE /* PMTheme.h */,
+				915B424219ABE74C00DC79FE /* NSDate+Helpers.h */,
+				915B424319ABE74C00DC79FE /* NSDate+Helpers.m */,
+				915B424419ABE74C00DC79FE /* PMCalendarBackgroundView.h */,
+				915B424519ABE74C00DC79FE /* PMCalendarBackgroundView.m */,
+				915B424619ABE74C00DC79FE /* PMCalendarConstants.h */,
+				915B424719ABE74C00DC79FE /* PMCalendarController.h */,
+				915B424819ABE74C00DC79FE /* PMCalendarController.m */,
+				915B424919ABE74C00DC79FE /* PMCalendarView.h */,
+				915B424A19ABE74C00DC79FE /* PMCalendarView.m */,
+				915B424B19ABE74C00DC79FE /* PMPeriod.h */,
+				915B424C19ABE74C00DC79FE /* PMPeriod.m */,
+				915B424D19ABE74C00DC79FE /* PMSelectionView.h */,
+				915B424E19ABE74C00DC79FE /* PMSelectionView.m */,
+				915B424F19ABE74C00DC79FE /* PMDimmingView.h */,
+				915B425019ABE74C00DC79FE /* PMDimmingView.m */,
+				915B425119ABE74C00DC79FE /* PMCalendarHelpers.h */,
+				915B425219ABE74C00DC79FE /* PMThemeEngine.h */,
+				915B425319ABE74C00DC79FE /* PMThemeEngine.m */,
+				915B425419ABE74C00DC79FE /* PMThemeShadow.h */,
+				915B425519ABE74C00DC79FE /* PMThemeShadow.m */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		915B422E19ABE6F000DC79FE /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				915B423919ABE73700DC79FE /* background.png */,
+				915B423A19ABE73700DC79FE /* background@2x.png */,
+				915B423B19ABE73700DC79FE /* default.plist */,
+				915B423C19ABE73700DC79FE /* apple calendar.plist */,
+			);
+			name = Theme;
 			sourceTree = "<group>";
 		};
 		918D5F081991347900597147 /* Stats */ = {
@@ -599,19 +698,24 @@
 				918F69521988953500776052 /* runningLong.jpg in Resources */,
 				91CFEBE419A42E8D00B0C27A /* README in Resources */,
 				91CF0E7719A1393B007B668A /* Logout-icon-01.png in Resources */,
+				915B423E19ABE73700DC79FE /* background@2x.png in Resources */,
+				915B426A19AD526800DC79FE /* trophy.png in Resources */,
 				914720601995DB5900F94A80 /* Game-controller-1128030308.png in Resources */,
 				91CF0E7519A12040007B668A /* trash.png in Resources */,
 				919EE97E198CB70000F12411 /* background.jpg in Resources */,
 				9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */,
 				91CF0E7919A19B17007B668A /* icon_addfriend.png in Resources */,
 				9147D8EB1983127100183220 /* InfoPlist.strings in Resources */,
+				915B423D19ABE73700DC79FE /* background.png in Resources */,
 				918D5EEE1990AB4C00597147 /* Home.png in Resources */,
 				91CF0ED619A27B17007B668A /* Default@2x.png in Resources */,
 				918D5F011991208200597147 /* goRight1.png in Resources */,
 				918D5EF61990ACDA00597147 /* icon_pencil.png in Resources */,
 				91CF0EE819A2F3F8007B668A /* search_08_256.png in Resources */,
 				918D5EF51990ACDA00597147 /* icon_home.png in Resources */,
+				915B423F19ABE73700DC79FE /* default.plist in Resources */,
 				91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */,
+				915B426819AC0CD500DC79FE /* calendar3.png in Resources */,
 				919EE996198DCD4100F12411 /* facebook2.png in Resources */,
 				91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */,
 				918F694E198893C000776052 /* reasons-to-run.jpg in Resources */,
@@ -620,6 +724,7 @@
 				91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */,
 				918D5EF41990ACDA00597147 /* Add.png in Resources */,
 				91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */,
+				915B424019ABE73700DC79FE /* apple calendar.plist in Resources */,
 				919EE980198CB8C800F12411 /* Network-Upload-icon.png in Resources */,
 				9147D8F61983127100183220 /* Images.xcassets in Resources */,
 				918D5EFB19911E4D00597147 /* Forward_arrow_button_next_right_media_mail.png in Resources */,
@@ -674,19 +779,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915B425619ABE74C00DC79FE /* NSDate+Helpers.m in Sources */,
 				919EE983198CBD6A00F12411 /* HTTPGetRequest.m in Sources */,
 				91CFEBE219A42A9B00B0C27A /* Friend.m in Sources */,
 				918D5EF919910E1800597147 /* BaseClassViewController.m in Sources */,
 				91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */,
 				918D5EE819909ED600597147 /* MoreViewController.m in Sources */,
+				915B425B19ABE74C00DC79FE /* PMSelectionView.m in Sources */,
 				91C665181991790F00A56D61 /* DLPieChart.m in Sources */,
+				915B425719ABE74C00DC79FE /* PMCalendarBackgroundView.m in Sources */,
 				91CF0EE619A2F2D6007B668A /* AddFriendViewController.m in Sources */,
 				918D5EE519909E5100597147 /* ChallengeViewController.m in Sources */,
 				919EE963198BEBB700F12411 /* User.m in Sources */,
 				918F693819886CE300776052 /* LogActivityViewController.m in Sources */,
 				918F695A198B080A00776052 /* UserActivity.m in Sources */,
+				915B425A19ABE74C00DC79FE /* PMPeriod.m in Sources */,
 				918F69221987076700776052 /* HTTPPostRequest.m in Sources */,
 				919EE96A198BF8EA00F12411 /* Activity.m in Sources */,
+				915B425819ABE74C00DC79FE /* PMCalendarController.m in Sources */,
+				915B425E19ABE74C00DC79FE /* PMThemeShadow.m in Sources */,
+				915B425D19ABE74C00DC79FE /* PMThemeEngine.m in Sources */,
 				9152133F19AA407E00EF7E18 /* Challenge.m in Sources */,
 				918D5F041991216900597147 /* Utils.m in Sources */,
 				9147D91B1983162800183220 /* MWBFService.m in Sources */,
@@ -694,10 +806,12 @@
 				918F691F19844BF500776052 /* LoginViewController.m in Sources */,
 				9147D8F11983127100183220 /* AppDelegate.m in Sources */,
 				914720631995DC9900F94A80 /* NewChallengeViewController.m in Sources */,
+				915B425C19ABE74C00DC79FE /* PMDimmingView.m in Sources */,
 				91CF0EEB19A2FB97007B668A /* FriendsListViewController.m in Sources */,
 				918F692819872A2400776052 /* NewUserViewController.m in Sources */,
 				919EE99B198DE41B00F12411 /* MainViewController.m in Sources */,
 				919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */,
+				915B425919ABE74C00DC79FE /* PMCalendarView.m in Sources */,
 				918F6956198ADB0700776052 /* LogActivityListCell.m in Sources */,
 				91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */,
 				918D5F07199127B200597147 /* ActivityViewController.m in Sources */,
@@ -801,8 +915,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Arjun MUKHERJEE (HAHKBN22W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Arjun MUKHERJEE (HAHKBN22W9)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -911,8 +1025,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arjun MUKHERJEE (7TPAAX9MR7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Arjun MUKHERJEE (HAHKBN22W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Arjun MUKHERJEE (HAHKBN22W9)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

@@ -15,6 +15,8 @@
 
 @implementation BaseClassViewController
 
+@synthesize activityIndicator;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -22,6 +24,12 @@
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.jpg"]];
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
+    
+    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    CGPoint point = CGPointMake(self.view.center.x, self.view.center.y +20);
+    self.activityIndicator.center = point;
+    self.activityIndicator.color = [UIColor blueColor];
+    [self.view addSubview: self.activityIndicator];
 }
 
 // Dismiss the keyboard when the GO button is hit

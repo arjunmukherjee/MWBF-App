@@ -65,6 +65,11 @@
     Friend *friendObj = [self.user.friendsList objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",friendObj.firstName,friendObj.lastName];
     
+    UIColor *selectionColor = [[UIColor alloc] initWithRed:20.0 / 255 green:59.0 / 255 blue:102.0 / 255 alpha:0.5];
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = selectionColor;
+    [cell setSelectedBackgroundView:bgColorView];
+    
     return cell;
 }
 

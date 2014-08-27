@@ -7,7 +7,9 @@
 //
 
 #import "BaseClassViewController.h"
-
+#import "Challenge.h"
 @interface ChallengeDetailsViewController : BaseClassViewController
+
+@property (strong,nonatomic) Challenge *challenge;
 
 @end

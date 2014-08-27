@@ -15,6 +15,7 @@
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *startDate;
 @property (strong,nonatomic) NSString *endDate;
+@property (strong,nonatomic) NSString *yourPosition;
 @property (strong,nonatomic) NSArray *playersSet;
 @property (strong,nonatomic) NSArray *pointsSet;
 @property (strong,nonatomic) NSArray *activitySet;

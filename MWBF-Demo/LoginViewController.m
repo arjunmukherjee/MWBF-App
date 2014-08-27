@@ -131,7 +131,7 @@ NSString* ADMIN_PASSWORD = @"admin";
                 
                 // For some reason this function runs twice, dont want it to hit the server for the same thing twice though
                 self.runCount = self.runCount + 1;
-                if (self.runCount == 2)
+                if (self.runCount == 1)
                 {
                     Activity *activityList = [Activity getInstance];
                     
@@ -234,7 +234,7 @@ NSString* ADMIN_PASSWORD = @"admin";
         if (!self.success)
             [Utils alertStatus:@"Sign in Failed." :@"Failed" :0];
     }
- }
+}
 
 
 @end

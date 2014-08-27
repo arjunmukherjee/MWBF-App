@@ -13,6 +13,7 @@
 #import "Friend.h"
 #import "MWBFService.h"
 #import "Challenge.h"
+#import "PMCalendar.h"
 
 
 @interface NewChallengeViewController ()
@@ -26,9 +27,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *showFriendsListViewButton;
 @property (weak, nonatomic) IBOutlet UITableView *friendsPickerTable;
 @property (weak, nonatomic) IBOutlet UITextField *challengeNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *startDateTextField;
-@property (weak, nonatomic) IBOutlet UITextField *endDateTextField;
 @property (weak, nonatomic) IBOutlet UIButton *pickActivityButton;
+@property (weak, nonatomic) IBOutlet UIButton *startDateCallendarButton;
+@property (weak, nonatomic) IBOutlet UIButton *endDateCallendarButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UITextView *infoView;
 
 @property (strong,nonatomic) NSMutableArray *activityListArray;
 @property (strong,nonatomic) NSMutableArray *addedActivityArray;
@@ -38,6 +42,12 @@
 @property (strong,nonatomic) NSMutableArray *pickedFriendsArray;
 
 @property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
+
+// Calendar
+@property (nonatomic, strong) PMCalendarController *startDateCalendar;
+@property (nonatomic, strong) PMCalendarController *endDateCalendar;
+@property (weak, nonatomic) IBOutlet UITextField *startDateTextField;
+@property (weak, nonatomic) IBOutlet UITextField *endDateTextField;
 
 @end
 
@@ -53,6 +63,9 @@
 @synthesize challengeNameTextField;
 @synthesize pickActivityButton;
 @synthesize activityIndicator;
+@synthesize startDateCallendarButton,endDateCallendarButton,startDateCalendar,endDateCalendar;
+@synthesize startDateTextField,endDateTextField;
+@synthesize infoButton,infoView;
 
 - (void)viewDidLoad
 {
@@ -65,6 +78,10 @@
     self.challengeNameTextField.delegate = self;
     self.activityPicker.hidden = YES;
     self.addActivityButton.hidden = YES;
+    
+    // Help/Info button & View
+    self.infoView.hidden = YES;
+    [Utils setMaskTo:self.infoView byRoundingCorners:UIRectCornerAllCorners];
     
     // Activity Indicator
     self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -81,10 +98,73 @@
     
     self.activityListArray = [NSMutableArray arrayWithArray:[localActivityObj.activityDict allKeys]];
     [self.activityPicker reloadAllComponents];
+    
+    // Calendar startDate
+    self.startDateCalendar = [[PMCalendarController alloc] initWithThemeName:@"default"];
+    self.startDateCalendar.delegate = self;
+    
+    self.startDateCalendar.mondayFirstDayOfWeek = NO;
+    self.startDateCalendar.allowsPeriodSelection = NO;
+    
+    // Calendar endDate
+    self.endDateCalendar = [[PMCalendarController alloc] initWithThemeName:@"default"];
+    self.endDateCalendar.delegate = self;
+    
+    self.endDateCalendar.mondayFirstDayOfWeek = NO;
+    self.endDateCalendar.allowsPeriodSelection = NO;
 
 }
+
+- (IBAction)pickDateClicked:(UIButton*)sender
+{
+    if (sender == self.startDateCallendarButton)
+        [self.startDateCalendar presentCalendarFromView:sender
+              permittedArrowDirections:PMCalendarArrowDirectionAny
+                             isPopover:YES
+                              animated:YES];
+    else
+        [self.endDateCalendar presentCalendarFromView:sender
+                               permittedArrowDirections:PMCalendarArrowDirectionAny
+                                              isPopover:YES
+                                               animated:YES];
+ }
+
+///////// Calendar METHODS ///////////////
+- (void)calendarController:(PMCalendarController *)calendarController didChangePeriod:(PMPeriod *)newPeriod
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd"];
+    NSString *date = [dateFormatter stringFromDate: [calendarController.period startDate]];
+    if (calendarController == self.startDateCalendar)
+        self.startDateTextField.text = date;
+    else
+        self.endDateTextField.text = date;
+    
+    [self hideStuff];
+}
+
+- (void) hideStuff
+{
+    [self.view endEditing:YES];
+    self.activityPicker.hidden = YES;
+    self.addActivityButton.hidden = YES;
+}
+
+- (IBAction)infoButtonClicked:(id)sender
+{
+    [self hideStuff];
+    
+    if (self.infoView.hidden == YES)
+        self.infoView.hidden = NO;
+    else
+        self.infoView.hidden = YES;
+}
+
+
 - (IBAction)showFriendsViewButton:(id)sender
 {
+    [self hideStuff];
+    
     if (self.addFriendsView.hidden == YES)
         self.addFriendsView.hidden = NO;
     else
@@ -93,6 +173,8 @@
 
 - (IBAction)pickActivityButtonClicked:(id)sender
 {
+    [self.view endEditing:YES];
+    
     if (self.activityPicker.hidden == YES)
     {
         self.activityPicker.hidden = NO;
@@ -107,6 +189,8 @@
 
 - (IBAction) addActivityClicked:(id)sender
 {
+    [self.view endEditing:YES];
+    
     NSInteger row = [self.activityPicker selectedRowInComponent:0];
     NSString *activity  = [self.activityListArray objectAtIndex:row];
  
@@ -126,13 +210,23 @@
 // Dismiss the keyboard when the background is tapped
 - (IBAction)backgroundTap:(id)sender
 {
-    [self.view endEditing:YES];
-    self.activityPicker.hidden = YES;
-    self.addActivityButton.hidden = YES;
+    [self hideStuff];
 }
 
 - (IBAction)createChallengeButtonClicked:(id)sender
 {
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
+                                                        fromDate:[self.startDateCalendar.period startDate]
+                                                          toDate:[self.endDateCalendar.period startDate]
+                                                         options:0];
+    NSInteger daysInChallenge = [components day];
+    components = [gregorianCalendar components:NSDayCalendarUnit
+                                      fromDate:[NSDate date]
+                                        toDate:[self.endDateCalendar.period startDate]
+                                       options:0];
+    NSInteger daysFromToday = [components day];
+    
     if ([self.addedActivityArray count] <= 0 )
         [Utils alertStatus:@"Please add atleast one activity to the challenge." :@"Oops! Miss something ?" :0];
     else if ( [self.pickedFriendsArray count] <= 0 )
@@ -144,7 +238,11 @@
     else if ( [self.endDateTextField.text length] <= 0 )
         [Utils alertStatus:@"Please choose an end date for your challenge." :@"Oops! Miss something ?" :0];
     else if ( [self.challengeNameTextField.text rangeOfString:@","].location != NSNotFound )
-        [Utils alertStatus:@"Please choose a challenge name without commas." :@"Oops! Not allowed ?" :0];
+        [Utils alertStatus:@"Please choose a challenge name without commas." :@"Oops!" :0];
+    else if ( daysInChallenge < 1 )
+        [Utils alertStatus:@"Please choose an end date that falls after the start date." :@"Oops! Date issues.." :0];
+    else if ( daysFromToday < 0 )
+        [Utils alertStatus:@"Please choose an end date in the future." :@"Oops! Date issues.." :0];
     else
     {
         // Year
@@ -153,13 +251,12 @@
         [dateFormatter setDateFormat:@"YYYY"];
         NSString *year = [dateFormatter stringFromDate: currentTime] ;
         
-        // Month
-        [dateFormatter setDateFormat:@"MM"];
-        NSInteger monthInteger = [[dateFormatter stringFromDate: currentTime] integerValue];
-        NSString *month  = [Utils getMonthStringFromInt:monthInteger];
+        [dateFormatter setDateFormat:@"MMM dd"];
+        NSString *fromCalDate = [dateFormatter stringFromDate: [self.startDateCalendar.period startDate]];
+        NSString *toCalDate = [dateFormatter stringFromDate: [self.endDateCalendar.period startDate]];
         
-        NSString *fromDate = fromDate = [NSString stringWithFormat:@"%@ 01, %@ 00:00:01 AM",month,year];
-        NSString *toDate = [NSString stringWithFormat:@"%@ 31, %@ 11:59:59 PM",month,year];
+        NSString *fromDate = fromDate = [NSString stringWithFormat:@"%@, %@ 00:00:01 AM",fromCalDate,year];
+        NSString *toDate = [NSString stringWithFormat:@"%@, %@ 11:59:59 PM",toCalDate,year];
         
         // Construct the new challenge object
         Challenge *newChallenge = [[Challenge alloc] init];
@@ -193,14 +290,19 @@
                 MWBFService *service = [[MWBFService alloc] init];
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    
-                    [self.activityIndicator stopAnimating];
-                    self.activityIndicator.hidden = YES;
-                    self.view.userInteractionEnabled = YES;
+    
                     
                     if ([service addChallenge:jsonString] )
                     {
+                        // Refresh the challenges list
+                        [service getChallenges];
+                        
+                        [self.activityIndicator stopAnimating];
+                        self.activityIndicator.hidden = YES;
+                        self.view.userInteractionEnabled = YES;
+                        
                         [Utils alertStatus:@"Now, it's time to get to work." :@"Wohoo! Challenge created." :0];
+                        
                         [self performSegueWithIdentifier:@"NewChallengeAdded" sender:self];
                     }
                     else
@@ -209,6 +311,11 @@
             });
         }
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // TODO add the challenge to the ChallegeViewControllers list
 }
 
 // Dismiss the keyboard when the GO button is hit

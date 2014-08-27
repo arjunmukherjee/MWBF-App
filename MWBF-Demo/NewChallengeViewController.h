@@ -7,7 +7,8 @@
 //
 
 #import "BaseClassViewController.h"
+#import "PMCalendar.h"
 
-@interface NewChallengeViewController : BaseClassViewController <UITextFieldDelegate>
+@interface NewChallengeViewController : BaseClassViewController <UITextFieldDelegate,PMCalendarControllerDelegate>
 
 @end

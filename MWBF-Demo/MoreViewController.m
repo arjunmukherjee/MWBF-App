@@ -18,17 +18,19 @@
 @property (weak, nonatomic) IBOutlet UIButton *resetUserDataButton;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (strong, nonatomic) UIAlertView *deleteActivitiesAlert;
+@property (strong, nonatomic) UIAlertView *refreshDataAlert;
 @property (strong, nonatomic) UIAlertView *logoutAlert;
 @property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITextView *infoView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 
 @end
 
 @implementation MoreViewController
 
-@synthesize resetUserDataButton,logoutButton,deleteActivitiesAlert,logoutAlert;
+@synthesize resetUserDataButton,logoutButton,deleteActivitiesAlert,logoutAlert,refreshButton,refreshDataAlert;
 @synthesize userNameLabel;
 
 - (void)viewDidLoad
@@ -71,6 +73,14 @@
     
 }
 
+// Refresh all the users data
+- (IBAction)refreshButtonClicked:(id)sender
+{
+    self.refreshDataAlert = [[UIAlertView alloc] initWithTitle: @"Refresh" message: @"Do you want to refresh all your data (could take a few seconds) ?" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
+    
+    [self.refreshDataAlert show];
+}
+
 - (IBAction)sendFeedback:(id)sender
 {
     MFMailComposeViewController *mailcontroller = [[MFMailComposeViewController alloc] init];
@@ -101,10 +111,41 @@
                 [Utils alertStatus:@"Reset Failed!" :@"Unable to delete user data.. Please try again." :0];
         }
     }
-    else
+    else if (alertView == self.logoutAlert)
     {
         if ( buttonIndex == OK_INDEX )
             [self performSegueWithIdentifier:@"logout" sender:self];
+    }
+    else
+    {
+        if ( buttonIndex == OK_INDEX )
+        {
+            MWBFService *service = [[MWBFService alloc] init];
+            
+            self.activityIndicator.hidden = NO;
+            [self.activityIndicator startAnimating];
+            self.view.userInteractionEnabled = NO;
+            
+            dispatch_queue_t queue = dispatch_get_global_queue(0,0);
+            
+            dispatch_async(queue, ^{
+                
+                // Get the list of friends
+                [User getInstance].friendsList = [service getFriendsList];
+                
+                // Get the all time highs
+                [service getAllTimeHighs];
+                
+                // Get all the challenges the user is involved in
+                [service getChallenges];
+                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [self.activityIndicator stopAnimating];
+                    self.activityIndicator.hidden = YES;
+                    self.view.userInteractionEnabled = YES;
+                });
+            });
+        }
     }
 }
 

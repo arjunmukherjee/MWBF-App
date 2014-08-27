@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *startDate;
 @property (weak, nonatomic) IBOutlet UILabel *endDate;
 @property (weak, nonatomic) IBOutlet UILabel *myPosition;
+@property (weak, nonatomic) IBOutlet UIProgressView *challengeProgressBar;
+@property (weak, nonatomic) IBOutlet UIButton *trophyButton;
 
 @end
