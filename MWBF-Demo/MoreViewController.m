@@ -59,7 +59,7 @@
 
 - (IBAction)resetUserDataClicked:(id)sender
 {
-    self.deleteActivitiesAlert = [[UIAlertView alloc] initWithTitle: @"Clean up" message: @"Do you really want to delete all your logged activities ?" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
+    self.deleteActivitiesAlert = [[UIAlertView alloc] initWithTitle: @"Clean up" message: @"Do you really want to delete all your logged activities (irreversible) ?" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
     
     [self.deleteActivitiesAlert show];
     
