@@ -16,10 +16,8 @@
 
 @interface MoreViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *resetUserDataButton;
-@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (strong, nonatomic) UIAlertView *deleteActivitiesAlert;
 @property (strong, nonatomic) UIAlertView *refreshDataAlert;
-@property (strong, nonatomic) UIAlertView *logoutAlert;
 @property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
@@ -30,7 +28,7 @@
 
 @implementation MoreViewController
 
-@synthesize resetUserDataButton,logoutButton,deleteActivitiesAlert,logoutAlert,refreshButton,refreshDataAlert;
+@synthesize resetUserDataButton,deleteActivitiesAlert,refreshButton,refreshDataAlert;
 @synthesize userNameLabel;
 
 - (void)viewDidLoad
@@ -46,7 +44,10 @@
 - (IBAction)infoButtonClicked:(id)sender
 {
     if (self.infoView.hidden == YES)
+    {
+        [self.view bringSubviewToFront:self.infoView];
         self.infoView.hidden = NO;
+    }
     else
         self.infoView.hidden = YES;
 }
@@ -62,14 +63,6 @@
     self.deleteActivitiesAlert = [[UIAlertView alloc] initWithTitle: @"Clean up" message: @"Do you really want to delete all your logged activities (irreversible) ?" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
     
     [self.deleteActivitiesAlert show];
-    
-}
-
-- (IBAction)logoutButtonClicked:(id)sender
-{
-    self.logoutAlert = [[UIAlertView alloc] initWithTitle: @"Logout" message: @"Do you want to logout ?" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
-    
-    [self.logoutAlert show];
     
 }
 
@@ -110,11 +103,6 @@
             if (!success)
                 [Utils alertStatus:@"Reset Failed!" :@"Unable to delete user data.. Please try again." :0];
         }
-    }
-    else if (alertView == self.logoutAlert)
-    {
-        if ( buttonIndex == OK_INDEX )
-            [self performSegueWithIdentifier:@"logout" sender:self];
     }
     else
     {

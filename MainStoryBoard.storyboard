@@ -182,7 +182,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2I8-mE-dU4" userLabel="LogButton">
-                                <rect key="frame" x="143" y="466" width="35" height="35"/>
+                                <rect key="frame" x="143" y="465" width="41" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="35"/>
                                 <state key="normal" backgroundImage="Network-Upload-icon.png">
@@ -294,7 +294,7 @@
                                 <rect key="frame" x="26" y="93" width="280" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Use this page to log your daily activities/exercises.  1. Pick an execise. 2. Enter in the amount you exercised. 3. Pick the date. 4. Add the exercise to the list of activities you want to log. 5. Add multiple activities at the same time if you wish to. 6. You may also delete activities once added by swiping left on the particular row. 7. Hit the button (at the bottom) to log the activities to your account. </mutableString>
+                                <string key="text">Use this page to log your daily activities/exercises.  1. Pick an execise. 2. Enter in the amount you exercised. 3. Pick the date. 4. Add the exercise to the list of activities you want to log. 5. Add multiple activities at the same time if you wish to. 6. You may also delete activities once added by swiping left on the particular row. 7. Hit the button (at the bottom) to log the activities to your account. </string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -427,7 +427,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gsl-ka-VbX">
-                                <rect key="frame" x="139" y="424" width="42" height="41"/>
+                                <rect key="frame" x="139" y="424" width="38" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="goRight1.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -436,35 +436,15 @@
                                     <action selector="getUserActivity:" destination="BwW-eE-215" eventType="touchUpInside" id="v5U-HR-qqk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a date range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uYg-lM-BdH">
-                                <rect key="frame" x="80" y="221" width="161" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dyh-eW-N4h">
-                                <rect key="frame" x="149" y="186" width="24" height="38"/>
+                                <rect key="frame" x="149" y="211" width="32" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="YCk-Gc-s61">
-                                <rect key="frame" x="81" y="120" width="161" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Today"/>
-                                    <segment title="Month"/>
-                                    <segment title="Year"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentedControlClicked" destination="BwW-eE-215" eventType="valueChanged" id="Mpu-K3-Lav"/>
-                                </connections>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="muM-Mc-RXt">
                                 <rect key="frame" x="289" y="69" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -476,10 +456,10 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999999999999991" contentMode="scaleToFill" editable="NO" id="Cm2-cw-82w">
-                                <rect key="frame" x="21" y="97" width="280" height="290"/>
+                                <rect key="frame" x="21" y="97" width="280" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Select a time range directly from the buttons (today, month or year).  OR  Select a date from the picker. You may : 1. Select just a year . 2. Select a year and a month. 3. Select a year, month and a day (will display all the activities for the selected day). 4. Select a year, month, and a date range Ex : 5 to 10. Will display all the activities from the 5th day of the month to the 10th day of the month.</string>
+                                <mutableString key="text">Select a time range directly from the quick selector (today, week, month or year).  OR  Select a date from the picker. You may : 1. Select just a year . 2. Select a year and a month. 3. Select a year, month and a day (will display all the activities for the selected day). 4. Select a year, month, and a date range Ex : 5 to 10. Will display all the activities from the 5th day of the month to the 10th day of the month.</mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -499,7 +479,6 @@
                         <outlet property="getActivityButton" destination="Gsl-ka-VbX" id="cZ8-fJ-SOQ"/>
                         <outlet property="infoButton" destination="muM-Mc-RXt" id="2Jx-6T-jQe"/>
                         <outlet property="infoView" destination="Cm2-cw-82w" id="30a-J7-1YN"/>
-                        <outlet property="quickStatsSegmentedControl" destination="YCk-Gc-s61" id="tBy-VS-06V"/>
                         <segue destination="EPn-Zb-cx1" kind="push" identifier="user_activities" id="Q4w-Ge-8PF"/>
                     </connections>
                 </viewController>
@@ -538,7 +517,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="b64-QX-J52">
-                                <rect key="frame" x="67" y="122" width="187" height="29"/>
+                                <rect key="frame" x="67" y="126" width="187" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -622,6 +601,13 @@
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U4x-kP-mse">
+                                <rect key="frame" x="212" y="440" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hWi-vx-zrC">
                                 <rect key="frame" x="231" y="173" width="89" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -637,7 +623,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="LPM-iD-2eS">
-                                <rect key="frame" x="95" y="93" width="131" height="29"/>
+                                <rect key="frame" x="95" y="97" width="131" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Exercise"/>
@@ -647,6 +633,34 @@
                                     <action selector="segmentedControlClicked" destination="EPn-Zb-cx1" eventType="valueChanged" id="uHp-7D-N0D"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ppv-vK-KjB">
+                                <rect key="frame" x="246" y="463" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3ao-58-d9P">
+                                <rect key="frame" x="274" y="476" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="arrow_right.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rightButtonPressed:" destination="EPn-Zb-cx1" eventType="touchUpInside" id="RSB-mK-ChQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="66o-zV-3dW">
+                                <rect key="frame" x="9" y="476" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="arrow_left.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leftButtonPressed:" destination="EPn-Zb-cx1" eventType="touchUpInside" id="iIm-Ks-hg7"/>
+                                    <action selector="rightButtonPressed:" destination="EPn-Zb-cx1" eventType="touchUpInside" id="fgc-lO-ciH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -668,8 +682,12 @@
                         <outlet property="aggregationTypeSegmentedControl" destination="LPM-iD-2eS" id="q7r-Gf-zxE"/>
                         <outlet property="barResultsLabel" destination="IR7-MY-ct5" id="Tkr-Rx-IGS"/>
                         <outlet property="chartTypeSegmentedControl" destination="b64-QX-J52" id="ZAE-dl-oCd"/>
+                        <outlet property="leftButton" destination="66o-zV-3dW" id="Efs-Ms-5Sk"/>
                         <outlet property="navigationBar" destination="C4o-zO-vHv" id="7SB-gK-pd4"/>
                         <outlet property="pointsHeaderLabel" destination="hWi-vx-zrC" id="nbv-0K-Yzp"/>
+                        <outlet property="rightButton" destination="3ao-58-d9P" id="8U3-ia-lBl"/>
+                        <outlet property="totalHeaderLabel" destination="U4x-kP-mse" id="EDC-WH-thE"/>
+                        <outlet property="totalValueLabel" destination="Ppv-vK-KjB" id="OVL-cy-Nvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPZ-zN-AUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -697,7 +715,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FutureChallengeDetailsCell" rowHeight="54" id="lIW-ju-N2E" customClass="ChallengeCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="86" width="320" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lIW-ju-N2E" id="q4i-cu-Iwu">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
@@ -892,18 +910,6 @@
                                     <outlet property="delegate" destination="zX8-YR-x1s" id="f1w-Zx-Mh4"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Ppz-ZW-bvk">
-                                <rect key="frame" x="45" y="85" width="230" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Current"/>
-                                    <segment title="Past"/>
-                                    <segment title="Upcoming"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentedControllerClicked:" destination="zX8-YR-x1s" eventType="valueChanged" id="s5e-qd-alg"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -917,7 +923,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="challengeTypeSegmentedController" destination="Ppz-ZW-bvk" id="a5l-1L-xeL"/>
                         <outlet property="currentChallengesTableView" destination="N9h-57-cIc" id="3X3-2D-ell"/>
                         <outlet property="futureChallengesTableView" destination="fXt-as-mcw" id="BAT-R3-uTL"/>
                         <outlet property="pastChallengesTableView" destination="tpI-v3-gMh" id="qWS-B8-Alc"/>
@@ -1271,7 +1276,7 @@
                                 <rect key="frame" x="19" y="91" width="280" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Use this page to add new challenges.  1. Name your challenge. Ex "NYC Marathon Challenge" 2. Pick the exercises/activities to be included in the challenge. 3. Pick the friends you want to compete against. 4. Choose a start and an end date. 5. If you add activities or friends by mistake, swipe left on the row to delete the row. 6. Create the challenge by hitting the "Create Challenge" button.</mutableString>
+                                <string key="text">Use this page to add new challenges.  1. Name your challenge. Ex "NYC Marathon Challenge" 2. Pick the exercises/activities to be included in the challenge. 3. Pick the friends you want to compete against. 4. Choose a start and an end date. 5. If you add activities or friends by mistake, swipe left on the row to delete the row. 6. Create the challenge by hitting the "Create Challenge" button.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1314,7 +1319,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nQB-59-BZL" userLabel="FeedBackButton">
-                                <rect key="frame" x="182" y="340" width="116" height="33"/>
+                                <rect key="frame" x="174" y="394" width="116" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="24-feedback_icon.gif">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1324,7 +1329,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aaA-sf-eLi" userLabel="PersonalBestButton">
-                                <rect key="frame" x="184" y="237" width="97" height="43"/>
+                                <rect key="frame" x="193" y="223" width="97" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="14"/>
                                 <state key="normal" backgroundImage="column_chart_256.png">
@@ -1344,20 +1349,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Vq-nM-8Q2" userLabel="LogoutButton">
-                                <rect key="frame" x="131" y="454" width="59" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="14"/>
-                                <state key="normal" backgroundImage="Logout-icon-01.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logoutButtonClicked:" destination="xUN-mq-44E" eventType="touchUpInside" id="aC6-eu-qzp"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AHd-KH-e5k" userLabel="DeleteButton">
-                                <rect key="frame" x="45" y="237" width="48" height="42"/>
+                                <rect key="frame" x="45" y="221" width="48" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="12"/>
@@ -1376,7 +1369,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zpg-46-99n">
-                                <rect key="frame" x="20" y="333" width="99" height="60"/>
+                                <rect key="frame" x="20" y="388" width="99" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="41"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -1409,14 +1402,24 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="scaleToFill" editable="NO" id="ZRE-pA-ahU">
-                                <rect key="frame" x="20" y="97" width="280" height="363"/>
+                                <rect key="frame" x="20" y="97" width="280" height="384"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Use this page to do a variety of things.  - Take a look at your friends activities by clicking on the friends button. You can also add friends form there. - Check your personal stats (and try to beat them). Click on the button that looks like a bar graph. - You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can. - Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar). - Find out about the app by clicking on the About button. - Send us feedback about your experience using the app, by clicking on the Feedback button.</mutableString>
+                                <string key="text">Use this page to do a variety of things.  - Take a look at your friends activities by clicking on the friends button. You can also add friends form there. - Check your personal stats (and try to beat them). Click on the button that looks like a bar graph. - You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can. - Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar). - Add a device or app to automatically sync activities from. - Find out about the app by clicking on the About button. - Send us feedback about your experience using the app, by clicking on the Feedback button.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yh6-r7-re1" userLabel="Add DevicesButton">
+                                <rect key="frame" x="44" y="300" width="59" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NBR-IG-5G7" kind="push" id="hvL-cn-Ruj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <gestureRecognizers/>
                         <connections>
@@ -1434,11 +1437,9 @@
                         <outlet property="feedbackButton" destination="nQB-59-BZL" id="E1S-y6-Tob"/>
                         <outlet property="infoButton" destination="S81-Ih-T31" id="1Ak-KL-iHE"/>
                         <outlet property="infoView" destination="ZRE-pA-ahU" id="rQe-Wq-lEd"/>
-                        <outlet property="logoutButton" destination="8Vq-nM-8Q2" id="lel-cu-pZI"/>
                         <outlet property="refreshButton" destination="G4q-ba-wga" id="oEb-6X-AqA"/>
                         <outlet property="resetUserDataButton" destination="AHd-KH-e5k" id="coa-j7-NBW"/>
                         <outlet property="userNameLabel" destination="Sz2-TM-SV3" id="BL5-bW-tg5"/>
-                        <segue destination="Yr2-sU-Yxs" kind="modal" identifier="logout" id="95M-O1-mDK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDT-Ul-9ly" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1449,7 +1450,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1295" y="1026"/>
+            <point key="canvasLocation" x="1285" y="1104"/>
         </scene>
         <!--Personal Health Stats View Controller - Personal Stats-->
         <scene sceneID="qae-cn-EJI">
@@ -1537,7 +1538,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yaz-HF-pek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1294" y="1733"/>
+            <point key="canvasLocation" x="1958" y="953"/>
+        </scene>
+        <!--Devices View Controller - Apps & Devices-->
+        <scene sceneID="Bav-Lk-sgh">
+            <objects>
+                <viewController id="NBR-IG-5G7" customClass="DevicesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4f8-lA-BW2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Apps &amp; Devices" id="VSz-84-jf8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LS7-st-awG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1285" y="1887"/>
         </scene>
         <!--Friends List View Controller - Friends-->
         <scene sceneID="ih1-oh-M3d">
@@ -1594,7 +1610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5F-pr-HCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1936" y="1651"/>
+            <point key="canvasLocation" x="2250" y="1651"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W2U-SW-KRX">
@@ -1620,7 +1636,7 @@
         <scene sceneID="2Pl-gi-fqV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QvI-JY-hKN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stats" image="barChart.png" id="lKx-Dy-c2T"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="1409251867_stats-up.png" id="lKx-Dy-c2T"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="J0M-ir-ofB">
@@ -1640,7 +1656,7 @@
         <scene sceneID="F1C-kg-CQf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jfb-yn-k9K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Challenges" image="Game-controller-1128030308.png" id="eCJ-xy-Or3">
+                    <tabBarItem key="tabBarItem" title="Challenges" image="1409251657_7-48.png" id="eCJ-xy-Or3">
                         <inset key="imageInsets" minX="3" minY="3" maxX="2" maxY="2"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1662,7 +1678,7 @@
         <scene sceneID="clV-ZH-xqA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y1p-n8-rYi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Log It" image="icon_pencil.png" id="Etv-Uz-tpG"/>
+                    <tabBarItem key="tabBarItem" title="Log It" image="1409252422_grey_new_seo2-30-32.png" id="Etv-Uz-tpG"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="FGR-Mc-SSw">
@@ -1696,7 +1712,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dug-dM-Wnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850" y="1031"/>
+            <point key="canvasLocation" x="784" y="1104"/>
         </scene>
         <!--Add Friend View Controller - Find friends-->
         <scene sceneID="bna-tE-03C">
@@ -1793,23 +1809,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2485" y="2007"/>
+            <point key="canvasLocation" x="2791" y="1995"/>
         </scene>
     </scenes>
     <resources>
+        <image name="1409251657_7-48.png" width="48" height="48"/>
+        <image name="1409251867_stats-up.png" width="32" height="32"/>
+        <image name="1409252422_grey_new_seo2-30-32.png" width="32" height="32"/>
+        <image name="1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png" width="128" height="128"/>
         <image name="24-feedback_icon.gif" width="268" height="64"/>
-        <image name="Game-controller-1128030308.png" width="48" height="48"/>
-        <image name="Logout-icon-01.png" width="1772" height="1772"/>
         <image name="Network-Upload-icon.png" width="256" height="256"/>
         <image name="acount-information.png" width="256" height="256"/>
         <image name="add-icon1.png" width="128" height="128"/>
-        <image name="barChart.png" width="36" height="36"/>
+        <image name="arrow_left.png" width="128" height="128"/>
+        <image name="arrow_right.png" width="256" height="256"/>
         <image name="calendar3.png" width="502" height="502"/>
         <image name="column_chart_256.png" width="256" height="256"/>
         <image name="goRight1.png" width="120" height="120"/>
         <image name="icn_menu_20.png" width="16" height="16"/>
         <image name="icon_addfriend.png" width="128" height="128"/>
-        <image name="icon_pencil.png" width="30" height="30"/>
         <image name="search_08_256.png" width="256" height="256"/>
         <image name="trash.png" width="320" height="320"/>
         <image name="trophy.png" width="128" height="128"/>
@@ -1820,9 +1838,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="95M-O1-mDK"/>
-        <segue reference="Q4w-Ge-8PF"/>
         <segue reference="o4k-VB-4vh"/>
-        <segue reference="hoD-Rd-BDH"/>
+        <segue reference="Fge-Oy-Hk8"/>
+        <segue reference="Q4w-Ge-8PF"/>
     </inferredMetricsTieBreakers>
 </document>

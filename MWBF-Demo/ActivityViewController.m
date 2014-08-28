@@ -20,6 +20,7 @@
 #define TABLE_INDEX 2
 
 #define EXERCISE_INDEX 0
+#define COLUMNS_TO_DISPLAY 7
 
 @interface ActivityViewController ()
 @property (strong,nonatomic) IBOutlet DLPieChart *activityPieView;
@@ -60,6 +61,12 @@
 @property (nonatomic,strong) NSMutableArray *labelArrayByTime;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
+@property (weak, nonatomic) IBOutlet UILabel *totalHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+
+@property float totalPoints;
 
 @end
 
@@ -83,6 +90,8 @@
 @synthesize columnChartdataByTime,eFloatBoxByTime,eColumnSelectedByTime,tempColorByTime;
 @synthesize title;
 @synthesize navigationBar;
+@synthesize totalPoints,totalHeaderLabel,totalValueLabel;
+@synthesize rightButton,leftButton;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -117,6 +126,13 @@
     self.labelArrayByTime = [NSMutableArray array];
     activityDateRangeLabel.text = activityDateString;
     
+    // The total points
+    self.totalPoints = 0;
+    
+    // Right button to move the bar chart
+    self.rightButton.hidden = YES;
+    self.leftButton.hidden = YES;
+    
     
     Activity *activityList = [Activity getInstance];
     
@@ -139,6 +155,9 @@
         [self.labelArrayWithValues addObject:label];
         [self.labelArray addObject:uaObj.activity];
         [self.unitsArray addObject:mwbfActivity.measurementUnits];
+        
+        float points = [uaObj.points floatValue];
+        self.totalPoints = self.totalPoints + points;
     }
 
     // COLUMN CHART by Activity
@@ -187,6 +206,10 @@
 {
     [self hideTableDislplay];
     
+    // Buttons only applicable to the bar chart
+    self.rightButton.hidden = YES;
+    self.leftButton.hidden = YES;
+    
     if (self.chartTypeSegmentedControl.selectedSegmentIndex == PIE_INDEX)
     {
         self.activityBarView.hidden = YES;
@@ -207,6 +230,9 @@
     {
         self.activityPieView.hidden = YES;
         self.activityPieViewByTime.hidden = YES;
+        self.rightButton.hidden = NO;
+        self.leftButton.hidden = NO;
+        
         
         if (self.aggregationTypeSegmentedControl.selectedSegmentIndex == EXERCISE_INDEX)
         {
@@ -240,6 +266,8 @@
     self.activityNameHeaderLabel.hidden = NO;
     self.activityValueHeaderLabel.hidden = NO;
     self.pointsHeaderLabel.hidden = NO;
+    self.totalValueLabel.hidden = NO;
+    self.totalHeaderLabel.hidden = NO;
 }
 - (void) hideTableDislplay
 {
@@ -247,10 +275,39 @@
     self.activityNameHeaderLabel.hidden = YES;
     self.activityValueHeaderLabel.hidden = YES;
     self.pointsHeaderLabel.hidden = YES;
+    self.totalValueLabel.hidden = YES;
+    self.totalHeaderLabel.hidden = YES;
 }
 
 ///////// COLUMN CHART DELEGATE METHODS
 #pragma -mark- EColumnChartDataSource
+
+- (IBAction) rightButtonPressed:(id)sender
+{
+    if (self.eColumnChart == nil && self.eColumnChartByTime == nil)
+        return;
+    
+    if (self.activityBarView.hidden == NO)
+        [self.eColumnChart moveRight];
+    else
+        [self.eColumnChartByTime moveRight];
+    
+    self.leftButton.hidden = NO;
+}
+
+- (IBAction) leftButtonPressed:(id)sender
+{
+    if (self.eColumnChart == nil && self.eColumnChartByTime == nil)
+        return;
+    
+    if (self.activityBarView.hidden == NO)
+        [self.eColumnChart moveLeft];
+    else
+        [self.eColumnChartByTime moveLeft];
+}
+
+
+
 - (NSInteger)numberOfColumnsInEColumnChart:(EColumnChart *)eColumnChartLcl
 {
     NSArray *tempData = [NSArray array];
@@ -270,7 +327,17 @@
     else
         tempData = self.columnChartdataByTime;
     
-    return [tempData count];
+    NSInteger numberOfColumns = [tempData count];
+    
+    if (numberOfColumns > COLUMNS_TO_DISPLAY)
+        numberOfColumns = COLUMNS_TO_DISPLAY;
+    else
+    {
+        self.rightButton.hidden = YES;
+        self.leftButton.hidden = YES;
+    }
+    
+    return numberOfColumns;
 }
 
 - (EColumnDataModel *)highestValueEColumnChart:(EColumnChart *)eColumnChartLcl
@@ -448,6 +515,8 @@
     cell.activityLabel.text = activityObj.activity;
     cell.activityValueLabel.text = activityObj.activityValue;
     cell.pointsLabel.text = [NSString stringWithFormat:@"%@",activityObj.points];
+    
+    self.totalValueLabel.text = [NSString stringWithFormat:@"%.1f",self.totalPoints];
     
     return cell;
 }

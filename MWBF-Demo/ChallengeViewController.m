@@ -11,6 +11,8 @@
 #import "User.h"
 #import "Challenge.h"
 #import "ChallengeDetailsViewController.h"
+#import "SVSegmentedControl.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define CURRENT_INDEX 0
 #define PAST_INDEX 1
@@ -26,7 +28,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *currentChallengesTableView;
 @property (weak, nonatomic) IBOutlet UITableView *pastChallengesTableView;
 @property (weak, nonatomic) IBOutlet UITableView *futureChallengesTableView;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *challengeTypeSegmentedController;
 
 @end
 
@@ -37,7 +38,6 @@
 @synthesize user;
 @synthesize chosenChallenge;
 @synthesize currentChallengesTableView,pastChallengesTableView,futureChallengesTableView;
-@synthesize challengeTypeSegmentedController;
 
 - (void)viewDidLoad
 {
@@ -86,6 +86,19 @@
                 [self.currentChallengesArray addObject:challengeObj];
         }
     }
+    
+    // Get the new segmentedController
+    SVSegmentedControl *quickDateSelector = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"Current", @"Past", @"Upcoming", nil]];
+    [quickDateSelector addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+	quickDateSelector.crossFadeLabelsOnDrag = YES;
+    quickDateSelector.textColor = [UIColor whiteColor];
+	[quickDateSelector setSelectedSegmentIndex:0 animated:NO];
+	quickDateSelector.thumb.tintColor = [UIColor colorWithRed:0.999 green:0.889 blue:0.312 alpha:1.000];
+	quickDateSelector.thumb.textColor = [UIColor blackColor];
+	quickDateSelector.thumb.textShadowColor = [UIColor colorWithWhite:1 alpha:0.5];
+	quickDateSelector.thumb.textShadowOffset = CGSizeMake(0, 1);
+	quickDateSelector.center = CGPointMake(160, 100);
+	[self.view addSubview:quickDateSelector];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -97,15 +110,15 @@
     }
 }
 
-- (IBAction)segmentedControllerClicked:(id)sender
+- (void) segmentedControlChangedValue:(SVSegmentedControl*)segmentedControl
 {
-    if (self.challengeTypeSegmentedController.selectedSegmentIndex == CURRENT_INDEX)
+    if (segmentedControl.selectedSegmentIndex == CURRENT_INDEX)
     {
         self.currentChallengesTableView.hidden = NO;
         self.pastChallengesTableView.hidden = YES;
         self.futureChallengesTableView.hidden = YES;
     }
-    else if (self.challengeTypeSegmentedController.selectedSegmentIndex == PAST_INDEX)
+    else if (segmentedControl.selectedSegmentIndex == PAST_INDEX)
     {
         self.currentChallengesTableView.hidden = YES;
         self.pastChallengesTableView.hidden = NO;

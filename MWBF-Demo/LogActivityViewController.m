@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *activityValueTextField;
 @property (weak, nonatomic) IBOutlet UILabel *unitsLabel;
 
-@property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
+@property float pointsEarned;
 
 // Calendar
 @property (nonatomic, strong) PMCalendarController *pmCC;
@@ -43,8 +43,8 @@
 @synthesize pointsHeaderLable = _pointsHeaderLable;
 @synthesize user = _user;
 @synthesize activity = _activity;
-@synthesize activityIndicator;
 @synthesize pmCC;
+@synthesize pointsEarned;
 
 - (void)viewDidLoad
 {
@@ -67,26 +67,23 @@
     
     // Initializers
     self.addedActivityArray = [NSMutableArray array];
-  
+    self.pointsEarned = 0;
+    
     [self pickActivityClicked:self];
 
-    // Activity Indicator
-    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    self.activityIndicator.center = self.view.center;
-    self.activityIndicator.color = [UIColor blueColor];
-    [self.view addSubview: self.activityIndicator];
-    
-    
     // Calendar
     self.pmCC = [[PMCalendarController alloc] initWithThemeName:@"default"];
     self.pmCC.delegate = self;
     
     self.pmCC.mondayFirstDayOfWeek = NO;
     self.pmCC.allowsPeriodSelection = NO;
+    self.pmCC.title = @"Activity Date";
 }
 
 - (IBAction)infoButtonClicked:(id)sender
 {
+    [self.view endEditing:YES];
+    
     if (self.infoView.hidden == YES)
     {
         self.infoView.hidden = NO;
@@ -98,6 +95,8 @@
 
 - (IBAction) logActivityClicked:(id)sender
 {
+    [self.view endEditing:YES];
+    
     // Check to ensure an activity is selected
     if (!self.addedActivityArray || !self.addedActivityArray.count)
     {
@@ -142,7 +141,8 @@
                 }
                 else
                 {
-                    [Utils alertStatus:@"Activity logged." :@"Wohoo!!" :0];
+                    NSString *message = [NSString stringWithFormat:@"You just earned %.1f points.",self.pointsEarned];
+                    [Utils alertStatus:message :@"Wohoo!!" :0];
                     
                     self.addActivityButton.hidden = NO;
                     self.activityPicker.hidden = NO;
@@ -158,8 +158,6 @@
                     
                     self.addedActivityArray = [[NSMutableArray alloc] init];
                     [self.activityTable reloadData];
-                    
-                    //[self resetActivityPicker];
                 }
             });
         });
@@ -168,11 +166,16 @@
 
 - (NSMutableArray *) toNSArray
 {
+    self.pointsEarned = 0;
+    float points = 0;
     NSMutableArray *myActivityList = [[NSMutableArray alloc] init];
     for(UserActivity *userActivity in self.addedActivityArray)
     {
         [myActivityList addObject:[userActivity toNSDictionary]];
+        points = points + [userActivity.points floatValue];
     }
+    
+    self.pointsEarned = points;
     
     return myActivityList;
 }
@@ -180,6 +183,8 @@
 
 - (IBAction) addActivityClicked:(id)sender
 {
+    [self.view endEditing:YES];
+    
     NSInteger row = [self.activityPicker selectedRowInComponent:0];
     NSString *activity  = [self.activityListArray objectAtIndex:row];
     
@@ -239,6 +244,8 @@
 
 - (void)  pickActivityClicked:(id)sender
 {
+    [self.view endEditing:YES];
+    
     self.activity = [Activity getInstance];
     
     self.activityListArray = [NSMutableArray arrayWithArray:[self.activity.activityDict allKeys]];

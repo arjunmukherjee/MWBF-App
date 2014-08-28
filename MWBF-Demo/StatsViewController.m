@@ -10,16 +10,18 @@
 #import "Utils.h"
 #import "MWBFService.h"
 #import "ActivityViewController.h"
+#import "SVSegmentedControl.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define TODAY_INDEX 0
-#define MONTH_INDEX 1
+#define WEEK_INDEX 1
+#define MONTH_INDEX 2
 
 @interface StatsViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *getActivityButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *datePicker;
 @property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *quickStatsSegmentedControl;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 
@@ -40,7 +42,6 @@
 @synthesize datePicker,getActivityButton;
 @synthesize yearsArray, monthsArray, fromDaysArray, toDaysArray, userActivitiesArrayByActivity, userActivitiesArrayByTime, activityDate;
 @synthesize activityIndicator;
-@synthesize quickStatsSegmentedControl;
 @synthesize infoView;
 @synthesize infoButton;
 
@@ -88,14 +89,49 @@
     self.activityIndicator.color = [UIColor blueColor];
     [self.view addSubview: self.activityIndicator];
     
+    // Get the new segmentedController
+   SVSegmentedControl *quickDateSelector = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"Today", @"Week", @"Month",@"Year", nil]];
+    [quickDateSelector addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+	quickDateSelector.crossFadeLabelsOnDrag = YES;
+    quickDateSelector.textColor = [UIColor whiteColor];
+	[quickDateSelector setSelectedSegmentIndex:0 animated:NO];
+	quickDateSelector.thumb.tintColor = [UIColor colorWithRed:0.999 green:0.889 blue:0.312 alpha:1.000];
+	quickDateSelector.thumb.textColor = [UIColor blackColor];
+	quickDateSelector.thumb.textShadowColor = [UIColor colorWithWhite:1 alpha:0.5];
+	quickDateSelector.thumb.textShadowOffset = CGSizeMake(0, 1);
+	quickDateSelector.center = CGPointMake(160, 160);
+	[self.view addSubview:quickDateSelector];
+}
+
+- (void)startDate:(NSDate **)start andEndDate:(NSDate **)end ofWeekOn:(NSDate *)date
+{
+    NSDate *startDate = nil;
+    NSTimeInterval duration = 0;
+    BOOL b = [[NSCalendar currentCalendar] rangeOfUnit:NSWeekCalendarUnit startDate:&startDate interval:&duration forDate:date];
+    if(! b){
+        *start = nil;
+        *end = nil;
+        return;
+    }
+    NSDate *endDate = [startDate dateByAddingTimeInterval:duration-1];
+    
+    *start = startDate;
+    *end = endDate;
 }
 
 - (IBAction)infoButtonClicked:(id)sender
 {
     if (self.infoView.hidden == YES)
+    {
         self.infoView.hidden = NO;
+        [self.view bringSubviewToFront:self.infoView];
+    }
     else
+    {
         self.infoView.hidden = YES;
+        [self.view sendSubviewToBack:self.infoView ];
+    }
+    
 }
 
 - (IBAction)backgroundTapped:(id)sender
@@ -131,7 +167,9 @@
     });
 }
 
-- (IBAction)segmentedControlClicked
+#pragma mark - UIControlEventValueChanged
+
+- (void) segmentedControlChangedValue:(SVSegmentedControl*)segmentedControl
 {
     // Year
     NSDate *currentTime = [NSDate date];
@@ -149,19 +187,36 @@
     
     self.activityDate = [NSString stringWithFormat:@"%@",year];
     
-    if (self.quickStatsSegmentedControl.selectedSegmentIndex == TODAY_INDEX)
+    if (segmentedControl.selectedSegmentIndex == TODAY_INDEX)
     {
         // Today
         [dateFormatter setDateFormat:@"dd"];
         NSString *today = [dateFormatter stringFromDate: currentTime] ;
         
+        self.activityDate = @"Today";
         self.activityDate = [activityDate stringByAppendingString:[NSString stringWithFormat:@"  %@,%@",month,today]];
         
         fromDate = [NSString stringWithFormat:@"%@ %@, %@ 00:00:01 AM",month,today,year];
         toDate = [NSString stringWithFormat:@"%@ %@, %@ 11:59:59 PM",month,today,year];
         
     }
-    else if (self.quickStatsSegmentedControl.selectedSegmentIndex == MONTH_INDEX)
+    else if (segmentedControl.selectedSegmentIndex == WEEK_INDEX)
+    {
+        self.activityDate = @"This week";
+        
+        NSDate *this_start = nil, *this_end = nil;
+        [self startDate:&this_start andEndDate:&this_end ofWeekOn:[NSDate date]];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MMM dd, YYYY"];
+        
+        fromDate = [dateFormatter stringFromDate: this_start];
+        toDate = [dateFormatter stringFromDate: this_end];
+        
+        fromDate = [NSString stringWithFormat:@"%@ 00:00:01 AM",fromDate];
+        toDate = [NSString stringWithFormat:@"%@ 11:59:59 PM",toDate];
+    }
+    else if (segmentedControl.selectedSegmentIndex == MONTH_INDEX)
     {
         self.activityDate = [activityDate stringByAppendingString:[NSString stringWithFormat:@" %@",month]];
         
@@ -175,9 +230,8 @@
     }
     
     [self getUserActivities:toDate fromDate:fromDate];
-    
-}
 
+}
 
 
 - (IBAction)getUserActivity:(id)sender
