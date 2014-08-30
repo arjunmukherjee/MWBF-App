@@ -17,6 +17,6 @@
 
 + (NSString*) getMonthStringFromInt:(NSInteger) monthInt;
 + (void) setMaskTo:(UIView*)view byRoundingCorners:(UIRectCorner)corners;
-
++ (NSString*) getNumberOfRestDaysFromDate:(NSString *) fromDate toDate:(NSString*) toDate withActiveDays:(NSInteger) numberOfActiveDays;
 
 @end

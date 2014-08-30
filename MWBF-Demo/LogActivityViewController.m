@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *pickDateButton;
 @property (weak, nonatomic) IBOutlet UITextField *activityValueTextField;
 @property (weak, nonatomic) IBOutlet UILabel *unitsLabel;
+@property (weak, nonatomic) IBOutlet UITextField *dateTextField;
 
 @property float pointsEarned;
 
@@ -45,6 +46,7 @@
 @synthesize activity = _activity;
 @synthesize pmCC;
 @synthesize pointsEarned;
+@synthesize dateTextField;
 
 - (void)viewDidLoad
 {
@@ -78,6 +80,12 @@
     self.pmCC.mondayFirstDayOfWeek = NO;
     self.pmCC.allowsPeriodSelection = NO;
     self.pmCC.title = @"Activity Date";
+        
+    // Set the default date value in the text box to today
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd"];
+    NSString *date = [dateFormatter stringFromDate: [NSDate date]];
+    self.dateTextField.text = date;
 }
 
 - (IBAction)infoButtonClicked:(id)sender
@@ -164,6 +172,17 @@
     }
 }
 
+///////// Calendar METHODS ///////////////
+- (void)calendarController:(PMCalendarController *)calendarController didChangePeriod:(PMPeriod *)newPeriod
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd"];
+    NSString *date = [dateFormatter stringFromDate: [calendarController.period startDate]];
+    
+    self.dateTextField.text = date;
+}
+
+
 - (NSMutableArray *) toNSArray
 {
     self.pointsEarned = 0;
@@ -196,16 +215,19 @@
     [dateFormatter setDateFormat:@"yyyy hh:mm:ss a"];
     NSString *yearTimeStr = [dateFormatter stringFromDate: currentTime];
     
-    [dateFormatter setDateFormat:@"MMM dd"];
-    NSString *date = [dateFormatter stringFromDate: [self.pmCC.period startDate]];
-    date = [NSString stringWithFormat:@"%@, %@",date,yearTimeStr];
     
     NSDate *selectedDate = [self.pmCC.period startDate];
+    if ( selectedDate == NULL )
+        selectedDate = [NSDate date];
+    [dateFormatter setDateFormat:@"MMM dd"];
+    NSString *date = [dateFormatter stringFromDate: selectedDate];
+    date = [NSString stringWithFormat:@"%@, %@",date,yearTimeStr];
+    
+    
     NSDate *today = [NSDate date];
     
-    if ( selectedDate == NULL )
-        [Utils alertStatus:@"Please pick a date." :@"Oops! Miss something?" :0];
-    else if ((activityValue == NULL) || ([activityValue length] <= 0 ))
+    
+    if ((activityValue == NULL) || ([activityValue length] <= 0 ))
        [Utils alertStatus:@"Please pick a value for the exercise." :@"Oops! Miss something?" :0];
     else if([[selectedDate earlierDate:today] isEqualToDate:today])
         [Utils alertStatus:@"Don't log what you haven't yet done." :@"Hold your horses!" :0];

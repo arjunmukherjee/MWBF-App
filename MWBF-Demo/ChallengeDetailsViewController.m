@@ -12,7 +12,8 @@
 #import "Friend.h"
 
 #define PROGRESS_INDEX 0
-#define ACTIVITY_INDEX 1
+#define DETAILS_INDEX 1
+#define MESSAGE_BOARD_INDEX 2
 
 @interface ChallengeDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
@@ -28,6 +29,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
 @property (weak, nonatomic) IBOutlet UIView *challengeDetailsView;
 @property (weak, nonatomic) IBOutlet UILabel *positionLabel;
+@property (weak, nonatomic) IBOutlet UIView *messageBoardView;
+@property (weak, nonatomic) IBOutlet UITableView *messageTableView;
+@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
+@property (weak, nonatomic) IBOutlet UIButton *sendMessageButton;
+@property (strong, nonatomic) NSMutableArray *messagesArray;
+@property (strong, nonatomic) NSString *userFirstName;
 
 @end
 
@@ -39,15 +46,30 @@
 @synthesize activityTableView;
 @synthesize startDateLabel,endDateLabel,challengeDetailsView;
 @synthesize positionLabel;
+@synthesize messagesArray;
+@synthesize userFirstName;
+
+@synthesize messageBoardView,messageTableView,messageTextField,sendMessageButton;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Initializers
     self.navigationBar.title = self.challenge.name;
+    self.messagesArray = [NSMutableArray array];
+    [Utils setMaskTo:self.messageBoardView byRoundingCorners:UIRectCornerAllCorners];
+    [Utils setMaskTo:self.messageTableView byRoundingCorners:UIRectCornerAllCorners];
+    self.messageTextField.delegate = self;
+    
+    // Get the first name only
+    NSArray *tempArray = [[User getInstance].userName componentsSeparatedByString:@" "];
+    self.userFirstName = tempArray[0];
+    
     
     self.challengeDetailsView.hidden = YES;
+    self.messageBoardView.hidden = YES;
     
     // Set the start and end dates
     NSArray *tempDateArr = [self.challenge.startDate componentsSeparatedByString:@" "];
@@ -100,17 +122,60 @@
     [self.activityBarView addSubview:self.eColumnChart];
 }
 
+- (void) viewWillDisappear:(BOOL)animated
+{
+    // TODO : Send the messages up to the server to save
+}
+
+
+// Dismiss the keyboard when the GO button is hit
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.messageTextField)
+    {
+        [textField resignFirstResponder];
+        [self sendMessageButtonClicked:nil];
+    }
+    return YES;
+}
+
+// Dismiss the keyboard when the background is tapped
+- (IBAction)backgroundTap:(id)sender
+{
+    [self.view endEditing:YES];
+}
+
+- (IBAction)sendMessageButtonClicked:(id)sender
+{
+    NSString *message = [NSString stringWithFormat:@"%@: %@",self.userFirstName,self.messageTextField.text];
+    [self.messagesArray addObject:message];
+    
+    [self.messageTableView reloadData];
+    self.messageTextField.text = @"";
+    
+    // TODO
+    // Send the messages to the server : Do this at view will disappear
+}
+
 - (IBAction)segmentedControlClicked
 {
     if (self.segmentedControl.selectedSegmentIndex == PROGRESS_INDEX)
     {
         self.activityBarView.hidden = NO;
         self.challengeDetailsView.hidden = YES;
+        self.messageBoardView.hidden = YES;
+    }
+    else if (self.segmentedControl.selectedSegmentIndex == DETAILS_INDEX)
+    {
+        self.activityBarView.hidden = YES;
+        self.challengeDetailsView.hidden = NO;
+        self.messageBoardView.hidden = YES;
     }
     else
     {
         self.activityBarView.hidden = YES;
-        self.challengeDetailsView.hidden = NO;
+        self.challengeDetailsView.hidden = YES;
+        self.messageBoardView.hidden = NO;
     }
 }
 
@@ -123,20 +188,35 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.challenge.activitySet count];
+    if (tableView == self.activityTableView)
+        return [self.challenge.activitySet count];
+    else
+        return [self.messagesArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ActivityCell";
+    NSString *CellIdentifier = @"ActivityCell";
+    
+    if (tableView == self.messageTableView)
+        CellIdentifier = @"MessageCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    NSString *activity = [self.challenge.activitySet objectAtIndex:indexPath.row];
-    cell.textLabel.text = activity;
-    cell.textLabel.textColor = [UIColor blueColor];
+    
+    if (tableView == self.activityTableView)
+    {
+        NSString *activity = [self.challenge.activitySet objectAtIndex:indexPath.row];
+        cell.textLabel.text = activity;
+        cell.textLabel.textColor = [UIColor blueColor];
+    }
+    else
+    {
+        cell.textLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:15];
+        cell.textLabel.text = [self.messagesArray objectAtIndex:indexPath.row];
+        cell.textLabel.textColor = [UIColor whiteColor];
+    }
     
     return cell;
-    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

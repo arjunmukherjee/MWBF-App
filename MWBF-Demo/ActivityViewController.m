@@ -65,6 +65,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UILabel *restDaysHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *restDaysValueLabel;
+
 
 @property float totalPoints;
 
@@ -92,6 +95,7 @@
 @synthesize navigationBar;
 @synthesize totalPoints,totalHeaderLabel,totalValueLabel;
 @synthesize rightButton,leftButton;
+@synthesize restDaysHeaderLabel,restDaysValueLabel,numberOfRestDays;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -125,6 +129,7 @@
     self.pointsArrayByTime = [NSMutableArray array];
     self.labelArrayByTime = [NSMutableArray array];
     activityDateRangeLabel.text = activityDateString;
+    self.restDaysValueLabel.text = self.numberOfRestDays;
     
     // The total points
     self.totalPoints = 0;
@@ -268,6 +273,8 @@
     self.pointsHeaderLabel.hidden = NO;
     self.totalValueLabel.hidden = NO;
     self.totalHeaderLabel.hidden = NO;
+    self.restDaysHeaderLabel.hidden = NO;
+    self.restDaysValueLabel.hidden = NO;
 }
 - (void) hideTableDislplay
 {
@@ -277,6 +284,8 @@
     self.pointsHeaderLabel.hidden = YES;
     self.totalValueLabel.hidden = YES;
     self.totalHeaderLabel.hidden = YES;
+    self.restDaysHeaderLabel.hidden = YES;
+    self.restDaysValueLabel.hidden = YES;
 }
 
 ///////// COLUMN CHART DELEGATE METHODS

@@ -19,6 +19,7 @@
 @property (strong,nonatomic) NSArray *playersSet;
 @property (strong,nonatomic) NSArray *pointsSet;
 @property (strong,nonatomic) NSArray *activitySet;
+@property (strong,nonatomic) NSMutableArray *messageList;
 
 
 - (NSMutableDictionary *)toNSDictionary;

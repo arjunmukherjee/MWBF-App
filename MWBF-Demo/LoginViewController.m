@@ -92,6 +92,7 @@ NSString* ADMIN_PASSWORD = @"admin";
 {
     
     BOOL network = [self currentNetworkStatus];
+    //BOOL network = YES;
     if(!network)
     {
         [Utils alertStatus:@"No available data network was found. Please contact your internet provider." :@"Sign in Failed" :0];

@@ -91,7 +91,7 @@
     SVSegmentedControl *quickDateSelector = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"Current", @"Past", @"Upcoming", nil]];
     [quickDateSelector addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
 	quickDateSelector.crossFadeLabelsOnDrag = YES;
-    quickDateSelector.textColor = [UIColor whiteColor];
+    quickDateSelector.textColor = [UIColor lightGrayColor];
 	[quickDateSelector setSelectedSegmentIndex:0 animated:NO];
 	quickDateSelector.thumb.tintColor = [UIColor colorWithRed:0.999 green:0.889 blue:0.312 alpha:1.000];
 	quickDateSelector.thumb.textColor = [UIColor blackColor];
@@ -99,6 +99,10 @@
 	quickDateSelector.thumb.textShadowOffset = CGSizeMake(0, 1);
 	quickDateSelector.center = CGPointMake(160, 100);
 	[self.view addSubview:quickDateSelector];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

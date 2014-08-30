@@ -8,7 +8,9 @@
 
 #import "BaseClassViewController.h"
 #import "Challenge.h"
-@interface ChallengeDetailsViewController : BaseClassViewController
+#import "EColumnChart.h"
+
+@interface ChallengeDetailsViewController : BaseClassViewController <UITextFieldDelegate,EColumnChartDelegate, EColumnChartDataSource>
 
 @property (strong,nonatomic) Challenge *challenge;
 

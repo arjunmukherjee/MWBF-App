@@ -291,7 +291,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="scaleToFill" editable="NO" id="Q6h-Vn-saE">
-                                <rect key="frame" x="26" y="93" width="280" height="268"/>
+                                <rect key="frame" x="24" y="93" width="280" height="278"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Use this page to log your daily activities/exercises.  1. Pick an execise. 2. Enter in the amount you exercised. 3. Pick the date. 4. Add the exercise to the list of activities you want to log. 5. Add multiple activities at the same time if you wish to. 6. You may also delete activities once added by swiping left on the particular row. 7. Hit the button (at the bottom) to log the activities to your account. </string>
@@ -300,7 +300,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sfr-jh-3HN">
-                                <rect key="frame" x="271" y="168" width="34" height="28"/>
+                                <rect key="frame" x="240" y="206" width="34" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="calendar3.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -310,14 +310,22 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How much ?" minimumFontSize="14" id="4ef-fW-qXT">
-                                <rect key="frame" x="119" y="167" width="89" height="30"/>
+                                <rect key="frame" x="143" y="167" width="89" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When ?" minimumFontSize="14" id="bIo-u1-DgY">
+                                <rect key="frame" x="140" y="205" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CRL-30-ng1">
-                                <rect key="frame" x="216" y="176" width="56" height="21"/>
+                                <rect key="frame" x="241" y="176" width="56" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -330,9 +338,7 @@
                             <outletCollection property="gestureRecognizers" destination="CgS-16-ln0" appends="YES" id="K7U-au-lBK"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Log Activity" id="uUH-lM-uhy">
-                        <barButtonItem key="leftBarButtonItem" image="icn_menu_20.png" id="oxw-WP-XKT"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Log Activity" id="uUH-lM-uhy"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="activityNameHeaderLable" destination="SHY-qb-5Xk" id="StZ-jj-bkR"/>
@@ -341,6 +347,7 @@
                         <outlet property="activityValueTextField" destination="4ef-fW-qXT" id="jga-U4-l2c"/>
                         <outlet property="addActivityButton" destination="F1n-kP-TtX" id="5Vu-dG-SFE"/>
                         <outlet property="dateHeaderLable" destination="bmK-OW-cZN" id="wtM-uO-WX6"/>
+                        <outlet property="dateTextField" destination="bIo-u1-DgY" id="vbL-xQ-FMU"/>
                         <outlet property="infoButton" destination="J7d-Rh-LrF" id="890-8H-5d3"/>
                         <outlet property="infoView" destination="Q6h-Vn-saE" id="qAn-pc-rDh"/>
                         <outlet property="logActivityButton" destination="2I8-mE-dU4" id="b20-hY-VPO"/>
@@ -459,7 +466,7 @@
                                 <rect key="frame" x="21" y="97" width="280" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Select a time range directly from the quick selector (today, week, month or year).  OR  Select a date from the picker. You may : 1. Select just a year . 2. Select a year and a month. 3. Select a year, month and a day (will display all the activities for the selected day). 4. Select a year, month, and a date range Ex : 5 to 10. Will display all the activities from the 5th day of the month to the 10th day of the month.</mutableString>
+                                <string key="text">Select a time range directly from the quick selector (today, week, month or year).  OR  Select a date from the picker. You may : 1. Select just a year . 2. Select a year and a month. 3. Select a year, month and a day (will display all the activities for the selected day). 4. Select a year, month, and a date range Ex : 5 to 10. Will display all the activities from the 5th day of the month to the 10th day of the month.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -471,9 +478,7 @@
                             <outletCollection property="gestureRecognizers" destination="Ale-yM-u0K" appends="YES" id="4gx-8A-OPO"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="My Stats" id="yJe-sn-M4n">
-                        <barButtonItem key="leftBarButtonItem" image="icn_menu_20.png" id="LcU-1i-8A4"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Stats" id="yJe-sn-M4n"/>
                     <connections>
                         <outlet property="datePicker" destination="EBF-rb-K5v" id="2ZN-Fc-iGU"/>
                         <outlet property="getActivityButton" destination="Gsl-ka-VbX" id="cZ8-fJ-SOQ"/>
@@ -539,7 +544,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="28" sectionHeaderHeight="22" sectionFooterHeight="22" id="N7K-b7-rZz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="28" sectionHeaderHeight="22" sectionFooterHeight="22" id="N7K-b7-rZz">
                                 <rect key="frame" x="0.0" y="188" width="320" height="276"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -548,7 +553,7 @@
                                         <rect key="frame" x="0.0" y="22" width="320" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dgR-Gh-JEI" id="xg9-2v-MuJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="27"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="28"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I4j-z0-P7U">
@@ -608,6 +613,13 @@
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of Rest Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P3M-V1-P1j">
+                                <rect key="frame" x="103" y="440" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hWi-vx-zrC">
                                 <rect key="frame" x="231" y="173" width="89" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -635,6 +647,13 @@
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ppv-vK-KjB">
                                 <rect key="frame" x="246" y="463" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fiK-vV-8wU">
+                                <rect key="frame" x="132" y="463" width="56" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -685,6 +704,8 @@
                         <outlet property="leftButton" destination="66o-zV-3dW" id="Efs-Ms-5Sk"/>
                         <outlet property="navigationBar" destination="C4o-zO-vHv" id="7SB-gK-pd4"/>
                         <outlet property="pointsHeaderLabel" destination="hWi-vx-zrC" id="nbv-0K-Yzp"/>
+                        <outlet property="restDaysHeaderLabel" destination="P3M-V1-P1j" id="oYP-8b-nAm"/>
+                        <outlet property="restDaysValueLabel" destination="fiK-vV-8wU" id="g1V-0X-Rvv"/>
                         <outlet property="rightButton" destination="3ao-58-d9P" id="8U3-ia-lBl"/>
                         <outlet property="totalHeaderLabel" destination="U4x-kP-mse" id="EDC-WH-thE"/>
                         <outlet property="totalValueLabel" destination="Ppv-vK-KjB" id="OVL-cy-Nvk"/>
@@ -715,7 +736,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FutureChallengeDetailsCell" rowHeight="54" id="lIW-ju-N2E" customClass="ChallengeCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lIW-ju-N2E" id="q4i-cu-Iwu">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
@@ -914,7 +935,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Challenges" id="8ec-6T-ddI">
-                        <barButtonItem key="leftBarButtonItem" image="icn_menu_20.png" id="NDn-bv-KLP"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="c4m-c0-eLE">
                             <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -941,12 +961,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="UbL-Xu-k59">
-                                <rect key="frame" x="41" y="89" width="239" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="UbL-Xu-k59">
+                                <rect key="frame" x="12" y="89" width="298" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Progress"/>
                                     <segment title="Challenge Details"/>
+                                    <segment title="Message Board"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlClicked" destination="Y3p-qm-Jqc" eventType="valueChanged" id="Agd-mw-Pyh"/>
@@ -962,7 +983,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="37" sectionHeaderHeight="22" sectionFooterHeight="22" id="hcb-1X-wo0" userLabel="Activity Table View">
-                                        <rect key="frame" x="5" y="147" width="230" height="184"/>
+                                        <rect key="frame" x="5" y="155" width="230" height="184"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1036,8 +1057,61 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="kID-zj-OZG" userLabel="Message Board View">
+                                <rect key="frame" x="12" y="131" width="297" height="357"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" alpha="0.89999999999999991" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="20" sectionHeaderHeight="20" sectionFooterHeight="20" id="kxk-UN-ZyE">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="324"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="0.78000000000000003" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="left" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="4hg-VK-g3O">
+                                                <rect key="frame" x="0.0" y="20" width="297" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hg-VK-g3O" id="LIj-nV-chf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="297" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Y3p-qm-Jqc" id="93u-tx-gCv"/>
+                                            <outlet property="delegate" destination="Y3p-qm-Jqc" id="p3n-DZ-Qcd"/>
+                                        </connections>
+                                    </tableView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" clearButtonMode="always" id="TSr-WZ-0rw">
+                                        <rect key="frame" x="1" y="326" width="260" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9lb-8w-FfF">
+                                        <rect key="frame" x="261" y="327" width="36" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendMessageButtonClicked:" destination="Y3p-qm-Jqc" eventType="touchUpInside" id="nLL-Cu-Lwb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="npo-Og-f5H" appends="YES" id="gK5-Kt-Pzv"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Y1A-xC-NFC"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -1046,13 +1120,23 @@
                         <outlet property="activityTableView" destination="hcb-1X-wo0" id="N19-xQ-Hkw"/>
                         <outlet property="challengeDetailsView" destination="LOk-Dy-tAq" id="hJS-pu-aHc"/>
                         <outlet property="endDateLabel" destination="vVp-3T-W0u" id="vrR-Rz-4lL"/>
+                        <outlet property="messageBoardView" destination="kID-zj-OZG" id="dNS-dE-L0t"/>
+                        <outlet property="messageTableView" destination="kxk-UN-ZyE" id="aZx-wo-jbI"/>
+                        <outlet property="messageTextField" destination="TSr-WZ-0rw" id="mgb-Y8-6Hv"/>
                         <outlet property="navigationBar" destination="Y1A-xC-NFC" id="mm2-LU-gmG"/>
                         <outlet property="positionLabel" destination="A1F-Gf-sst" id="bA7-Dt-6fK"/>
                         <outlet property="segmentedControl" destination="UbL-Xu-k59" id="eoc-LX-i2I"/>
+                        <outlet property="sendMessageButton" destination="9lb-8w-FfF" id="81h-fg-wZD"/>
                         <outlet property="startDateLabel" destination="LUf-24-yAZ" id="ICr-So-bQj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8x7-36-QME" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="npo-Og-f5H">
+                    <connections>
+                        <action selector="backgroundTap:" destination="Y3p-qm-Jqc" id="WwT-7z-b8n"/>
+                        <outlet property="delegate" destination="BVa-wm-XPr" id="OTn-Y6-GhS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3456" y="475"/>
         </scene>
@@ -1073,7 +1157,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" id="e8f-J4-DGn">
-                                <rect key="frame" x="-13" y="94" width="174" height="162"/>
+                                <rect key="frame" x="197" y="83" width="114" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="0.0" maxY="-4"/>
                                 <connections>
@@ -1082,7 +1166,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R1M-1N-j72" userLabel="AddButton">
-                                <rect key="frame" x="172" y="165" width="25" height="24"/>
+                                <rect key="frame" x="167" y="151" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="add-icon1.png"/>
                                 <connections>
@@ -1090,11 +1174,11 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="32" sectionHeaderHeight="22" sectionFooterHeight="22" id="fpB-Xy-eSM" userLabel="Activity Table View">
-                                <rect key="frame" x="0.0" y="264" width="148" height="180"/>
+                                <rect key="frame" x="0.0" y="281" width="148" height="155"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="32" id="mcd-bz-tcG">
+                                    <tableViewCell contentMode="center" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="32" id="mcd-bz-tcG">
                                         <rect key="frame" x="0.0" y="22" width="148" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mcd-bz-tcG" id="Gcp-T0-XcM">
@@ -1110,7 +1194,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t28-hD-0Ht">
-                                <rect key="frame" x="0.0" y="242" width="148" height="21"/>
+                                <rect key="frame" x="0.0" y="259" width="148" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
@@ -1129,11 +1213,11 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="32" sectionHeaderHeight="22" sectionFooterHeight="22" id="sxx-Ga-0qh" userLabel="Players Table View">
-                                <rect key="frame" x="156" y="264" width="164" height="180"/>
+                                <rect key="frame" x="156" y="281" width="164" height="155"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="FriendsPickedCell" rowHeight="32" id="i8P-Ap-Cz9">
+                                    <tableViewCell contentMode="center" selectionStyle="blue" indentationWidth="10" reuseIdentifier="FriendsPickedCell" rowHeight="32" id="i8P-Ap-Cz9">
                                         <rect key="frame" x="0.0" y="22" width="164" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i8P-Ap-Cz9" id="cns-ZU-5uh">
@@ -1149,7 +1233,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MH3-bh-x7x">
-                                <rect key="frame" x="156" y="242" width="164" height="21"/>
+                                <rect key="frame" x="169" y="259" width="152" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
@@ -1166,7 +1250,7 @@
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" alpha="0.89999999999999991" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ESu-zy-kUL" userLabel="Choose Players Table View">
+                                    <tableView clipsSubviews="YES" alpha="0.89999999999999991" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="37" sectionHeaderHeight="22" sectionFooterHeight="22" id="ESu-zy-kUL" userLabel="Choose Players Table View">
                                         <rect key="frame" x="0.0" y="27" width="272" height="190"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1204,18 +1288,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ryD-ye-LRR">
-                                <rect key="frame" x="262" y="161" width="43" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="icon_addfriend.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showFriendsViewButton:" destination="O0t-G2-sT0" eventType="touchUpInside" id="6R6-x4-VTf"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cx4-jA-LVm">
-                                <rect key="frame" x="5" y="135" width="102" height="30"/>
+                                <rect key="frame" x="205" y="118" width="102" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="26"/>
                                 <state key="normal" title="Pick Activity">
@@ -1227,7 +1301,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6fc-KO-ukK">
-                                <rect key="frame" x="197" y="131" width="22" height="22"/>
+                                <rect key="frame" x="95" y="158" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="calendar3.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1237,7 +1311,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0kG-me-bUo">
-                                <rect key="frame" x="197" y="98" width="22" height="22"/>
+                                <rect key="frame" x="95" y="120" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="calendar3.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1247,7 +1321,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" minimumFontSize="13" id="oJX-rJ-ZZY">
-                                <rect key="frame" x="221" y="94" width="75" height="30"/>
+                                <rect key="frame" x="12" y="115" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1255,7 +1329,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" minimumFontSize="13" id="t2X-gb-47D">
-                                <rect key="frame" x="221" y="127" width="75" height="30"/>
+                                <rect key="frame" x="12" y="151" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1276,11 +1350,21 @@
                                 <rect key="frame" x="19" y="91" width="280" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Use this page to add new challenges.  1. Name your challenge. Ex "NYC Marathon Challenge" 2. Pick the exercises/activities to be included in the challenge. 3. Pick the friends you want to compete against. 4. Choose a start and an end date. 5. If you add activities or friends by mistake, swipe left on the row to delete the row. 6. Create the challenge by hitting the "Create Challenge" button.</string>
+                                <mutableString key="text">Use this page to create new challenges.  1. Name your challenge. Ex "NYC Marathon Challenge" 2. Pick the exercises/activities to be included in the challenge. 3. Pick the friends you want to compete against. 4. Choose a start and an end date. 5. If you add activities or friends by mistake, swipe left on the row to delete the row. 6. Create the challenge by hitting the "Create Challenge" button.</mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ryD-ye-LRR">
+                                <rect key="frame" x="4" y="201" width="43" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="icon_addfriend.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFriendsViewButton:" destination="O0t-G2-sT0" eventType="touchUpInside" id="6R6-x4-VTf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -1674,6 +1758,20 @@
             </objects>
             <point key="canvasLocation" x="2468" y="109"/>
         </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="Uv7-ig-Ckg">
+            <objects>
+                <viewController id="byR-77-sCT" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lpc-8Q-8DK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMS-DY-xvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1912" y="-1655"/>
+        </scene>
         <!--Navigation Controller - Log It-->
         <scene sceneID="clV-ZH-xqA">
             <objects>
@@ -1826,7 +1924,6 @@
         <image name="calendar3.png" width="502" height="502"/>
         <image name="column_chart_256.png" width="256" height="256"/>
         <image name="goRight1.png" width="120" height="120"/>
-        <image name="icn_menu_20.png" width="16" height="16"/>
         <image name="icon_addfriend.png" width="128" height="128"/>
         <image name="search_08_256.png" width="256" height="256"/>
         <image name="trash.png" width="320" height="320"/>
@@ -1839,7 +1936,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="o4k-VB-4vh"/>
-        <segue reference="Fge-Oy-Hk8"/>
         <segue reference="Q4w-Ge-8PF"/>
+        <segue reference="hoD-Rd-BDH"/>
     </inferredMetricsTieBreakers>
 </document>

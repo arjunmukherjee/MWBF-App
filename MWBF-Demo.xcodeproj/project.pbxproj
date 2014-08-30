@@ -74,6 +74,7 @@
 		91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */; };
 		91C665181991790F00A56D61 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C665171991790F00A56D61 /* DLPieChart.m */; };
 		91C6651B1992775300A56D61 /* MWBFActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C6651A1992775300A56D61 /* MWBFActivities.m */; };
+		91CABA2919B21E0200E503E3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CABA2819B21E0200E503E3 /* SWRevealViewController.m */; };
 		91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */; };
 		91CF0E6819A10C1B007B668A /* column_chart_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6619A10C1B007B668A /* column_chart_256.png */; };
 		91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6E19A10EAC007B668A /* acount-information.png */; };
@@ -221,6 +222,8 @@
 		91C665171991790F00A56D61 /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
 		91C665191992775300A56D61 /* MWBFActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWBFActivities.h; sourceTree = "<group>"; };
 		91C6651A1992775300A56D61 /* MWBFActivities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBFActivities.m; sourceTree = "<group>"; };
+		91CABA2719B21E0200E503E3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		91CABA2819B21E0200E503E3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "24-feedback_icon.gif"; sourceTree = "<group>"; };
 		91CF0E6619A10C1B007B668A /* column_chart_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = column_chart_256.png; sourceTree = "<group>"; };
 		91CF0E6E19A10EAC007B668A /* acount-information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "acount-information.png"; sourceTree = "<group>"; };
@@ -326,8 +329,7 @@
 		9147D8E61983127100183220 /* MWBF-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				915B420E19ABE6AB00DC79FE /* PMCalendar */,
-				91C665151991790F00A56D61 /* Pie Chart Library */,
+				91CABA2419B21D3600E503E3 /* Library */,
 				918F6957198B07ED00776052 /* Model */,
 				918F693519886CC800776052 /* Utils */,
 				918F691C19844BBD00776052 /* Controllers */,
@@ -604,6 +606,25 @@
 			path = "Pie Chart Library";
 			sourceTree = "<group>";
 		};
+		91CABA2419B21D3600E503E3 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				91CABA2619B21E0200E503E3 /* SWRevealViewController */,
+				915B420E19ABE6AB00DC79FE /* PMCalendar */,
+				91C665151991790F00A56D61 /* Pie Chart Library */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		91CABA2619B21E0200E503E3 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				91CABA2719B21E0200E503E3 /* SWRevealViewController.h */,
+				91CABA2819B21E0200E503E3 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -770,6 +791,7 @@
 			files = (
 				915B425619ABE74C00DC79FE /* NSDate+Helpers.m in Sources */,
 				919EE983198CBD6A00F12411 /* HTTPGetRequest.m in Sources */,
+				91CABA2919B21E0200E503E3 /* SWRevealViewController.m in Sources */,
 				91CFEBE219A42A9B00B0C27A /* Friend.m in Sources */,
 				918D5EF919910E1800597147 /* BaseClassViewController.m in Sources */,
 				91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */,

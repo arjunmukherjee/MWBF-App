@@ -78,7 +78,7 @@
 {
     MFMailComposeViewController *mailcontroller = [[MFMailComposeViewController alloc] init];
     [mailcontroller setMailComposeDelegate:self];
-    NSString *email =@"arjunmuk@gmail.com";
+    NSString *email =@"feedback@mwbflife.com";
     NSArray *emailArray = [[NSArray alloc] initWithObjects:email, nil];
     [mailcontroller setToRecipients:emailArray];
     [mailcontroller setSubject:@"MWBF Feedback"];

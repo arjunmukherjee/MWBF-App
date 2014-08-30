@@ -16,6 +16,7 @@
 @property (strong,nonatomic) NSArray *userActivitiesByTimeJsonArray;
 @property (strong,nonatomic) NSString *activityDateString;
 @property (strong,nonatomic) NSString *title;
+@property (strong,nonatomic) NSString *numberOfRestDays;
 @property (weak, nonatomic) IBOutlet UILabel *activityDateRangeLabel;
 
 

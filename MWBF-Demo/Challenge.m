@@ -11,7 +11,7 @@
 
 @implementation Challenge
 
-@synthesize name,startDate,endDate,playersSet,activitySet,pointsSet,challenge_id;
+@synthesize name,startDate,endDate,playersSet,activitySet,pointsSet,challenge_id,messageList;
 
 - (NSString*) description
 {

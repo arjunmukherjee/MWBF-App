@@ -155,7 +155,10 @@
     [self hideStuff];
     
     if (self.infoView.hidden == YES)
+    {
+        [self.view bringSubviewToFront:self.infoView];
         self.infoView.hidden = NO;
+    }
     else
         self.infoView.hidden = YES;
 }
@@ -166,7 +169,11 @@
     [self hideStuff];
     
     if (self.addFriendsView.hidden == YES)
+    {
+        [self.view bringSubviewToFront:self.addFriendsView];
+        [self.view bringSubviewToFront:self.showFriendsListViewButton];
         self.addFriendsView.hidden = NO;
+    }
     else
         self.addFriendsView.hidden = YES;
 }

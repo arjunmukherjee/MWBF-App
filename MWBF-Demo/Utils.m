@@ -82,5 +82,35 @@
     view.layer.mask = shape;
 }
 
+// Get the number of restDays between two dates
+// Format of the date strings are "Aug 31, 2014 07:30:15 PM" 
++ (NSString *) getNumberOfRestDaysFromDate:(NSString *) fromDate toDate:(NSString*) toDate withActiveDays:(NSInteger) numberOfActiveDays
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm:ss a"];
+    
+    NSDate *toDateDt = [dateFormatter dateFromString:toDate];
+    NSDate *fromDateDt = [dateFormatter dateFromString:fromDate];
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
+                                                        fromDate:fromDateDt
+                                                          toDate:toDateDt
+                                                         options:0];
+    NSInteger totalNumberOfDays = [components day] + 1;
+    
+    components = [gregorianCalendar components:NSDayCalendarUnit
+                                      fromDate:[NSDate date]
+                                        toDate:toDateDt
+                                       options:0];
+    NSInteger daysFromToday =  [components day];
+    
+    NSInteger localNumberOfRestDays = totalNumberOfDays - numberOfActiveDays - daysFromToday;
+    if (localNumberOfRestDays < 0)
+        localNumberOfRestDays = 0;
+    
+    return [NSString stringWithFormat:@"%ld of %ld",(long)localNumberOfRestDays,(totalNumberOfDays - daysFromToday)];
+}
+
 
 @end

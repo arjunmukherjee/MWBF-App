@@ -33,6 +33,7 @@
 @property NSArray *userActivitiesArrayByActivity;
 @property NSArray *userActivitiesArrayByTime;
 @property NSString *activityDate;
+@property NSString *numberOfRestDays;
 
 @end
 
@@ -44,6 +45,7 @@
 @synthesize activityIndicator;
 @synthesize infoView;
 @synthesize infoButton;
+@synthesize numberOfRestDays;
 
 - (void)viewDidLoad
 {
@@ -93,7 +95,7 @@
    SVSegmentedControl *quickDateSelector = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"Today", @"Week", @"Month",@"Year", nil]];
     [quickDateSelector addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
 	quickDateSelector.crossFadeLabelsOnDrag = YES;
-    quickDateSelector.textColor = [UIColor whiteColor];
+    quickDateSelector.textColor = [UIColor lightGrayColor];
 	[quickDateSelector setSelectedSegmentIndex:0 animated:NO];
 	quickDateSelector.thumb.tintColor = [UIColor colorWithRed:0.999 green:0.889 blue:0.312 alpha:1.000];
 	quickDateSelector.thumb.textColor = [UIColor blackColor];
@@ -103,6 +105,7 @@
 	[self.view addSubview:quickDateSelector];
 }
 
+// Gets the start and end date for a week , given a date in the week
 - (void)startDate:(NSDate **)start andEndDate:(NSDate **)end ofWeekOn:(NSDate *)date
 {
     NSDate *startDate = nil;
@@ -139,7 +142,7 @@
     self.infoView.hidden = YES;
 }
 
-- (void)getUserActivities:(NSString *)toDate fromDate:(NSString *)fromDate
+- (void) getUserActivities:(NSString *)toDate fromDate:(NSString *)fromDate
 {
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
@@ -158,6 +161,8 @@
             [self.activityIndicator stopAnimating];
             self.activityIndicator.hidden = YES;
             self.view.userInteractionEnabled = YES;
+        
+            self.numberOfRestDays = [Utils getNumberOfRestDaysFromDate:fromDate toDate:toDate withActiveDays:[self.userActivitiesArrayByTime count]];
             
             if ([self.userActivitiesArrayByActivity count] <= 0 )
                 [Utils alertStatus:[NSString stringWithFormat:@"No activity found for %@",self.activityDate] :@"Get to work!" :0];
@@ -234,7 +239,7 @@
 }
 
 
-- (IBAction)getUserActivity:(id)sender
+- (IBAction) getUserActivity:(id)sender
 {
     NSInteger row = [self.datePicker selectedRowInComponent:0];
     NSString *year  = [self.yearsArray objectAtIndex:row];
@@ -251,14 +256,13 @@
     NSInteger toDayRow = [self.datePicker selectedRowInComponent:3];
     NSString *toDay  = [self.toDaysArray objectAtIndex:toDayRow];
     
-    if ((toDayRow !=0) && (toDayRow < fromDayRow))
-    {
+    
+    if ( ((toDayRow != 0) || (fromDayRow != 0 )) && (monthRow == 0) )
+        [Utils alertStatus:@"If you choose a 'To' or 'From' day, please select a month." :@"Oops!" :0];
+    else if ((toDayRow !=0) && (toDayRow < fromDayRow))
        [Utils alertStatus:@"The 'To Day' must be greater than the 'From Day'." :@"Oops!" :0];
-    }
     else if ((toDayRow != 0) && (fromDayRow == 0))
-    {
         [Utils alertStatus:@"Please select a 'From Day', or remove the 'To Day'." :@"Oops!" :0];
-    }
     else
     {
         if ( (toDayRow != 0)  && (fromDayRow != 0))
@@ -300,6 +304,7 @@
         controller.userActivitiesByActivityJsonArray = self.userActivitiesArrayByActivity;
         controller.userActivitiesByTimeJsonArray = self.userActivitiesArrayByTime;
         controller.activityDateString = self.activityDate;
+        controller.numberOfRestDays = self.numberOfRestDays;
     }
 }
 

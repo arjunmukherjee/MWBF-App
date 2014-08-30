@@ -20,6 +20,7 @@
 @property (strong,nonatomic) NSArray *jsonArrayByTime;
 @property (strong,nonatomic) NSString *activityDate;
 @property (strong,nonatomic) NSString *title;
+@property (strong,nonatomic) NSString *numberOfRestDays;
 
 
 @end
@@ -31,6 +32,7 @@
 @synthesize activityIndicator;
 @synthesize jsonArrayByActivity, jsonArrayByTime;
 @synthesize activityDate, title;
+@synthesize numberOfRestDays;
 
 - (void)viewDidLoad
 {
@@ -119,6 +121,8 @@
             self.activityIndicator.hidden = YES;
             self.view.userInteractionEnabled = YES;
             
+            self.numberOfRestDays = [Utils getNumberOfRestDaysFromDate:fromDate toDate:toDate withActiveDays:[self.jsonArrayByTime count]];
+            
             if ([self.jsonArrayByActivity count] <= 0 )
                 [Utils alertStatus:[NSString stringWithFormat:@"No activity found for %@ for this month",friend.firstName] :@"Ask them to get to work!" :0];
             else
@@ -136,6 +140,7 @@
         controller.userActivitiesByActivityJsonArray = self.jsonArrayByActivity;
         controller.activityDateString = self.activityDate;
         controller.title = self.title;
+        controller.numberOfRestDays = self.numberOfRestDays;
     }
 }
 
