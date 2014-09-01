@@ -70,6 +70,7 @@
 		919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE98D198DBAA000F12411 /* StatsViewController.m */; };
 		919EE996198DCD4100F12411 /* facebook2.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE991198DCD4100F12411 /* facebook2.png */; };
 		919EE99B198DE41B00F12411 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE99A198DE41B00F12411 /* MainViewController.m */; };
+		91BB880119B3CA0D0068D961 /* patience-calm-quiet-plain.gif in Resources */ = {isa = PBXBuildFile; fileRef = 91BB87FF19B3CA0D0068D961 /* patience-calm-quiet-plain.gif */; };
 		91BBC4C219AA51DF00EBFD25 /* ChallengeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */; };
 		91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */; };
 		91C665181991790F00A56D61 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C665171991790F00A56D61 /* DLPieChart.m */; };
@@ -116,21 +117,21 @@
 		429F78ACE8DF4BD8A4A9C08F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		914720611995DC9900F94A80 /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		914720621995DC9900F94A80 /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
-		9147D8DB1983127100183220 /* MWBF-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MWBF-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9147D8DB1983127100183220 /* MWBF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWBF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9147D8DE1983127100183220 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9147D8E01983127100183220 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9147D8E21983127100183220 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9147D8E41983127100183220 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		9147D8E81983127100183220 /* MWBF-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MWBF-Demo-Info.plist"; sourceTree = "<group>"; };
+		9147D8E81983127100183220 /* MWBF-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MWBF-Info.plist"; sourceTree = "<group>"; };
 		9147D8EA1983127100183220 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9147D8EC1983127100183220 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9147D8EE1983127100183220 /* MWBF-Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWBF-Demo-Prefix.pch"; sourceTree = "<group>"; };
+		9147D8EE1983127100183220 /* MWBF-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWBF-Prefix.pch"; sourceTree = "<group>"; };
 		9147D8EF1983127100183220 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9147D8F01983127100183220 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9147D8F51983127100183220 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9147D8FB1983127100183220 /* MWBF-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MWBF-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9147D8FB1983127100183220 /* MWBFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MWBFTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9147D8FC1983127100183220 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		9147D9051983127100183220 /* MWBF-DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MWBF-DemoTests-Info.plist"; sourceTree = "<group>"; };
+		9147D9051983127100183220 /* MWBFTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MWBFTests-Info.plist"; sourceTree = "<group>"; };
 		9147D9071983127100183220 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9147D9091983127100183220 /* MWBF_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWBF_DemoTests.m; sourceTree = "<group>"; };
 		9147D913198312B200183220 /* MainStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard.storyboard; sourceTree = "<group>"; };
@@ -214,6 +215,7 @@
 		919EE991198DCD4100F12411 /* facebook2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook2.png; sourceTree = "<group>"; };
 		919EE999198DE41B00F12411 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		919EE99A198DE41B00F12411 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		91BB87FF19B3CA0D0068D961 /* patience-calm-quiet-plain.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "patience-calm-quiet-plain.gif"; sourceTree = "<group>"; };
 		91BBC4C019AA51DF00EBFD25 /* ChallengeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeDetailsViewController.h; sourceTree = "<group>"; };
 		91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeDetailsViewController.m; sourceTree = "<group>"; };
 		91BBC4C319AA59FA00EBFD25 /* ChallengeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeCell.h; sourceTree = "<group>"; };
@@ -291,8 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				9147D913198312B200183220 /* MainStoryBoard.storyboard */,
-				9147D8E61983127100183220 /* MWBF-Demo */,
-				9147D9031983127100183220 /* MWBF-DemoTests */,
+				9147D8E61983127100183220 /* MWBF */,
+				9147D9031983127100183220 /* MWBFTests */,
 				9147D8DD1983127100183220 /* Frameworks */,
 				9147D8DC1983127100183220 /* Products */,
 				DCCA5EEA60AB4EE78F889D1B /* Pods.xcconfig */,
@@ -302,8 +304,8 @@
 		9147D8DC1983127100183220 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9147D8DB1983127100183220 /* MWBF-Demo.app */,
-				9147D8FB1983127100183220 /* MWBF-DemoTests.xctest */,
+				9147D8DB1983127100183220 /* MWBF.app */,
+				9147D8FB1983127100183220 /* MWBFTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,7 +328,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9147D8E61983127100183220 /* MWBF-Demo */ = {
+		9147D8E61983127100183220 /* MWBF */ = {
 			isa = PBXGroup;
 			children = (
 				91CABA2419B21D3600E503E3 /* Library */,
@@ -338,6 +340,7 @@
 				918F6924198710FC00776052 /* Supporting Files */,
 				91CFEBE319A42E8D00B0C27A /* README */,
 			);
+			name = MWBF;
 			path = "MWBF-Demo";
 			sourceTree = "<group>";
 		};
@@ -346,6 +349,7 @@
 			children = (
 				91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */,
 				91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */,
+				91BB87FF19B3CA0D0068D961 /* patience-calm-quiet-plain.gif */,
 				91D2D11119AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png */,
 				91CF0EE719A2F3F8007B668A /* search_08_256.png */,
 				91D2D0F319AF6AA6009C83E9 /* 1409251657_7-48.png */,
@@ -373,19 +377,20 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		9147D9031983127100183220 /* MWBF-DemoTests */ = {
+		9147D9031983127100183220 /* MWBFTests */ = {
 			isa = PBXGroup;
 			children = (
 				9147D9091983127100183220 /* MWBF_DemoTests.m */,
 				9147D9041983127100183220 /* Supporting Files */,
 			);
+			name = MWBFTests;
 			path = "MWBF-DemoTests";
 			sourceTree = "<group>";
 		};
 		9147D9041983127100183220 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9147D9051983127100183220 /* MWBF-DemoTests-Info.plist */,
+				9147D9051983127100183220 /* MWBFTests-Info.plist */,
 				9147D9061983127100183220 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -548,10 +553,10 @@
 				9147D8EF1983127100183220 /* AppDelegate.h */,
 				9147D8F01983127100183220 /* AppDelegate.m */,
 				9147D8E71983127100183220 /* Images */,
-				9147D8E81983127100183220 /* MWBF-Demo-Info.plist */,
+				9147D8E81983127100183220 /* MWBF-Info.plist */,
 				9147D8E91983127100183220 /* InfoPlist.strings */,
 				9147D8EC1983127100183220 /* main.m */,
-				9147D8EE1983127100183220 /* MWBF-Demo-Prefix.pch */,
+				9147D8EE1983127100183220 /* MWBF-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -628,9 +633,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9147D8DA1983127100183220 /* MWBF-Demo */ = {
+		9147D8DA1983127100183220 /* MWBF */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9147D90D1983127100183220 /* Build configuration list for PBXNativeTarget "MWBF-Demo" */;
+			buildConfigurationList = 9147D90D1983127100183220 /* Build configuration list for PBXNativeTarget "MWBF" */;
 			buildPhases = (
 				B2D2A324E18F44C89EA08545 /* Check Pods Manifest.lock */,
 				9147D8D71983127100183220 /* Sources */,
@@ -642,14 +647,14 @@
 			);
 			dependencies = (
 			);
-			name = "MWBF-Demo";
+			name = MWBF;
 			productName = "MWBF-Demo";
-			productReference = 9147D8DB1983127100183220 /* MWBF-Demo.app */;
+			productReference = 9147D8DB1983127100183220 /* MWBF.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9147D8FA1983127100183220 /* MWBF-DemoTests */ = {
+		9147D8FA1983127100183220 /* MWBFTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9147D9101983127100183220 /* Build configuration list for PBXNativeTarget "MWBF-DemoTests" */;
+			buildConfigurationList = 9147D9101983127100183220 /* Build configuration list for PBXNativeTarget "MWBFTests" */;
 			buildPhases = (
 				9147D8F71983127100183220 /* Sources */,
 				9147D8F81983127100183220 /* Frameworks */,
@@ -660,9 +665,9 @@
 			dependencies = (
 				9147D9021983127100183220 /* PBXTargetDependency */,
 			);
-			name = "MWBF-DemoTests";
+			name = MWBFTests;
 			productName = "MWBF-DemoTests";
-			productReference = 9147D8FB1983127100183220 /* MWBF-DemoTests.xctest */;
+			productReference = 9147D8FB1983127100183220 /* MWBFTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -679,7 +684,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9147D8D61983127100183220 /* Build configuration list for PBXProject "MWBF-Demo" */;
+			buildConfigurationList = 9147D8D61983127100183220 /* Build configuration list for PBXProject "MWBF" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -691,8 +696,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9147D8DA1983127100183220 /* MWBF-Demo */,
-				9147D8FA1983127100183220 /* MWBF-DemoTests */,
+				9147D8DA1983127100183220 /* MWBF */,
+				9147D8FA1983127100183220 /* MWBFTests */,
 			);
 		};
 /* End PBXProject section */
@@ -709,6 +714,7 @@
 				919EE989198D297700F12411 /* add-icon1.png in Resources */,
 				918F69521988953500776052 /* runningLong.jpg in Resources */,
 				91CFEBE419A42E8D00B0C27A /* README in Resources */,
+				91BB880119B3CA0D0068D961 /* patience-calm-quiet-plain.gif in Resources */,
 				915B423E19ABE73700DC79FE /* background@2x.png in Resources */,
 				91D2D11219AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png in Resources */,
 				915B426A19AD526800DC79FE /* trophy.png in Resources */,
@@ -846,7 +852,7 @@
 /* Begin PBXTargetDependency section */
 		9147D9021983127100183220 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9147D8DA1983127100183220 /* MWBF-Demo */;
+			target = 9147D8DA1983127100183220 /* MWBF */;
 			targetProxy = 9147D9011983127100183220 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -955,9 +961,9 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Demo-Prefix.pch";
-				INFOPLIST_FILE = "MWBF-Demo/MWBF-Demo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Prefix.pch";
+				INFOPLIST_FILE = "MWBF-Demo/MWBF-Info.plist";
+				PRODUCT_NAME = MWBF;
 				PROVISIONING_PROFILE = "D5C9C573-E613-4FB1-B911-B99553E61D61";
 				WRAPPER_EXTENSION = app;
 			};
@@ -973,9 +979,9 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Demo-Prefix.pch";
-				INFOPLIST_FILE = "MWBF-Demo/MWBF-Demo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Prefix.pch";
+				INFOPLIST_FILE = "MWBF-Demo/MWBF-Info.plist";
+				PRODUCT_NAME = MWBF;
 				PROVISIONING_PROFILE = "D5C9C573-E613-4FB1-B911-B99553E61D61";
 				WRAPPER_EXTENSION = app;
 			};
@@ -996,8 +1002,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "MWBF-DemoTests/MWBF-DemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MWBF-DemoTests/MWBFTests-Info.plist";
+				PRODUCT_NAME = MWBFTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1014,8 +1020,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Demo-Prefix.pch";
-				INFOPLIST_FILE = "MWBF-DemoTests/MWBF-DemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MWBF-DemoTests/MWBFTests-Info.plist";
+				PRODUCT_NAME = MWBFTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1065,9 +1071,9 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Demo-Prefix.pch";
-				INFOPLIST_FILE = "MWBF-Demo/MWBF-Demo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Prefix.pch";
+				INFOPLIST_FILE = "MWBF-Demo/MWBF-Info.plist";
+				PRODUCT_NAME = MWBF;
 				PROVISIONING_PROFILE = "D5C9C573-E613-4FB1-B911-B99553E61D61";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1084,8 +1090,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Demo-Prefix.pch";
-				INFOPLIST_FILE = "MWBF-DemoTests/MWBF-DemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MWBF-DemoTests/MWBFTests-Info.plist";
+				PRODUCT_NAME = MWBFTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1094,7 +1100,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9147D8D61983127100183220 /* Build configuration list for PBXProject "MWBF-Demo" */ = {
+		9147D8D61983127100183220 /* Build configuration list for PBXProject "MWBF" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9147D90B1983127100183220 /* Debug */,
@@ -1104,7 +1110,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9147D90D1983127100183220 /* Build configuration list for PBXNativeTarget "MWBF-Demo" */ = {
+		9147D90D1983127100183220 /* Build configuration list for PBXNativeTarget "MWBF" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9147D90E1983127100183220 /* Debug */,
@@ -1114,7 +1120,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9147D9101983127100183220 /* Build configuration list for PBXNativeTarget "MWBF-DemoTests" */ = {
+		9147D9101983127100183220 /* Build configuration list for PBXNativeTarget "MWBFTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9147D9111983127100183220 /* Debug */,

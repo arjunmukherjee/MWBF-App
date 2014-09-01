@@ -41,5 +41,6 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 // CHALLENGES
 - (BOOL) addChallenge:(NSString*) post;
 - (void) getChallenges;
+- (BOOL) deleteChallenge:(NSString*)challenge_id;
 
 @end

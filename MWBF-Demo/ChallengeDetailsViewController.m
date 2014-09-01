@@ -29,10 +29,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
 @property (weak, nonatomic) IBOutlet UIView *challengeDetailsView;
 @property (weak, nonatomic) IBOutlet UILabel *positionLabel;
-@property (weak, nonatomic) IBOutlet UIView *messageBoardView;
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
-@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
-@property (weak, nonatomic) IBOutlet UIButton *sendMessageButton;
 @property (strong, nonatomic) NSMutableArray *messagesArray;
 @property (strong, nonatomic) NSString *userFirstName;
 
@@ -49,7 +46,7 @@
 @synthesize messagesArray;
 @synthesize userFirstName;
 
-@synthesize messageBoardView,messageTableView,messageTextField,sendMessageButton;
+@synthesize messageTableView;
 
 - (void)viewDidLoad
 {
@@ -58,10 +55,8 @@
     
     // Initializers
     self.navigationBar.title = self.challenge.name;
-    self.messagesArray = [NSMutableArray array];
-    [Utils setMaskTo:self.messageBoardView byRoundingCorners:UIRectCornerAllCorners];
-    [Utils setMaskTo:self.messageTableView byRoundingCorners:UIRectCornerAllCorners];
-    self.messageTextField.delegate = self;
+    self.messagesArray = self.challenge.messageList;
+    //[Utils setMaskTo:self.messageTableView byRoundingCorners:UIRectCornerAllCorners];
     
     // Get the first name only
     NSArray *tempArray = [[User getInstance].userName componentsSeparatedByString:@" "];
@@ -69,7 +64,9 @@
     
     
     self.challengeDetailsView.hidden = YES;
-    self.messageBoardView.hidden = YES;
+    self.messageTableView.hidden = YES;
+    
+    [self.messageTableView setBackgroundView:nil]; [self.messageTableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patience-calm-quiet-plain.gif"]] ];
     
     // Set the start and end dates
     NSArray *tempDateArr = [self.challenge.startDate componentsSeparatedByString:@" "];
@@ -128,33 +125,10 @@
 }
 
 
-// Dismiss the keyboard when the GO button is hit
-- (BOOL) textFieldShouldReturn:(UITextField *)textField
-{
-    if (textField == self.messageTextField)
-    {
-        [textField resignFirstResponder];
-        [self sendMessageButtonClicked:nil];
-    }
-    return YES;
-}
-
 // Dismiss the keyboard when the background is tapped
 - (IBAction)backgroundTap:(id)sender
 {
     [self.view endEditing:YES];
-}
-
-- (IBAction)sendMessageButtonClicked:(id)sender
-{
-    NSString *message = [NSString stringWithFormat:@"%@: %@",self.userFirstName,self.messageTextField.text];
-    [self.messagesArray addObject:message];
-    
-    [self.messageTableView reloadData];
-    self.messageTextField.text = @"";
-    
-    // TODO
-    // Send the messages to the server : Do this at view will disappear
 }
 
 - (IBAction)segmentedControlClicked
@@ -163,19 +137,19 @@
     {
         self.activityBarView.hidden = NO;
         self.challengeDetailsView.hidden = YES;
-        self.messageBoardView.hidden = YES;
+        self.messageTableView.hidden = YES;
     }
     else if (self.segmentedControl.selectedSegmentIndex == DETAILS_INDEX)
     {
         self.activityBarView.hidden = YES;
         self.challengeDetailsView.hidden = NO;
-        self.messageBoardView.hidden = YES;
+        self.messageTableView.hidden = YES;
     }
     else
     {
         self.activityBarView.hidden = YES;
         self.challengeDetailsView.hidden = YES;
-        self.messageBoardView.hidden = NO;
+        self.messageTableView.hidden = NO;
     }
 }
 
@@ -211,9 +185,9 @@
     }
     else
     {
-        cell.textLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:15];
+        cell.textLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:13];
         cell.textLabel.text = [self.messagesArray objectAtIndex:indexPath.row];
-        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.textColor = [UIColor purpleColor];
     }
     
     return cell;

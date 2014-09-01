@@ -11,7 +11,7 @@
 
 @implementation Challenge
 
-@synthesize name,startDate,endDate,playersSet,activitySet,pointsSet,challenge_id,messageList;
+@synthesize name,creatorId,startDate,endDate,playersSet,activitySet,pointsSet,challenge_id,messageList;
 
 - (NSString*) description
 {
@@ -22,6 +22,7 @@
 {
     
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:self.creatorId forKey:@"user_id"];
     [dictionary setValue:self.name forKey:@"name"];
     [dictionary setValue:self.startDate forKey:@"startDate"];
     [dictionary setValue:self.endDate forKey:@"endDate"];

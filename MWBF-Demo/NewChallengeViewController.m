@@ -267,6 +267,7 @@
         
         // Construct the new challenge object
         Challenge *newChallenge = [[Challenge alloc] init];
+        newChallenge.creatorId = [User getInstance].userEmail;
         newChallenge.name = self.challengeNameTextField.text;
         newChallenge.startDate = fromDate;
         newChallenge.endDate = toDate;

@@ -12,6 +12,7 @@
 @interface Challenge : NSObject
 
 @property (strong,nonatomic) NSString *challenge_id;
+@property (strong,nonatomic) NSString *creatorId;
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *startDate;
 @property (strong,nonatomic) NSString *endDate;

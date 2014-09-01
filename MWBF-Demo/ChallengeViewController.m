@@ -13,6 +13,7 @@
 #import "ChallengeDetailsViewController.h"
 #import "SVSegmentedControl.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MWBFService.h"
 
 #define CURRENT_INDEX 0
 #define PAST_INDEX 1
@@ -275,7 +276,71 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return NO;
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Challenge *challengeObj = [[Challenge alloc] init];
+        NSMutableArray *tempArray;
+        
+        if (tableView == self.currentChallengesTableView)
+        {
+            challengeObj = [self.currentChallengesArray objectAtIndex:indexPath.row];
+            tempArray = self.currentChallengesArray;
+            //[self.currentChallengesArray removeObject:challengeObj];
+        }
+        else if (tableView == self.pastChallengesTableView)
+        {
+            challengeObj = [self.pastChallengesArray objectAtIndex:indexPath.row];
+            tempArray = self.pastChallengesArray;
+            //[self.pastChallengesArray removeObject:challengeObj];
+        }
+        else
+        {
+            challengeObj = [self.futureChallengesArray objectAtIndex:indexPath.row];
+            tempArray = self.futureChallengesArray;
+            //[self.futureChallengesArray removeObject:challengeObj];
+        }
+        
+        
+        if ( ![challengeObj.creatorId isEqualToString:[User getInstance].userEmail])
+        {
+            [Utils alertStatus:@"Sorry, only the creator of a challenge can delete the challenge." :@"Nope.." :0];
+            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            return;
+        }
+        
+        [tempArray removeObject:challengeObj];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        
+        // Delete the challenge from the server
+        self.activityIndicator.hidden = NO;
+        [self.activityIndicator startAnimating];
+        self.view.userInteractionEnabled = NO;
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(0,0);
+        
+        dispatch_async(queue, ^{
+            MWBFService *service = [[MWBFService alloc] init];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                
+                
+                if ([service deleteChallenge:challengeObj.challenge_id] )
+                    [Utils alertStatus:@"Challenge deleted." :@"It's done" :0];
+                else
+                    [Utils alertStatus:@"Unable to delete the challenge. Please try again." :@"Oops! Embarassing" :0];
+                
+                [self.activityIndicator stopAnimating];
+                self.activityIndicator.hidden = YES;
+                self.view.userInteractionEnabled = YES;
+            });
+        });
+    }
 }
 
 

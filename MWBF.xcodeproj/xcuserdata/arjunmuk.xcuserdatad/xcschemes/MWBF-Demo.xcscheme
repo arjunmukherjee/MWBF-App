@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9147D8DA1983127100183220"
                BuildableName = "MWBF-Demo.app"
-               BlueprintName = "MWBF-Demo"
-               ReferencedContainer = "container:MWBF-Demo.xcodeproj">
+               BlueprintName = "MWBF"
+               ReferencedContainer = "container:MWBF.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9147D8FA1983127100183220"
                BuildableName = "MWBF-DemoTests.xctest"
-               BlueprintName = "MWBF-DemoTests"
-               ReferencedContainer = "container:MWBF-Demo.xcodeproj">
+               BlueprintName = "MWBFTests"
+               ReferencedContainer = "container:MWBF.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9147D8DA1983127100183220"
             BuildableName = "MWBF-Demo.app"
-            BlueprintName = "MWBF-Demo"
-            ReferencedContainer = "container:MWBF-Demo.xcodeproj">
+            BlueprintName = "MWBF"
+            ReferencedContainer = "container:MWBF.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9147D8DA1983127100183220"
             BuildableName = "MWBF-Demo.app"
-            BlueprintName = "MWBF-Demo"
-            ReferencedContainer = "container:MWBF-Demo.xcodeproj">
+            BlueprintName = "MWBF"
+            ReferencedContainer = "container:MWBF.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9147D8DA1983127100183220"
             BuildableName = "MWBF-Demo.app"
-            BlueprintName = "MWBF-Demo"
-            ReferencedContainer = "container:MWBF-Demo.xcodeproj">
+            BlueprintName = "MWBF"
+            ReferencedContainer = "container:MWBF.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
