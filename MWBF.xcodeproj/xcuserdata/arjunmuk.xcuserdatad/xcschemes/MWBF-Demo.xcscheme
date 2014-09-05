@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9147D8DA1983127100183220"
-               BuildableName = "MWBF-Demo.app"
+               BuildableName = "MWBF.app"
                BlueprintName = "MWBF"
                ReferencedContainer = "container:MWBF.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9147D8FA1983127100183220"
-               BuildableName = "MWBF-DemoTests.xctest"
+               BuildableName = "MWBFTests.xctest"
                BlueprintName = "MWBFTests"
                ReferencedContainer = "container:MWBF.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9147D8DA1983127100183220"
-            BuildableName = "MWBF-Demo.app"
+            BuildableName = "MWBF.app"
             BlueprintName = "MWBF"
             ReferencedContainer = "container:MWBF.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9147D8DA1983127100183220"
-            BuildableName = "MWBF-Demo.app"
+            BuildableName = "MWBF.app"
             BlueprintName = "MWBF"
             ReferencedContainer = "container:MWBF.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9147D8DA1983127100183220"
-            BuildableName = "MWBF-Demo.app"
+            BuildableName = "MWBF.app"
             BlueprintName = "MWBF"
             ReferencedContainer = "container:MWBF.xcodeproj">
          </BuildableReference>

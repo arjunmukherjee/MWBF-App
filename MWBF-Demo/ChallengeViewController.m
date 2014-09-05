@@ -26,9 +26,10 @@
 @property NSMutableArray *futureChallengesArray;
 @property User *user;
 @property Challenge *chosenChallenge;
-@property (weak, nonatomic) IBOutlet UITableView *currentChallengesTableView;
-@property (weak, nonatomic) IBOutlet UITableView *pastChallengesTableView;
-@property (weak, nonatomic) IBOutlet UITableView *futureChallengesTableView;
+@property (strong, nonatomic) IBOutlet UITableView *currentChallengesTableView;
+@property (strong, nonatomic) IBOutlet UITableView *pastChallengesTableView;
+@property (strong, nonatomic) IBOutlet UITableView *futureChallengesTableView;
+@property (strong, nonatomic) SVSegmentedControl *quickDateSelector;
 
 @end
 
@@ -39,11 +40,36 @@
 @synthesize user;
 @synthesize chosenChallenge;
 @synthesize currentChallengesTableView,pastChallengesTableView,futureChallengesTableView;
+@synthesize quickDateSelector;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
+    [self loadData];
+    
+    // Get the new segmentedController
+    self.quickDateSelector = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"Current", @"Past", @"Upcoming", nil]];
+    [self.quickDateSelector addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+	self.quickDateSelector.crossFadeLabelsOnDrag = YES;
+    self.quickDateSelector.textColor = [UIColor lightGrayColor];
+	[self.quickDateSelector setSelectedSegmentIndex:0 animated:NO];
+	self.quickDateSelector.thumb.tintColor = [UIColor colorWithRed:0.999 green:0.889 blue:0.312 alpha:1.000];
+	self.quickDateSelector.thumb.textColor = [UIColor blackColor];
+	self.quickDateSelector.thumb.textShadowColor = [UIColor colorWithWhite:1 alpha:0.5];
+	self.quickDateSelector.thumb.textShadowOffset = CGSizeMake(0, 1);
+	self.quickDateSelector.center = CGPointMake(160, 100);
+	[self.view addSubview:self.quickDateSelector];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self loadData];
+    [self.quickDateSelector setSelectedSegmentIndex:0 animated:NO];
+}
+
+- (void) loadData
+{
     self.user = [User getInstance];
     self.currentChallengesArray = [NSMutableArray array];
     self.pastChallengesArray = [NSMutableArray array];
@@ -65,7 +91,7 @@
         NSDate *endDate = [dateFormat dateFromString:challengeObj.endDate];
         
         components = [gregorianCalendar components:NSDayCalendarUnit
-                                            fromDate:[NSDate date]
+                                          fromDate:[NSDate date]
                                             toDate:endDate
                                            options:0];
         NSInteger daysRemaining = [components day];
@@ -77,9 +103,9 @@
         {
             // Look for challenges in the future
             components = [gregorianCalendar components:NSDayCalendarUnit
-                                             fromDate:[NSDate date]
-                                               toDate:startDate
-                                              options:0];
+                                              fromDate:[NSDate date]
+                                                toDate:startDate
+                                               options:0];
             NSInteger daysToStart = [components day];
             if (daysToStart > 0)
                 [self.futureChallengesArray addObject:challengeObj];
@@ -87,23 +113,6 @@
                 [self.currentChallengesArray addObject:challengeObj];
         }
     }
-    
-    // Get the new segmentedController
-    SVSegmentedControl *quickDateSelector = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"Current", @"Past", @"Upcoming", nil]];
-    [quickDateSelector addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
-	quickDateSelector.crossFadeLabelsOnDrag = YES;
-    quickDateSelector.textColor = [UIColor lightGrayColor];
-	[quickDateSelector setSelectedSegmentIndex:0 animated:NO];
-	quickDateSelector.thumb.tintColor = [UIColor colorWithRed:0.999 green:0.889 blue:0.312 alpha:1.000];
-	quickDateSelector.thumb.textColor = [UIColor blackColor];
-	quickDateSelector.thumb.textShadowColor = [UIColor colorWithWhite:1 alpha:0.5];
-	quickDateSelector.thumb.textShadowOffset = CGSizeMake(0, 1);
-	quickDateSelector.center = CGPointMake(160, 100);
-	[self.view addSubview:quickDateSelector];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

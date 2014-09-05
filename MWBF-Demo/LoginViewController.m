@@ -68,7 +68,7 @@ NSString* ADMIN_PASSWORD = @"admin";
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     BOOL connected;
     BOOL isConnected;
-    const char *host = "www.apple.com";
+    const char *host = "www.google.com";
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, host);
     SCNetworkReachabilityFlags flags;
     connected = SCNetworkReachabilityGetFlags(reachability, &flags);
@@ -86,11 +86,9 @@ NSString* ADMIN_PASSWORD = @"admin";
 
 //////// FACEBOOK STUFF //////////
 
-
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>) fbUser
 {
-    
     BOOL network = [self currentNetworkStatus];
     //BOOL network = YES;
     if(!network)
@@ -134,7 +132,8 @@ NSString* ADMIN_PASSWORD = @"admin";
                 self.runCount = self.runCount + 1;
                 if (self.runCount == 1)
                 {
-                    Activity *activityList = [Activity getInstance];
+                    // Makes a call to the server to get a list of all the valid activities
+                    [Activity getInstance];
                     
                     // Get the list of friends
                     if ([user.friendsList count] <= 0 )

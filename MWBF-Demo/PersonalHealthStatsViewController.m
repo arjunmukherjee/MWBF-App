@@ -27,13 +27,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    [self loadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self loadData];
+}
+
+- (void) loadData
+{
     User *user = [User getInstance];
     self.bestDayLabel.text = [NSString stringWithFormat:@"%@",user.bestDay];
     self.bestMonthLabel.text = [NSString stringWithFormat:@"%@",user.bestMonth];
     self.bestYearLabel.text = [NSString stringWithFormat:@"%@",user.bestYear];
-
+    
     self.bestDayPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.bestDayPoints];
     self.bestMonthPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.bestMonthPoints];
     self.bestYearPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.bestYearPoints];

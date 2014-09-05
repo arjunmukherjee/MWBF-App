@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "MWBFService.h"
+#import "User.h"
 
 
 @implementation AppDelegate
@@ -39,5 +41,47 @@
     
     return wasHandled;
 }
+
+// Background refresh (Will refresh all the user data from the server in the background, scheduled by iOS)
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    // Refresh the user's data
+    [self refreshUserData];
+    
+    // Set up Local Notifications
+    /*
+     // TODO : Fire notifications if something has changed
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    NSDate *now = [NSDate date];
+    localNotification.fireDate = now;
+    localNotification.alertBody = @"You have 5 new messages.";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.applicationIconBadgeNumber = 5;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    */
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+-(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    return true;
+}
+
+- (void) refreshUserData
+{
+    MWBFService *service = [[MWBFService alloc] init];
+    
+    // Get the list of friends
+    [User getInstance].friendsList = [service getFriendsList];
+    
+    // Get the all time highs
+    [service getAllTimeHighs];
+    
+    // Get all the challenges the user is involved in
+    [service getChallenges];
+}
+
 
 @end

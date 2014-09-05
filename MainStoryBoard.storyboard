@@ -137,21 +137,21 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Arjun Mukherjee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sdB-53-WpJ">
                                 <rect key="frame" x="20" y="537" width="254" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="roU-Y3-gex">
-                                <rect key="frame" x="9" y="173" width="302" height="353"/>
+                                <rect key="frame" x="9" y="149" width="302" height="406"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Get out, get fit.  1. Log your daily activities. 2. See your progress over time and by activity. 3. Share with friends. 4. The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post on FB on your behalf. 5. Do let us know what you think about the app using the feedback button (in the more tab). </mutableString>
+                                <mutableString key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Crete challenges, win something, or just bragging rights. 5.  The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Damascus" family="Damascus" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May We Be Fit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cIl-DK-UYL">
-                                <rect key="frame" x="114" y="132" width="93" height="21"/>
+                                <rect key="frame" x="110" y="128" width="93" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="19"/>
                                 <nil key="highlightedColor"/>
@@ -294,7 +294,7 @@
                                 <rect key="frame" x="24" y="93" width="280" height="278"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Use this page to log your daily activities/exercises.  1. Pick an execise. 2. Enter in the amount you exercised. 3. Pick the date. 4. Add the exercise to the list of activities you want to log. 5. Add multiple activities at the same time if you wish to. 6. You may also delete activities once added by swiping left on the particular row. 7. Hit the button (at the bottom) to log the activities to your account. </string>
+                                <mutableString key="text">Use this page to log your daily activities/exercises.  1. Pick an execise. 2. Enter in the amount you exercised. 3. Pick the date. 4. Add the exercise to the list of activities you want to log. 5. Add multiple activities at the same time if you wish to. 6. You may also delete activities once added by swiping left on the particular row. 7. Hit the button (at the bottom) to log the activities to your account. </mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -463,7 +463,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999999999999991" contentMode="scaleToFill" editable="NO" id="Cm2-cw-82w">
-                                <rect key="frame" x="21" y="97" width="280" height="300"/>
+                                <rect key="frame" x="21" y="97" width="280" height="307"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Select a time range directly from the quick selector (today, week, month or year).  OR  Select a date from the picker. You may : 1. Select just a year . 2. Select a year and a month. 3. Select a year, month and a day (will display all the activities for the selected day). 4. Select a year, month, and a date range Ex : 5 to 10. Will display all the activities from the 5th day of the month to the 10th day of the month.</string>
@@ -1321,7 +1321,7 @@
                                 <rect key="frame" x="19" y="91" width="280" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Use this page to create new challenges.  1. Name your challenge. Ex "NYC Marathon Challenge" 2. Pick the exercises/activities to be included in the challenge. 3. Pick the friends you want to compete against. 4. Choose a start and an end date. 5. If you add activities or friends by mistake, swipe left on the row to delete the row. 6. Create the challenge by hitting the "Create Challenge" button.</string>
+                                <mutableString key="text">Use this page to create new challenges.  1. Name your challenge. Ex "NYC Marathon Challenge" 2. Pick the exercises/activities to be included in the challenge. 3. Pick the friends you want to compete against. 4. Choose a start and an end date. 5. If you add activities or friends by mistake, swipe left on the row to delete the row. 6. Create the challenge by hitting the "Create Challenge" button.</mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1728,20 +1728,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSB-v9-mvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2468" y="109"/>
-        </scene>
-        <!--Reveal View Controller-->
-        <scene sceneID="Uv7-ig-Ckg">
-            <objects>
-                <viewController id="byR-77-sCT" customClass="SWRevealViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lpc-8Q-8DK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lMS-DY-xvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1912" y="-1655"/>
         </scene>
         <!--Navigation Controller - Log It-->
         <scene sceneID="clV-ZH-xqA">

@@ -8,6 +8,8 @@
 
 #import "BaseClassViewController.h"
 #import "Utils.h"
+#import "MWBFService.h"
+#import "User.h"
 
 @interface BaseClassViewController ()
 
@@ -37,6 +39,20 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void) refreshUserData
+{
+    MWBFService *service = [[MWBFService alloc] init];
+    
+    // Get the list of friends
+    [User getInstance].friendsList = [service getFriendsList];
+    
+    // Get the all time highs
+    [service getAllTimeHighs];
+    
+    // Get all the challenges the user is involved in
+    [service getChallenges];
 }
 
 @end

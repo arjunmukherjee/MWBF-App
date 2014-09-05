@@ -32,7 +32,6 @@
     {
         NSString *dateStr = [object objectForKey:@"date"];
         NSString *pointsStr = [object objectForKey:@"points"];
-        //NSLog(@"ID [%@][%@]",dateStr,pointsStr);
         [labelArray addObject:dateStr];
         [pointsArray addObject:pointsStr];
     }
@@ -87,7 +86,7 @@
 + (NSString *) getNumberOfRestDaysFromDate:(NSString *) fromDate toDate:(NSString*) toDate withActiveDays:(NSInteger) numberOfActiveDays
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm:ss a"];
+    [dateFormatter setDateFormat:@"MMM d, yyyy hh:mm:ss a"];
     
     NSDate *toDateDt = [dateFormatter dateFromString:toDate];
     NSDate *fromDateDt = [dateFormatter dateFromString:fromDate];
