@@ -106,8 +106,10 @@
         NSInteger monthInteger = [[dateFormatter stringFromDate: currentTime] integerValue];
         NSString *month  = [Utils getMonthStringFromInt:monthInteger];
         
+        NSInteger daysInMonth = [Utils getNumberOfDaysInMonth:monthInteger];
+        
         NSString *fromDate = [NSString stringWithFormat:@"%@ 01, %@ 00:00:01 AM",month,year];
-        NSString *toDate = [NSString stringWithFormat:@"%@ 31, %@ 11:59:59 PM",month,year];
+        NSString *toDate = [NSString stringWithFormat:@"%@ %ld, %@ 11:59:59 PM",month,(long)daysInMonth,year];
         
         self.activityDate = [NSString stringWithFormat:@"%@, %@",month,year];
         

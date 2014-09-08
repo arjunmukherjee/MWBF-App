@@ -225,15 +225,8 @@
     {
         self.activityDate = [activityDate stringByAppendingString:[NSString stringWithFormat:@" %@",month]];
         
-        // Get the number of days in the current month
-        NSDate *today = [NSDate date];
-        NSCalendar *c = [NSCalendar currentCalendar];
-        NSRange daysInMonth = [c rangeOfUnit:NSDayCalendarUnit
-                               inUnit:NSMonthCalendarUnit
-                              forDate:today];
-        
         fromDate = [NSString stringWithFormat:@"%@ 01, %@ 00:00:01 AM",month,year];
-        toDate = [NSString stringWithFormat:@"%@ %lu, %@ 11:59:59 PM",month,(unsigned long)daysInMonth.length,year];
+        toDate = [NSString stringWithFormat:@"%@ %lu, %@ 11:59:59 PM",month,[Utils getNumberOfDaysInMonth:0],year];
     }
     else // YEAR
     {
@@ -296,18 +289,7 @@
             toDay = @"31";
             
             if (monthRow != 0 )
-            {
-                NSCalendar* cal = [NSCalendar currentCalendar];
-                NSDateComponents* comps = [[NSDateComponents alloc] init];
-            
-                // Set your month here
-                [comps setMonth:monthRow];
-                NSRange range = [cal rangeOfUnit:NSDayCalendarUnit
-                                      inUnit:NSMonthCalendarUnit
-                                     forDate:[cal dateFromComponents:comps]];
-                toDay = [NSString stringWithFormat:@"%lu",(unsigned long)range.length];
-            }
-
+                toDay = [NSString stringWithFormat:@"%lu",[Utils getNumberOfDaysInMonth:monthRow]];
         }
         
         NSString *fromDate = [NSString stringWithFormat:@"%@ %@, %@ 00:00:01 AM",fromMonth,fromDay,year];

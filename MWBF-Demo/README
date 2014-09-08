@@ -4,3 +4,26 @@
 6. Add an option to register with Email only (not using Facebook).
 7. StatsViewController : the quick stats and the picker both use the same code, but the code has been repeated across two methods, extract that out to a single method and call that instead.
 8. Bug with EColumnChart, moveLeft does not work. Used in ActivityViewController.
+
+
+DEVICES
+1. MapMyFitness (suite including all the mapMy apps). They do have a public api, client app needs to be registered (done), the user then needs to authorize (oauth1, oauth2) and obtain a token. Then issue rest calls.
+    
+    Application : MWBF
+    Key: jqdmcvp5x8msfta9skk4b4r6uesmu33t
+    Secret: YHXunxSwqav4kth875dpWzMVcaXhW5xj8gKfjctEbwA
+    URL : https://www.mapmyapi.com/apps/mykeys
+
+2. Garmin
+    They have an api, but it is not public. Garmin requires a one time $5000 fee to get access to their data.
+
+3. Fitbit
+
+4. Nike+
+5. Strava
+6. Fitocracy
+7. RunKeeper
+8. FitBit
+9. Runtastic
+10. Cyclemeter
+11. Endomondo

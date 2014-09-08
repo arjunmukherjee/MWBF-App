@@ -65,6 +65,36 @@
     return userActivityArray;
 }
 
++ (NSInteger) getNumberOfDaysInMonth:(NSInteger)monthInt
+{
+    NSInteger numberOfDaysInMonth = 0;
+    
+    if (monthInt != 0 )
+    {
+        NSCalendar* cal = [NSCalendar currentCalendar];
+        NSDateComponents* comps = [[NSDateComponents alloc] init];
+        
+        // Set your month here
+        [comps setMonth:monthInt];
+        NSRange range = [cal rangeOfUnit:NSDayCalendarUnit
+                                  inUnit:NSMonthCalendarUnit
+                                 forDate:[cal dateFromComponents:comps]];
+        numberOfDaysInMonth = range.length;
+    }
+    else
+    {
+        // Get the number of days in the current month
+        NSDate *today = [NSDate date];
+        NSCalendar *c = [NSCalendar currentCalendar];
+        NSRange daysInMonth = [c rangeOfUnit:NSDayCalendarUnit
+                                      inUnit:NSMonthCalendarUnit
+                                     forDate:today];
+        numberOfDaysInMonth = daysInMonth.length;
+    }
+    
+    return numberOfDaysInMonth;
+}
+
 + (NSString*) getMonthStringFromInt:(NSInteger) monthInt
 {
     NSArray *monthsArray = @[@"--",@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun",@"Jul",@"Aug",@"Sep",@"Oct",@"Nov",@"Dec"];
@@ -109,6 +139,15 @@
         localNumberOfRestDays = 0;
     
     return [NSString stringWithFormat:@"%ld of %ld",(long)localNumberOfRestDays,(totalNumberOfDays - daysFromToday)];
+}
+
++ (void)setRoundedView:(UIView *)roundedView toDiameter:(float)newSize;
+{
+    CGPoint saveCenter = roundedView.center;
+    CGRect newFrame = CGRectMake(roundedView.frame.origin.x, roundedView.frame.origin.y, newSize, newSize);
+    roundedView.frame = newFrame;
+    roundedView.layer.cornerRadius = newSize / 2.0;
+    roundedView.center = saveCenter;
 }
 
 

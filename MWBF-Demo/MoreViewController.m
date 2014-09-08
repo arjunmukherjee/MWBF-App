@@ -11,6 +11,7 @@
 #import "Utils.h"
 #import "User.h"
 #import <MessageUI/MessageUI.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 #define OK_INDEX 0
 
@@ -23,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITextView *infoView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
+@property (weak, nonatomic) IBOutlet FBProfilePictureView *profilePic;
 
 @end
 
@@ -30,15 +32,18 @@
 
 @synthesize resetUserDataButton,deleteActivitiesAlert,refreshButton,refreshDataAlert;
 @synthesize userNameLabel;
+@synthesize profilePic;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     User *user = [User getInstance];
-    self.userNameLabel.text = [NSString stringWithFormat:@"Welcome %@",user.userName];
+    self.userNameLabel.text = [NSString stringWithFormat:@"%@",user.userName];
     
     self.infoView.hidden = YES;
     [Utils setMaskTo:self.infoView byRoundingCorners:UIRectCornerAllCorners];
+    [Utils setRoundedView:self.profilePic toDiameter:35];
+    self.profilePic.profileID = user.fbProfileID;
 }
 
 - (IBAction)infoButtonClicked:(id)sender

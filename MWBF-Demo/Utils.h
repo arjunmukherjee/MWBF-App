@@ -18,5 +18,8 @@
 + (NSString*) getMonthStringFromInt:(NSInteger) monthInt;
 + (void) setMaskTo:(UIView*)view byRoundingCorners:(UIRectCorner)corners;
 + (NSString*) getNumberOfRestDaysFromDate:(NSString *) fromDate toDate:(NSString*) toDate withActiveDays:(NSInteger) numberOfActiveDays;
++ (NSInteger) getNumberOfDaysInMonth:(NSInteger)monthInt;
++ (void)setRoundedView:(UIView *)roundedView toDiameter:(float)newSize;
+
 
 @end

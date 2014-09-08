@@ -133,6 +133,9 @@
             MWBFService *service = [[MWBFService alloc] init];
             success = [service logActivity:jsonString withResponse:&response];
             
+            // Refresh the users data
+            [self refreshUserData];
+            
             dispatch_sync(dispatch_get_main_queue(), ^{
                 [self.activityIndicator stopAnimating];
                 self.activityIndicator.hidden = YES;

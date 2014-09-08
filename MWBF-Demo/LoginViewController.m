@@ -60,6 +60,7 @@ NSString* ADMIN_PASSWORD = @"admin";
     self.fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
   
     [self.view addSubview:self.fbLoginView];
+    [self.fbLoginView sizeToFit];
 }
 
 // Check for a valid network/data connection
@@ -114,6 +115,7 @@ NSString* ADMIN_PASSWORD = @"admin";
             user.userId = fbUser[@"email"];
             user.userName = [NSString stringWithFormat:@"%@ %@",[fbUser first_name],[fbUser last_name]];
             
+            user.fbProfileID = fbUser.objectID;
             self.fbSuccess = YES;
             
             NSString *response = nil;

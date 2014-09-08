@@ -14,6 +14,7 @@
 @property (strong,nonatomic) NSString *userEmail;
 @property (strong,nonatomic) NSString *userName;
 @property (strong,nonatomic) NSMutableArray *friendsList;
+@property (strong,nonatomic) NSString *fbProfileID;
 
 // Challenges
 @property (strong,nonatomic) NSMutableArray *challengesList;
