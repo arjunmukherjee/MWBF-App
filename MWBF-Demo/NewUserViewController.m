@@ -28,38 +28,6 @@
     [self.view sendSubviewToBack:backgroundImage];
 }
 
-- (IBAction)registerUserClicked:(id)sender
-{
-    BOOL success = NO;
-    @try
-    {
-        if([[self.emailTextField text] isEqualToString:@""] )
-        {
-            [self alertStatus:@"Please enter a facebook registered email address." :@"Registration Failed!" :0];
-        }
-        else
-        {
-            NSString *response = nil;
-            MWBFService *service = [[MWBFService alloc] init];
-           // success = [service registerUser:[self.emailTextField text] withPassword:[self.passwordTextField text] withFirstName:[self.firstNameTextField text] withLastName:[self.lastNameTextField text] withResponse:&response];
-        
-            success = [service registerFaceBookUser:[self.emailTextField text] withResponse:&response];
-            
-            if (success)
-            {
-                [self alertStatus:response :@"Success." :0];
-                [self performSegueWithIdentifier:@"user_registered" sender:self];
-            }
-            else
-                [self alertStatus:@"Sign in failed." :response :0];
-        }
-    }
-    @catch (NSException * e)
-    {
-        NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Sign in Failed." :@"Error!" :0];
-    }
-}
 
 - (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
 {

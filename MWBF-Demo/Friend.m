@@ -14,6 +14,7 @@
 @synthesize lastName = _lastName;
 @synthesize email = _email;
 @synthesize userName = _userName;
+@synthesize fbProfileID = _fbProfileID;
 
 - (NSString*) description
 {

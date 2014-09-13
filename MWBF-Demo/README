@@ -4,6 +4,7 @@
 6. Add an option to register with Email only (not using Facebook).
 7. StatsViewController : the quick stats and the picker both use the same code, but the code has been repeated across two methods, extract that out to a single method and call that instead.
 8. Bug with EColumnChart, moveLeft does not work. Used in ActivityViewController.
+9. Integrate facebook friends with the apps friend finder.
 
 
 DEVICES
@@ -16,6 +17,7 @@ DEVICES
 
 2. Garmin
     They have an api, but it is not public. Garmin requires a one time $5000 fee to get access to their data.
+    Exchanged a few emails with them.
 
 3. Fitbit
 

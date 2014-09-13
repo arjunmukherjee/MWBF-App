@@ -118,15 +118,6 @@ NSString* ADMIN_PASSWORD = @"admin";
             user.fbProfileID = fbUser.objectID;
             self.fbSuccess = YES;
             
-            NSString *response = nil;
-            MWBFService *service = [[MWBFService alloc] init];
-            self.success = [service loginFaceBookUser:user.userEmail withFirstName:[fbUser first_name] withLastName:[fbUser last_name] withResponse:&response];
-            
-            if ( !(self.success && self.fbSuccess) )
-            {
-                [Utils alertStatus:response :@"Sign in Failed" :0];
-                return;
-            }
             
             dispatch_sync(dispatch_get_main_queue(), ^{
                 
@@ -134,6 +125,16 @@ NSString* ADMIN_PASSWORD = @"admin";
                 self.runCount = self.runCount + 1;
                 if (self.runCount == 1)
                 {
+                    NSString *response = nil;
+                    MWBFService *service = [[MWBFService alloc] init];
+                    self.success = [service loginFaceBookUser:user.userEmail withFirstName:[fbUser first_name] withLastName:[fbUser last_name] withProfileId:fbUser.objectID withResponse:&response];
+                    
+                    if ( !(self.success && self.fbSuccess) )
+                    {
+                        [Utils alertStatus:response :@"Sign in Failed" :0];
+                        return;
+                    }
+                    
                     // Makes a call to the server to get a list of all the valid activities
                     [Activity getInstance];
                     

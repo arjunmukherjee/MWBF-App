@@ -10,7 +10,9 @@
 #import "ActivityViewController.h"
 #import "User.h"
 #import "Friend.h"
+#import "FriendCell.h"
 #import "MWBFService.h"
+
 
 @interface FriendsListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *friendsListTable;
@@ -39,14 +41,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.user = [User getInstance];
-    
-    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    self.activityIndicator.center = self.view.center;
-    self.activityIndicator.color = [UIColor blueColor];
-    [self.view addSubview: self.activityIndicator];
+    [self loadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self loadData];
+    [self.friendsListTable reloadData];
+}
+
+- (void) loadData
+{
+    self.user = [User getInstance];
+    // Sort the activites by the total points
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [self.user.friendsList sortedArrayUsingDescriptors:sortDescriptors];
+    self.user.friendsList = [NSMutableArray arrayWithArray:sortedArray];
+}
 
 ///////// UITABLEVIEW METHODS /////////
 
@@ -63,9 +75,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"FriendDetailsCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     Friend *friendObj = [self.user.friendsList objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",friendObj.firstName,friendObj.lastName];
+    cell.friendNameLabel.text = [NSString stringWithFormat:@"%@ %@",friendObj.firstName,friendObj.lastName];
+    cell.friendFbProfilePicView.profileID = friendObj.fbProfileID;
+    [Utils setRoundedView:cell.friendFbProfilePicView toDiameter:40];
     
     UIColor *selectionColor = [[UIColor alloc] initWithRed:20.0 / 255 green:59.0 / 255 blue:102.0 / 255 alpha:0.5];
     UIView *bgColorView = [[UIView alloc] init];

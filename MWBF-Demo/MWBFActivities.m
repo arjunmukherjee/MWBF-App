@@ -10,6 +10,6 @@
 
 @implementation MWBFActivities
 
-@synthesize activityId,activityName,measurementUnits,pointsPerUnit;
+@synthesize activityId,activityName,measurementUnits,pointsPerUnit,wholeUnit;
 
 @end

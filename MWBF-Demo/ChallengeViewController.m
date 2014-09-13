@@ -66,6 +66,9 @@
 {
     [self loadData];
     [self.quickDateSelector setSelectedSegmentIndex:0 animated:NO];
+    
+    [self.currentChallengesTableView reloadData];
+    [self.futureChallengesTableView reloadData];
 }
 
 - (void) loadData
@@ -84,7 +87,7 @@
     NSDateComponents *components = [[NSDateComponents alloc] init];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MMM d, yyyy hh:mm:ss a"];
-    for (Challenge *challengeObj in user.challengesList)
+    for (Challenge *challengeObj in self.user.challengesList)
     {
         
         NSDate *startDate = [dateFormat dateFromString:challengeObj.startDate];

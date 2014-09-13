@@ -175,7 +175,18 @@
     }
 }
 
-///////// Calendar METHODS ///////////////
+#pragma - Calendar methods
+/////////// CALENDAR METHODS /////////////////
+
+- (IBAction)pickDateClicked:(id)sender
+{
+    [self.view endEditing:YES];
+    [self.pmCC presentCalendarFromView:sender
+              permittedArrowDirections:PMCalendarArrowDirectionAny
+                             isPopover:YES
+                              animated:YES];
+}
+
 - (void)calendarController:(PMCalendarController *)calendarController didChangePeriod:(PMPeriod *)newPeriod
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -297,17 +308,6 @@
     [self.pmCC dismissCalendarAnimated:NO];
 }
 
-
-#pragma - Calendar methods
-/////////// CALENDAR METHODS /////////////////
-
-- (IBAction)pickDateClicked:(id)sender
-{
-    [self.pmCC presentCalendarFromView:sender
-                  permittedArrowDirections:PMCalendarArrowDirectionAny
-                                 isPopover:YES
-                                  animated:YES];
-}
 
 ///// PICKER VIEW METHODS ////
 

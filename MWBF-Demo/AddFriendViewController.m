@@ -11,6 +11,7 @@
 #import "Utils.h"
 #import "User.h"
 #import "Friend.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 
 @interface AddFriendViewController ()
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *friendEmail;
 @property (weak, nonatomic) IBOutlet UILabel *friendFirstName;
 @property (weak, nonatomic) IBOutlet UILabel *friendLastName;
+@property (weak, nonatomic) IBOutlet FBProfilePictureView *friendProfilePicView;
 
 @end
 
@@ -29,10 +31,13 @@
 
 @synthesize friendsEmailTextField,searchFriendButton,friendEmailLabel,friendNameLabel,addFriendButton;
 @synthesize friendEmail,friendFirstName,friendLastName;
+@synthesize friendProfilePicView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.friendProfilePicView.hidden = YES;
     
     self.friendsEmailTextField.delegate = self;
     
@@ -45,6 +50,8 @@
     self.friendEmail.hidden = YES;
     self.friendFirstName.hidden = YES;
     self.friendLastName.hidden = YES;
+    
+    [Utils setRoundedView:self.friendProfilePicView toDiameter:70];
 }
 
 // Dismiss the keyboard when the GO button is hit
@@ -56,6 +63,8 @@
 
 - (IBAction)searchButtonClicked:(id)sender
 {
+    [self backgroundTap:nil];
+    
     self.friendsEmailTextField.text = [self.friendsEmailTextField.text lowercaseString];
     
     if ([self.friendsEmailTextField.text length] <= 0 )
@@ -82,13 +91,13 @@
         }
     }
     
-    
     MWBFService *service = [[MWBFService alloc] init];
     NSDictionary *friendData = [service findFriendWithId:self.friendsEmailTextField.text];
     
     NSString *email = friendData[@"email"];
     NSString *firstName = friendData[@"firstName"];
     NSString *lastName = friendData[@"lastName"];
+    NSString *profileId = friendData[@"fbProfileId"];
     
     //NSLog(@"Email[%@],FirstName[%@],LastName[%@],MemberSince[%@]",email,firstName,lastName,memberSince);
     
@@ -104,12 +113,14 @@
     }
     else
     {
+        self.friendProfilePicView.hidden = NO;
         self.friendEmail.hidden = NO;
         self.friendFirstName.hidden = NO;
         self.friendLastName.hidden = NO;
         self.friendEmail.text = email;
         self.friendFirstName.text = firstName;
         self.friendLastName.text = lastName;
+        self.friendProfilePicView.profileID = profileId;
         
         self.addFriendButton.hidden = NO;
         self.addFriendButton.enabled = YES;
@@ -131,6 +142,7 @@
         newFriend.email = self.friendEmail.text;
         newFriend.firstName = self.friendFirstName.text;
         newFriend.lastName = self.friendLastName.text;
+        newFriend.fbProfileID = self.friendProfilePicView.profileID;
         
         NSMutableArray *tempFriendsNameArray = [NSMutableArray array];
         [tempFriendsNameArray addObject:newFriend];
@@ -144,9 +156,12 @@
         
         self.addFriendButton.enabled = NO;
         
+        self.friendProfilePicView.hidden = YES;
         self.friendEmail.hidden = YES;
         self.friendFirstName.hidden = YES;
         self.friendLastName.hidden = YES;
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
     else
         [Utils alertStatus:[NSString stringWithFormat:@"Unable to add %@ to your friends list.",self.friendFirstName.text]  :@"Oops!" :0];

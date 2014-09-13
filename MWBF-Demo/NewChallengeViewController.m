@@ -181,6 +181,7 @@
 - (IBAction)pickActivityButtonClicked:(id)sender
 {
     [self.view endEditing:YES];
+    self.addFriendsView.hidden = YES;
     
     if (self.activityPicker.hidden == YES)
     {
@@ -299,7 +300,6 @@
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
     
-                    
                     if ([service addChallenge:jsonString] )
                     {
                         // Refresh the challenges list
@@ -311,7 +311,7 @@
                         
                         [Utils alertStatus:@"Now, it's time to get to work." :@"Wohoo! Challenge created." :0];
                         
-                        [self performSegueWithIdentifier:@"NewChallengeAdded" sender:self];
+                        [self.navigationController popViewControllerAnimated:YES];
                     }
                     else
                         [Utils alertStatus:@"Unable to create challenge. Please try again." :@"Oops! Embarassing" :0];

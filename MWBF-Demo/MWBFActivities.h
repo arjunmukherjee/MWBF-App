@@ -13,6 +13,7 @@
 @property (strong,nonatomic) NSString *measurementUnits;
 @property (nonatomic) NSInteger activityId;
 @property (nonatomic) double pointsPerUnit;
+@property (nonatomic) int wholeUnit;
 @property (strong,nonatomic) NSString *activityName;
 
 

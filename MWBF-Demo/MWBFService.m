@@ -52,37 +52,15 @@
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://mwbf.herokuapp.com/mwbf/user/deleteUserActivities"
 
 
+
  
 @implementation MWBFService
 
 
-- (BOOL) loginUser:(NSString *) email withPassword: (NSString *) password withResponse:(NSString**) response
+- (BOOL) loginFaceBookUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withProfileId:(NSString *)profileId withResponse:(NSString**) response;
 {
-    NSString *post =[[NSString alloc] initWithFormat:@"{\"email\"=\"%@\",\"password\"=\"%@\"}",email,password];
-    NSURL *url=[NSURL URLWithString:USER_LOGIN_ENDPOINT_FORMAT];
     
-    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
-    NSData *urlData = [service sendPostRequest:post toURL:url];
-    
-    NSError *error = nil;
-    NSDictionary *jsonData = [NSJSONSerialization
-                              JSONObjectWithData:urlData
-                              options:NSJSONReadingMutableContainers
-                              error:&error];
-    
-    *response = (NSString *) jsonData[@"message"];
-    NSInteger success = [jsonData[@"success"] integerValue];
-    if(success == 1)
-        return YES;
-    else
-        return NO;
-    
-    return NO;
-}
-
-- (BOOL) loginFaceBookUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withResponse:(NSString**) response;
-{
-    NSString *post =[[NSString alloc] initWithFormat:@"{\"email\"=\"%@\",\"firstName\"=\"%@\",\"lastName\"=\"%@\"}",email,firstName,lastName];
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"email\"=\"%@\",\"firstName\"=\"%@\",\"lastName\"=\"%@\",\"profileId\"=\"%@\"}",email,firstName,lastName,profileId];
     NSURL *url=[NSURL URLWithString:FB_USER_LOGIN_ENDPOINT_FORMAT];
     
     HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
@@ -104,55 +82,9 @@
     return NO;
 }
 
-
-- (BOOL) registerUser:(NSString *) email withPassword: (NSString *) password withFirstName:(NSString*) firstName withLastName:(NSString*) lastName withResponse:(NSString**) response
-{
-    NSString *post =[[NSString alloc] initWithFormat:@"{\"email\"=\"%@\",\"password\"=\"%@\",\"firstName\"=\"%@\",\"lastName\"=\"%@\"}",email,password,firstName,lastName];
-    NSURL *url=[NSURL URLWithString:USER_ADD_ENDPOINT_FORMAT];
-    
-    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
-    NSData *urlData = [service sendPostRequest:post toURL:url];
-    
-    NSError *error = nil;
-    NSDictionary *jsonData = [NSJSONSerialization
-                              JSONObjectWithData:urlData
-                              options:NSJSONReadingMutableContainers
-                              error:&error];
-    
-    *response = (NSString *) jsonData[@"message"];
-    NSInteger success = [jsonData[@"success"] integerValue];
-    if(success == 1)
-        return YES;
-    else
-        return NO;
-    
-    return NO;
-}
-
-- (BOOL) registerFaceBookUser:(NSString *) email withResponse:(NSString**) response
-{
-    NSString *post =[[NSString alloc] initWithFormat:@"{\"email\"=\"%@\"}",email];
-    NSURL *url=[NSURL URLWithString:FB_USER_ADD_ENDPOINT_FORMAT];
-    
-    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
-    NSData *urlData = [service sendPostRequest:post toURL:url];
-    
-    NSError *error = nil;
-    NSDictionary *jsonData = [NSJSONSerialization
-                              JSONObjectWithData:urlData
-                              options:NSJSONReadingMutableContainers
-                              error:&error];
-    
-    *response = (NSString *) jsonData[@"message"];
-    NSInteger success = [jsonData[@"success"] integerValue];
-    if(success == 1)
-        return YES;
-    else
-        return NO;
-    
-    return NO;
-}
-
+/////////////////////////////
+// ACTIVITY /////////////////
+/////////////////////////////
 - (BOOL) logActivity:(NSString*) post withResponse:(NSString**)response
 {
     NSURL *url=[NSURL URLWithString:LOG_ACTIVITY_ENDPOINT_FORMAT];
@@ -198,6 +130,7 @@
             mwbfActivity.activityId = [[activity objectForKey:@"id"] integerValue];
             mwbfActivity.measurementUnits = [activity objectForKey:@"measurementUnit"];
             mwbfActivity.pointsPerUnit = [[activity objectForKey:@"pointsPerUnit"] doubleValue];
+            mwbfActivity.wholeUnit = [[activity objectForKey:@"wholeUnit"] doubleValue];
             
             [returnDict setObject:mwbfActivity forKey:mwbfActivity.activityName];
         }
@@ -336,6 +269,7 @@
         friend.email = [friendDict objectForKey:@"email"];
         friend.firstName = [friendDict objectForKey:@"firstName"];
         friend.lastName = [friendDict objectForKey:@"lastName"];
+        friend.fbProfileID = [friendDict objectForKey:@"fbProfileId"];
         
         [returnFriendsArray addObject:friend];
     }
