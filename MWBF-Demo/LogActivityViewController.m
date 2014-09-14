@@ -181,7 +181,11 @@
 - (IBAction)pickDateClicked:(id)sender
 {
     [self.view endEditing:YES];
-    [self.pmCC presentCalendarFromView:sender
+    
+    if ([self.pmCC isCalendarVisible])
+        [self.pmCC dismissCalendarAnimated:NO];
+    else
+        [self.pmCC presentCalendarFromView:sender
               permittedArrowDirections:PMCalendarArrowDirectionAny
                              isPopover:YES
                               animated:YES];

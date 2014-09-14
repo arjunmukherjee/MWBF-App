@@ -23,6 +23,7 @@
 @property (strong,nonatomic) NSString *activityDate;
 @property (strong,nonatomic) NSString *title;
 @property (strong,nonatomic) NSString *numberOfRestDays;
+@property (nonatomic) NSInteger numberOfFriends;
 
 
 @end
@@ -35,6 +36,7 @@
 @synthesize jsonArrayByActivity, jsonArrayByTime;
 @synthesize activityDate, title;
 @synthesize numberOfRestDays;
+@synthesize numberOfFriends;
 
 - (void)viewDidLoad
 {
@@ -42,12 +44,20 @@
     // Do any additional setup after loading the view.
     
     [self loadData];
+    self.numberOfFriends = [self.user.friendsList count];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self loadData];
-    [self.friendsListTable reloadData];
+    // Reload stuff only if the number of friends has changed since the view was initially loaded
+    NSInteger newCount = [self.user.friendsList count];
+    
+    if (self.numberOfFriends != newCount)
+    {
+        [self loadData];
+        [self.friendsListTable reloadData];
+        self.numberOfFriends = [self.user.friendsList count];
+    }
 }
 
 - (void) loadData

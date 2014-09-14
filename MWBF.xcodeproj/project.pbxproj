@@ -14,6 +14,7 @@
 		912E348819C3F19000F4745A /* points-scheme.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E348719C3F19000F4745A /* points-scheme.png */; };
 		912E348A19C3F32F00F4745A /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E348919C3F32F00F4745A /* friends.png */; };
 		912E348D19C3F60A00F4745A /* PointsSchemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 912E348C19C3F60A00F4745A /* PointsSchemeCell.m */; };
+		912E349319C40EAE00F4745A /* personalBest.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E349219C40EAE00F4745A /* personalBest.png */; };
 		914720631995DC9900F94A80 /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914720621995DC9900F94A80 /* NewChallengeViewController.m */; };
 		9147D8DF1983127100183220 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9147D8DE1983127100183220 /* Foundation.framework */; };
 		9147D8E11983127100183220 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9147D8E01983127100183220 /* CoreGraphics.framework */; };
@@ -83,7 +84,6 @@
 		91C665181991790F00A56D61 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C665171991790F00A56D61 /* DLPieChart.m */; };
 		91C6651B1992775300A56D61 /* MWBFActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C6651A1992775300A56D61 /* MWBFActivities.m */; };
 		91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */; };
-		91CF0E6819A10C1B007B668A /* column_chart_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6619A10C1B007B668A /* column_chart_256.png */; };
 		91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6E19A10EAC007B668A /* acount-information.png */; };
 		91CF0E7919A19B17007B668A /* icon_addfriend.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E7819A19B17007B668A /* icon_addfriend.png */; };
 		91CF0E7B19A1AA29007B668A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CF0E7A19A1AA29007B668A /* MessageUI.framework */; };
@@ -132,6 +132,7 @@
 		912E348919C3F32F00F4745A /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends.png; sourceTree = "<group>"; };
 		912E348B19C3F60A00F4745A /* PointsSchemeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointsSchemeCell.h; sourceTree = "<group>"; };
 		912E348C19C3F60A00F4745A /* PointsSchemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointsSchemeCell.m; sourceTree = "<group>"; };
+		912E349219C40EAE00F4745A /* personalBest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personalBest.png; sourceTree = "<group>"; };
 		914720611995DC9900F94A80 /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		914720621995DC9900F94A80 /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		9147D8DB1983127100183220 /* MWBF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWBF.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,7 +243,6 @@
 		91C665191992775300A56D61 /* MWBFActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWBFActivities.h; sourceTree = "<group>"; };
 		91C6651A1992775300A56D61 /* MWBFActivities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBFActivities.m; sourceTree = "<group>"; };
 		91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "24-feedback_icon.gif"; sourceTree = "<group>"; };
-		91CF0E6619A10C1B007B668A /* column_chart_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = column_chart_256.png; sourceTree = "<group>"; };
 		91CF0E6E19A10EAC007B668A /* acount-information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "acount-information.png"; sourceTree = "<group>"; };
 		91CF0E7819A19B17007B668A /* icon_addfriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_addfriend.png; sourceTree = "<group>"; };
 		91CF0E7A19A1AA29007B668A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -373,6 +373,7 @@
 				912E348719C3F19000F4745A /* points-scheme.png */,
 				91D2D11119AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png */,
 				91CF0EE719A2F3F8007B668A /* search_08_256.png */,
+				912E349219C40EAE00F4745A /* personalBest.png */,
 				91D2D0F319AF6AA6009C83E9 /* 1409251657_7-48.png */,
 				91D357CA19BAB51E005D0F26 /* save-icon.png */,
 				915B426919AD526800DC79FE /* trophy.png */,
@@ -389,7 +390,6 @@
 				915B426B19AEC04000DC79FE /* arrow_right.png */,
 				91CF0E6E19A10EAC007B668A /* acount-information.png */,
 				918D5F001991208200597147 /* goRight1.png */,
-				91CF0E6619A10C1B007B668A /* column_chart_256.png */,
 				919EE97F198CB8C800F12411 /* Network-Upload-icon.png */,
 				919EE97D198CB70000F12411 /* background.jpg */,
 				918F69511988953500776052 /* runningLong.jpg */,
@@ -746,7 +746,6 @@
 				918F694A1988933200776052 /* running6.jpg in Resources */,
 				919EE978198C40BB00F12411 /* mwbf-run.png in Resources */,
 				91CF0ED519A27B17007B668A /* Default.png in Resources */,
-				91CF0E6819A10C1B007B668A /* column_chart_256.png in Resources */,
 				919EE989198D297700F12411 /* add-icon1.png in Resources */,
 				918F69521988953500776052 /* runningLong.jpg in Resources */,
 				91CFEBE419A42E8D00B0C27A /* README in Resources */,
@@ -777,6 +776,7 @@
 				919EE996198DCD4100F12411 /* facebook2.png in Resources */,
 				91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */,
 				918F694E198893C000776052 /* reasons-to-run.jpg in Resources */,
+				912E349319C40EAE00F4745A /* personalBest.png in Resources */,
 				9127FB9619BD1E16001C85D8 /* appIcon152x152.png in Resources */,
 				91CF0ED419A27B17007B668A /* Default-568h@2x.png in Resources */,
 				91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */,

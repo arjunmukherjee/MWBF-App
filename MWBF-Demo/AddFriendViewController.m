@@ -51,7 +51,7 @@
     self.friendFirstName.hidden = YES;
     self.friendLastName.hidden = YES;
     
-    [Utils setRoundedView:self.friendProfilePicView toDiameter:70];
+    [Utils setRoundedView:self.friendProfilePicView toDiameter:75];
 }
 
 // Dismiss the keyboard when the GO button is hit
