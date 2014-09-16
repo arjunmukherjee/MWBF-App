@@ -99,7 +99,7 @@
             messageBody = [NSString stringWithFormat:@"You have %ld new %@.",(long)newChallenges,challengeStr];
         
         
-        // TODO : Populate the users message and friend notification lists
+        // Populate the users message and friend notification lists
         NSArray *friendsListNew = [NSArray arrayWithArray:user.friendsList];
         for (int i = 0; i < [friendsListNew count]; i++)
         {
