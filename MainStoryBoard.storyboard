@@ -134,18 +134,11 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by US" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sdB-53-WpJ">
-                                <rect key="frame" x="20" y="537" width="254" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="roU-Y3-gex">
                                 <rect key="frame" x="9" y="149" width="302" height="406"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Crete challenges, win something, or just bragging rights. 5.  The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </string>
+                                <mutableString key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Create challenges, win something, or just bragging rights. 5.  The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -356,7 +349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gpb-rh-tD4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2972" y="-597"/>
+            <point key="canvasLocation" x="3442" y="-915"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="vwo-w1-fcl">
@@ -372,8 +365,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="y1p-n8-rYi" kind="relationship" relationship="viewControllers" id="VBx-JY-74z"/>
-                        <segue destination="QvI-JY-hKN" kind="relationship" relationship="viewControllers" id="aaU-Gk-25X"/>
                         <segue destination="Jfb-yn-k9K" kind="relationship" relationship="viewControllers" id="XWs-bp-4Qc"/>
+                        <segue destination="QvI-JY-hKN" kind="relationship" relationship="viewControllers" id="aaU-Gk-25X"/>
+                        <segue destination="cdY-3G-hxn" kind="relationship" relationship="viewControllers" id="HWd-Qc-yaE"/>
                         <segue destination="Woa-PH-Jp8" kind="relationship" relationship="viewControllers" id="YIl-yj-ebL"/>
                     </connections>
                 </tabBarController>
@@ -710,7 +704,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3464" y="1651"/>
+            <point key="canvasLocation" x="3990" y="1651"/>
         </scene>
         <!--Challenge View Controller - Challenges-->
         <scene sceneID="okr-KR-QPX">
@@ -954,7 +948,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" alpha="0.69999999999999973" contentMode="top" alwaysBounceVertical="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="37" sectionHeaderHeight="20" sectionFooterHeight="20" id="kxk-UN-ZyE">
-                                <rect key="frame" x="0.0" y="142" width="320" height="377"/>
+                                <rect key="frame" x="0.0" y="119" width="320" height="400"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1375,7 +1369,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aaA-sf-eLi" userLabel="PersonalBestButton">
-                                <rect key="frame" x="205" y="223" width="56" height="48"/>
+                                <rect key="frame" x="219" y="223" width="56" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="14"/>
                                 <state key="normal" backgroundImage="personalBest.png">
@@ -1385,6 +1379,27 @@
                                 <connections>
                                     <segue destination="s8L-IH-iWg" kind="push" id="4VA-9C-qfq"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zel-ML-UvY" userLabel="MessagesButton">
+                                <rect key="frame" x="219" y="145" width="56" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="14"/>
+                                <state key="normal" backgroundImage="messages.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="c97-rG-FgO" kind="push" identifier="messageDetails" id="9O7-Da-BDv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ku4-6B-MKM" userLabel="MessagesButton">
+                                <rect key="frame" x="212" y="178" width="24" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="0" backgroundImage="redCircle.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="God-Eq-Gp5" userLabel="SettingsButton">
                                 <rect key="frame" x="41" y="143" width="56" height="47"/>
@@ -1396,7 +1411,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AHd-KH-e5k" userLabel="DeleteButton">
-                                <rect key="frame" x="45" y="221" width="48" height="42"/>
+                                <rect key="frame" x="223" y="311" width="48" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="12"/>
@@ -1427,16 +1442,6 @@
                                     <segue destination="p1F-gQ-n0Z" kind="modal" modalTransitionStyle="partialCurl" id="o4k-VB-4vh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LsW-dM-sod" userLabel="FriendsButton">
-                                <rect key="frame" x="210" y="145" width="57" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="friends.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="KV4-fb-xLw" kind="push" id="KQv-ey-tCV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="S81-Ih-T31" userLabel="InfoButton">
                                 <rect key="frame" x="289" y="69" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1448,7 +1453,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="scaleToFill" editable="NO" id="ZRE-pA-ahU">
-                                <rect key="frame" x="20" y="109" width="280" height="384"/>
+                                <rect key="frame" x="20" y="388" width="280" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <mutableString key="text">Use this page to do a variety of things.  - Take a look at your friends activities by clicking on the friends button. You can also add friends form there. - Check your personal stats (and try to beat them). Click on the button that looks like a trophy. - You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can. - Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar). - Add a device or app to automatically sync activities from. - Find out about the app by clicking on the About button. - Send us feedback about your experience using the app, by clicking on the Feedback button.</mutableString>
@@ -1457,7 +1462,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yh6-r7-re1" userLabel="Add DevicesButton">
-                                <rect key="frame" x="44" y="300" width="59" height="48"/>
+                                <rect key="frame" x="44" y="308" width="59" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1467,7 +1472,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qmg-4u-v4M" userLabel="Add DevicesButton">
-                                <rect key="frame" x="205" y="300" width="56" height="48"/>
+                                <rect key="frame" x="41" y="223" width="56" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="points-scheme.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1498,6 +1503,8 @@
                         <outlet property="feedbackButton" destination="nQB-59-BZL" id="E1S-y6-Tob"/>
                         <outlet property="infoButton" destination="S81-Ih-T31" id="1Ak-KL-iHE"/>
                         <outlet property="infoView" destination="ZRE-pA-ahU" id="rQe-Wq-lEd"/>
+                        <outlet property="messagesButton" destination="Zel-ML-UvY" id="sOF-WY-Fwv"/>
+                        <outlet property="numberOfNotificationsButton" destination="Ku4-6B-MKM" id="kyM-Uc-Pal"/>
                         <outlet property="profilePic" destination="AOJ-oF-Tue" id="stL-6N-JsA"/>
                         <outlet property="refreshButton" destination="G4q-ba-wga" id="oEb-6X-AqA"/>
                         <outlet property="resetUserDataButton" destination="AHd-KH-e5k" id="coa-j7-NBW"/>
@@ -1512,7 +1519,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1285" y="1104"/>
+            <point key="canvasLocation" x="1107" y="1146"/>
         </scene>
         <!--Personal Health Stats View Controller - Personal Stats-->
         <scene sceneID="qae-cn-EJI">
@@ -1600,7 +1607,80 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yaz-HF-pek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="953"/>
+            <point key="canvasLocation" x="1701" y="903"/>
+        </scene>
+        <!--Messages View Controller - Messages-->
+        <scene sceneID="jJQ-A3-JJC">
+            <objects>
+                <viewController id="c97-rG-FgO" customClass="MessagesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="acU-42-LHH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="R6t-yd-Xzp">
+                                <rect key="frame" x="79" y="84" width="163" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Challenges"/>
+                                    <segment title="Friends"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlClicked" destination="c97-rG-FgO" eventType="valueChanged" id="PLF-QO-l3c"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="22" sectionFooterHeight="22" id="NeA-lZ-GRd">
+                                <rect key="frame" x="0.0" y="142" width="320" height="319"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bBs-0J-2eH">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bBs-0J-2eH" id="SX5-Vv-eVK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="c97-rG-FgO" id="GuJ-Ty-Afl"/>
+                                    <outlet property="delegate" destination="c97-rG-FgO" id="IdU-yV-aYJ"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="22" sectionFooterHeight="22" id="GqI-wr-37C">
+                                <rect key="frame" x="0.0" y="142" width="320" height="319"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="x3H-9d-u5M">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x3H-9d-u5M" id="9en-K0-cnK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="c97-rG-FgO" id="Ans-Ly-IYo"/>
+                                    <outlet property="delegate" destination="c97-rG-FgO" id="NPr-5x-ET4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Messages" id="Lru-Ao-OJX"/>
+                    <connections>
+                        <outlet property="challengesMessageBoardTable" destination="NeA-lZ-GRd" id="g7z-qZ-Log"/>
+                        <outlet property="friendsMessageBoardTable" destination="GqI-wr-37C" id="7tM-ap-0O3"/>
+                        <outlet property="messageBoardSelector" destination="R6t-yd-Xzp" id="UXC-Md-JKf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zt1-F7-xt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1701" y="2928"/>
         </scene>
         <!--Points Scheme Controller - Points Scheme-->
         <scene sceneID="x1i-A4-xwS">
@@ -1705,7 +1785,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vg-bH-bcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1276" y="2089"/>
+            <point key="canvasLocation" x="1701" y="2243"/>
         </scene>
         <!--Devices View Controller - Apps & Devices-->
         <scene sceneID="Bav-Lk-sgh">
@@ -1720,7 +1800,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LS7-st-awG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="1891"/>
+            <point key="canvasLocation" x="1701" y="1575"/>
         </scene>
         <!--Friends List View Controller - Friends-->
         <scene sceneID="ih1-oh-M3d">
@@ -1785,7 +1865,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5F-pr-HCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2250" y="1651"/>
+            <point key="canvasLocation" x="2776" y="1651"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W2U-SW-KRX">
@@ -1867,7 +1947,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrc-AG-iFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="-597"/>
+            <point key="canvasLocation" x="2916" y="-915"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RQV-OR-fay">
@@ -1887,7 +1967,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dug-dM-Wnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784" y="1104"/>
+            <point key="canvasLocation" x="608" y="1146"/>
         </scene>
         <!--Add Friend View Controller - Find friends-->
         <scene sceneID="bna-tE-03C">
@@ -1991,7 +2071,28 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2791" y="1995"/>
+            <point key="canvasLocation" x="3317" y="1995"/>
+        </scene>
+        <!--Navigation Controller - Friends-->
+        <scene sceneID="71W-of-f3l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cdY-3G-hxn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Friends" image="friends-32.png" id="rl5-Ay-0xg"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="C5t-Qc-JIt"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="aCb-49-MCz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KV4-fb-xLw" kind="relationship" relationship="rootViewController" id="kXN-uR-3be"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AiB-Bu-jV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2250" y="1651"/>
         </scene>
     </scenes>
     <resources>
@@ -2007,11 +2108,13 @@
         <image name="arrow_left.png" width="128" height="128"/>
         <image name="arrow_right.png" width="256" height="256"/>
         <image name="calendar3.png" width="502" height="502"/>
-        <image name="friends.png" width="64" height="64"/>
+        <image name="friends-32.png" width="32" height="32"/>
         <image name="goRight1.png" width="120" height="120"/>
         <image name="icon_addfriend.png" width="128" height="128"/>
+        <image name="messages.png" width="48" height="48"/>
         <image name="personalBest.png" width="64" height="64"/>
         <image name="points-scheme.png" width="64" height="64"/>
+        <image name="redCircle.png" width="600" height="600"/>
         <image name="search_08_256.png" width="256" height="256"/>
         <image name="trophy.png" width="128" height="128"/>
     </resources>

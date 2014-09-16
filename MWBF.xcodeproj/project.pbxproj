@@ -15,6 +15,10 @@
 		912E348A19C3F32F00F4745A /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E348919C3F32F00F4745A /* friends.png */; };
 		912E348D19C3F60A00F4745A /* PointsSchemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 912E348C19C3F60A00F4745A /* PointsSchemeCell.m */; };
 		912E349319C40EAE00F4745A /* personalBest.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E349219C40EAE00F4745A /* personalBest.png */; };
+		912E349919C7E60D00F4745A /* friends-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E349819C7E60D00F4745A /* friends-32.png */; };
+		912E349F19C7EA2700F4745A /* messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E349E19C7EA2700F4745A /* messages.png */; };
+		912E34A119C7EB4D00F4745A /* redCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E34A019C7EB4D00F4745A /* redCircle.png */; };
+		912E34A419C7ED4E00F4745A /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912E34A319C7ED4E00F4745A /* MessagesViewController.m */; };
 		914720631995DC9900F94A80 /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914720621995DC9900F94A80 /* NewChallengeViewController.m */; };
 		9147D8DF1983127100183220 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9147D8DE1983127100183220 /* Foundation.framework */; };
 		9147D8E11983127100183220 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9147D8E01983127100183220 /* CoreGraphics.framework */; };
@@ -133,6 +137,11 @@
 		912E348B19C3F60A00F4745A /* PointsSchemeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointsSchemeCell.h; sourceTree = "<group>"; };
 		912E348C19C3F60A00F4745A /* PointsSchemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointsSchemeCell.m; sourceTree = "<group>"; };
 		912E349219C40EAE00F4745A /* personalBest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personalBest.png; sourceTree = "<group>"; };
+		912E349819C7E60D00F4745A /* friends-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friends-32.png"; sourceTree = "<group>"; };
+		912E349E19C7EA2700F4745A /* messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messages.png; sourceTree = "<group>"; };
+		912E34A019C7EB4D00F4745A /* redCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redCircle.png; sourceTree = "<group>"; };
+		912E34A219C7ED4E00F4745A /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		912E34A319C7ED4E00F4745A /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
 		914720611995DC9900F94A80 /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		914720621995DC9900F94A80 /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		9147D8DB1983127100183220 /* MWBF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWBF.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,7 +378,10 @@
 				91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */,
 				91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */,
 				912E348919C3F32F00F4745A /* friends.png */,
+				912E34A019C7EB4D00F4745A /* redCircle.png */,
 				91BB87FF19B3CA0D0068D961 /* patience-calm-quiet-plain.gif */,
+				912E349E19C7EA2700F4745A /* messages.png */,
+				912E349819C7E60D00F4745A /* friends-32.png */,
 				912E348719C3F19000F4745A /* points-scheme.png */,
 				91D2D11119AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png */,
 				91CF0EE719A2F3F8007B668A /* search_08_256.png */,
@@ -486,6 +498,8 @@
 				915B427419AEE23A00DC79FE /* DevicesViewController.m */,
 				912E347C19C3EE7600F4745A /* PointsSchemeController.h */,
 				912E347D19C3EE7600F4745A /* PointsSchemeController.m */,
+				912E34A219C7ED4E00F4745A /* MessagesViewController.h */,
+				912E34A319C7ED4E00F4745A /* MessagesViewController.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -754,6 +768,7 @@
 				915B423E19ABE73700DC79FE /* background@2x.png in Resources */,
 				91D2D11219AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png in Resources */,
 				915B426A19AD526800DC79FE /* trophy.png in Resources */,
+				912E349919C7E60D00F4745A /* friends-32.png in Resources */,
 				91D2D0F419AF6AA6009C83E9 /* 1409251657_7-48.png in Resources */,
 				91D2D0F619AF6B6B009C83E9 /* 1409251867_stats-up.png in Resources */,
 				919EE97E198CB70000F12411 /* background.jpg in Resources */,
@@ -764,6 +779,7 @@
 				91D357CB19BAB51E005D0F26 /* save-icon.png in Resources */,
 				9147D8EB1983127100183220 /* InfoPlist.strings in Resources */,
 				912E348819C3F19000F4745A /* points-scheme.png in Resources */,
+				912E349F19C7EA2700F4745A /* messages.png in Resources */,
 				915B423D19ABE73700DC79FE /* background.png in Resources */,
 				91CF0ED619A27B17007B668A /* Default@2x.png in Resources */,
 				918D5F011991208200597147 /* goRight1.png in Resources */,
@@ -780,6 +796,7 @@
 				9127FB9619BD1E16001C85D8 /* appIcon152x152.png in Resources */,
 				91CF0ED419A27B17007B668A /* Default-568h@2x.png in Resources */,
 				91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */,
+				912E34A119C7EB4D00F4745A /* redCircle.png in Resources */,
 				91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */,
 				91D2D10219AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png in Resources */,
 				91D357C719BAB2B1005D0F26 /* Full_dustbin.png in Resources */,
@@ -843,6 +860,7 @@
 				918D5EF919910E1800597147 /* BaseClassViewController.m in Sources */,
 				912E348D19C3F60A00F4745A /* PointsSchemeCell.m in Sources */,
 				91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */,
+				912E34A419C7ED4E00F4745A /* MessagesViewController.m in Sources */,
 				918D5EE819909ED600597147 /* MoreViewController.m in Sources */,
 				915B425B19ABE74C00DC79FE /* PMSelectionView.m in Sources */,
 				91C665181991790F00A56D61 /* DLPieChart.m in Sources */,

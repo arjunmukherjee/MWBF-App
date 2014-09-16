@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *infoView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *profilePic;
+@property (weak, nonatomic) IBOutlet UIButton *messagesButton;
+@property (weak, nonatomic) IBOutlet UIButton *numberOfNotificationsButton;
+@property (strong,nonatomic) User *user;
 
 @end
 
@@ -33,17 +36,35 @@
 @synthesize resetUserDataButton,deleteActivitiesAlert,refreshButton,refreshDataAlert;
 @synthesize userNameLabel;
 @synthesize profilePic;
+@synthesize messagesButton,numberOfNotificationsButton;
+@synthesize user;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    User *user = [User getInstance];
-    self.userNameLabel.text = [NSString stringWithFormat:@"%@",user.userName];
+    self.user = [User getInstance];
+    self.userNameLabel.text = [NSString stringWithFormat:@"%@",self.user.userName];
     
     self.infoView.hidden = YES;
     [Utils setMaskTo:self.infoView byRoundingCorners:UIRectCornerAllCorners];
     [Utils setRoundedView:self.profilePic toDiameter:35];
-    self.profilePic.profileID = user.fbProfileID;
+    self.profilePic.profileID = self.user.fbProfileID;
+    
+    // Only show this if you have new messages.
+    self.numberOfNotificationsButton.hidden = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // Check if there are new messages
+    if ([self.user.challengesMessageList count] > 0 || [self.user.friendsMessageList count] > 0 )
+    {
+        self.numberOfNotificationsButton.hidden = NO;
+        NSInteger newMessages = [self.user.challengesMessageList count] + [self.user.friendsMessageList count];
+        self.numberOfNotificationsButton.titleLabel.text = [NSString stringWithFormat:@"%lu",(long)newMessages];
+    }
+    else
+        self.numberOfNotificationsButton.hidden = YES;
 }
 
 - (IBAction)infoButtonClicked:(id)sender
@@ -78,6 +99,16 @@
     
     [self.refreshDataAlert show];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"messageDetails"])
+    {
+        self.numberOfNotificationsButton.titleLabel.text = @"0";
+        self.numberOfNotificationsButton.hidden = YES;
+    }
+}
+
 
 - (IBAction)sendFeedback:(id)sender
 {

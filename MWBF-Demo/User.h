@@ -28,6 +28,10 @@
 @property (strong,nonatomic) NSString *bestMonthPoints;
 @property (strong,nonatomic) NSString *bestYearPoints;
 
+// New Messages
+@property (strong,nonatomic) NSMutableArray *challengesMessageList;
+@property (strong,nonatomic) NSMutableArray *friendsMessageList;
+
 + (User *) getInstance;
 - (NSMutableDictionary *)toNSDictionary;
 

@@ -17,6 +17,7 @@
 @synthesize bestDay,bestMonth,bestYear,bestDayPoints,bestMonthPoints,bestYearPoints;
 @synthesize challengesList;
 @synthesize fbProfileID;
+@synthesize challengesMessageList,friendsMessageList;
 
 + (User *) getInstance
 {
