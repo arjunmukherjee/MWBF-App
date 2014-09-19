@@ -10,6 +10,7 @@
 #import "UserActivity.h"
 #import "Activity.h"
 #import "MWBFActivities.h"
+#import "Challenge.h"
 
 @implementation Utils
 
@@ -148,6 +149,110 @@
     roundedView.frame = newFrame;
     roundedView.layer.cornerRadius = newSize / 2.0;
     roundedView.center = saveCenter;
+}
+
++ (NSString *)changeformatStringTo12hr:(NSString *)date
+{
+    // TODO : Just appending AM to the end of the string
+    //        The conversion was just not working
+    
+    // Sep 18, 2014 01:42:58 AM
+    /*
+    NSDateFormatter* df24 = [[NSDateFormatter alloc] init];
+    [df24 setTimeZone:[NSTimeZone systemTimeZone]];
+    [df24 setDateFormat:@"MMM d, yyyy HH:mm:ss"];
+    NSDate* convTime = [df24 dateFromString:date];
+    
+    NSDateFormatter* df12 = [[NSDateFormatter alloc] init];
+    [df12 setTimeZone:[NSTimeZone systemTimeZone]];
+    [df12 setDateFormat:@"MMM d, yyyy hh:mm:ss a"];
+    
+    NSString *convertedDate = [df12 stringFromDate:convTime];
+    */
+    
+    date = [NSString stringWithFormat:@"%@ AM",date];
+    
+    return date;
+}
+
+
++ (BOOL) isTimeIn24HourFormat:(NSString *) dateString
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
+    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
+    BOOL is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
+    
+    return is24h;
+}
+
++ (NSString *) getImageNameFromMessage:(NSString*)message
+{
+    if ([message rangeOfString:@" ran " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"runIcon.png";
+    if ([message rangeOfString:@" yoga " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"yogaIcon.png";
+    if ([message rangeOfString:@" gym " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"gymIcon.png";
+    if ([message rangeOfString:@" swam " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"swimmingIcon.png";
+    if ([message rangeOfString:@" sport " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"sportsIcon.png";
+    if ([message rangeOfString:@" biked " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"bikeIcon.png";
+    if ([message rangeOfString:@" walked " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"walkingIcon.png";
+    if ([message rangeOfString:@" trekked " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"trekkingIcon.png";
+    if ([message rangeOfString:@" elliptical " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"ellipticalIcon.png";
+    if ([message rangeOfString:@" climbed " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"stairmasterIcon.png";
+    
+    
+    return @"defaultActivity.png";
+    
+}
+
++ (void) populateFriendsActivities
+{
+    User *user = [User getInstance];
+    
+    // Look for new challenges
+    NSArray *challengeList = [NSArray arrayWithArray:user.challengesList];
+    NSMutableDictionary *userActivitiesDict = [[NSMutableDictionary alloc] init];
+    for (int i = 0; i < [challengeList count]; i++)
+    {
+        Challenge *challengeObj = challengeList[i];
+        // Extract all the notifications from each challenge and create a single unique set of them
+        for (int i=0; i < [challengeObj.messageList count]; i++)
+            [userActivitiesDict setObject:@"1" forKey:challengeObj.messageList[i]];
+    }
+    
+    // Set the user Activities
+    user.friendsActivitiesList = [NSMutableArray arrayWithArray:[userActivitiesDict allKeys]];
+}
+
+// Compare the date and start using words like "Today" "Yesterday"
++ (void) changeAbsoluteDateToRelativeDays: (NSMutableArray*) messageList
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM d"];
+    NSString *todayStr = [dateFormatter stringFromDate: [NSDate date]];
+    todayStr = [NSString stringWithFormat:@"on %@",todayStr];
+    
+    NSDate *yesterday = [[NSDate date] dateByAddingTimeInterval: -86400.0];
+    NSString *yesterdayStr = [dateFormatter stringFromDate:yesterday];
+    yesterdayStr = [NSString stringWithFormat:@"on %@",yesterdayStr];
+    
+    for (int i=0; i < [messageList count]; i++)
+    {
+        messageList[i] = [messageList[i] stringByReplacingOccurrencesOfString:todayStr withString:@"today"];
+        messageList[i] = [messageList[i] stringByReplacingOccurrencesOfString:yesterdayStr withString:@"yesterday"];
+    }
 }
 
 

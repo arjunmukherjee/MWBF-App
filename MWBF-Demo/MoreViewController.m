@@ -57,10 +57,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     // Check if there are new messages
-    if ([self.user.challengesMessageList count] > 0 || [self.user.friendsMessageList count] > 0 )
+    self.user = [User getInstance];
+    //if ([self.user.notificationsList count] > 0 || [self.user.friendsActivitiesList count] > 0 )
+    // TODO : Must check the FriendActivityList count too and show the red circle for something new
+    if ([self.user.notificationsList count] > 0 )
     {
         self.numberOfNotificationsButton.hidden = NO;
-        NSInteger newMessages = [self.user.challengesMessageList count] + [self.user.friendsMessageList count];
+        NSInteger newMessages = [self.user.notificationsList count] + [self.user.friendsActivitiesList count];
         self.numberOfNotificationsButton.titleLabel.text = [NSString stringWithFormat:@"%lu",(long)newMessages];
     }
     else

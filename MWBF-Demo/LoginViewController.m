@@ -148,6 +148,9 @@ NSString* ADMIN_PASSWORD = @"admin";
                     // Get all the challenges the user is involved in
                     [service getChallenges];
                     
+                    // Populate all the activities
+                    [Utils populateFriendsActivities];
+                    
                     [self.activityIndicator stopAnimating];
                     self.activityIndicator.hidden = YES;
                     self.view.userInteractionEnabled = YES;

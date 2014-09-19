@@ -10,6 +10,7 @@
 #import "EColumnChart.h"
 #import "EFloatBox.h"
 #import "Friend.h"
+#import "ActivityNotificationCell.h"
 
 #define PROGRESS_INDEX 0
 #define DETAILS_INDEX 1
@@ -56,7 +57,7 @@
     // Initializers
     self.navigationBar.title = self.challenge.name;
     self.messagesArray = self.challenge.messageList;
-    //[Utils setMaskTo:self.messageTableView byRoundingCorners:UIRectCornerAllCorners];
+    [Utils changeAbsoluteDateToRelativeDays:self.messagesArray];
     
     // Get the first name only
     NSArray *tempArray = [[User getInstance].userName componentsSeparatedByString:@" "];
@@ -66,7 +67,8 @@
     self.challengeDetailsView.hidden = YES;
     self.messageTableView.hidden = YES;
     
-    [self.messageTableView setBackgroundView:nil]; [self.messageTableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patience-calm-quiet-plain.gif"]] ];
+    //[self.messageTableView setBackgroundView:nil];
+    //[self.messageTableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patience-calm-quiet-plain.gif"]] ];
     
     // Set the start and end dates
     NSArray *tempDateArr = [self.challenge.startDate componentsSeparatedByString:@" "];
@@ -124,6 +126,15 @@
     // TODO : Send the messages up to the server to save
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    self.messagesArray = self.challenge.messageList;
+    [Utils changeAbsoluteDateToRelativeDays:self.messagesArray];
+    [self.messageTableView reloadData];
+    [self.messageTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.messagesArray count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+}
+
+
 
 // Dismiss the keyboard when the background is tapped
 - (IBAction)backgroundTap:(id)sender
@@ -172,26 +183,34 @@
 {
     NSString *CellIdentifier = @"ActivityCell";
     
-    if (tableView == self.messageTableView)
-        CellIdentifier = @"MessageCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
     if (tableView == self.activityTableView)
     {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
         NSString *activity = [self.challenge.activitySet objectAtIndex:indexPath.row];
         cell.textLabel.text = activity;
         cell.textLabel.textColor = [UIColor blueColor];
+        return cell;
     }
     else
     {
-        cell.textLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:13];
-        cell.textLabel.text = [self.messagesArray objectAtIndex:indexPath.row];
-        cell.textLabel.textColor = [UIColor purpleColor];
+        CellIdentifier = @"MessageCell";
+        ActivityNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        cell.activityMessage.font = [UIFont fontWithName:@"Trebuchet MS" size:13];
+        cell.activityMessage.text = [self.messagesArray objectAtIndex:indexPath.row];
+        cell.activityMessage.textColor = [UIColor purpleColor];
+        
+        NSString *imageName = [Utils getImageNameFromMessage:[self.messagesArray objectAtIndex:indexPath.row]];
+        UIImage *activityImg = [UIImage imageNamed:imageName];
+        [cell.activityPic setImage:activityImg forState:UIControlStateNormal];
+        [cell.activityPic setBackgroundImage:activityImg forState:UIControlStateNormal];
+        
+        return cell;
     }
-    
-    return cell;
 }
+
+
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {

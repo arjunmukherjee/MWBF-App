@@ -32,5 +32,29 @@
     return dictionary;
 }
 
+- (NSUInteger)hash
+{
+    return [self.challenge_id hash] ^ [self.creatorId hash];
+}
+
+- (BOOL)isEqual:(id)other
+{
+    if (other == self)
+        return YES;
+    if (!other || ![other isKindOfClass:[self class]])
+        return NO;
+    return [self isEqualToChallenge:other];
+}
+
+- (BOOL)isEqualToChallenge:(Challenge *)aChallenge
+{
+    if (self == aChallenge)
+        return YES;
+    if (![(id)[self challenge_id] isEqual:[aChallenge challenge_id]])
+        return NO;
+    if (![[self creatorId] isEqual:[aChallenge creatorId]])
+        return NO;
+    return YES;
+}
 
 @end

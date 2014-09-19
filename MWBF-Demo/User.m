@@ -17,7 +17,8 @@
 @synthesize bestDay,bestMonth,bestYear,bestDayPoints,bestMonthPoints,bestYearPoints;
 @synthesize challengesList;
 @synthesize fbProfileID;
-@synthesize challengesMessageList,friendsMessageList;
+@synthesize notificationsList,friendsActivitiesList;
+@synthesize favActivityList;
 
 + (User *) getInstance
 {
@@ -42,6 +43,9 @@
     if (self)
     {
         self.friendsList = [NSMutableArray array];
+        self.notificationsList = [NSMutableArray array];
+        self.friendsActivitiesList = [NSMutableArray array];
+        self.favActivityList = [NSMutableArray array];
     }
     
     return self;

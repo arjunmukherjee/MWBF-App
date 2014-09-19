@@ -127,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MWBF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V5q-aH-xQm">
-                                <rect key="frame" x="101" y="91" width="118" height="52"/>
+                                <rect key="frame" x="101" y="72" width="118" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="43"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,24 +135,34 @@
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="roU-Y3-gex">
-                                <rect key="frame" x="9" y="149" width="302" height="406"/>
+                                <rect key="frame" x="9" y="123" width="302" height="377"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Create challenges, win something, or just bragging rights. 5.  The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </mutableString>
+                                <string key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Create challenges, win something, or just bragging rights. 5.  The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May We Be Fit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cIl-DK-UYL">
-                                <rect key="frame" x="110" y="128" width="93" height="24"/>
+                                <rect key="frame" x="110" y="109" width="93" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="19"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dPq-5I-4uq">
+                                <rect key="frame" x="139" y="513" width="172" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="iUF-Hg-AmQ"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="dPq-5I-4uq" id="xaM-Ke-aVe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="him-gN-nVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pickerView contentMode="center" id="OuH-JV-epl" userLabel="ActivityPicker">
-                                <rect key="frame" x="9" y="23" width="106" height="162"/>
+                                <rect key="frame" x="9" y="56" width="106" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="3dX-vG-sg8" id="0Rj-5x-8Lc"/>
@@ -175,18 +185,20 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2I8-mE-dU4" userLabel="LogButton">
-                                <rect key="frame" x="138" y="430" width="45" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="35"/>
+                                <rect key="frame" x="137" y="442" width="47" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="36"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="0.78000000000000003" colorSpace="calibratedRGB"/>
                                 <state key="normal" backgroundImage="Network-Upload-icon.png">
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="logActivityClicked:" destination="3dX-vG-sg8" eventType="touchUpInside" id="xNT-dc-NyT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F1n-kP-TtX" userLabel="AddButton">
-                                <rect key="frame" x="145" y="191" width="31" height="31"/>
+                                <rect key="frame" x="145" y="215" width="31" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="add-icon1.png"/>
                                 <connections>
@@ -194,7 +206,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="32" sectionHeaderHeight="22" sectionFooterHeight="22" id="xlb-aX-HRf">
-                                <rect key="frame" x="0.0" y="279" width="320" height="132"/>
+                                <rect key="frame" x="0.0" y="286" width="320" height="132"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -246,28 +258,28 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SHY-qb-5Xk">
-                                <rect key="frame" x="0.0" y="257" width="105" height="21"/>
+                                <rect key="frame" x="0.0" y="264" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OyF-9D-OZW">
-                                <rect key="frame" x="106" y="257" width="71" height="21"/>
+                                <rect key="frame" x="106" y="264" width="71" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bmK-OW-cZN">
-                                <rect key="frame" x="178" y="257" width="72" height="21"/>
+                                <rect key="frame" x="178" y="264" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MOT-Ji-nAv">
-                                <rect key="frame" x="251" y="257" width="69" height="21"/>
+                                <rect key="frame" x="251" y="264" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
@@ -284,16 +296,16 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="scaleToFill" editable="NO" id="Q6h-Vn-saE">
-                                <rect key="frame" x="24" y="93" width="280" height="278"/>
+                                <rect key="frame" x="25" y="99" width="280" height="279"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Use this page to log your daily activities/exercises.  1. Pick an execise. 2. Enter in the amount you exercised. 3. Pick the date. 4. Add the exercise to the list of activities you want to log. 5. Add multiple activities at the same time if you wish to. 6. You may also delete activities once added by swiping left on the particular row. 7. Hit the button (at the bottom) to log the activities to your account. </string>
+                                <mutableString key="text">Use this page to log your daily activities/exercises.  1. Pick an execise. 2. Enter in the amount you exercised. 3. Pick the date. 4. Add the exercise to the list of activities you want to log. 5. Add multiple activities at the same time if you wish to. 6. You may also delete activities once added by swiping left on the particular row. 7. Hit the button (at the bottom) to log the activities to your account. </mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sfr-jh-3HN">
-                                <rect key="frame" x="237" y="127" width="34" height="28"/>
+                                <rect key="frame" x="230" y="162" width="34" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="calendar3.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -303,24 +315,32 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How much ?" minimumFontSize="14" id="4ef-fW-qXT">
-                                <rect key="frame" x="137" y="89" width="89" height="30"/>
+                                <rect key="frame" x="137" y="122" width="89" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When ?" minimumFontSize="14" id="bIo-u1-DgY">
-                                <rect key="frame" x="137" y="127" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CRL-30-ng1">
-                                <rect key="frame" x="239" y="98" width="56" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="miles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CRL-30-ng1">
+                                <rect key="frame" x="234" y="129" width="56" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" momentary="YES" id="o1G-fi-6zc">
+                                <rect key="frame" x="84" y="78" width="143" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Fav 1"/>
+                                    <segment title="Fav 2"/>
+                                    <segment title="Fav 3"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XKC-sl-Aww">
+                                <rect key="frame" x="156" y="168" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -337,7 +357,8 @@
                         <outlet property="activityValueTextField" destination="4ef-fW-qXT" id="jga-U4-l2c"/>
                         <outlet property="addActivityButton" destination="F1n-kP-TtX" id="5Vu-dG-SFE"/>
                         <outlet property="dateHeaderLable" destination="bmK-OW-cZN" id="wtM-uO-WX6"/>
-                        <outlet property="dateTextField" destination="bIo-u1-DgY" id="vbL-xQ-FMU"/>
+                        <outlet property="dateLabel" destination="XKC-sl-Aww" id="T2P-yq-xit"/>
+                        <outlet property="favActivitySegmentedControl" destination="o1G-fi-6zc" id="d2l-3z-8tO"/>
                         <outlet property="infoButton" destination="J7d-Rh-LrF" id="890-8H-5d3"/>
                         <outlet property="infoView" destination="Q6h-Vn-saE" id="qAn-pc-rDh"/>
                         <outlet property="logActivityButton" destination="2I8-mE-dU4" id="b20-hY-VPO"/>
@@ -757,7 +778,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="xbG-dh-YOR">
-                                                    <rect key="frame" x="149" y="15" width="114" height="2"/>
+                                                    <rect key="frame" x="191" y="15" width="97" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="progressTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </progressView>
@@ -794,7 +815,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="53y-Hq-vbl">
-                                                    <rect key="frame" x="8" y="5" width="127" height="21"/>
+                                                    <rect key="frame" x="8" y="5" width="170" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -822,7 +843,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="8FU-fp-C1f">
-                                                    <rect key="frame" x="149" y="15" width="114" height="2"/>
+                                                    <rect key="frame" x="191" y="15" width="97" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="progressTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </progressView>
@@ -859,7 +880,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dJh-js-vYC">
-                                                    <rect key="frame" x="8" y="5" width="127" height="21"/>
+                                                    <rect key="frame" x="8" y="5" width="170" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -887,7 +908,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="kfw-Qg-7fI">
-                                                    <rect key="frame" x="149" y="15" width="114" height="2"/>
+                                                    <rect key="frame" x="191" y="15" width="97" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="progressTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </progressView>
@@ -947,22 +968,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" alpha="0.69999999999999973" contentMode="top" alwaysBounceVertical="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="37" sectionHeaderHeight="20" sectionFooterHeight="20" id="kxk-UN-ZyE">
-                                <rect key="frame" x="0.0" y="119" width="320" height="400"/>
+                            <tableView clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="37" sectionHeaderHeight="20" sectionFooterHeight="20" id="kxk-UN-ZyE">
+                                <rect key="frame" x="0.0" y="119" width="320" height="387"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="left" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="4hg-VK-g3O">
+                                    <tableViewCell contentMode="left" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="4hg-VK-g3O" customClass="ActivityNotificationCell">
                                         <rect key="frame" x="0.0" y="84" width="320" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hg-VK-g3O" id="LIj-nV-chf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DuJ-D6-gus">
+                                                    <rect key="frame" x="33" y="9" width="282" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lz9-fU-SF1">
+                                                    <rect key="frame" x="3" y="6" width="24" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="A">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="activityMessage" destination="DuJ-D6-gus" id="TIz-g3-U4g"/>
+                                            <outlet property="activityPic" destination="lz9-fU-SF1" id="Co8-0a-0U7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -983,16 +1026,16 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" id="EoM-3s-6OY" userLabel="BarChartView">
-                                <rect key="frame" x="33" y="175" width="267" height="284"/>
+                                <rect key="frame" x="33" y="137" width="267" height="322"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="LOk-Dy-tAq" userLabel="DetailsView">
-                                <rect key="frame" x="12" y="138" width="298" height="368"/>
+                                <rect key="frame" x="12" y="122" width="298" height="384"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="37" sectionHeaderHeight="22" sectionFooterHeight="22" id="hcb-1X-wo0" userLabel="Activity Table View">
-                                        <rect key="frame" x="33" y="155" width="230" height="213"/>
+                                        <rect key="frame" x="33" y="171" width="230" height="213"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1015,49 +1058,49 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LUf-24-yAZ">
-                                        <rect key="frame" x="43" y="88" width="107" height="21"/>
+                                        <rect key="frame" x="43" y="104" width="107" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 3 players" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A1F-Gf-sst">
-                                        <rect key="frame" x="42" y="26" width="112" height="21"/>
+                                        <rect key="frame" x="42" y="42" width="112" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vVp-3T-W0u">
-                                        <rect key="frame" x="161" y="88" width="91" height="21"/>
+                                        <rect key="frame" x="161" y="104" width="91" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wVP-Nn-9vs">
-                                        <rect key="frame" x="33" y="66" width="116" height="21"/>
+                                        <rect key="frame" x="33" y="82" width="116" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Position" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2PU-VN-Ooz">
-                                        <rect key="frame" x="33" y="4" width="116" height="21"/>
+                                        <rect key="frame" x="33" y="20" width="116" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9zq-nt-r1b">
-                                        <rect key="frame" x="33" y="126" width="230" height="21"/>
+                                        <rect key="frame" x="33" y="142" width="230" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8c7-iy-teN">
-                                        <rect key="frame" x="150" y="66" width="113" height="21"/>
+                                        <rect key="frame" x="150" y="82" width="113" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
@@ -1369,7 +1412,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aaA-sf-eLi" userLabel="PersonalBestButton">
-                                <rect key="frame" x="219" y="223" width="56" height="48"/>
+                                <rect key="frame" x="219" y="223" width="50" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="14"/>
                                 <state key="normal" backgroundImage="personalBest.png">
@@ -1381,7 +1424,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zel-ML-UvY" userLabel="MessagesButton">
-                                <rect key="frame" x="219" y="145" width="56" height="46"/>
+                                <rect key="frame" x="219" y="145" width="50" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="14"/>
                                 <state key="normal" backgroundImage="messages.png">
@@ -1392,7 +1435,7 @@
                                     <segue destination="c97-rG-FgO" kind="push" identifier="messageDetails" id="9O7-Da-BDv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ku4-6B-MKM" userLabel="MessagesButton">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ku4-6B-MKM" userLabel="MessageCountButton">
                                 <rect key="frame" x="212" y="178" width="24" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -1453,10 +1496,10 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="scaleToFill" editable="NO" id="ZRE-pA-ahU">
-                                <rect key="frame" x="20" y="388" width="280" height="105"/>
+                                <rect key="frame" x="20" y="104" width="280" height="389"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Use this page to do a variety of things.  - Take a look at your friends activities by clicking on the friends button. You can also add friends form there. - Check your personal stats (and try to beat them). Click on the button that looks like a trophy. - You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can. - Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar). - Add a device or app to automatically sync activities from. - Find out about the app by clicking on the About button. - Send us feedback about your experience using the app, by clicking on the Feedback button.</mutableString>
+                                <string key="text">Use this page to do a variety of things.  - Take a look at your friends activities by clicking on the friends button. You can also add friends form there. - Check your personal stats (and try to beat them). Click on the button that looks like a trophy. - You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can. - Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar). - Add a device or app to automatically sync activities from. - Find out about the app by clicking on the About button. - Send us feedback about your experience using the app, by clicking on the Feedback button.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1471,7 +1514,7 @@
                                     <segue destination="NBR-IG-5G7" kind="push" id="hvL-cn-Ruj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qmg-4u-v4M" userLabel="Add DevicesButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qmg-4u-v4M" userLabel="Points Scheme Button">
                                 <rect key="frame" x="41" y="223" width="56" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="points-scheme.png">
@@ -1618,22 +1661,22 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="R6t-yd-Xzp">
-                                <rect key="frame" x="79" y="84" width="163" height="29"/>
+                                <rect key="frame" x="70" y="84" width="181" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Challenges"/>
-                                    <segment title="Friends"/>
+                                    <segment title="Activities"/>
+                                    <segment title="Notifications"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlClicked" destination="c97-rG-FgO" eventType="valueChanged" id="PLF-QO-l3c"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="22" sectionFooterHeight="22" id="NeA-lZ-GRd">
-                                <rect key="frame" x="0.0" y="142" width="320" height="319"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="22" sectionFooterHeight="22" id="NeA-lZ-GRd" userLabel="Notifications Table">
+                                <rect key="frame" x="0.0" y="127" width="320" height="334"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bBs-0J-2eH">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Notifications" id="bBs-0J-2eH">
                                         <rect key="frame" x="0.0" y="22" width="320" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bBs-0J-2eH" id="SX5-Vv-eVK">
@@ -1648,19 +1691,44 @@
                                     <outlet property="delegate" destination="c97-rG-FgO" id="IdU-yV-aYJ"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="22" sectionFooterHeight="22" id="GqI-wr-37C">
-                                <rect key="frame" x="0.0" y="142" width="320" height="319"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="34" sectionHeaderHeight="22" sectionFooterHeight="22" id="GqI-wr-37C" userLabel="Activities Table">
+                                <rect key="frame" x="0.0" y="127" width="320" height="334"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="x3H-9d-u5M">
+                                    <tableViewCell contentMode="left" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="cIa-1Z-JHw" customClass="ActivityNotificationCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x3H-9d-u5M" id="9en-K0-cnK">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cIa-1Z-JHw" id="aAN-J3-Gfi">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2X4-Uj-YaP">
+                                                    <rect key="frame" x="33" y="9" width="282" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OC8-f0-0hd">
+                                                    <rect key="frame" x="3" y="6" width="24" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" title="A">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="activityMessage" destination="2X4-Uj-YaP" id="Fc3-BM-ikx"/>
+                                            <outlet property="activityPic" destination="OC8-f0-0hd" id="aRK-kF-4Po"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1673,9 +1741,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="Lru-Ao-OJX"/>
                     <connections>
-                        <outlet property="challengesMessageBoardTable" destination="NeA-lZ-GRd" id="g7z-qZ-Log"/>
-                        <outlet property="friendsMessageBoardTable" destination="GqI-wr-37C" id="7tM-ap-0O3"/>
+                        <outlet property="activitiesBoardTable" destination="GqI-wr-37C" id="8fn-tt-HK6"/>
                         <outlet property="messageBoardSelector" destination="R6t-yd-Xzp" id="UXC-Md-JKf"/>
+                        <outlet property="notificationsBoardTable" destination="NeA-lZ-GRd" id="DS3-iG-1fc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zt1-F7-xt4" userLabel="First Responder" sceneMemberID="firstResponder"/>

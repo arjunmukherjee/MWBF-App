@@ -8,49 +8,68 @@
 
 #import "MessagesViewController.h"
 #import "User.h"
+#import "ActivityNotificationCell.h"
 
-#define CHALLENGE_INDEX 0
+#define ACTIVITIES_INDEX 0
+#define NOTIFICATIONS_INDEX 1
 
 @interface MessagesViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *challengesMessageBoardTable;
-@property (weak, nonatomic) IBOutlet UITableView *friendsMessageBoardTable;
+@property (weak, nonatomic) IBOutlet UITableView *notificationsBoardTable;
+@property (weak, nonatomic) IBOutlet UITableView *activitiesBoardTable;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *messageBoardSelector;
+@property (strong,nonatomic) NSMutableArray *friendActivitiesList;
 @property (strong,nonatomic) User *user;
 
 @end
 
 @implementation MessagesViewController
 
-@synthesize challengesMessageBoardTable,friendsMessageBoardTable,messageBoardSelector;
+@synthesize notificationsBoardTable,activitiesBoardTable,messageBoardSelector;
 @synthesize user;
+@synthesize friendActivitiesList;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.user = [User getInstance];
-
-    self.challengesMessageBoardTable.hidden = NO;
-    self.friendsMessageBoardTable.hidden = YES;
+    
+    self.notificationsBoardTable.hidden = YES;
+    self.activitiesBoardTable.hidden = NO;
 }
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    // Populate all the activities
+    [Utils populateFriendsActivities];
+    
+    self.friendActivitiesList = [NSMutableArray arrayWithArray:self.user.friendsActivitiesList];
+    
+    [Utils changeAbsoluteDateToRelativeDays:self.friendActivitiesList];
+    [self.activitiesBoardTable reloadData];
+    
+    [self.activitiesBoardTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.friendActivitiesList count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    
+}
+
 
 - (void) viewDidDisappear:(BOOL)animated
 {
-    [self.user.challengesMessageList removeAllObjects];
-    [self.user.friendsMessageList removeAllObjects];
+    [self.user.notificationsList removeAllObjects];
+    //[self.user.friendsActivitiesList removeAllObjects];
 }
 
 - (IBAction)segmentedControlClicked
 {
-    if (self.messageBoardSelector.selectedSegmentIndex == CHALLENGE_INDEX)
+    if (self.messageBoardSelector.selectedSegmentIndex == NOTIFICATIONS_INDEX)
     {
-        self.challengesMessageBoardTable.hidden = NO;
-        self.friendsMessageBoardTable.hidden = YES;
+        self.notificationsBoardTable.hidden = NO;
+        self.activitiesBoardTable.hidden = YES;
     }
     else
     {
-        self.challengesMessageBoardTable.hidden = YES;
-        self.friendsMessageBoardTable.hidden = NO;
+        self.notificationsBoardTable.hidden = YES;
+        self.activitiesBoardTable.hidden = NO;
     }
 }
 
@@ -62,29 +81,40 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.challengesMessageBoardTable)
-        return [self.user.challengesMessageList count];
+    if (tableView == self.notificationsBoardTable)
+        return [self.user.notificationsList count];
     else
-        return [self.user.friendsMessageList count];
+        return [self.friendActivitiesList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
-    if (tableView == self.challengesMessageBoardTable)
+    if (tableView == self.notificationsBoardTable)
     {
-        static NSString *CellIdentifier = @"ChallengeNotification";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        cell.textLabel.text = [self.user.challengesMessageList objectAtIndex:indexPath.row];
+        static NSString *CellIdentifier = @"Notifications";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell.textLabel.text = [self.user.notificationsList objectAtIndex:indexPath.row];
+        cell.textLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:12];
+        cell.textLabel.textColor = [UIColor blueColor];
+        
+        return cell;
     }
     else
     {
-        static NSString *CellIdentifier = @"FriendNotification";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        cell.textLabel.text = [self.user.friendsMessageList objectAtIndex:indexPath.row];
+        static NSString *CellIdentifier = @"MessageCell";
+        ActivityNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        cell.activityMessage.font = [UIFont fontWithName:@"Trebuchet MS" size:12];
+        cell.activityMessage.text = [self.friendActivitiesList objectAtIndex:indexPath.row];
+        cell.activityMessage.textColor = [UIColor purpleColor];
+        
+        NSString *imageName = [Utils getImageNameFromMessage:[self.user.friendsActivitiesList objectAtIndex:indexPath.row]];
+        UIImage *activityImg = [UIImage imageNamed:imageName];
+        [cell.activityPic setImage:activityImg forState:UIControlStateNormal];
+        [cell.activityPic setBackgroundImage:activityImg forState:UIControlStateNormal];
+        
+        return cell;
     }
-    
-    return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

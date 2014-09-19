@@ -17,6 +17,10 @@
 #define MONTH_COMPONENT_INDEX 3
 #define DAY_COMPONENT_INDEX 4
 
+#define FAV1_COMPONENT_INDEX 0
+#define FAV2_COMPONENT_INDEX 1
+#define FAV3_COMPONENT_INDEX 2
+
 @interface LogActivityViewController ()
 
 @property NSArray *activityListArray;
@@ -27,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *activityValueTextField;
 @property (weak, nonatomic) IBOutlet UILabel *unitsLabel;
 @property (weak, nonatomic) IBOutlet UITextField *dateTextField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *favActivitySegmentedControl;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property float pointsEarned;
 
@@ -46,7 +52,8 @@
 @synthesize activity = _activity;
 @synthesize pmCC;
 @synthesize pointsEarned;
-@synthesize dateTextField;
+@synthesize dateTextField,dateLabel;
+@synthesize favActivitySegmentedControl;
 
 - (void)viewDidLoad
 {
@@ -86,6 +93,35 @@
     [dateFormatter setDateFormat:@"MMM dd"];
     NSString *date = [dateFormatter stringFromDate: [NSDate date]];
     self.dateTextField.text = date;
+    self.dateLabel.text = date;
+    
+    [self setSegmentedControlDisplay];
+}
+
+- (void) setSegmentedControlDisplay
+{
+    for (int i=0; i < 3; i++)
+        [self.favActivitySegmentedControl setEnabled:NO forSegmentAtIndex:i];
+    
+    for (int i=0; i < [self.user.favActivityList count]; i++)
+        [self.favActivitySegmentedControl setEnabled:YES forSegmentAtIndex:i];
+    
+    self.favActivitySegmentedControl.hidden = YES;
+}
+
+- (IBAction)segmentedControlClicked
+{
+    
+    if (self.favActivitySegmentedControl.selectedSegmentIndex == FAV1_COMPONENT_INDEX)
+    {
+    }
+    else if (self.favActivitySegmentedControl.selectedSegmentIndex == FAV2_COMPONENT_INDEX)
+    {
+    }
+    else
+    {
+        
+    }
 }
 
 - (IBAction)infoButtonClicked:(id)sender
@@ -198,6 +234,7 @@
     NSString *date = [dateFormatter stringFromDate: [calendarController.period startDate]];
     
     self.dateTextField.text = date;
+    self.dateLabel.text = date;
 }
 
 
@@ -208,6 +245,10 @@
     NSMutableArray *myActivityList = [[NSMutableArray alloc] init];
     for(UserActivity *userActivity in self.addedActivityArray)
     {
+        // If the time is is not in 12hr format, convert it to 12hr format
+        if ( [ Utils isTimeIn24HourFormat:userActivity.date ])
+            userActivity.date = [Utils changeformatStringTo12hr:userActivity.date];
+        
         [myActivityList addObject:[userActivity toNSDictionary]];
         points = points + [userActivity.points floatValue];
     }
@@ -243,7 +284,6 @@
     
     
     NSDate *today = [NSDate date];
-    
     
     if ((activityValue == NULL) || ([activityValue length] <= 0 ))
        [Utils alertStatus:@"Please pick a value for the exercise." :@"Oops! Miss something?" :0];
@@ -289,6 +329,9 @@
     self.activity = [Activity getInstance];
     
     self.activityListArray = [NSMutableArray arrayWithArray:[self.activity.activityDict allKeys]];
+    // Sort the activites by name
+    self.activityListArray = [self.activityListArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
     [self.activityPicker reloadAllComponents];
         
     self.addActivityButton.hidden = NO;

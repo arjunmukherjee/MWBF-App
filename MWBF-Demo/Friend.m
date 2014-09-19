@@ -29,4 +29,27 @@
     return dictionary;
 }
 
+- (NSUInteger)hash
+{
+    return [self.email hash];
+}
+
+- (BOOL)isEqual:(id)other
+{
+    if (other == self)
+        return YES;
+    if (!other || ![other isKindOfClass:[self class]])
+        return NO;
+    return [self isEqualToFriend:other];
+}
+
+- (BOOL)isEqualToFriend:(Friend *)aFriend
+{
+    if (self == aFriend)
+        return YES;
+    if (![(id)[self email] isEqual:[aFriend email]])
+        return NO;
+    return YES;
+}
+
 @end

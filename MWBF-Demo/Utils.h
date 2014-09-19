@@ -20,6 +20,10 @@
 + (NSString*) getNumberOfRestDaysFromDate:(NSString *) fromDate toDate:(NSString*) toDate withActiveDays:(NSInteger) numberOfActiveDays;
 + (NSInteger) getNumberOfDaysInMonth:(NSInteger)monthInt;
 + (void)setRoundedView:(UIView *)roundedView toDiameter:(float)newSize;
-
++ (BOOL) isTimeIn24HourFormat:(NSString *) dateString;
++ (NSString *)changeformatStringTo12hr:(NSString *)date;
++ (NSString *) getImageNameFromMessage:(NSString*)message;
++ (void) populateFriendsActivities;
++ (void) changeAbsoluteDateToRelativeDays: (NSMutableArray*) messageList;
 
 @end

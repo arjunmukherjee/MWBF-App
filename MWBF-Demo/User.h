@@ -29,8 +29,11 @@
 @property (strong,nonatomic) NSString *bestYearPoints;
 
 // New Messages
-@property (strong,nonatomic) NSMutableArray *challengesMessageList;
-@property (strong,nonatomic) NSMutableArray *friendsMessageList;
+@property (strong,nonatomic) NSMutableArray *notificationsList;
+@property (strong,nonatomic) NSMutableArray *friendsActivitiesList;
+
+// Users favorite activities
+@property (strong,nonatomic) NSMutableArray *favActivityList;
 
 + (User *) getInstance;
 - (NSMutableDictionary *)toNSDictionary;

@@ -12,12 +12,14 @@
 #import "User.h"
 
 @interface BaseClassViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 @end
 
 @implementation BaseClassViewController
 
 @synthesize activityIndicator;
+@synthesize versionLabel;
 
 - (void)viewDidLoad
 {
@@ -32,6 +34,13 @@
     self.activityIndicator.center = point;
     self.activityIndicator.color = [UIColor blueColor];
     [self.view addSubview: self.activityIndicator];
+    
+    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle]infoDictionary];
+    NSString *buildVersion = infoDictionary[(NSString*)kCFBundleVersionKey];
+    
+    self.versionLabel.text = [NSString stringWithFormat:@"Version : %@(%@)",appVersion,buildVersion];
 }
 
 // Dismiss the keyboard when the GO button is hit

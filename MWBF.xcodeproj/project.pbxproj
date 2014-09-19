@@ -82,6 +82,18 @@
 		919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE98D198DBAA000F12411 /* StatsViewController.m */; };
 		919EE996198DCD4100F12411 /* facebook2.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE991198DCD4100F12411 /* facebook2.png */; };
 		919EE99B198DE41B00F12411 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE99A198DE41B00F12411 /* MainViewController.m */; };
+		91B239C719CBC1A700601E7F /* runIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239C319CBC1A700601E7F /* runIcon.png */; };
+		91B239CC19CBC94200601E7F /* ActivityNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */; };
+		91B239CE19CBCF9D00601E7F /* defaultActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239CD19CBCF9D00601E7F /* defaultActivity.png */; };
+		91B239D019CBD1B000601E7F /* gymIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239CF19CBD1B000601E7F /* gymIcon.png */; };
+		91B239D219CBD21100601E7F /* swimmingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239D119CBD21100601E7F /* swimmingIcon.png */; };
+		91B239D419CBD39E00601E7F /* bikeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239D319CBD39E00601E7F /* bikeIcon.png */; };
+		91B239D619CBD3A800601E7F /* sportsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239D519CBD3A800601E7F /* sportsIcon.png */; };
+		91B239D819CBD4A000601E7F /* yogaIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239D719CBD4A000601E7F /* yogaIcon.png */; };
+		91B239DD19CBD75000601E7F /* trekkingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239DC19CBD75000601E7F /* trekkingIcon.png */; };
+		91B239E119CBD89D00601E7F /* walkingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239E019CBD89D00601E7F /* walkingIcon.png */; };
+		91B239E319CBD98A00601E7F /* ellipticalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239E219CBD98A00601E7F /* ellipticalIcon.png */; };
+		91B239E919CBDC6D00601E7F /* stairmasterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239E819CBDC6D00601E7F /* stairmasterIcon.png */; };
 		91BB880119B3CA0D0068D961 /* patience-calm-quiet-plain.gif in Resources */ = {isa = PBXBuildFile; fileRef = 91BB87FF19B3CA0D0068D961 /* patience-calm-quiet-plain.gif */; };
 		91BBC4C219AA51DF00EBFD25 /* ChallengeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */; };
 		91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */; };
@@ -107,6 +119,8 @@
 		91D2D0F619AF6B6B009C83E9 /* 1409251867_stats-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */; };
 		91D2D10219AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */; };
 		91D2D11219AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D2D11119AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png */; };
+		91D329A819CA50DE0035B651 /* Light_blue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D329A619CA50DE0035B651 /* Light_blue_button.png */; };
+		91D329A919CA50DE0035B651 /* Silver_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D329A719CA50DE0035B651 /* Silver_button.png */; };
 		91D357C719BAB2B1005D0F26 /* Full_dustbin.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D357C619BAB2B1005D0F26 /* Full_dustbin.png */; };
 		91D357CB19BAB51E005D0F26 /* save-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D357CA19BAB51E005D0F26 /* save-icon.png */; };
 		91D60F4619C1798D00841ECB /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D60F4519C1798D00841ECB /* FriendCell.m */; };
@@ -242,6 +256,19 @@
 		919EE991198DCD4100F12411 /* facebook2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook2.png; sourceTree = "<group>"; };
 		919EE999198DE41B00F12411 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		919EE99A198DE41B00F12411 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		91B239C319CBC1A700601E7F /* runIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runIcon.png; sourceTree = "<group>"; };
+		91B239CA19CBC94200601E7F /* ActivityNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityNotificationCell.h; sourceTree = "<group>"; };
+		91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityNotificationCell.m; sourceTree = "<group>"; };
+		91B239CD19CBCF9D00601E7F /* defaultActivity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultActivity.png; sourceTree = "<group>"; };
+		91B239CF19CBD1B000601E7F /* gymIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gymIcon.png; sourceTree = "<group>"; };
+		91B239D119CBD21100601E7F /* swimmingIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swimmingIcon.png; sourceTree = "<group>"; };
+		91B239D319CBD39E00601E7F /* bikeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bikeIcon.png; sourceTree = "<group>"; };
+		91B239D519CBD3A800601E7F /* sportsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sportsIcon.png; sourceTree = "<group>"; };
+		91B239D719CBD4A000601E7F /* yogaIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yogaIcon.png; sourceTree = "<group>"; };
+		91B239DC19CBD75000601E7F /* trekkingIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trekkingIcon.png; sourceTree = "<group>"; };
+		91B239E019CBD89D00601E7F /* walkingIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walkingIcon.png; sourceTree = "<group>"; };
+		91B239E219CBD98A00601E7F /* ellipticalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ellipticalIcon.png; sourceTree = "<group>"; };
+		91B239E819CBDC6D00601E7F /* stairmasterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stairmasterIcon.png; sourceTree = "<group>"; };
 		91BB87FF19B3CA0D0068D961 /* patience-calm-quiet-plain.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "patience-calm-quiet-plain.gif"; sourceTree = "<group>"; };
 		91BBC4C019AA51DF00EBFD25 /* ChallengeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeDetailsViewController.h; sourceTree = "<group>"; };
 		91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeDetailsViewController.m; sourceTree = "<group>"; };
@@ -275,6 +302,8 @@
 		91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1409251867_stats-up.png"; sourceTree = "<group>"; };
 		91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1409252422_grey_new_seo2-30-32.png"; sourceTree = "<group>"; };
 		91D2D11119AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png"; sourceTree = "<group>"; };
+		91D329A619CA50DE0035B651 /* Light_blue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_blue_button.png; sourceTree = "<group>"; };
+		91D329A719CA50DE0035B651 /* Silver_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Silver_button.png; sourceTree = "<group>"; };
 		91D357C619BAB2B1005D0F26 /* Full_dustbin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Full_dustbin.png; sourceTree = "<group>"; };
 		91D357CA19BAB51E005D0F26 /* save-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save-icon.png"; sourceTree = "<group>"; };
 		91D60F4419C1798D00841ECB /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
@@ -379,11 +408,14 @@
 				91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */,
 				912E348919C3F32F00F4745A /* friends.png */,
 				912E34A019C7EB4D00F4745A /* redCircle.png */,
+				91B239D919CBD4D100601E7F /* ActivityIcon */,
 				91BB87FF19B3CA0D0068D961 /* patience-calm-quiet-plain.gif */,
 				912E349E19C7EA2700F4745A /* messages.png */,
 				912E349819C7E60D00F4745A /* friends-32.png */,
 				912E348719C3F19000F4745A /* points-scheme.png */,
 				91D2D11119AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png */,
+				91D329A619CA50DE0035B651 /* Light_blue_button.png */,
+				91D329A719CA50DE0035B651 /* Silver_button.png */,
 				91CF0EE719A2F3F8007B668A /* search_08_256.png */,
 				912E349219C40EAE00F4745A /* personalBest.png */,
 				91D2D0F319AF6AA6009C83E9 /* 1409251657_7-48.png */,
@@ -624,6 +656,8 @@
 				91D60F4519C1798D00841ECB /* FriendCell.m */,
 				912E348B19C3F60A00F4745A /* PointsSchemeCell.h */,
 				912E348C19C3F60A00F4745A /* PointsSchemeCell.m */,
+				91B239CA19CBC94200601E7F /* ActivityNotificationCell.h */,
+				91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -652,6 +686,24 @@
 			children = (
 			);
 			name = iPad;
+			sourceTree = "<group>";
+		};
+		91B239D919CBD4D100601E7F /* ActivityIcon */ = {
+			isa = PBXGroup;
+			children = (
+				91B239CD19CBCF9D00601E7F /* defaultActivity.png */,
+				91B239DC19CBD75000601E7F /* trekkingIcon.png */,
+				91B239E219CBD98A00601E7F /* ellipticalIcon.png */,
+				91B239E819CBDC6D00601E7F /* stairmasterIcon.png */,
+				91B239D519CBD3A800601E7F /* sportsIcon.png */,
+				91B239D319CBD39E00601E7F /* bikeIcon.png */,
+				91B239E019CBD89D00601E7F /* walkingIcon.png */,
+				91B239D719CBD4A000601E7F /* yogaIcon.png */,
+				91B239D119CBD21100601E7F /* swimmingIcon.png */,
+				91B239CF19CBD1B000601E7F /* gymIcon.png */,
+				91B239C319CBC1A700601E7F /* runIcon.png */,
+			);
+			name = ActivityIcon;
 			sourceTree = "<group>";
 		};
 		91C665151991790F00A56D61 /* Pie Chart Library */ = {
@@ -758,40 +810,53 @@
 			buildActionMask = 2147483647;
 			files = (
 				918F694A1988933200776052 /* running6.jpg in Resources */,
+				91B239E119CBD89D00601E7F /* walkingIcon.png in Resources */,
+				91D329A819CA50DE0035B651 /* Light_blue_button.png in Resources */,
 				919EE978198C40BB00F12411 /* mwbf-run.png in Resources */,
 				91CF0ED519A27B17007B668A /* Default.png in Resources */,
 				919EE989198D297700F12411 /* add-icon1.png in Resources */,
 				918F69521988953500776052 /* runningLong.jpg in Resources */,
+				91B239DD19CBD75000601E7F /* trekkingIcon.png in Resources */,
 				91CFEBE419A42E8D00B0C27A /* README in Resources */,
 				9127FB9219BD1CAD001C85D8 /* rsz_ipadicon.png in Resources */,
 				91BB880119B3CA0D0068D961 /* patience-calm-quiet-plain.gif in Resources */,
+				91B239E919CBDC6D00601E7F /* stairmasterIcon.png in Resources */,
 				915B423E19ABE73700DC79FE /* background@2x.png in Resources */,
 				91D2D11219AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png in Resources */,
 				915B426A19AD526800DC79FE /* trophy.png in Resources */,
 				912E349919C7E60D00F4745A /* friends-32.png in Resources */,
+				91B239E319CBD98A00601E7F /* ellipticalIcon.png in Resources */,
 				91D2D0F419AF6AA6009C83E9 /* 1409251657_7-48.png in Resources */,
 				91D2D0F619AF6B6B009C83E9 /* 1409251867_stats-up.png in Resources */,
 				919EE97E198CB70000F12411 /* background.jpg in Resources */,
 				915B426C19AEC04000DC79FE /* arrow_right.png in Resources */,
+				91B239D219CBD21100601E7F /* swimmingIcon.png in Resources */,
 				9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */,
 				912E348A19C3F32F00F4745A /* friends.png in Resources */,
 				91CF0E7919A19B17007B668A /* icon_addfriend.png in Resources */,
 				91D357CB19BAB51E005D0F26 /* save-icon.png in Resources */,
 				9147D8EB1983127100183220 /* InfoPlist.strings in Resources */,
+				91B239D619CBD3A800601E7F /* sportsIcon.png in Resources */,
 				912E348819C3F19000F4745A /* points-scheme.png in Resources */,
 				912E349F19C7EA2700F4745A /* messages.png in Resources */,
 				915B423D19ABE73700DC79FE /* background.png in Resources */,
 				91CF0ED619A27B17007B668A /* Default@2x.png in Resources */,
 				918D5F011991208200597147 /* goRight1.png in Resources */,
+				91B239D419CBD39E00601E7F /* bikeIcon.png in Resources */,
 				9127FB9519BD1E16001C85D8 /* appIcon76x76.png in Resources */,
 				915B427019AEC12300DC79FE /* arrow_left.png in Resources */,
 				91CF0EE819A2F3F8007B668A /* search_08_256.png in Resources */,
+				91B239C719CBC1A700601E7F /* runIcon.png in Resources */,
 				915B423F19ABE73700DC79FE /* default.plist in Resources */,
 				91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */,
 				915B426819AC0CD500DC79FE /* calendar3.png in Resources */,
 				919EE996198DCD4100F12411 /* facebook2.png in Resources */,
 				91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */,
+				91B239CE19CBCF9D00601E7F /* defaultActivity.png in Resources */,
+				91B239D019CBD1B000601E7F /* gymIcon.png in Resources */,
+				91B239D819CBD4A000601E7F /* yogaIcon.png in Resources */,
 				918F694E198893C000776052 /* reasons-to-run.jpg in Resources */,
+				91D329A919CA50DE0035B651 /* Silver_button.png in Resources */,
 				912E349319C40EAE00F4745A /* personalBest.png in Resources */,
 				9127FB9619BD1E16001C85D8 /* appIcon152x152.png in Resources */,
 				91CF0ED419A27B17007B668A /* Default-568h@2x.png in Resources */,
@@ -858,6 +923,7 @@
 				919EE983198CBD6A00F12411 /* HTTPGetRequest.m in Sources */,
 				91CFEBE219A42A9B00B0C27A /* Friend.m in Sources */,
 				918D5EF919910E1800597147 /* BaseClassViewController.m in Sources */,
+				91B239CC19CBC94200601E7F /* ActivityNotificationCell.m in Sources */,
 				912E348D19C3F60A00F4745A /* PointsSchemeCell.m in Sources */,
 				91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */,
 				912E34A419C7ED4E00F4745A /* MessagesViewController.m in Sources */,
