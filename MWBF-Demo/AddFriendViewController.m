@@ -148,11 +148,11 @@
         [tempFriendsNameArray addObject:newFriend];
     
         // Add the current list of friends to the temp list
-        for (id existingFriend in user.friendsList)
+        for (Friend *existingFriend in user.friendsList)
             [tempFriendsNameArray addObject:existingFriend];
         
         // Add the newly added friend to the users friends list
-        user.friendsList = tempFriendsNameArray;
+        user.friendsList = [NSMutableArray arrayWithArray:tempFriendsNameArray];
         
         self.addFriendButton.enabled = NO;
         

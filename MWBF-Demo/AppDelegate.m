@@ -83,9 +83,6 @@
         }
     }
     
-    // Populate all the activities
-    [Utils populateFriendsActivities];
-    
     // Look for removed challenges
     for (int i = 0; i < [challengeListOld count]; i++)
     {
@@ -187,6 +184,9 @@
     
     // Get the all time highs
     [service getAllTimeHighs];
+    
+    // Get the activities for all the users friends
+    [service getActivitiesForFriends];
     
     // Get all the challenges the user is involved in
     [service getChallenges];

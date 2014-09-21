@@ -217,25 +217,6 @@
     
 }
 
-+ (void) populateFriendsActivities
-{
-    User *user = [User getInstance];
-    
-    // Look for new challenges
-    NSArray *challengeList = [NSArray arrayWithArray:user.challengesList];
-    NSMutableDictionary *userActivitiesDict = [[NSMutableDictionary alloc] init];
-    for (int i = 0; i < [challengeList count]; i++)
-    {
-        Challenge *challengeObj = challengeList[i];
-        // Extract all the notifications from each challenge and create a single unique set of them
-        for (int i=0; i < [challengeObj.messageList count]; i++)
-            [userActivitiesDict setObject:@"1" forKey:challengeObj.messageList[i]];
-    }
-    
-    // Set the user Activities
-    user.friendsActivitiesList = [NSMutableArray arrayWithArray:[userActivitiesDict allKeys]];
-}
-
 // Compare the date and start using words like "Today" "Yesterday"
 + (void) changeAbsoluteDateToRelativeDays: (NSMutableArray*) messageList
 {

@@ -30,7 +30,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *pickDateButton;
 @property (weak, nonatomic) IBOutlet UITextField *activityValueTextField;
 @property (weak, nonatomic) IBOutlet UILabel *unitsLabel;
-@property (weak, nonatomic) IBOutlet UITextField *dateTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *favActivitySegmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
@@ -52,7 +51,7 @@
 @synthesize activity = _activity;
 @synthesize pmCC;
 @synthesize pointsEarned;
-@synthesize dateTextField,dateLabel;
+@synthesize dateLabel;
 @synthesize favActivitySegmentedControl;
 
 - (void)viewDidLoad
@@ -92,7 +91,6 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMM dd"];
     NSString *date = [dateFormatter stringFromDate: [NSDate date]];
-    self.dateTextField.text = date;
     self.dateLabel.text = date;
     
     [self setSegmentedControlDisplay];
@@ -233,7 +231,6 @@
     [dateFormatter setDateFormat:@"MMM dd"];
     NSString *date = [dateFormatter stringFromDate: [calendarController.period startDate]];
     
-    self.dateTextField.text = date;
     self.dateLabel.text = date;
 }
 
@@ -382,18 +379,20 @@
     }
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    NSInteger index = [self.activityPicker selectedRowInComponent:0];
+    MWBFActivities *activity = [self.activity.activityDict objectForKey:self.activityListArray[index]];
+    self.unitsLabel.text = activity.measurementUnits;
+}
+
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     
     UILabel *label = [[UILabel alloc] init];
     label.font = [UIFont fontWithName:@"Trebuchet MS" size:16];
-    
     label.text =  self.activityListArray[row];
    
-    NSInteger index = [self.activityPicker selectedRowInComponent:0];
-    MWBFActivities *activity = [self.activity.activityDict objectForKey:self.activityListArray[index]];
-    self.unitsLabel.text = activity.measurementUnits;
-  
     return label;
 }
 

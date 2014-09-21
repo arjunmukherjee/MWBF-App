@@ -29,3 +29,8 @@ DEVICES
 9. Runtastic
 10. Cyclemeter
 11. Endomondo
+
+// Current build changes
+1. Fixed issue with Challenge crashing the app (scroll to end was index array out of bounds for empty arrays)
+2. Fixed issue with Add friend showing messy friends list (copying new array to user.friendsList, instead of assigning address and also clean out the cells array in the FriendsListViewController before populating it again).
+3. LogActivityViewController : Changed the unitsLabel update from pickerChanged to pickerSelected

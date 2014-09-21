@@ -145,11 +145,11 @@ NSString* ADMIN_PASSWORD = @"admin";
                     // Get the all time highs
                     [service getAllTimeHighs];
                     
+                    // Get the activities for all the users friends
+                    [service getActivitiesForFriends];
+                    
                     // Get all the challenges the user is involved in
                     [service getChallenges];
-                    
-                    // Populate all the activities
-                    [Utils populateFriendsActivities];
                     
                     [self.activityIndicator stopAnimating];
                     self.activityIndicator.hidden = YES;

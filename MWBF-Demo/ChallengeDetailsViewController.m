@@ -131,7 +131,9 @@
     self.messagesArray = self.challenge.messageList;
     [Utils changeAbsoluteDateToRelativeDays:self.messagesArray];
     [self.messageTableView reloadData];
-    [self.messageTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.messagesArray count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+    
+    if ([self.messagesArray count] > 0)
+        [self.messageTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.messagesArray count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
 }
 
 

@@ -23,7 +23,6 @@
 + (BOOL) isTimeIn24HourFormat:(NSString *) dateString;
 + (NSString *)changeformatStringTo12hr:(NSString *)date;
 + (NSString *) getImageNameFromMessage:(NSString*)message;
-+ (void) populateFriendsActivities;
 + (void) changeAbsoluteDateToRelativeDays: (NSMutableArray*) messageList;
 
 @end

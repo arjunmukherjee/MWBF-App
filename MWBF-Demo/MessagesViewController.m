@@ -40,9 +40,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    // Populate all the activities
-    [Utils populateFriendsActivities];
-    
+    [self.friendActivitiesList removeAllObjects];
     self.friendActivitiesList = [NSMutableArray arrayWithArray:self.user.friendsActivitiesList];
     
     [Utils changeAbsoluteDateToRelativeDays:self.friendActivitiesList];
@@ -56,7 +54,6 @@
 - (void) viewDidDisappear:(BOOL)animated
 {
     [self.user.notificationsList removeAllObjects];
-    //[self.user.friendsActivitiesList removeAllObjects];
 }
 
 - (IBAction)segmentedControlClicked

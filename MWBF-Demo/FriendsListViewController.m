@@ -79,6 +79,9 @@
 // Create an array with the cells preloaded
 - (void) loadTableCells
 {
+    // Clean out the array
+    [self.cellsArray removeAllObjects];
+    
     for (int i = 0; i < [self.user.friendsList count]; i++)
     {
         static NSString *CellIdentifier = @"FriendDetailsCell";
