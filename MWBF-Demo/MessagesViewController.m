@@ -102,7 +102,19 @@
         ActivityNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         cell.activityMessage.font = [UIFont fontWithName:@"Trebuchet MS" size:12];
-        cell.activityMessage.text = [self.friendActivitiesList objectAtIndex:indexPath.row];
+        NSString *message = [self.friendActivitiesList objectAtIndex:indexPath.row];
+        
+        NSRange start = [message rangeOfString:@" "];
+        NSString *activityMessage = @"";
+        NSString *name = @"";
+        if (start.location != NSNotFound)
+        {
+            activityMessage = [message substringFromIndex:start.location+1];
+            name = [message substringToIndex:start.location];
+        }
+        
+        cell.activityMessage.text = activityMessage;
+        cell.userName.text = name;
         cell.activityMessage.textColor = [UIColor purpleColor];
         
         NSString *imageName = [Utils getImageNameFromMessage:[self.user.friendsActivitiesList objectAtIndex:indexPath.row]];

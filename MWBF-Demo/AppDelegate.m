@@ -57,13 +57,28 @@
     // Get the data before the refresh
     NSArray *friendsListOld = [NSArray arrayWithArray:user.friendsList];
     NSArray *challengeListOld = [NSArray arrayWithArray:user.challengesList];
+    NSArray *messageListOld = [NSArray arrayWithArray:user.friendsActivitiesList];
     NSInteger numberOfFriendsBefore = [friendsListOld count];
     
     // Refresh the user's data
     [self refreshUserData];
     
     NSInteger numberOfFriendsAfter = [user.friendsList count];
-    NSInteger newFriends = numberOfFriendsAfter - numberOfFriendsBefore;
+    NSInteger newFriendsCount = numberOfFriendsAfter - numberOfFriendsBefore;
+    
+    // Look for new messages
+    int newMessageCount = 0;
+    NSString *newMessage = [[NSString alloc] init];
+    NSArray *messageListNew = [NSArray arrayWithArray:user.friendsActivitiesList];
+    for (int i=0; i <[messageListNew count]; i++)
+    {
+        NSString *message = messageListNew[i];
+        if (![messageListOld containsObject:message])
+        {
+            newMessage = message;
+            newMessageCount++;
+        }
+    }
     
     // Look for new challenges
     NSArray *challengeListNew = [NSArray arrayWithArray:user.challengesList];
@@ -99,7 +114,7 @@
         }
     }
 
-    self.numberOfMessages = (newChallengeCount + newFriends);
+    self.numberOfMessages = (newChallengeCount + newFriendsCount + newMessageCount);
     
     // Set up Local Notifications
     if (self.numberOfMessages > 0 )
@@ -130,15 +145,40 @@
         NSString *challengeStr = @"challenges";
         if (newChallengeCount == 1)
             challengeStr = @"challenge";
+        NSString *notificationStr = @"activity notifications";
+        if (newMessageCount == 1)
+            notificationStr = @"activity notification";
         
+        
+        // Construct the notification string
         NSString *messageBody = [[NSString alloc] init];
-        if (newFriendCount > 0 && newChallengeCount > 0)
+        if (newFriendCount > 0 && newChallengeCount > 0 && newMessageCount > 0)
+            messageBody = [NSString stringWithFormat:@"You have %d new %@ and %d new or removed %@ and %d new %@.",newFriendCount,friendStr,newChallengeCount,challengeStr,newMessageCount,notificationStr];
+        
+        else if (newFriendCount > 0 && newChallengeCount > 0)
             messageBody = [NSString stringWithFormat:@"You have %ld new %@ and %ld new or removed %@.",(long)newFriendCount,friendStr,(long)newChallengeCount,challengeStr];
+        
+        else if (newChallengeCount > 0 && newMessageCount > 0)
+            messageBody = [NSString stringWithFormat:@"You have %d new or removed %@ and %d new %@.",newChallengeCount,challengeStr,newMessageCount,notificationStr];
+        
+        else if (newFriendCount > 0 && newMessageCount > 0)
+            messageBody = [NSString stringWithFormat:@"You have %d new %@ and %d new %@.",newFriendCount,friendStr,newMessageCount,notificationStr];
+        
         else if (newFriendCount > 0 )
-            messageBody = [NSString stringWithFormat:@"You have %ld new %@.",(long)newFriendCount,friendStr];
+            messageBody = [NSString stringWithFormat:@"You have %d new %@.",newFriendCount,friendStr];
+        
+        else if (newMessageCount > 0 )
+        {
+            // If there is only one message then just display that
+            if (newMessageCount == 1 )
+                messageBody = newMessage;
+            else
+                messageBody = [NSString stringWithFormat:@"You have %d new %@.",newMessageCount,notificationStr];
+        }
         else
             messageBody = [NSString stringWithFormat:@"You have %ld new or removed %@.",(long)newChallengeCount,challengeStr];
 
+        
         
         localNotification.alertBody = messageBody;
         localNotification.soundName = UILocalNotificationDefaultSoundName;

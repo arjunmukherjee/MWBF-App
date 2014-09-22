@@ -10,6 +10,7 @@
 
 @interface ActivityNotificationCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *activityMessage;
 @property (weak, nonatomic) IBOutlet UIButton *activityPic;
 
