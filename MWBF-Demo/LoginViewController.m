@@ -146,7 +146,7 @@ NSString* ADMIN_PASSWORD = @"admin";
                     [service getAllTimeHighs];
                     
                     // Get the activities for all the users friends
-                    [service getActivitiesForFriends];
+                    [service getFeed];
                     
                     // Get all the challenges the user is involved in
                     [service getChallenges];

@@ -10,6 +10,16 @@
 		9127FB9219BD1CAD001C85D8 /* rsz_ipadicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9127FB9119BD1CAD001C85D8 /* rsz_ipadicon.png */; };
 		9127FB9519BD1E16001C85D8 /* appIcon76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 9127FB9319BD1E16001C85D8 /* appIcon76x76.png */; };
 		9127FB9619BD1E16001C85D8 /* appIcon152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 9127FB9419BD1E16001C85D8 /* appIcon152x152.png */; };
+		912C417419D3AA020096C951 /* message-board.png in Resources */ = {isa = PBXBuildFile; fileRef = 912C417319D3AA020096C951 /* message-board.png */; };
+		912C417719D3B2140096C951 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C417619D3B2140096C951 /* NotificationsViewController.m */; };
+		912C417B19D3C0E10096C951 /* wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 912C417A19D3C0E10096C951 /* wall.png */; };
+		912C418019D4FB5B0096C951 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C417F19D4FB5B0096C951 /* SettingsViewController.m */; };
+		912C418419D4FCB40096C951 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 912C418219D4FCB40096C951 /* settings.png */; };
+		912C418C19D4FF620096C951 /* personalBestIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 912C418B19D4FF620096C951 /* personalBestIcon.png */; };
+		912C419219D500F50096C951 /* notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = 912C419119D500F50096C951 /* notifications.png */; };
+		912C419619D501FE0096C951 /* pointsScheme.png in Resources */ = {isa = PBXBuildFile; fileRef = 912C419519D501FE0096C951 /* pointsScheme.png */; };
+		912C419A19D502C50096C951 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = 912C419919D502C50096C951 /* about.png */; };
+		912C419E19D503D00096C951 /* appsAndDevices.png in Resources */ = {isa = PBXBuildFile; fileRef = 912C419D19D503D00096C951 /* appsAndDevices.png */; };
 		912E347E19C3EE7600F4745A /* PointsSchemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912E347D19C3EE7600F4745A /* PointsSchemeController.m */; };
 		912E348819C3F19000F4745A /* points-scheme.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E348719C3F19000F4745A /* points-scheme.png */; };
 		912E348A19C3F32F00F4745A /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E348919C3F32F00F4745A /* friends.png */; };
@@ -81,7 +91,6 @@
 		919EE989198D297700F12411 /* add-icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE985198D297700F12411 /* add-icon1.png */; };
 		919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE98D198DBAA000F12411 /* StatsViewController.m */; };
 		919EE996198DCD4100F12411 /* facebook2.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE991198DCD4100F12411 /* facebook2.png */; };
-		919EE99B198DE41B00F12411 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE99A198DE41B00F12411 /* MainViewController.m */; };
 		91B239C719CBC1A700601E7F /* runIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239C319CBC1A700601E7F /* runIcon.png */; };
 		91B239CC19CBC94200601E7F /* ActivityNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */; };
 		91B239CE19CBCF9D00601E7F /* defaultActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239CD19CBCF9D00601E7F /* defaultActivity.png */; };
@@ -99,6 +108,8 @@
 		91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */; };
 		91C665181991790F00A56D61 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C665171991790F00A56D61 /* DLPieChart.m */; };
 		91C6651B1992775300A56D61 /* MWBFActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C6651A1992775300A56D61 /* MWBFActivities.m */; };
+		91CAC68E19D11D52006A6C06 /* background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CAC68D19D11D52006A6C06 /* background-2.png */; };
+		91CAC69019D11E30006A6C06 /* background-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CAC68F19D11E30006A6C06 /* background-3.png */; };
 		91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */; };
 		91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6E19A10EAC007B668A /* acount-information.png */; };
 		91CF0E7919A19B17007B668A /* icon_addfriend.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E7819A19B17007B668A /* icon_addfriend.png */; };
@@ -144,6 +155,18 @@
 		9127FB9119BD1CAD001C85D8 /* rsz_ipadicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_ipadicon.png; sourceTree = "<group>"; };
 		9127FB9319BD1E16001C85D8 /* appIcon76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon76x76.png; sourceTree = "<group>"; };
 		9127FB9419BD1E16001C85D8 /* appIcon152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon152x152.png; sourceTree = "<group>"; };
+		912C417319D3AA020096C951 /* message-board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-board.png"; sourceTree = "<group>"; };
+		912C417519D3B2140096C951 /* NotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
+		912C417619D3B2140096C951 /* NotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsViewController.m; sourceTree = "<group>"; };
+		912C417A19D3C0E10096C951 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wall.png; sourceTree = "<group>"; };
+		912C417E19D4FB5B0096C951 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		912C417F19D4FB5B0096C951 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		912C418219D4FCB40096C951 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		912C418B19D4FF620096C951 /* personalBestIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personalBestIcon.png; sourceTree = "<group>"; };
+		912C419119D500F50096C951 /* notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notifications.png; sourceTree = "<group>"; };
+		912C419519D501FE0096C951 /* pointsScheme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointsScheme.png; sourceTree = "<group>"; };
+		912C419919D502C50096C951 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
+		912C419D19D503D00096C951 /* appsAndDevices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appsAndDevices.png; sourceTree = "<group>"; };
 		912E347C19C3EE7600F4745A /* PointsSchemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointsSchemeController.h; sourceTree = "<group>"; };
 		912E347D19C3EE7600F4745A /* PointsSchemeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointsSchemeController.m; sourceTree = "<group>"; };
 		912E348719C3F19000F4745A /* points-scheme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-scheme.png"; sourceTree = "<group>"; };
@@ -254,8 +277,6 @@
 		919EE98C198DBAA000F12411 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		919EE98D198DBAA000F12411 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		919EE991198DCD4100F12411 /* facebook2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook2.png; sourceTree = "<group>"; };
-		919EE999198DE41B00F12411 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		919EE99A198DE41B00F12411 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		91B239C319CBC1A700601E7F /* runIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runIcon.png; sourceTree = "<group>"; };
 		91B239CA19CBC94200601E7F /* ActivityNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityNotificationCell.h; sourceTree = "<group>"; };
 		91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityNotificationCell.m; sourceTree = "<group>"; };
@@ -278,6 +299,8 @@
 		91C665171991790F00A56D61 /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
 		91C665191992775300A56D61 /* MWBFActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWBFActivities.h; sourceTree = "<group>"; };
 		91C6651A1992775300A56D61 /* MWBFActivities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBFActivities.m; sourceTree = "<group>"; };
+		91CAC68D19D11D52006A6C06 /* background-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-2.png"; sourceTree = "<group>"; };
+		91CAC68F19D11E30006A6C06 /* background-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-3.png"; sourceTree = "<group>"; };
 		91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "24-feedback_icon.gif"; sourceTree = "<group>"; };
 		91CF0E6E19A10EAC007B668A /* acount-information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "acount-information.png"; sourceTree = "<group>"; };
 		91CF0E7819A19B17007B668A /* icon_addfriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_addfriend.png; sourceTree = "<group>"; };
@@ -405,7 +428,17 @@
 			isa = PBXGroup;
 			children = (
 				91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */,
+				912C417A19D3C0E10096C951 /* wall.png */,
+				912C419D19D503D00096C951 /* appsAndDevices.png */,
+				912C419519D501FE0096C951 /* pointsScheme.png */,
+				912C419919D502C50096C951 /* about.png */,
+				912C419119D500F50096C951 /* notifications.png */,
+				912C418219D4FCB40096C951 /* settings.png */,
+				912C418B19D4FF620096C951 /* personalBestIcon.png */,
+				91CAC68F19D11E30006A6C06 /* background-3.png */,
 				91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */,
+				912C417319D3AA020096C951 /* message-board.png */,
+				91CAC68D19D11D52006A6C06 /* background-2.png */,
 				912E348919C3F32F00F4745A /* friends.png */,
 				912E34A019C7EB4D00F4745A /* redCircle.png */,
 				91B239D919CBD4D100601E7F /* ActivityIcon */,
@@ -515,8 +548,6 @@
 			children = (
 				918D5EF719910E1800597147 /* BaseClassViewController.h */,
 				918D5EF819910E1800597147 /* BaseClassViewController.m */,
-				919EE999198DE41B00F12411 /* MainViewController.h */,
-				919EE99A198DE41B00F12411 /* MainViewController.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -532,6 +563,10 @@
 				912E347D19C3EE7600F4745A /* PointsSchemeController.m */,
 				912E34A219C7ED4E00F4745A /* MessagesViewController.h */,
 				912E34A319C7ED4E00F4745A /* MessagesViewController.m */,
+				912C417519D3B2140096C951 /* NotificationsViewController.h */,
+				912C417619D3B2140096C951 /* NotificationsViewController.m */,
+				912C417E19D4FB5B0096C951 /* SettingsViewController.h */,
+				912C417F19D4FB5B0096C951 /* SettingsViewController.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -813,6 +848,7 @@
 				91B239E119CBD89D00601E7F /* walkingIcon.png in Resources */,
 				91D329A819CA50DE0035B651 /* Light_blue_button.png in Resources */,
 				919EE978198C40BB00F12411 /* mwbf-run.png in Resources */,
+				912C419219D500F50096C951 /* notifications.png in Resources */,
 				91CF0ED519A27B17007B668A /* Default.png in Resources */,
 				919EE989198D297700F12411 /* add-icon1.png in Resources */,
 				918F69521988953500776052 /* runningLong.jpg in Resources */,
@@ -824,17 +860,21 @@
 				915B423E19ABE73700DC79FE /* background@2x.png in Resources */,
 				91D2D11219AF8F53009C83E9 /* 1409261059_monitor_screen_tablet_ipad_devices_responsive_iphone_smartphone-128.png in Resources */,
 				915B426A19AD526800DC79FE /* trophy.png in Resources */,
+				912C418C19D4FF620096C951 /* personalBestIcon.png in Resources */,
 				912E349919C7E60D00F4745A /* friends-32.png in Resources */,
 				91D2D0F419AF6AA6009C83E9 /* 1409251657_7-48.png in Resources */,
 				91D2D0F619AF6B6B009C83E9 /* 1409251867_stats-up.png in Resources */,
 				919EE97E198CB70000F12411 /* background.jpg in Resources */,
 				915B426C19AEC04000DC79FE /* arrow_right.png in Resources */,
+				912C417B19D3C0E10096C951 /* wall.png in Resources */,
+				912C419A19D502C50096C951 /* about.png in Resources */,
 				91B239D219CBD21100601E7F /* swimmingIcon.png in Resources */,
 				9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */,
 				912E348A19C3F32F00F4745A /* friends.png in Resources */,
 				91CF0E7919A19B17007B668A /* icon_addfriend.png in Resources */,
 				91D357CB19BAB51E005D0F26 /* save-icon.png in Resources */,
 				9147D8EB1983127100183220 /* InfoPlist.strings in Resources */,
+				91CAC69019D11E30006A6C06 /* background-3.png in Resources */,
 				91B239D619CBD3A800601E7F /* sportsIcon.png in Resources */,
 				912E348819C3F19000F4745A /* points-scheme.png in Resources */,
 				912E349F19C7EA2700F4745A /* messages.png in Resources */,
@@ -842,14 +882,17 @@
 				91CF0ED619A27B17007B668A /* Default@2x.png in Resources */,
 				918D5F011991208200597147 /* goRight1.png in Resources */,
 				91B239D419CBD39E00601E7F /* bikeIcon.png in Resources */,
+				912C418419D4FCB40096C951 /* settings.png in Resources */,
 				9127FB9519BD1E16001C85D8 /* appIcon76x76.png in Resources */,
 				915B427019AEC12300DC79FE /* arrow_left.png in Resources */,
+				912C419E19D503D00096C951 /* appsAndDevices.png in Resources */,
 				91CF0EE819A2F3F8007B668A /* search_08_256.png in Resources */,
 				91B239C719CBC1A700601E7F /* runIcon.png in Resources */,
 				915B423F19ABE73700DC79FE /* default.plist in Resources */,
 				91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */,
 				915B426819AC0CD500DC79FE /* calendar3.png in Resources */,
 				919EE996198DCD4100F12411 /* facebook2.png in Resources */,
+				912C419619D501FE0096C951 /* pointsScheme.png in Resources */,
 				91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */,
 				91B239CE19CBCF9D00601E7F /* defaultActivity.png in Resources */,
 				91B239D019CBD1B000601E7F /* gymIcon.png in Resources */,
@@ -860,7 +903,9 @@
 				912E349319C40EAE00F4745A /* personalBest.png in Resources */,
 				9127FB9619BD1E16001C85D8 /* appIcon152x152.png in Resources */,
 				91CF0ED419A27B17007B668A /* Default-568h@2x.png in Resources */,
+				91CAC68E19D11D52006A6C06 /* background-2.png in Resources */,
 				91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */,
+				912C417419D3AA020096C951 /* message-board.png in Resources */,
 				912E34A119C7EB4D00F4745A /* redCircle.png in Resources */,
 				91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */,
 				91D2D10219AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png in Resources */,
@@ -934,8 +979,10 @@
 				91CF0EE619A2F2D6007B668A /* AddFriendViewController.m in Sources */,
 				918D5EE519909E5100597147 /* ChallengeViewController.m in Sources */,
 				919EE963198BEBB700F12411 /* User.m in Sources */,
+				912C417719D3B2140096C951 /* NotificationsViewController.m in Sources */,
 				918F693819886CE300776052 /* LogActivityViewController.m in Sources */,
 				918F695A198B080A00776052 /* UserActivity.m in Sources */,
+				912C418019D4FB5B0096C951 /* SettingsViewController.m in Sources */,
 				915B425A19ABE74C00DC79FE /* PMPeriod.m in Sources */,
 				918F69221987076700776052 /* HTTPPostRequest.m in Sources */,
 				919EE96A198BF8EA00F12411 /* Activity.m in Sources */,
@@ -954,7 +1001,6 @@
 				915B427519AEE23A00DC79FE /* DevicesViewController.m in Sources */,
 				91CF0EEB19A2FB97007B668A /* FriendsListViewController.m in Sources */,
 				918F692819872A2400776052 /* NewUserViewController.m in Sources */,
-				919EE99B198DE41B00F12411 /* MainViewController.m in Sources */,
 				919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */,
 				915B425919ABE74C00DC79FE /* PMCalendarView.m in Sources */,
 				918F6956198ADB0700776052 /* LogActivityListCell.m in Sources */,
@@ -1094,7 +1140,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Prefix.pch";
 				INFOPLIST_FILE = "MWBF-Demo/MWBF-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = MWBF;
 				PROVISIONING_PROFILE = "D5C9C573-E613-4FB1-B911-B99553E61D61";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1117,7 +1163,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Prefix.pch";
 				INFOPLIST_FILE = "MWBF-Demo/MWBF-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = MWBF;
 				PROVISIONING_PROFILE = "D5C9C573-E613-4FB1-B911-B99553E61D61";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1214,7 +1260,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MWBF-Demo/MWBF-Prefix.pch";
 				INFOPLIST_FILE = "MWBF-Demo/MWBF-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = MWBF;
 				PROVISIONING_PROFILE = "D5C9C573-E613-4FB1-B911-B99553E61D61";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -147,8 +147,6 @@
     {
         if ( buttonIndex == OK_INDEX )
         {
-            MWBFService *service = [[MWBFService alloc] init];
-            
             self.activityIndicator.hidden = NO;
             [self.activityIndicator startAnimating];
             self.view.userInteractionEnabled = NO;
@@ -157,14 +155,7 @@
             
             dispatch_async(queue, ^{
                 
-                // Get the list of friends
-                [User getInstance].friendsList = [service getFriendsList];
-                
-                // Get the all time highs
-                [service getAllTimeHighs];
-                
-                // Get all the challenges the user is involved in
-                [service getChallenges];
+                [Utils refreshUserData];
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     [self.activityIndicator stopAnimating];

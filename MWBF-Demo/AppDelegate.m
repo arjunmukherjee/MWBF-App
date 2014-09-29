@@ -57,11 +57,15 @@
     // Get the data before the refresh
     NSArray *friendsListOld = [NSArray arrayWithArray:user.friendsList];
     NSArray *challengeListOld = [NSArray arrayWithArray:user.challengesList];
-    NSArray *messageListOld = [NSArray arrayWithArray:user.friendsActivitiesList];
+    
+    NSMutableArray *messageListOld = [NSMutableArray array];
+    for (int i=0; i < [user.friendsActivitiesList count]; i++)
+         [messageListOld addObject:user.friendsActivitiesList[i][@"feedPrettyString"]];
+    
     NSInteger numberOfFriendsBefore = [friendsListOld count];
     
     // Refresh the user's data
-    [self refreshUserData];
+    [Utils refreshUserData];
     
     NSInteger numberOfFriendsAfter = [user.friendsList count];
     NSInteger newFriendsCount = numberOfFriendsAfter - numberOfFriendsBefore;
@@ -69,7 +73,10 @@
     // Look for new messages
     int newMessageCount = 0;
     NSString *newMessage = [[NSString alloc] init];
-    NSArray *messageListNew = [NSArray arrayWithArray:user.friendsActivitiesList];
+    NSMutableArray *messageListNew = [NSMutableArray array];
+    for (int i=0; i < [user.friendsActivitiesList count]; i++)
+        [messageListNew addObject:user.friendsActivitiesList[i][@"feedPrettyString"]];
+    
     for (int i=0; i <[messageListNew count]; i++)
     {
         NSString *message = messageListNew[i];
@@ -152,32 +159,56 @@
         
         // Construct the notification string
         NSString *messageBody = [[NSString alloc] init];
-        if (newFriendCount > 0 && newChallengeCount > 0 && newMessageCount > 0)
-            messageBody = [NSString stringWithFormat:@"You have %d new %@ and %d new or removed %@ and %d new %@.",newFriendCount,friendStr,newChallengeCount,challengeStr,newMessageCount,notificationStr];
-        
-        else if (newFriendCount > 0 && newChallengeCount > 0)
-            messageBody = [NSString stringWithFormat:@"You have %ld new %@ and %ld new or removed %@.",(long)newFriendCount,friendStr,(long)newChallengeCount,challengeStr];
-        
-        else if (newChallengeCount > 0 && newMessageCount > 0)
-            messageBody = [NSString stringWithFormat:@"You have %d new or removed %@ and %d new %@.",newChallengeCount,challengeStr,newMessageCount,notificationStr];
-        
-        else if (newFriendCount > 0 && newMessageCount > 0)
-            messageBody = [NSString stringWithFormat:@"You have %d new %@ and %d new %@.",newFriendCount,friendStr,newMessageCount,notificationStr];
-        
-        else if (newFriendCount > 0 )
-            messageBody = [NSString stringWithFormat:@"You have %d new %@.",newFriendCount,friendStr];
-        
-        else if (newMessageCount > 0 )
+        if (user.activityNotifications && user.friendsAndChallengesNotifications)
         {
-            // If there is only one message then just display that
-            if (newMessageCount == 1 )
-                messageBody = newMessage;
+            if (newFriendCount > 0 && newChallengeCount > 0 && newMessageCount > 0)
+                messageBody = [NSString stringWithFormat:@"You have %d new %@ and %d new or removed %@ and %d new %@.",newFriendCount,friendStr,newChallengeCount,challengeStr,newMessageCount,notificationStr];
+            
+            else if (newFriendCount > 0 && newChallengeCount > 0)
+                messageBody = [NSString stringWithFormat:@"You have %ld new %@ and %ld new or removed %@.",(long)newFriendCount,friendStr,(long)newChallengeCount,challengeStr];
+            
+            else if (newChallengeCount > 0 && newMessageCount > 0)
+                messageBody = [NSString stringWithFormat:@"You have %d new or removed %@ and %d new %@.",newChallengeCount,challengeStr,newMessageCount,notificationStr];
+            
+            else if (newFriendCount > 0 && newMessageCount > 0)
+                messageBody = [NSString stringWithFormat:@"You have %d new %@ and %d new %@.",newFriendCount,friendStr,newMessageCount,notificationStr];
+            
+            else if (newFriendCount > 0 )
+                messageBody = [NSString stringWithFormat:@"You have %d new %@.",newFriendCount,friendStr];
+            
+            else if (newMessageCount > 0 )
+            {
+                // If there is only one message then just display that
+                if (newMessageCount == 1 )
+                    messageBody = newMessage;
+                else
+                    messageBody = [NSString stringWithFormat:@"You have %d new %@.",newMessageCount,notificationStr];
+            }
             else
-                messageBody = [NSString stringWithFormat:@"You have %d new %@.",newMessageCount,notificationStr];
+                messageBody = [NSString stringWithFormat:@"You have %ld new or removed %@.",(long)newChallengeCount,challengeStr];
+        }
+        else if (user.friendsAndChallengesNotifications)
+        {
+            if (newFriendCount > 0 && newChallengeCount > 0)
+                messageBody = [NSString stringWithFormat:@"You have %ld new %@ and %ld new or removed %@.",(long)newFriendCount,friendStr,(long)newChallengeCount,challengeStr];
+            
+            else if (newFriendCount > 0 )
+                messageBody = [NSString stringWithFormat:@"You have %d new %@.",newFriendCount,friendStr];
+            
+            else
+                messageBody = [NSString stringWithFormat:@"You have %ld new or removed %@.",(long)newChallengeCount,challengeStr];
         }
         else
-            messageBody = [NSString stringWithFormat:@"You have %ld new or removed %@.",(long)newChallengeCount,challengeStr];
-
+        {
+            if (newMessageCount > 0 )
+            {
+                // If there is only one message then just display that
+                if (newMessageCount == 1 )
+                    messageBody = newMessage;
+                else
+                    messageBody = [NSString stringWithFormat:@"You have %d new %@.",newMessageCount,notificationStr];
+            }
+        }
         
         
         localNotification.alertBody = messageBody;
@@ -213,23 +244,6 @@
 {
     application.applicationIconBadgeNumber = 0;
     self.numberOfMessages = 0;
-}
-
-- (void) refreshUserData
-{
-    MWBFService *service = [[MWBFService alloc] init];
-    
-    // Get the list of friends
-    [User getInstance].friendsList = [service getFriendsList];
-    
-    // Get the all time highs
-    [service getAllTimeHighs];
-    
-    // Get the activities for all the users friends
-    [service getActivitiesForFriends];
-    
-    // Get all the challenges the user is involved in
-    [service getChallenges];
 }
 
 

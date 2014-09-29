@@ -11,6 +11,8 @@
 #import "Activity.h"
 #import "MWBFActivities.h"
 #import "Challenge.h"
+#import "MWBFService.h"
+#import "Friend.h"
 
 @implementation Utils
 
@@ -25,6 +27,22 @@
     [alertView show];
 }
 
++ (void) refreshUserData
+{
+    MWBFService *service = [[MWBFService alloc] init];
+    
+    // Get the list of friends
+    [User getInstance].friendsList = [service getFriendsList];
+    
+    // Get the all time highs
+    [service getAllTimeHighs];
+    
+    // Get the activities for all the users friends
+    [service getFeed];
+    
+    // Get all the challenges the user is involved in
+    [service getChallenges];
+}
 
 // Convert a jsonArray of objects into an Array of UserActivity objects (aggregated by Time)
 + (void) convertJsonArrayByTimeToActivityObjectArrayWith:(NSArray*)jsonArray withLabelArray:(NSMutableArray*)labelArray withPointsArray:(NSMutableArray*)pointsArray
@@ -235,6 +253,41 @@
         messageList[i] = [messageList[i] stringByReplacingOccurrencesOfString:yesterdayStr withString:@"yesterday"];
     }
 }
+
++ (NSDictionary*)getActivityDetailsForFriend:(Friend *)friend
+{
+    NSString *title = [NSString stringWithFormat:@"%@'s Stats",friend.firstName];
+    
+    // Year
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY"];
+    NSString *year = [dateFormatter stringFromDate: currentTime] ;
+    
+    // Month
+    [dateFormatter setDateFormat:@"MM"];
+    NSInteger monthInteger = [[dateFormatter stringFromDate: currentTime] integerValue];
+    NSString *month  = [Utils getMonthStringFromInt:monthInteger];
+    
+    NSInteger daysInMonth = [Utils getNumberOfDaysInMonth:monthInteger];
+    
+    NSString *fromDate = [NSString stringWithFormat:@"%@ 01, %@ 00:00:01 AM",month,year];
+    NSString *toDate = [NSString stringWithFormat:@"%@ %ld, %@ 11:59:59 PM",month,(long)daysInMonth,year];
+    
+    NSString *activityDate = [NSString stringWithFormat:@"%@, %@",month,year];
+    
+    // Get the list of activities from the server
+    MWBFService *service = [[MWBFService alloc] init];
+    NSArray *jsonArrayByActivity = [service getActivitiesForFriend:friend byActivityFromDate:fromDate toDate:toDate];
+    NSArray *jsonArrayByTime = [service getActivitiesForFriend:friend byTimeFromDate:fromDate toDate:toDate];
+    
+    NSString *numberOfRestDays = [Utils getNumberOfRestDaysFromDate:fromDate toDate:toDate withActiveDays:[jsonArrayByTime count]];
+    
+    return @{ @"jsonArrayByActivity" : jsonArrayByActivity, @"jsonArrayByTime" : jsonArrayByTime, @"title" : title,@"activityDate" : activityDate, @"numberOfRestDays" : numberOfRestDays };
+}
+
+
+
 
 
 @end

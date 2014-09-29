@@ -35,6 +35,13 @@
 // Users favorite activities
 @property (strong,nonatomic) NSMutableArray *favActivityList;
 
+// Users notification settings
+@property (nonatomic) BOOL activityNotifications;
+@property (nonatomic) BOOL friendsAndChallengesNotifications;
+
+// User background settings
+@property (strong,nonatomic) NSString *backgroundImageName;
+
 + (User *) getInstance;
 - (NSMutableDictionary *)toNSDictionary;
 

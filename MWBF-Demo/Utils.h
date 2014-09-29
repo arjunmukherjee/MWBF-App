@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Friend.h"
 
 @interface Utils : NSObject
 
+#define TODAY_COLOR [UIColor colorWithRed:0.58 green:0.77 blue:0.49 alpha:0.8]
+#define YESTERDAY_COLOR [UIColor colorWithRed:0.43 green:0.62 blue:0.92 alpha:0.8]
+#define CELL_COLOR [UIColor colorWithWhite:0.9 alpha:0.3]
+
 + (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag;
+
++ (void) refreshUserData;
 
 + (void) convertJsonArrayByTimeToActivityObjectArrayWith:(NSArray*)jsonArray withLabelArray:(NSMutableArray*)labelArray withPointsArray:(NSMutableArray*)pointsArray;
 + (NSMutableArray*) convertJsonArrayByActivityToActivityObjectArrayWith:(NSArray*)jsonArray;
@@ -24,5 +31,7 @@
 + (NSString *)changeformatStringTo12hr:(NSString *)date;
 + (NSString *) getImageNameFromMessage:(NSString*)message;
 + (void) changeAbsoluteDateToRelativeDays: (NSMutableArray*) messageList;
+
++ (NSDictionary*)getActivityDetailsForFriend:(Friend *)friend;
 
 @end

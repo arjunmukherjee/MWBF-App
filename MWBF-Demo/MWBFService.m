@@ -19,6 +19,7 @@
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/login"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/friends"
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf/user/friends/activities"
+#define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/friends/feed"
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf/user/findFriend"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://localhost:8080/MWBFServer/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/fbLogin"
@@ -38,6 +39,7 @@
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://mwbf.herokuapp.com/mwbf/user/login"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf/user/friends"
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/user/friends/activities"
+#define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/friends/feed"
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf/user/findFriend"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://mwbf.herokuapp.com/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/fbLogin"
@@ -226,17 +228,19 @@
 }
 
 // Send a request to the server to get the friends activites
-- (void) getActivitiesForFriends
+- (void) getFeed
 {
     User *user = [User getInstance];
     NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\"}",user.userId];
-    NSURL *url=[NSURL URLWithString:FRIENDS_ACTIVITIES_ENDPOINT_FORMAT];
-
+    NSURL *url=[NSURL URLWithString:FRIENDS_FEEDS_ENDPOINT_FORMAT];
+    
     HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
     NSData *urlData = [service sendPostRequest:post toURL:url];
     
     NSError *error = nil;
-    NSArray *jsonData = [NSJSONSerialization
+    NSArray *jsonData;
+    if ( urlData )
+        jsonData = [NSJSONSerialization
                          JSONObjectWithData:urlData
                          options:NSJSONReadingMutableContainers
                          error:&error];
@@ -244,6 +248,7 @@
     [user.friendsActivitiesList removeAllObjects];
     user.friendsActivitiesList = [NSMutableArray arrayWithArray:jsonData];
 }
+
 
 // Send a request to the server to get the users activites for a given date
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byTimeFromDate:(NSString *) fromDate toDate:(NSString*) toDate

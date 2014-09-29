@@ -16,6 +16,8 @@
 #define DETAILS_INDEX 1
 #define MESSAGE_BOARD_INDEX 2
 
+
+
 @interface ChallengeDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (strong, nonatomic) EColumnChart *eColumnChart;
@@ -33,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
 @property (strong, nonatomic) NSMutableArray *messagesArray;
 @property (strong, nonatomic) NSString *userFirstName;
+@property (nonatomic) NSInteger todayIndex;
+@property (nonatomic) NSInteger yesterdayIndex;
 
 @end
 
@@ -46,6 +50,8 @@
 @synthesize positionLabel;
 @synthesize messagesArray;
 @synthesize userFirstName;
+@synthesize yesterdayIndex;
+@synthesize todayIndex;
 
 @synthesize messageTableView;
 
@@ -63,12 +69,11 @@
     NSArray *tempArray = [[User getInstance].userName componentsSeparatedByString:@" "];
     self.userFirstName = tempArray[0];
     
-    
     self.challengeDetailsView.hidden = YES;
     self.messageTableView.hidden = YES;
     
-    //[self.messageTableView setBackgroundView:nil];
-    //[self.messageTableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patience-calm-quiet-plain.gif"]] ];
+    self.todayIndex = 0;
+    self.yesterdayIndex = 0;
     
     // Set the start and end dates
     NSArray *tempDateArr = [self.challenge.startDate componentsSeparatedByString:@" "];
@@ -128,12 +133,15 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    self.todayIndex = 0;
+    self.yesterdayIndex = 0;
+    
     self.messagesArray = self.challenge.messageList;
     [Utils changeAbsoluteDateToRelativeDays:self.messagesArray];
-    [self.messageTableView reloadData];
     
     if ([self.messagesArray count] > 0)
-        [self.messageTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.messagesArray count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+        [self.messageTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:([self.messagesArray count]*2)-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+    [self.messageTableView reloadData];
 }
 
 
@@ -178,15 +186,29 @@
     if (tableView == self.activityTableView)
         return [self.challenge.activitySet count];
     else
-        return [self.messagesArray count];
+        return ([self.messagesArray count]*2);
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.messageTableView)
+    {
+        if (indexPath.row % 2 == 1)
+            return 50.0;
+        else
+            return 4.0;
+    }
+    else
+        return 37;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = @"ActivityCell";
-    
     if (tableView == self.activityTableView)
     {
+        static NSString *CellIdentifier = @"ActivityCell";
+
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         NSString *activity = [self.challenge.activitySet objectAtIndex:indexPath.row];
@@ -196,19 +218,61 @@
     }
     else
     {
-        CellIdentifier = @"MessageCell";
-        ActivityNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-        cell.activityMessage.font = [UIFont fontWithName:@"Trebuchet MS" size:13];
-        cell.activityMessage.text = [self.messagesArray objectAtIndex:indexPath.row];
-        cell.activityMessage.textColor = [UIColor purpleColor];
-        
-        NSString *imageName = [Utils getImageNameFromMessage:[self.messagesArray objectAtIndex:indexPath.row]];
-        UIImage *activityImg = [UIImage imageNamed:imageName];
-        [cell.activityPic setImage:activityImg forState:UIControlStateNormal];
-        [cell.activityPic setBackgroundImage:activityImg forState:UIControlStateNormal];
-        
-        return cell;
+        if (indexPath.row % 2 == 1)
+        {
+            static NSString *CellIdentifier = @"MessageCell";
+            ActivityNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            
+            cell.backgroundColor = CELL_COLOR;
+            cell.activityMessage.font = [UIFont fontWithName:@"Trebuchet MS" size:13];
+            NSString *message = [self.messagesArray objectAtIndex:(indexPath.row/2)];
+            
+            NSRange start = [message rangeOfString:@" "];
+            NSString *activityMessage = @"";
+            NSString *name = @"";
+            if (start.location != NSNotFound)
+            {
+                activityMessage = [message substringFromIndex:start.location+1];
+                name = [message substringToIndex:start.location];
+            }
+            
+            cell.activityMessage.text = activityMessage;
+            cell.userName.text = name;
+            cell.activityMessage.textColor = [UIColor purpleColor];
+            NSString *imageName = [Utils getImageNameFromMessage:[self.messagesArray objectAtIndex:(indexPath.row/2)]];
+            UIImage *activityImg = [UIImage imageNamed:imageName];
+            [cell.activityPic setImage:activityImg forState:UIControlStateNormal];
+            [cell.activityPic setBackgroundImage:activityImg forState:UIControlStateNormal];
+            
+            return cell;
+        }
+        else
+        {
+            static NSString *CellIdentifier2 = @"cell2";
+            UITableViewCell *cell2 = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
+            if (cell2 == nil)
+                cell2 = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                               reuseIdentifier:CellIdentifier2];
+            cell2.backgroundColor = [UIColor clearColor];
+            
+            // Mark to differentiate the today cells
+            if (self.todayIndex == 0)
+            {
+               NSString *nextMessage = [self.messagesArray objectAtIndex:(indexPath.row/2)];
+               NSRange today = [nextMessage rangeOfString:@" today"];
+               if (today.location != NSNotFound)
+               {
+                   cell2.backgroundColor = TODAY_COLOR;
+                   self.todayIndex = (indexPath.row/2);
+               }
+            }
+            else if( (indexPath.row/2) == self.todayIndex)
+               cell2.backgroundColor = TODAY_COLOR;
+            
+            return cell2;
+        }
     }
 }
 

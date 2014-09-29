@@ -19,6 +19,8 @@
 @synthesize fbProfileID;
 @synthesize notificationsList,friendsActivitiesList;
 @synthesize favActivityList;
+@synthesize activityNotifications,friendsAndChallengesNotifications;
+@synthesize backgroundImageName;
 
 + (User *) getInstance
 {
@@ -46,6 +48,9 @@
         self.notificationsList = [NSMutableArray array];
         self.friendsActivitiesList = [NSMutableArray array];
         self.favActivityList = [NSMutableArray array];
+        self.activityNotifications = YES;
+        self.friendsAndChallengesNotifications = YES;
+        self.backgroundImageName = @"background.jpg";
     }
     
     return self;

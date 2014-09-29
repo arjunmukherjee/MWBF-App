@@ -24,8 +24,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UINavigationController* more = self.tabBarController.moreNavigationController;
+    more.navigationBar.barStyle = UIBarStyleBlack;
+
+    User *user = [User getInstance];
+    NSString *imageName = user.backgroundImageName;
+    
     // Do any additional setup after loading the view.
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.jpg"]];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     

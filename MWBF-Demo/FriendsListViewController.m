@@ -24,7 +24,6 @@
 @property (strong,nonatomic) NSString *title;
 @property (strong,nonatomic) NSString *numberOfRestDays;
 @property (nonatomic) NSInteger numberOfFriends;
-@property (strong,nonatomic) NSMutableArray *cellsArray;
 
 
 @end
@@ -38,13 +37,11 @@
 @synthesize activityDate, title;
 @synthesize numberOfRestDays;
 @synthesize numberOfFriends;
-@synthesize cellsArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.cellsArray = [NSMutableArray array];
     [self loadData];
     self.numberOfFriends = [self.user.friendsList count];
 }
@@ -70,35 +67,11 @@
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSArray *sortedArray = [self.user.friendsList sortedArrayUsingDescriptors:sortDescriptors];
     self.user.friendsList = [NSMutableArray arrayWithArray:sortedArray];
-    
-    [self loadTableCells];
+
 }
 
 ///////// UITABLEVIEW METHODS /////////
 
-// Create an array with the cells preloaded
-- (void) loadTableCells
-{
-    // Clean out the array
-    [self.cellsArray removeAllObjects];
-    
-    for (int i = 0; i < [self.user.friendsList count]; i++)
-    {
-        static NSString *CellIdentifier = @"FriendDetailsCell";
-        FriendCell *cell = [self.friendsListTable dequeueReusableCellWithIdentifier:CellIdentifier];
-        Friend *friendObj = [self.user.friendsList objectAtIndex:i];
-        cell.friendNameLabel.text = [NSString stringWithFormat:@"%@ %@",friendObj.firstName,friendObj.lastName];
-        cell.friendFbProfilePicView.profileID = friendObj.fbProfileID;
-        [Utils setRoundedView:cell.friendFbProfilePicView toDiameter:40];
-        
-        UIColor *selectionColor = [[UIColor alloc] initWithRed:20.0 / 255 green:59.0 / 255 blue:102.0 / 255 alpha:0.5];
-        UIView *bgColorView = [[UIView alloc] init];
-        bgColorView.backgroundColor = selectionColor;
-        [cell setSelectedBackgroundView:bgColorView];
-        
-        [self.cellsArray addObject:cell];
-    }
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -112,7 +85,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.cellsArray objectAtIndex:indexPath.row];
+    static NSString *CellIdentifier = @"FriendDetailsCell";
+    FriendCell *cell = [self.friendsListTable dequeueReusableCellWithIdentifier:CellIdentifier];
+    Friend *friendObj = [self.user.friendsList objectAtIndex:indexPath.row];
+    cell.friendNameLabel.text = [NSString stringWithFormat:@"%@ %@",friendObj.firstName,friendObj.lastName];
+    cell.friendFbProfilePicView.profileID = friendObj.fbProfileID;
+    [Utils setRoundedView:cell.friendFbProfilePicView toDiameter:40];
+    
+    UIColor *selectionColor = [[UIColor alloc] initWithRed:20.0 / 255 green:59.0 / 255 blue:102.0 / 255 alpha:0.5];
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = selectionColor;
+    [cell setSelectedBackgroundView:bgColorView];
+    
+    return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

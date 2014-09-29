@@ -28,12 +28,11 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 
 // FRIENDS
 - (NSMutableArray*) getFriendsList;
-- (void) getActivitiesForFriends;
 - (BOOL) addFriendWithId:(NSString*) friendId;
 - (NSDictionary*) findFriendWithId:(NSString*) friendId;
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byActivityFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byTimeFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
-
+- (void) getFeed;
 
 // CHALLENGES
 - (BOOL) addChallenge:(NSString*) post;
