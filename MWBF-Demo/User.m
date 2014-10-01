@@ -21,6 +21,7 @@
 @synthesize favActivityList;
 @synthesize activityNotifications,friendsAndChallengesNotifications;
 @synthesize backgroundImageName;
+@synthesize weeklyPointsUser,weeklyPointsFriendsAverage,weeklyPointsLeader;
 
 + (User *) getInstance
 {

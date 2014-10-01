@@ -23,6 +23,10 @@
 @property (strong,nonatomic) NSString *bestDay;
 @property (strong,nonatomic) NSString *bestMonth;
 @property (strong,nonatomic) NSString *bestYear;
+@property (strong,nonatomic) NSString *weeklyPointsUser;
+@property (strong,nonatomic) NSString *weeklyPointsFriendsAverage;
+@property (strong,nonatomic) NSString *weeklyPointsLeader;
+
 
 @property (strong,nonatomic) NSString *bestDayPoints;
 @property (strong,nonatomic) NSString *bestMonthPoints;

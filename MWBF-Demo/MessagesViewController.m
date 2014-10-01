@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *yourProgressBar;
 @property (weak, nonatomic) IBOutlet UIProgressView *friendAverageProgressBar;
 @property (weak, nonatomic) IBOutlet UIProgressView *leaderProgressBar;
+@property (weak, nonatomic) IBOutlet UILabel *yourProgressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *friendsProgressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *leaderProgressLabel;
 
 @end
 
@@ -36,6 +39,7 @@
 @synthesize yesterdayIndex;
 @synthesize selectedFriend;
 @synthesize yourProgressBar,friendAverageProgressBar,leaderProgressBar;
+@synthesize yourProgressLabel,friendsProgressLabel,leaderProgressLabel;
 
 - (void)viewDidLoad
 {
@@ -67,6 +71,20 @@
     [self.activitiesBoardTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:([self.friendActivitiesList count]*2)-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
     
     [self.activitiesBoardTable reloadData];
+    
+    float leader = 0.0;
+    if ([user.weeklyPointsUser floatValue] > [user.weeklyPointsLeader floatValue])
+        leader = [user.weeklyPointsUser floatValue];
+    else
+        leader = [user.weeklyPointsLeader floatValue];
+    
+    self.yourProgressBar.progress = [user.weeklyPointsUser floatValue]/leader;
+    self.friendAverageProgressBar.progress = [user.weeklyPointsFriendsAverage floatValue]/leader;
+    self.leaderProgressBar.progress = 1;
+
+    self.yourProgressLabel.text = [NSString stringWithFormat:@"You (%@)",user.weeklyPointsUser];
+    self.friendsProgressLabel.text = [NSString stringWithFormat:@"Friends (%@)",user.weeklyPointsFriendsAverage];
+    self.leaderProgressLabel.text = [NSString stringWithFormat:@"Leader (%0.1f)",leader];
 }
 
 
@@ -131,7 +149,7 @@
         [cell.activityPic setImage:activityImg forState:UIControlStateNormal];
         [cell.activityPic setBackgroundImage:activityImg forState:UIControlStateNormal];
         
-        UIColor *selectionColor = [[UIColor alloc] initWithRed:20.0 / 255 green:59.0 / 255 blue:102.0 / 255 alpha:0.5];
+        UIColor *selectionColor = CELL_SELECTION_COLOR;
         UIView *bgColorView = [[UIView alloc] init];
         bgColorView.backgroundColor = selectionColor;
         [cell setSelectedBackgroundView:bgColorView];

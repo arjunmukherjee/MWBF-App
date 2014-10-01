@@ -139,7 +139,7 @@
                                 <rect key="frame" x="9" y="106" width="302" height="377"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Create challenges, win something, or just bragging rights. 5.  The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </mutableString>
+                                <string key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Create challenges, win something, or just bragging rights. 5.  The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1448,7 +1448,7 @@
                                 <rect key="frame" x="24" y="104" width="280" height="389"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Use this page to do a variety of things.  - Take a look at your friends activities by clicking on the friends button. You can also add friends form there. - Check your personal stats (and try to beat them). Click on the button that looks like a trophy. - You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can. - Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar). - Add a device or app to automatically sync activities from. - Find out about the app by clicking on the About button. - Send us feedback about your experience using the app, by clicking on the Feedback button.</mutableString>
+                                <string key="text">Use this page to do a variety of things.  - Take a look at your friends activities by clicking on the friends button. You can also add friends form there. - Check your personal stats (and try to beat them). Click on the button that looks like a trophy. - You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can. - Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar). - Add a device or app to automatically sync activities from. - Find out about the app by clicking on the About button. - Send us feedback about your experience using the app, by clicking on the Feedback button.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1965,7 +1965,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="DXB-RM-sXd" userLabel="Activities Table">
-                                <rect key="frame" x="0.0" y="89" width="320" height="430"/>
+                                <rect key="frame" x="0.0" y="95" width="320" height="424"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2025,37 +2025,47 @@
                                     <outlet property="delegate" destination="faK-iw-DhU" id="8PS-7F-6Et"/>
                                 </connections>
                             </tableView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="WaI-fa-nfR">
-                                <rect key="frame" x="16" y="73" width="81" height="2"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="WaI-fa-nfR" userLabel="Your Progress View">
+                                <rect key="frame" x="94" y="73" width="60" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="Utl-ZY-nKD">
-                                <rect key="frame" x="120" y="73" width="81" height="2"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="Utl-ZY-nKD" userLabel="Friends Progress View">
+                                <rect key="frame" x="166" y="73" width="60" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="vdA-pA-dzW">
-                                <rect key="frame" x="223" y="73" width="81" height="2"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="vdA-pA-dzW" userLabel="Leader Progress View">
+                                <rect key="frame" x="241" y="73" width="60" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="djY-RW-N9y">
-                                <rect key="frame" x="45" y="72" width="23" height="21"/>
+                                <rect key="frame" x="94" y="74.5" width="60" height="17.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JaW-gO-8i5">
-                                <rect key="frame" x="141" y="72" width="39" height="21"/>
+                                <rect key="frame" x="166" y="75.5" width="66" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leader" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ssO-7X-Rqu">
-                                <rect key="frame" x="244" y="72" width="39" height="21"/>
+                                <rect key="frame" x="241" y="74.5" width="63" height="17.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This week " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cLs-4w-0aw">
+                                <rect key="frame" x="16" y="65" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -2065,8 +2075,11 @@
                     <connections>
                         <outlet property="activitiesBoardTable" destination="DXB-RM-sXd" id="Ewz-BW-Kah"/>
                         <outlet property="friendAverageProgressBar" destination="Utl-ZY-nKD" id="q1t-g7-HEo"/>
+                        <outlet property="friendsProgressLabel" destination="JaW-gO-8i5" id="wFh-nR-WsO"/>
                         <outlet property="leaderProgressBar" destination="vdA-pA-dzW" id="zUV-Nk-kFr"/>
+                        <outlet property="leaderProgressLabel" destination="ssO-7X-Rqu" id="BeJ-ay-A7C"/>
                         <outlet property="yourProgressBar" destination="WaI-fa-nfR" id="ngB-e8-uPP"/>
+                        <outlet property="yourProgressLabel" destination="djY-RW-N9y" id="tvj-Sm-uih"/>
                         <segue destination="EPn-Zb-cx1" kind="push" identifier="FriendDetails" id="uaB-Qj-Lcb"/>
                     </connections>
                 </viewController>
