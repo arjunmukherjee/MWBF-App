@@ -15,6 +15,4 @@
 
 @property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
 
-- (void) refreshUserData;
-
 @end
