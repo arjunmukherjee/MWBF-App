@@ -138,21 +138,7 @@ NSString* ADMIN_PASSWORD = @"admin";
                     // Makes a call to the server to get a list of all the valid activities
                     [Activity getInstance];
                     
-                    // Get the list of friends
-                    if ([user.friendsList count] <= 0 )
-                        user.friendsList = [service getFriendsList];
-                    
-                    // Get the all time highs
-                    [service getAllTimeHighs];
-                    
-                    // Get the activities for all the users friends
-                    [service getFeed];
-                    
-                    // Get the weekly comparisons between the user and his/her friends
-                    [service getWeeklyComparisons];
-                    
-                    // Get all the challenges the user is involved in
-                    [service getChallenges];
+                    [Utils refreshUserData];
                     
                     [self.activityIndicator stopAnimating];
                     self.activityIndicator.hidden = YES;

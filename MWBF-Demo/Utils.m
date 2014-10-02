@@ -45,6 +45,8 @@
     
     // Get all the challenges the user is involved in
     [service getChallenges];
+    
+    [service getRandomQuote];
 }
 
 // Convert a jsonArray of objects into an Array of UserActivity objects (aggregated by Time)

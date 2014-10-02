@@ -12,6 +12,9 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 
 @interface MWBFService : NSObject
 
+// RANDOM QUOTE
+- (void) getRandomQuote;
+
 // LOGIN
 - (BOOL) loginFaceBookUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withProfileId:(NSString *)profileId withResponse:(NSString**) response;
 

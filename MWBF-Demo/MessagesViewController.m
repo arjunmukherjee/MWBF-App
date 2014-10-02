@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *yourProgressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *friendsProgressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *leaderProgressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *randomQuoteLabel;
 
 @end
 
@@ -40,6 +41,7 @@
 @synthesize selectedFriend;
 @synthesize yourProgressBar,friendAverageProgressBar,leaderProgressBar;
 @synthesize yourProgressLabel,friendsProgressLabel,leaderProgressLabel;
+@synthesize randomQuoteLabel;
 
 - (void)viewDidLoad
 {
@@ -52,9 +54,9 @@
     self.todayIndex = 0;
     self.yesterdayIndex = 0;
     
-    [self.yourProgressBar setTransform:CGAffineTransformMakeScale(1.0, 3.0)];
-    [self.friendAverageProgressBar setTransform:CGAffineTransformMakeScale(1.0, 3.0)];
-    [self.leaderProgressBar setTransform:CGAffineTransformMakeScale(1.0, 3.0)];
+    [self.yourProgressBar setTransform:CGAffineTransformMakeScale(1.0, 2.0)];
+    [self.friendAverageProgressBar setTransform:CGAffineTransformMakeScale(1.0, 2.0)];
+    [self.leaderProgressBar setTransform:CGAffineTransformMakeScale(1.0, 2.0)];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -98,6 +100,9 @@
         if (yesterday.location != NSNotFound && self.yesterdayIndex == 0)
             self.yesterdayIndex = i;
     }
+    
+    // Set the random quote
+    self.randomQuoteLabel.text = self.user.randomQuote;
 }
 
 

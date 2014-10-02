@@ -57,10 +57,30 @@
 #define USER_ACTIVITIES_BY_TIME_ENDPOINT_FORMAT         @"http://mwbf.herokuapp.com/mwbf/user/activitiesByTime"
 #define MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/mwbf/activities"
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://mwbf.herokuapp.com/mwbf/user/deleteUserActivities"
-
+#define RANDOM_QUOTE_ENDPOINT @"http://www.iheartquotes.com/api/v1/random?source=oneliners&max_lines=1&show_source=0&format=json"
  
 @implementation MWBFService
 
+- (void) getRandomQuote
+{
+    NSURL *url=[NSURL URLWithString:RANDOM_QUOTE_ENDPOINT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:nil toURL:url];
+    
+    NSError *error = nil;
+    NSDictionary *jsonData;
+    if ( urlData )
+        jsonData = [NSJSONSerialization
+                    JSONObjectWithData:urlData
+                    options:NSJSONReadingMutableContainers
+                    error:&error];
+    
+    NSString *quote = jsonData[@"quote"];
+    User *user = [User getInstance];
+    if ( [quote length] > 0)
+        user.randomQuote = quote;
+}
 
 - (BOOL) loginFaceBookUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withProfileId:(NSString *)profileId withResponse:(NSString**) response;
 {

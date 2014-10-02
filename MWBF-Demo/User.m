@@ -22,6 +22,7 @@
 @synthesize activityNotifications,friendsAndChallengesNotifications;
 @synthesize backgroundImageName;
 @synthesize weeklyPointsUser,weeklyPointsFriendsAverage,weeklyPointsLeader;
+@synthesize randomQuote;
 
 + (User *) getInstance
 {

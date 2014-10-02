@@ -46,6 +46,9 @@
 // User background settings
 @property (strong,nonatomic) NSString *backgroundImageName;
 
+// Random quote (motivational)
+@property (strong,nonatomic) NSString *randomQuote;
+
 + (User *) getInstance;
 - (NSMutableDictionary *)toNSDictionary;
 
