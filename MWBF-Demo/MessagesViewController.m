@@ -85,6 +85,19 @@
     self.yourProgressLabel.text = [NSString stringWithFormat:@"You (%@)",user.weeklyPointsUser];
     self.friendsProgressLabel.text = [NSString stringWithFormat:@"Friends (%@)",user.weeklyPointsFriendsAverage];
     self.leaderProgressLabel.text = [NSString stringWithFormat:@"Leader (%0.1f)",leader];
+    
+    // Scan the feeds and get the location of the today and the yesterday items
+    for (int i=0; i < [self.friendActivitiesList count]; i++)
+    {
+        NSString *message = [self.friendActivitiesList objectAtIndex:i];
+        NSRange today = [message rangeOfString:@" today"];
+        if (today.location != NSNotFound && self.todayIndex == 0)
+            self.todayIndex = i;
+        
+        NSRange yesterday = [message rangeOfString:@" yesterday"];
+        if (yesterday.location != NSNotFound && self.yesterdayIndex == 0)
+            self.yesterdayIndex = i;
+    }
 }
 
 
@@ -166,31 +179,9 @@
         cell2.backgroundColor = [UIColor clearColor];
         
         // Mark to differentiate the today cells
-        if (self.todayIndex == 0)
-        {
-            NSString *nextMessage = [self.friendActivitiesList objectAtIndex:(indexPath.row/2)];
-            NSRange today = [nextMessage rangeOfString:@" today"];
-            if (today.location != NSNotFound)
-            {
-                cell2.backgroundColor = TODAY_COLOR;
-                self.todayIndex = (indexPath.row/2);
-            }
-        }
-        else if( (indexPath.row/2) == self.todayIndex)
+        if ((indexPath.row/2) == self.todayIndex)
             cell2.backgroundColor = TODAY_COLOR;
-        
-        // Mark to differentiate the yesterday cells
-        if (self.yesterdayIndex == 0)
-        {
-            NSString *nextMessage = [self.friendActivitiesList objectAtIndex:(indexPath.row/2)];
-            NSRange yesterday = [nextMessage rangeOfString:@" yesterday"];
-            if (yesterday.location != NSNotFound)
-            {
-                cell2.backgroundColor = YESTERDAY_COLOR;
-                self.yesterdayIndex = (indexPath.row/2);
-            }
-        }
-        else if( (indexPath.row/2) == self.yesterdayIndex)
+        else if ((indexPath.row/2) == self.yesterdayIndex)
             cell2.backgroundColor = YESTERDAY_COLOR;
         
         return cell2;
