@@ -25,9 +25,13 @@
 {
     [super viewDidLoad];
     
+    // TODO : Figure out how to dismiss the Edit button
     UINavigationController* more = self.tabBarController.moreNavigationController;
     more.navigationBar.barStyle = UIBarStyleBlack;
-
+    more.editButtonItem.enabled = NO;
+    more.editing = NO;
+    more.navigationBar.topItem.rightBarButtonItem = nil;
+    
     User *user = [User getInstance];
     NSString *imageName = user.backgroundImageName;
     
