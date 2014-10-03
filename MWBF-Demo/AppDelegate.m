@@ -156,6 +156,11 @@
         if (newMessageCount == 1)
             notificationStr = @"activity notification";
         
+        // Convert the new feed message into relative days (today, yesterday)
+        NSMutableArray *tempArray = [NSMutableArray array];
+        [tempArray addObject:newMessage];
+        [Utils changeAbsoluteDateToRelativeDays:tempArray];
+        newMessage = tempArray[0];
         
         // Construct the notification string
         NSString *messageBody = [[NSString alloc] init];

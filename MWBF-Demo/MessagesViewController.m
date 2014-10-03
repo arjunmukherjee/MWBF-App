@@ -80,13 +80,20 @@
     else
         leader = [user.weeklyPointsLeader floatValue];
     
+    NSString *leaderStr;
+    int leaderInt = leader;
+    if (leader > leaderInt)
+        leaderStr = [NSString stringWithFormat:@"%0.1f",leader];
+    else
+        leaderStr = [NSString stringWithFormat:@"%d",leaderInt];
+    
     self.yourProgressBar.progress = [user.weeklyPointsUser floatValue]/leader;
     self.friendAverageProgressBar.progress = [user.weeklyPointsFriendsAverage floatValue]/leader;
     self.leaderProgressBar.progress = 1;
 
     self.yourProgressLabel.text = [NSString stringWithFormat:@"You (%@)",user.weeklyPointsUser];
     self.friendsProgressLabel.text = [NSString stringWithFormat:@"Friends (%@)",user.weeklyPointsFriendsAverage];
-    self.leaderProgressLabel.text = [NSString stringWithFormat:@"Leader (%0.1f)",leader];
+    self.leaderProgressLabel.text = [NSString stringWithFormat:@"Leader (%@)",leaderStr];
     
     // Scan the feeds and get the location of the today and the yesterday items
     for (int i=0; i < [self.friendActivitiesList count]; i++)
