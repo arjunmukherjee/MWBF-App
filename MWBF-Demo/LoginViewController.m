@@ -138,7 +138,10 @@ NSString* ADMIN_PASSWORD = @"admin";
                     // Makes a call to the server to get a list of all the valid activities
                     [Activity getInstance];
                     
+                    // Get all of the users data
                     [Utils refreshUserData];
+                    
+                    [self getFBFriends];
                     
                     [self.activityIndicator stopAnimating];
                     self.activityIndicator.hidden = YES;
@@ -150,6 +153,25 @@ NSString* ADMIN_PASSWORD = @"admin";
             });
         });
     }
+}
+
+- (void) getFBFriends
+{
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        NSArray* friends = [result objectForKey:@"data"];
+        
+      //  for (NSDictionary<FBGraphUser>* friend in friends)
+      //      NSLog(@"I have a friend named %@ with id %@", friend.name, friend.objectID);
+            
+       // NSArray *friendIDs = [friends collect:^id(NSDictionary<FBGraphUser>* friend) {
+       //     return friend.objectID;
+       // }];
+        
+    }];
+    
 }
 
 // Implement the loginViewShowingLoggedInUser: delegate method to modify your app's UI for a logged-in user experience

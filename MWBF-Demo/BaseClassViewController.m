@@ -32,6 +32,7 @@
     more.editing = NO;
     more.navigationBar.topItem.rightBarButtonItem = nil;
     
+    // TODO : Figure out how to reset the background image once the view has been loaded
     User *user = [User getInstance];
     NSString *imageName = user.backgroundImageName;
     
