@@ -159,7 +159,11 @@
         [self.pointsArray addObject:uaObj.points];
         [self.labelArrayWithValues addObject:label];
         [self.labelArray addObject:uaObj.activity];
-        [self.unitsArray addObject:mwbfActivity.measurementUnits];
+        
+        if ( mwbfActivity != nil )
+            [self.unitsArray addObject:mwbfActivity.measurementUnits];
+        else
+            [self.unitsArray addObject:@" "];
         
         float points = [uaObj.points floatValue];
         self.totalPoints = self.totalPoints + points;

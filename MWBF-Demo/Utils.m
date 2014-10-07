@@ -56,6 +56,15 @@
     {
         NSString *dateStr = [object objectForKey:@"date"];
         NSString *pointsStr = [object objectForKey:@"points"];
+        
+        int pointsInt = [pointsStr intValue];
+        float pointsFloat = [pointsStr floatValue];
+        
+        if (pointsFloat > pointsInt)
+            pointsStr = [NSString stringWithFormat:@"%.1f",pointsFloat];
+        else
+            pointsStr = [NSString stringWithFormat:@"%d",pointsInt];
+        
         [labelArray addObject:dateStr];
         [pointsArray addObject:pointsStr];
     }
@@ -74,14 +83,34 @@
         NSString *measurement = [object objectForKey:@"exerciseUnits"];
         NSString *points = [object objectForKey:@"points"];
         
-        measurement = [NSString stringWithFormat:@"%.1f",[measurement floatValue]];
+        int measurementInt = [measurement intValue];
+        float measurementFloat = [measurement floatValue];
+        
+        if (measurementFloat > measurementInt)
+            measurement = [NSString stringWithFormat:@"%.1f",measurementFloat];
+        else
+            measurement = [NSString stringWithFormat:@"%d",measurementInt];
         
         MWBFActivities *mwbfActivity = [activityList.activityDict objectForKey:activityId];
         
         UserActivity *ua = [[UserActivity alloc] init];
-        ua.points = [NSString stringWithFormat:@"%.1f",[points floatValue]];
+        
+        int pointsInt = [points intValue];
+        float pointsFloat = [points floatValue];
+        
+        if (pointsFloat > pointsInt)
+            ua.points = [NSString stringWithFormat:@"%.1f",pointsFloat];
+        else
+            ua.points = [NSString stringWithFormat:@"%d",pointsInt];
+      
         ua.activity = activityId;
-        ua.activityValue = [NSString stringWithFormat:@"%@ %@",measurement,mwbfActivity.measurementUnits];
+        
+        
+        // Account for the bonus activity
+        if (mwbfActivity != nil)
+            ua.activityValue = [NSString stringWithFormat:@"%@ %@",measurement,mwbfActivity.measurementUnits];
+        else
+            ua.activityValue = @" ";
         
         [userActivityArray addObject:ua];
     }
@@ -234,9 +263,10 @@
         return @"ellipticalIcon.png";
     if ([message rangeOfString:@" climbed " options:NSCaseInsensitiveSearch].location != NSNotFound )
         return @"stairmasterIcon.png";
+    if ([message rangeOfString:@" bonus " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"bonusIcon.png";
     
-    
-    return @"defaultActivity.png";
+    return @"defaultActivityIcon.png";
     
 }
 

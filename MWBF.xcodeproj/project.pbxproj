@@ -93,7 +93,6 @@
 		919EE996198DCD4100F12411 /* facebook2.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE991198DCD4100F12411 /* facebook2.png */; };
 		91B239C719CBC1A700601E7F /* runIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239C319CBC1A700601E7F /* runIcon.png */; };
 		91B239CC19CBC94200601E7F /* ActivityNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */; };
-		91B239CE19CBCF9D00601E7F /* defaultActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239CD19CBCF9D00601E7F /* defaultActivity.png */; };
 		91B239D019CBD1B000601E7F /* gymIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239CF19CBD1B000601E7F /* gymIcon.png */; };
 		91B239D219CBD21100601E7F /* swimmingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239D119CBD21100601E7F /* swimmingIcon.png */; };
 		91B239D419CBD39E00601E7F /* bikeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239D319CBD39E00601E7F /* bikeIcon.png */; };
@@ -110,6 +109,8 @@
 		91C6651B1992775300A56D61 /* MWBFActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C6651A1992775300A56D61 /* MWBFActivities.m */; };
 		91CAC68E19D11D52006A6C06 /* background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CAC68D19D11D52006A6C06 /* background-2.png */; };
 		91CAC69019D11E30006A6C06 /* background-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CAC68F19D11E30006A6C06 /* background-3.png */; };
+		91CECA2D19E3A8B50052AA8C /* bonusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CECA2C19E3A8B50052AA8C /* bonusIcon.png */; };
+		91CECA2F19E3A8E30052AA8C /* defaultActivityIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CECA2E19E3A8E30052AA8C /* defaultActivityIcon.png */; };
 		91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */; };
 		91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6E19A10EAC007B668A /* acount-information.png */; };
 		91CF0E7919A19B17007B668A /* icon_addfriend.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E7819A19B17007B668A /* icon_addfriend.png */; };
@@ -280,7 +281,6 @@
 		91B239C319CBC1A700601E7F /* runIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runIcon.png; sourceTree = "<group>"; };
 		91B239CA19CBC94200601E7F /* ActivityNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityNotificationCell.h; sourceTree = "<group>"; };
 		91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityNotificationCell.m; sourceTree = "<group>"; };
-		91B239CD19CBCF9D00601E7F /* defaultActivity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultActivity.png; sourceTree = "<group>"; };
 		91B239CF19CBD1B000601E7F /* gymIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gymIcon.png; sourceTree = "<group>"; };
 		91B239D119CBD21100601E7F /* swimmingIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swimmingIcon.png; sourceTree = "<group>"; };
 		91B239D319CBD39E00601E7F /* bikeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bikeIcon.png; sourceTree = "<group>"; };
@@ -301,6 +301,8 @@
 		91C6651A1992775300A56D61 /* MWBFActivities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBFActivities.m; sourceTree = "<group>"; };
 		91CAC68D19D11D52006A6C06 /* background-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-2.png"; sourceTree = "<group>"; };
 		91CAC68F19D11E30006A6C06 /* background-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-3.png"; sourceTree = "<group>"; };
+		91CECA2C19E3A8B50052AA8C /* bonusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonusIcon.png; sourceTree = "<group>"; };
+		91CECA2E19E3A8E30052AA8C /* defaultActivityIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultActivityIcon.png; sourceTree = "<group>"; };
 		91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "24-feedback_icon.gif"; sourceTree = "<group>"; };
 		91CF0E6E19A10EAC007B668A /* acount-information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "acount-information.png"; sourceTree = "<group>"; };
 		91CF0E7819A19B17007B668A /* icon_addfriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_addfriend.png; sourceTree = "<group>"; };
@@ -727,9 +729,10 @@
 			isa = PBXGroup;
 			children = (
 				91B28A2F19CE23CA00CC2E24 /* ellipticalIcon.png */,
-				91B239CD19CBCF9D00601E7F /* defaultActivity.png */,
 				91B239DC19CBD75000601E7F /* trekkingIcon.png */,
 				91B239E819CBDC6D00601E7F /* stairmasterIcon.png */,
+				91CECA2E19E3A8E30052AA8C /* defaultActivityIcon.png */,
+				91CECA2C19E3A8B50052AA8C /* bonusIcon.png */,
 				91B239D519CBD3A800601E7F /* sportsIcon.png */,
 				91B239D319CBD39E00601E7F /* bikeIcon.png */,
 				91B239E019CBD89D00601E7F /* walkingIcon.png */,
@@ -848,6 +851,7 @@
 				91B239E119CBD89D00601E7F /* walkingIcon.png in Resources */,
 				91D329A819CA50DE0035B651 /* Light_blue_button.png in Resources */,
 				919EE978198C40BB00F12411 /* mwbf-run.png in Resources */,
+				91CECA2D19E3A8B50052AA8C /* bonusIcon.png in Resources */,
 				912C419219D500F50096C951 /* notifications.png in Resources */,
 				91CF0ED519A27B17007B668A /* Default.png in Resources */,
 				919EE989198D297700F12411 /* add-icon1.png in Resources */,
@@ -882,6 +886,7 @@
 				91CF0ED619A27B17007B668A /* Default@2x.png in Resources */,
 				918D5F011991208200597147 /* goRight1.png in Resources */,
 				91B239D419CBD39E00601E7F /* bikeIcon.png in Resources */,
+				91CECA2F19E3A8E30052AA8C /* defaultActivityIcon.png in Resources */,
 				912C418419D4FCB40096C951 /* settings.png in Resources */,
 				9127FB9519BD1E16001C85D8 /* appIcon76x76.png in Resources */,
 				915B427019AEC12300DC79FE /* arrow_left.png in Resources */,
@@ -894,7 +899,6 @@
 				919EE996198DCD4100F12411 /* facebook2.png in Resources */,
 				912C419619D501FE0096C951 /* pointsScheme.png in Resources */,
 				91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */,
-				91B239CE19CBCF9D00601E7F /* defaultActivity.png in Resources */,
 				91B239D019CBD1B000601E7F /* gymIcon.png in Resources */,
 				91B239D819CBD4A000601E7F /* yogaIcon.png in Resources */,
 				918F694E198893C000776052 /* reasons-to-run.jpg in Resources */,
