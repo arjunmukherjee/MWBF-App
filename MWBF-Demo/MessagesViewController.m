@@ -65,14 +65,18 @@
     self.yesterdayIndex = 0;
     
     [self.friendActivitiesList removeAllObjects];
+    
+    self.user = [User getInstance];
     for (int i=0; i <[self.user.friendsActivitiesList count]; i++)
         [self.friendActivitiesList addObject:self.user.friendsActivitiesList[i][@"feedPrettyString"]];
     
     [Utils changeAbsoluteDateToRelativeDays:self.friendActivitiesList];
-    
-    [self.activitiesBoardTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:([self.friendActivitiesList count]*2)-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+   
+    NSInteger scrollIndex = ([self.friendActivitiesList count]*2)-1;
     
     [self.activitiesBoardTable reloadData];
+    
+    [self.activitiesBoardTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scrollIndex inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
     
     float leader = 0.0;
     if ([user.weeklyPointsUser floatValue] > [user.weeklyPointsLeader floatValue])

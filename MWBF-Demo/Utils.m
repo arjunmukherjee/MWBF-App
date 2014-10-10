@@ -46,6 +46,7 @@
     // Get all the challenges the user is involved in
     [service getChallenges];
     
+    // Get a motivational quote
     [service getRandomQuote];
 }
 

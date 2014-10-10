@@ -90,8 +90,11 @@
     // Parse the string and sort the points
     NSMutableArray *pointsArr = [NSMutableArray array];
     NSMutableArray *playersArr = [NSMutableArray array];
+    int unknownPlayerIndex = 1;
+    Boolean playerIsFriend = NO;
     for (id playerPoints in self.challenge.playersSet)
     {
+        playerIsFriend = NO;
         NSArray *tempArr = [playerPoints componentsSeparatedByString:@","];
         CGFloat points =[tempArr[1] floatValue];
         NSNumber *num = [NSNumber numberWithFloat:points];
@@ -102,13 +105,29 @@
         for (Friend *friend in friendsList)
         {
             if ( [friendEmail isEqualToString:friend.email] )
-               [playersArr addObject:friend.firstName];
+            {
+                [playersArr addObject:friend.firstName];
+                playerIsFriend = YES;
+            }
         }
         
         if ( [friendEmail isEqualToString:[User getInstance].userEmail])
+        {
             [playersArr addObject:@"You"];
+            playerIsFriend = YES;
+        }
+        
+        // If a player in the challenge is not a friend of the user (but a friend of the creator of the challenge)
+        if ( !playerIsFriend )
+        {
+            if (unknownPlayerIndex % 2 == 0)
+                [playersArr addObject:@"JohnDoe"];
+            else
+                [playersArr addObject:@"JaneDoe"];
+            
+            unknownPlayerIndex++;
+        }
     }
-    
     
     // COLUMN CHART by Progress
     NSMutableArray *tempAct = [NSMutableArray array];
@@ -117,6 +136,7 @@
         EColumnDataModel *eColumnDataModel = [[EColumnDataModel alloc] initWithLabel:playersArr[i] value:[pointsArr[i] floatValue] index:i unit:@""];
         [tempAct addObject:eColumnDataModel];
     }
+    
     self.data = [NSArray arrayWithArray:tempAct];
     self.eColumnChart = [[EColumnChart alloc] initWithFrame:self.activityBarView.bounds];
     [self.eColumnChart setNormalColumnColor:[UIColor purpleColor]];

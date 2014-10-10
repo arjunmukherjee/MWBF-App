@@ -296,9 +296,11 @@
     user.weeklyPointsFriendsAverage = jsonData[@"friendsPointsAverage"];
     user.weeklyPointsLeader = jsonData[@"leaderPoints"];
     
-    float wkFrAvg = [user.weeklyPointsFriendsAverage floatValue];
+    float wkFrAvgPts = [user.weeklyPointsFriendsAverage floatValue];
+    float wkUserPts = [user.weeklyPointsUser floatValue];
     
-    user.weeklyPointsFriendsAverage = [NSString stringWithFormat:@"%0.1f",wkFrAvg];
+    user.weeklyPointsFriendsAverage = [NSString stringWithFormat:@"%0.1f",wkFrAvgPts];
+    user.weeklyPointsUser = [NSString stringWithFormat:@"%0.1f",wkUserPts];
 }
 
 
