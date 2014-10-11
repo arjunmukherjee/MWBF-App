@@ -15,9 +15,8 @@
 #define YESTERDAY_COLOR [UIColor colorWithRed:0.43 green:0.62 blue:0.92 alpha:0.8]
 #define CELL_COLOR [UIColor colorWithWhite:0.9 alpha:0.3]
 
-#define CELL_SELECTION_COLOR [UIColor colorWithWhite:0.9 alpha:0.3]
+#define CELL_SELECTION_COLOR [[UIColor alloc] initWithRed:20.0 / 255 green:59.0 / 255 blue:102.0 / 255 alpha:0.5];
 #define CELL_SELECTION_COLOR_GRAD [[UIColor alloc] initWithRed:20.0 / 255 green:50.0 / 255 blue:40.0 / 255 alpha:0.2];
-//#define CELL_SELECTION_COLOR_GRAD [[UIColor alloc] initWithRed:35.0 / 255 green:30.0 / 255 blue:30.0 / 255 alpha:0.2];
 #define CELL_SELECTION_COLOR_GRAD1 [[UIColor alloc] initWithRed:40.0 / 255 green:30.0 / 255 blue:40.0 / 255 alpha:0.2];
 
 
