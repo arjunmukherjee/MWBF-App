@@ -15,6 +15,7 @@
 #import "Friend.h"
 #import "Challenge.h"
 
+
 /*
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/login"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/friends"
@@ -520,6 +521,11 @@
             user.bestDayPoints = points;
         }
         else if (i == 1)
+        {
+            user.bestWeek = date;
+            user.bestWeekPoints = points;
+        }
+        else if (i == 2)
         {
             user.bestMonth = date;
             user.bestMonthPoints = points;

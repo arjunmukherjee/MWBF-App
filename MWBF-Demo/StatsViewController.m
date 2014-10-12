@@ -294,7 +294,7 @@
         
         NSString *fromDate = [NSString stringWithFormat:@"%@ %@, %@ 00:00:01 AM",fromMonth,fromDay,year];
         NSString *toDate = [NSString stringWithFormat:@"%@ %@, %@ 11:59:59 PM",toMonth,toDay,year];
-     
+        
         [self getUserActivities:toDate fromDate:fromDate];
     }
 }

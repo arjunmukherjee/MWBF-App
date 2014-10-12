@@ -111,6 +111,8 @@
 		91CAC69019D11E30006A6C06 /* background-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CAC68F19D11E30006A6C06 /* background-3.png */; };
 		91CECA2D19E3A8B50052AA8C /* bonusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CECA2C19E3A8B50052AA8C /* bonusIcon.png */; };
 		91CECA2F19E3A8E30052AA8C /* defaultActivityIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CECA2E19E3A8E30052AA8C /* defaultActivityIcon.png */; };
+		91CECA3219E9E8A90052AA8C /* PersonalStatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CECA3119E9E8A90052AA8C /* PersonalStatsCell.m */; };
+		91CECA3419EA12370052AA8C /* go-next.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CECA3319EA12360052AA8C /* go-next.png */; };
 		91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */; };
 		91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E6E19A10EAC007B668A /* acount-information.png */; };
 		91CF0E7919A19B17007B668A /* icon_addfriend.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CF0E7819A19B17007B668A /* icon_addfriend.png */; };
@@ -303,6 +305,9 @@
 		91CAC68F19D11E30006A6C06 /* background-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-3.png"; sourceTree = "<group>"; };
 		91CECA2C19E3A8B50052AA8C /* bonusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonusIcon.png; sourceTree = "<group>"; };
 		91CECA2E19E3A8E30052AA8C /* defaultActivityIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultActivityIcon.png; sourceTree = "<group>"; };
+		91CECA3019E9E8A90052AA8C /* PersonalStatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalStatsCell.h; sourceTree = "<group>"; };
+		91CECA3119E9E8A90052AA8C /* PersonalStatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalStatsCell.m; sourceTree = "<group>"; };
+		91CECA3319EA12360052AA8C /* go-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go-next.png"; sourceTree = "<group>"; };
 		91CF0E6019A10A3E007B668A /* 24-feedback_icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "24-feedback_icon.gif"; sourceTree = "<group>"; };
 		91CF0E6E19A10EAC007B668A /* acount-information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "acount-information.png"; sourceTree = "<group>"; };
 		91CF0E7819A19B17007B668A /* icon_addfriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_addfriend.png; sourceTree = "<group>"; };
@@ -432,6 +437,7 @@
 				91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */,
 				912C417A19D3C0E10096C951 /* wall.png */,
 				912C419D19D503D00096C951 /* appsAndDevices.png */,
+				91CECA3319EA12360052AA8C /* go-next.png */,
 				912C419519D501FE0096C951 /* pointsScheme.png */,
 				912C419919D502C50096C951 /* about.png */,
 				912C419119D500F50096C951 /* notifications.png */,
@@ -695,6 +701,8 @@
 				912E348C19C3F60A00F4745A /* PointsSchemeCell.m */,
 				91B239CA19CBC94200601E7F /* ActivityNotificationCell.h */,
 				91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */,
+				91CECA3019E9E8A90052AA8C /* PersonalStatsCell.h */,
+				91CECA3119E9E8A90052AA8C /* PersonalStatsCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -903,6 +911,7 @@
 				91B239D819CBD4A000601E7F /* yogaIcon.png in Resources */,
 				918F694E198893C000776052 /* reasons-to-run.jpg in Resources */,
 				91D329A919CA50DE0035B651 /* Silver_button.png in Resources */,
+				91CECA3419EA12370052AA8C /* go-next.png in Resources */,
 				91B28A3019CE23CA00CC2E24 /* ellipticalIcon.png in Resources */,
 				912E349319C40EAE00F4745A /* personalBest.png in Resources */,
 				9127FB9619BD1E16001C85D8 /* appIcon152x152.png in Resources */,
@@ -1007,6 +1016,7 @@
 				918F692819872A2400776052 /* NewUserViewController.m in Sources */,
 				919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */,
 				915B425919ABE74C00DC79FE /* PMCalendarView.m in Sources */,
+				91CECA3219E9E8A90052AA8C /* PersonalStatsCell.m in Sources */,
 				918F6956198ADB0700776052 /* LogActivityListCell.m in Sources */,
 				91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */,
 				918D5F07199127B200597147 /* ActivityViewController.m in Sources */,

@@ -14,7 +14,7 @@
 @synthesize userEmail = _userEmail;
 @synthesize userName = _userName;
 @synthesize friendsList = _friendsList;
-@synthesize bestDay,bestMonth,bestYear,bestDayPoints,bestMonthPoints,bestYearPoints;
+@synthesize bestDay,bestWeek,bestMonth,bestYear,bestDayPoints,bestWeekPoints,bestMonthPoints,bestYearPoints;
 @synthesize challengesList;
 @synthesize fbProfileID;
 @synthesize notificationsList,friendsActivitiesList;
