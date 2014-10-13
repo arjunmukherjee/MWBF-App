@@ -24,6 +24,10 @@
 @synthesize weeklyPointsUser,weeklyPointsFriendsAverage,weeklyPointsLeader;
 @synthesize randomQuote;
 
+@synthesize bestDayLeader,bestWeekLeader,bestMonthLeader,bestYearLeader;
+@synthesize bestDayLeaderPoints,bestWeekLeaderPoints,bestMonthLeaderPoints,bestYearLeaderPoints;
+@synthesize dayLeader,weekLeader,monthLeader,yearLeader;
+
 + (User *) getInstance
 {
     static User *theUser =nil;
@@ -53,6 +57,28 @@
         self.activityNotifications = YES;
         self.friendsAndChallengesNotifications = YES;
         self.backgroundImageName = @"background.jpg";
+        
+        // Initialize personal stats, so they don't show as "null"
+        self.bestDay = @" ";
+        self.bestWeek = @"-";
+        self.bestMonth = @" ";
+        self.bestYear = @" ";
+        
+        self.bestDayPoints = @" ";
+        self.bestWeekPoints = @" ";
+        self.bestMonthPoints = @" ";
+        self.bestYearPoints = @" ";
+
+        // Initialize the leader stats, so they don't show as "null"
+        self.bestDayLeader = @" ";
+        self.bestWeekLeader = @"-";
+        self.bestMonthLeader = @" ";
+        self.bestYearLeader = @" ";
+        
+        self.bestDayLeaderPoints = @" ";
+        self.bestWeekLeaderPoints = @" ";
+        self.bestMonthLeaderPoints = @" ";
+        self.bestYearLeaderPoints = @" ";
     }
     
     return self;

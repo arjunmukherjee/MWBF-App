@@ -7,6 +7,7 @@
 //  Test edit by vpasari
 
 #import <Foundation/Foundation.h>
+#import "Friend.h"
 
 @interface User : NSObject
 
@@ -19,20 +20,35 @@
 // Challenges
 @property (strong,nonatomic) NSMutableArray *challengesList;
 
-// Stats
+// STATS
 @property (strong,nonatomic) NSString *bestDay;
 @property (strong,nonatomic) NSString *bestWeek;
 @property (strong,nonatomic) NSString *bestMonth;
 @property (strong,nonatomic) NSString *bestYear;
-@property (strong,nonatomic) NSString *weeklyPointsUser;
-@property (strong,nonatomic) NSString *weeklyPointsFriendsAverage;
-@property (strong,nonatomic) NSString *weeklyPointsLeader;
-
-
 @property (strong,nonatomic) NSString *bestDayPoints;
 @property (strong,nonatomic) NSString *bestWeekPoints;
 @property (strong,nonatomic) NSString *bestMonthPoints;
 @property (strong,nonatomic) NSString *bestYearPoints;
+
+// Weekly Comparisons
+@property (strong,nonatomic) NSString *weeklyPointsUser;
+@property (strong,nonatomic) NSString *weeklyPointsFriendsAverage;
+@property (strong,nonatomic) NSString *weeklyPointsLeader;
+
+// Leader Stats
+@property (strong,nonatomic) Friend *dayLeader;
+@property (strong,nonatomic) Friend *weekLeader;
+@property (strong,nonatomic) Friend *monthLeader;
+@property (strong,nonatomic) Friend *yearLeader;
+@property (strong,nonatomic) NSString *bestDayLeader;
+@property (strong,nonatomic) NSString *bestWeekLeader;
+@property (strong,nonatomic) NSString *bestMonthLeader;
+@property (strong,nonatomic) NSString *bestYearLeader;
+@property (strong,nonatomic) NSString *bestDayLeaderPoints;
+@property (strong,nonatomic) NSString *bestWeekLeaderPoints;
+@property (strong,nonatomic) NSString *bestMonthLeaderPoints;
+@property (strong,nonatomic) NSString *bestYearLeaderPoints;
+
 
 // New Messages
 @property (strong,nonatomic) NSMutableArray *notificationsList;
@@ -50,6 +66,7 @@
 
 // Random quote (motivational)
 @property (strong,nonatomic) NSString *randomQuote;
+
 
 + (User *) getInstance;
 - (NSMutableDictionary *)toNSDictionary;

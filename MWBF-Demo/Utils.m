@@ -37,6 +37,9 @@
     // Get the all time highs
     [service getAllTimeHighs];
     
+    // Get the leaders all time highs
+    [service getLeaderAllTimeHighs];
+    
     // Get the activities for all the users friends
     [service getFeed];
     

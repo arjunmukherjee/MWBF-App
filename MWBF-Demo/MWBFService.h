@@ -20,7 +20,7 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 
 // STATS
 - (void) getAllTimeHighs;
-
+- (void) getLeaderAllTimeHighs;
 
 // ACTIVITIES
 - (BOOL) logActivity:(NSString *) message withResponse:(NSString**)response;
