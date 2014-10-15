@@ -24,6 +24,7 @@
 @property (strong,nonatomic) NSString *title;
 @property (strong,nonatomic) NSString *numberOfRestDays;
 @property (nonatomic) NSInteger numberOfFriends;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addFriendButton;
 
 
 @end
@@ -37,6 +38,7 @@
 @synthesize activityDate, title;
 @synthesize numberOfRestDays;
 @synthesize numberOfFriends;
+@synthesize addFriendButton;
 
 - (void)viewDidLoad
 {
@@ -44,6 +46,7 @@
     
     [self loadData];
     self.numberOfFriends = [self.user.friendsList count];
+    self.addFriendButton.enabled = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -57,11 +60,15 @@
         [self.friendsListTable reloadData];
         self.numberOfFriends = [self.user.friendsList count];
     }
+    
+    self.addFriendButton.enabled = YES;
+    self.navigationItem.rightBarButtonItem = self.addFriendButton;
 }
 
 - (void) loadData
 {
     self.user = [User getInstance];
+    
     // Sort the activites by the total points
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];

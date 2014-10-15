@@ -2278,13 +2278,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="zkx-hH-Lw0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RyJ-f4-QXw">
-                            <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="ZrJ-8S-67J" kind="push" id="Mjo-HM-atJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addFriendButton" destination="RyJ-f4-QXw" id="iVU-Lq-waK"/>
                         <outlet property="friendsListTable" destination="QyA-8A-4AG" id="ocz-2j-uMW"/>
                         <segue destination="EPn-Zb-cx1" kind="push" identifier="FriendDetails" id="xvs-qu-nf5"/>
                     </connections>
@@ -2806,6 +2806,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="enD-cY-u8c"/>
-        <segue reference="cBP-Lf-BHj"/>
+        <segue reference="xvs-qu-nf5"/>
     </inferredMetricsTieBreakers>
 </document>
