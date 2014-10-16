@@ -43,7 +43,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MWBF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xgt-8A-xeb">
                                 <rect key="frame" x="88" y="230" width="144" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="48"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="51"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,10 +185,10 @@
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="roU-Y3-gex">
-                                <rect key="frame" x="9" y="106" width="302" height="377"/>
+                                <rect key="frame" x="9" y="106" width="302" height="426"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Create challenges, win something, or just bragging rights. 5.  The app needs you to login using Facebook. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </string>
+                                <mutableString key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Create challenges, win something, or just bragging rights. 5.  The app needs you to login using either your Facebook account or your email address. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2874,8 +2874,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="23S-Zz-DKi"/>
         <segue reference="hzw-FB-gU0"/>
+        <segue reference="23S-Zz-DKi"/>
         <segue reference="cBP-Lf-BHj"/>
     </inferredMetricsTieBreakers>
 </document>
