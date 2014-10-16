@@ -64,9 +64,17 @@
 
 - (IBAction) registerUserClicked:(id)sender
 {
+    
+    if ( ![self isTextFieldValid:self.emailTextField.text] || ![self isTextFieldValid:self.firstNameTextField.text] || ![self isTextFieldValid:self.lastNameTextField.text])
+    {
+        [Utils alertStatus:@"Please provide all your information" :@"Oops! Forget something ?" :0];
+        return;
+    }
+    
     NSString *response = nil;
+    self.emailTextField.text = [self.emailTextField.text lowercaseString];
     MWBFService *service = [[MWBFService alloc] init];
-    Boolean success = [service loginFaceBookUser:self.emailTextField.text withFirstName:self.firstNameTextField.text withLastName:self.lastNameTextField.text withProfileId:@"1234" withResponse:&response];
+    Boolean success = [service loginFaceBookUser:self.emailTextField.text withFirstName:self.firstNameTextField.text withLastName:self.lastNameTextField.text withProfileId:@"" withResponse:&response];
     
     if ( !(success) )
     {
@@ -75,6 +83,7 @@
     }
     else
     {
+    
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"alreadyLaunched"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
@@ -99,6 +108,16 @@
 
         [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
     }
+}
+
+- (BOOL) isTextFieldValid:(NSString *) text
+{
+    if (text == nil)
+        return NO;
+    if ([text length] < 1)
+        return NO;
+    
+    return YES;
 }
 
 
