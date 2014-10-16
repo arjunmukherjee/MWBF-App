@@ -140,6 +140,7 @@
 		91D60F4619C1798D00841ECB /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D60F4519C1798D00841ECB /* FriendCell.m */; };
 		91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB0427199C7AC1000014A7 /* icn_menu_20.png */; };
 		91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */; };
+		DDB2196019EF7A8C00190309 /* email-register.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB2195F19EF7A8C00190309 /* email-register.png */; };
 		EC6C4E21FFAA4C6A9C12A6B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429F78ACE8DF4BD8A4A9C08F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -343,6 +344,7 @@
 		91D60F4519C1798D00841ECB /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		91DB0427199C7AC1000014A7 /* icn_menu_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icn_menu_20.png; sourceTree = "<group>"; };
 		91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon560x60_2x.png; sourceTree = "<group>"; };
+		DDB2195F19EF7A8C00190309 /* email-register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-register.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +438,7 @@
 		9147D8E71983127100183220 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DDB2195F19EF7A8C00190309 /* email-register.png */,
 				91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */,
 				912C417A19D3C0E10096C951 /* wall.png */,
 				912C419D19D503D00096C951 /* appsAndDevices.png */,
@@ -870,6 +873,7 @@
 				918F694A1988933200776052 /* running6.jpg in Resources */,
 				91B239E119CBD89D00601E7F /* walkingIcon.png in Resources */,
 				91D329A819CA50DE0035B651 /* Light_blue_button.png in Resources */,
+				DDB2196019EF7A8C00190309 /* email-register.png in Resources */,
 				919EE978198C40BB00F12411 /* mwbf-run.png in Resources */,
 				91CECA2D19E3A8B50052AA8C /* bonusIcon.png in Resources */,
 				912C419219D500F50096C951 /* notifications.png in Resources */,
