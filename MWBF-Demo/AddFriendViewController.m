@@ -110,6 +110,7 @@
         self.friendEmail.hidden = YES;
         self.friendFirstName.hidden = YES;
         self.friendLastName.hidden = YES;
+        self.friendProfilePicView.hidden = YES;
     }
     else
     {
@@ -133,7 +134,7 @@
     MWBFService *service = [[MWBFService alloc] init];
     if ( [service addFriendWithId:self.friendEmail.text] )
     {
-       [Utils alertStatus:[NSString stringWithFormat:@"%@ added to your friends list.",self.friendFirstName.text] :@"Success" :0];
+       [Utils alertStatus:[NSString stringWithFormat:@"%@ added to your friends list.",self.friendFirstName.text] :@"Yippee" :0];
         
         User *user = [User getInstance];
         
