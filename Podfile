@@ -1,0 +1,5 @@
+platform :ios, '7.0'
+pod 'AFNetworking'
+pod 'SBJson', '~> 4.0.0'
+pod 'EChart'
+pod 'SVSegmentedControl'
