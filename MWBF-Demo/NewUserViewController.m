@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
 
@@ -60,6 +61,10 @@
 - (IBAction)backgroundTap:(id)sender
 {
     [self.view endEditing:YES];
+}
+- (IBAction)cancelButtonClicked:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction) registerUserClicked:(id)sender

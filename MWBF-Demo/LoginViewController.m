@@ -118,6 +118,8 @@ NSString* ADMIN_PASSWORD = @"admin";
             [self performSegueWithIdentifier:@"login_success" sender:self];
         }
     }
+    
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 // Check for a valid network/data connection

@@ -53,9 +53,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yo9-ZM-HBH">
-                                <rect key="frame" x="20" y="355" width="42" height="22"/>
+                                <rect key="frame" x="14" y="356" width="70" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="About"/>
                                 <connections>
@@ -127,6 +127,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Utk-si-AaZ">
+                                <rect key="frame" x="125" y="273" width="111" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="43"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonClicked:" destination="pHU-cC-bRx" eventType="touchUpInside" id="G5C-Ia-lot"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -137,6 +148,7 @@
                     <navigationItem key="navigationItem" title="New User" id="3JJ-od-oi4"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="cancelButton" destination="Utk-si-AaZ" id="7y1-yH-VuB"/>
                         <outlet property="emailTextField" destination="XUg-8a-Xfd" id="HRU-56-oQX"/>
                         <outlet property="firstNameTextField" destination="kFQ-76-Ptx" id="KEb-2h-Jl0"/>
                         <outlet property="lastNameTextField" destination="Gn4-Wu-NV1" id="aaG-Z6-eUH"/>
@@ -2859,7 +2871,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="E5a-mP-1Xm"/>
+        <segue reference="23S-Zz-DKi"/>
         <segue reference="hzw-FB-gU0"/>
         <segue reference="cBP-Lf-BHj"/>
     </inferredMetricsTieBreakers>
