@@ -188,7 +188,15 @@
                                 <rect key="frame" x="9" y="106" width="302" height="426"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Get out, get fit.  1.  Log your daily activities. 2.  See your progress over time and by activity. 3.  Compete with friends. 4.  Create challenges, win something, or just bragging rights. 5.  The app needs you to login using either your Facebook account or your email address. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf. 6.  Do let us know what you think about the app using the feedback button (in the more tab). </mutableString>
+                                <mutableString key="text">Get out, get fit.
+
+1.  Log your daily activities.
+2.  See your progress over time and by activity.
+3.  Compete with friends.
+4.  Create challenges, win something, or just bragging rights.
+5.  The app needs you to login using either your Facebook account or your email address. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf.
+6.  Do let us know what you think about the app using the feedback button (in the more tab).
+</mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -350,7 +358,16 @@
                                 <rect key="frame" x="25" y="99" width="280" height="279"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Use this page to log your daily activities/exercises.  1. Pick an execise. 2. Enter in the amount you exercised. 3. Pick the date. 4. Add the exercise to the list of activities you want to log. 5. Add multiple activities at the same time if you wish to. 6. You may also delete activities once added by swiping left on the particular row. 7. Hit the button (at the bottom) to log the activities to your account. </string>
+                                <string key="text">Use this page to log your daily activities/exercises.
+
+1. Pick an execise.
+2. Enter in the amount you exercised.
+3. Pick the date.
+4. Add the exercise to the list of activities you want to log.
+5. Add multiple activities at the same time if you wish to.
+6. You may also delete activities once added by swiping left on the particular row.
+7. Hit the button (at the bottom) to log the activities to your account.
+</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -531,7 +548,16 @@
                                 <rect key="frame" x="21" y="97" width="280" height="307"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Select a time range directly from the quick selector (today, week, month or year).  OR  Select a date from the picker. You may : 1. Select just a year . 2. Select a year and a month. 3. Select a year, month and a day (will display all the activities for the selected day). 4. Select a year, month, and a date range Ex : 5 to 10. Will display all the activities from the 5th day of the month to the 10th day of the month.</string>
+                                <string key="text">Select a time range directly from the quick selector (today, week, month or year).
+
+OR
+
+Select a date from the picker.
+You may :
+1. Select just a year .
+2. Select a year and a month.
+3. Select a year, month and a day (will display all the activities for the selected day).
+4. Select a year, month, and a date range Ex : 5 to 10. Will display all the activities from the 5th day of the month to the 10th day of the month.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1425,7 +1451,14 @@
                                 <rect key="frame" x="19" y="91" width="280" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Use this page to create new challenges.  1. Name your challenge. Ex "NYC Marathon Challenge" 2. Pick the exercises/activities to be included in the challenge. 3. Pick the friends you want to compete against. 4. Choose a start and an end date. 5. If you add activities or friends by mistake, swipe left on the row to delete the row. 6. Create the challenge by hitting the "Create Challenge" button.</string>
+                                <string key="text">Use this page to create new challenges.
+
+1. Name your challenge. Ex "NYC Marathon Challenge"
+2. Pick the exercises/activities to be included in the challenge.
+3. Pick the friends you want to compete against.
+4. Choose a start and an end date.
+5. If you add activities or friends by mistake, swipe left on the row to delete the row.
+6. Create the challenge by hitting the "Create Challenge" button.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1497,7 +1530,15 @@
                                 <rect key="frame" x="24" y="104" width="280" height="389"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Use this page to do a variety of things.  - Take a look at your friends activities by clicking on the friends button. You can also add friends form there. - Check your personal stats (and try to beat them). Click on the button that looks like a trophy. - You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can. - Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar). - Add a device or app to automatically sync activities from. - Find out about the app by clicking on the About button. - Send us feedback about your experience using the app, by clicking on the Feedback button.</string>
+                                <string key="text">Use this page to do a variety of things.
+
+- Take a look at your friends activities by clicking on the friends button. You can also add friends form there.
+- Check your personal stats (and try to beat them). Click on the button that looks like a trophy.
+- You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can.
+- Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar).
+- Add a device or app to automatically sync activities from.
+- Find out about the app by clicking on the About button.
+- Send us feedback about your experience using the app, by clicking on the Feedback button.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -2144,7 +2185,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="03n-eP-S0I">
                                 <rect key="frame" x="16" y="125" width="1144" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text"> Use this page to authorize your  other apps and tracking devices to  automatically sync with MWBF (so you  won't have to manually enter in activities anymore).</string>
+                                <string key="text">
+Use this page to authorize your 
+other apps and tracking devices to 
+automatically sync with MWBF (so you 
+won't have to manually enter in
+activities anymore).</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2195,7 +2241,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Friends &amp; Challenges  Notifications" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SRz-GP-9k5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Friends &amp; Challenges 
+Notifications" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SRz-GP-9k5">
                                 <rect key="frame" x="23" y="158" width="207" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
