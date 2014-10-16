@@ -40,9 +40,6 @@
 @synthesize mwbfTitle;
 @synthesize registerWithEmailButton,aboutButton;
 
-NSString* ADMIN_USERNAME = @"admin";
-NSString* ADMIN_PASSWORD = @"admin";
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
