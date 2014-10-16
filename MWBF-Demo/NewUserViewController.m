@@ -36,8 +36,11 @@
     
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
+    
+    [Utils addLine:self.emailTextField addTop:NO addBottom:YES];
+    [Utils addLine:self.firstNameTextField addTop:NO addBottom:YES];
+    [Utils addLine:self.lastNameTextField addTop:NO addBottom:YES];
 }
-
 
 - (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
 {

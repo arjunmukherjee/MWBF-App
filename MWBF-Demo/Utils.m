@@ -53,6 +53,28 @@
     [service getRandomQuote];
 }
 
++ (void) addLine:(UIView *) view addTop:(BOOL) addTopLine addBottom:(BOOL) addBottomLine
+{
+    CGRect layerFrame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, 0, 0);
+    
+    if (addTopLine)
+        CGPathAddLineToPoint(path, NULL, layerFrame.size.width, 0); // top line
+    
+    CGPathMoveToPoint(path, NULL, 0, layerFrame.size.height);
+    
+    if (addBottomLine)
+        CGPathAddLineToPoint(path, NULL, layerFrame.size.width, layerFrame.size.height); // bottom line
+    
+    CAShapeLayer * line = [CAShapeLayer layer];
+    line.path = path;
+    line.lineWidth = 2;
+    line.frame = layerFrame;
+    line.strokeColor = [UIColor grayColor].CGColor;
+    [view.layer addSublayer:line];
+}
+
 // Convert a jsonArray of objects into an Array of UserActivity objects (aggregated by Time)
 + (void) convertJsonArrayByTimeToActivityObjectArrayWith:(NSArray*)jsonArray withLabelArray:(NSMutableArray*)labelArray withPointsArray:(NSMutableArray*)pointsArray
 {
