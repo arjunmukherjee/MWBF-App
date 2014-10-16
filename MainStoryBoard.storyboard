@@ -48,7 +48,7 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email-13-l.png" id="Zz0-bg-6LM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email-register.png" id="Zz0-bg-6LM">
                                 <rect key="frame" x="33" y="305" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -124,8 +124,8 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" minimumFontSize="17" clearButtonMode="always" id="XUg-8a-Xfd">
                                 <rect key="frame" x="20" y="130" width="207" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                         </subviews>
@@ -2841,7 +2841,7 @@
         <image name="background-3.png" width="320" height="568"/>
         <image name="background.jpg" width="800" height="584"/>
         <image name="calendar3.png" width="502" height="502"/>
-        <image name="email-13-l.png" width="48" height="48"/>
+        <image name="email-register.png" width="48" height="48"/>
         <image name="friends-32.png" width="32" height="32"/>
         <image name="go-next.png" width="32" height="32"/>
         <image name="goRight1.png" width="120" height="120"/>
