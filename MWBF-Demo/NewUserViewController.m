@@ -81,6 +81,11 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"useFB"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
+        [[NSUserDefaults standardUserDefaults] setObject:self.emailTextField.text forKey:@"userId"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        // TODO : If email id is already registered, it logs in anyway
+        
         User *user = [User getInstance];
         user.userEmail = self.emailTextField.text;
         user.userId = self.emailTextField.text;;

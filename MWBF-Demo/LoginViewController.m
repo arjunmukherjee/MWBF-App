@@ -76,7 +76,6 @@ NSString* ADMIN_PASSWORD = @"admin";
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"alreadyLaunched"])
     {
         // is NOT initial launch...
-        NSLog(@"Not Initial Launch");
         self.fbLoginView.hidden = YES;
         self.mwbfTitle.hidden = NO;
         self.registerWithEmailButton.hidden = YES;
@@ -85,7 +84,6 @@ NSString* ADMIN_PASSWORD = @"admin";
     else
     {
         // is initial launch...
-        NSLog(@"Initial Launch");
         self.fbLoginView.hidden = NO;
         self.mwbfTitle.hidden = YES;
         self.registerWithEmailButton.hidden = NO;
@@ -98,7 +96,27 @@ NSString* ADMIN_PASSWORD = @"admin";
     }
     else
     {
-        NSLog(@"Do not user FB Login");
+        NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+        if ( (userId == nil) || ( [userId length] < 1 ) )
+        {
+            
+        }
+        else
+        {
+            User *user = [User getInstance];
+            user.userEmail = userId;
+            user.userId = userId;
+            
+            self.success = YES;
+            
+            // Makes a call to the server to get a list of all the valid activities
+            [Activity getInstance];
+            
+            // Get all of the users data
+            [Utils refreshUserData];
+            
+            [self performSegueWithIdentifier:@"login_success" sender:self];
+        }
     }
 }
 

@@ -249,17 +249,6 @@
 {
     application.applicationIconBadgeNumber = 0;
     self.numberOfMessages = 0;
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"alreadyLaunched"])
-    {
-        // is NOT initial launch...
-        NSLog(@" NOT Initial launch");
-    }
-    else
-    {
-        // is initial launch...
-        NSLog(@"Initial launch");
-    }
 }
 
 
