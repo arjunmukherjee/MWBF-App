@@ -9,15 +9,24 @@
 #import "NewUserViewController.h"
 #import "MWBFService.h"
 #import "Utils.h"
+#import "Activity.h"
+#import "User.h"
 
 @interface NewUserViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
 
 @end
 
 @implementation NewUserViewController
 
-@synthesize emailTextField = _emailTextField;
-@synthesize registerButton = _registerButton;
+@synthesize emailTextField;
+@synthesize firstNameTextField,lastNameTextField;
+@synthesize registerButton;
 
 - (void)viewDidLoad
 {
@@ -51,6 +60,40 @@
 - (IBAction)backgroundTap:(id)sender
 {
     [self.view endEditing:YES];
+}
+
+- (IBAction) registerUserClicked:(id)sender
+{
+    NSString *response = nil;
+    MWBFService *service = [[MWBFService alloc] init];
+    Boolean success = [service loginFaceBookUser:self.emailTextField.text withFirstName:self.firstNameTextField.text withLastName:self.lastNameTextField.text withProfileId:@"1234" withResponse:&response];
+    
+    if ( !(success) )
+    {
+        [Utils alertStatus:response :@"Sign in Failed" :0];
+        return;
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"alreadyLaunched"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"useFB"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        User *user = [User getInstance];
+        user.userEmail = self.emailTextField.text;
+        user.userId = self.emailTextField.text;;
+        user.userName = [NSString stringWithFormat:@"%@ %@",self.firstNameTextField.text,self.lastNameTextField.text];
+        
+        // Makes a call to the server to get a list of all the valid activities
+        [Activity getInstance];
+        
+        // Get all of the users data
+        [Utils refreshUserData];
+
+        [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
+    }
 }
 
 

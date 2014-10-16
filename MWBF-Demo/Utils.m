@@ -32,7 +32,7 @@
     MWBFService *service = [[MWBFService alloc] init];
     
     // Get the list of friends
-    [User getInstance].friendsList = [service getFriendsList];
+    [service getFriendsList];
     
     // Get the all time highs
     [service getAllTimeHighs];

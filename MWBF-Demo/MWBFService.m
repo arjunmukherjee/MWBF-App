@@ -39,7 +39,6 @@
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://localhost:8080/MWBFServer/mwbf/user/deleteUserActivities"
 */
 
-
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://mwbf.herokuapp.com/mwbf/user/login"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf/user/friends"
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/user/friends/activities"
@@ -60,6 +59,7 @@
 #define USER_ACTIVITIES_BY_TIME_ENDPOINT_FORMAT         @"http://mwbf.herokuapp.com/mwbf/user/activitiesByTime"
 #define MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/mwbf/activities"
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://mwbf.herokuapp.com/mwbf/user/deleteUserActivities"
+
 
 
 #define RANDOM_QUOTE_ENDPOINT @"http://www.iheartquotes.com/api/v1/random?source=oneliners&max_lines=1&show_source=0&format=json"
@@ -266,15 +266,22 @@
     NSData *urlData = [service sendPostRequest:post toURL:url];
     
     NSError *error = nil;
-    NSArray *jsonData;
-    if ( urlData )
-        jsonData = [NSJSONSerialization
-                         JSONObjectWithData:urlData
-                         options:NSJSONReadingMutableContainers
-                         error:&error];
     
-    [user.friendsActivitiesList removeAllObjects];
-    user.friendsActivitiesList = [NSMutableArray arrayWithArray:jsonData];
+    @try
+    {
+        NSArray *jsonData;
+        if ( urlData )
+            jsonData = [NSJSONSerialization
+                             JSONObjectWithData:urlData
+                             options:NSJSONReadingMutableContainers
+                             error:&error];
+        [user.friendsActivitiesList removeAllObjects];
+        user.friendsActivitiesList = [NSMutableArray arrayWithArray:jsonData];
+    }
+    @catch (NSException * e)
+    {
+        NSLog(@"Exception: %@", e);
+    }
 }
 
 // Send a request to the server to get the friends activites
@@ -326,7 +333,7 @@
 }
 
 
-- (NSMutableArray*) getFriendsList
+- (void) getFriendsList
 {
     User *user = [User getInstance];
     
@@ -341,22 +348,28 @@
                          JSONObjectWithData:urlData
                          options:0
                          error:&error];
-    
     NSMutableArray *returnFriendsArray = [NSMutableArray array];
-    for (int i=0; i < [jsonData count]; i++)
+    @try
     {
-        NSDictionary *friendDict = [jsonData[i] objectForKey:@"friend"];
+        for (int i=0; i < [jsonData count]; i++)
+        {
+            NSDictionary *friendDict = [jsonData[i] objectForKey:@"friend"];
         
-        Friend *friend = [[Friend alloc] init];
-        friend.email = [friendDict objectForKey:@"email"];
-        friend.firstName = [friendDict objectForKey:@"firstName"];
-        friend.lastName = [friendDict objectForKey:@"lastName"];
-        friend.fbProfileID = [friendDict objectForKey:@"fbProfileId"];
-        
-        [returnFriendsArray addObject:friend];
+            Friend *friend = [[Friend alloc] init];
+            friend.email = [friendDict objectForKey:@"email"];
+            friend.firstName = [friendDict objectForKey:@"firstName"];
+            friend.lastName = [friendDict objectForKey:@"lastName"];
+            friend.fbProfileID = [friendDict objectForKey:@"fbProfileId"];
+            
+            [returnFriendsArray addObject:friend];
+        }
+    }
+    @catch (NSException * e)
+    {
+        NSLog(@"Exception: %@", e);
     }
     
-    return returnFriendsArray;
+    user.friendsList = returnFriendsArray;
 }
 
 - (BOOL) addFriendWithId:(NSString*) friendId
@@ -439,31 +452,38 @@
                          error:&error];
     
     NSMutableArray *returnArray = [NSMutableArray array];
-    //NSLog(@"Challenges [%@]",jsonData);
-    for (id challenge in jsonData)
-    {
-        Challenge *ch = [[Challenge alloc] init];
-        
-        NSString *startDate = [challenge objectForKey:@"startDate"];
-        NSString *endDate = [challenge objectForKey:@"endDate"];
-        NSString *name = [challenge objectForKey:@"name"];
-        NSString *ch_id = [challenge objectForKey:@"id"];
-        NSString *creatorId = [challenge objectForKey:@"creatorId"];
-        
-        NSArray *playerPointsArr =[challenge objectForKey:@"playerPointsSet"];
-        NSArray *activityArr =[challenge objectForKey:@"activitySet"];
-        NSArray *messagesArr =[challenge objectForKey:@"messageList"];
     
-        ch.name = name;
-        ch.startDate = startDate;
-        ch.endDate = endDate;
-        ch.challenge_id = ch_id;
-        ch.activitySet = [NSArray arrayWithArray:activityArr];
-        ch.playersSet = [NSArray arrayWithArray:playerPointsArr];
-        ch.messageList = [NSMutableArray arrayWithArray:messagesArr];
-        ch.creatorId  = creatorId;
+    @try
+    {
+        for (id challenge in jsonData)
+        {
+            Challenge *ch = [[Challenge alloc] init];
+            
+            NSString *startDate = [challenge objectForKey:@"startDate"];
+            NSString *endDate = [challenge objectForKey:@"endDate"];
+            NSString *name = [challenge objectForKey:@"name"];
+            NSString *ch_id = [challenge objectForKey:@"id"];
+            NSString *creatorId = [challenge objectForKey:@"creatorId"];
+            
+            NSArray *playerPointsArr =[challenge objectForKey:@"playerPointsSet"];
+            NSArray *activityArr =[challenge objectForKey:@"activitySet"];
+            NSArray *messagesArr =[challenge objectForKey:@"messageList"];
         
-        [returnArray addObject:ch];
+            ch.name = name;
+            ch.startDate = startDate;
+            ch.endDate = endDate;
+            ch.challenge_id = ch_id;
+            ch.activitySet = [NSArray arrayWithArray:activityArr];
+            ch.playersSet = [NSArray arrayWithArray:playerPointsArr];
+            ch.messageList = [NSMutableArray arrayWithArray:messagesArr];
+            ch.creatorId  = creatorId;
+            
+            [returnArray addObject:ch];
+        }
+    }
+    @catch (NSException * e)
+    {
+        NSLog(@"Exception: %@", e);
     }
     
     user.challengesList = [NSMutableArray arrayWithArray:returnArray];

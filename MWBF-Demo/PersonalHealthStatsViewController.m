@@ -213,74 +213,82 @@
     
     // SELF
     // BEST DAY
-    NSArray *tempArray = [self.bestDayLabel.text componentsSeparatedByString:@","];
-    NSArray *tempArray1 = [tempArray[0] componentsSeparatedByString:@" "];
-    self.bestDay = tempArray1[1];
-    self.bestDayMonth = tempArray1[0];
-    self.bestDayYear = tempArray[1];
-
-    
-    // BEST WEEK
-    tempArray = [user.bestWeek componentsSeparatedByString:@"-"];
-    if ( (tempArray != nil) && ( [tempArray count] > 0) )
+    if ([self.bestDayLabel.text length] > 2)
     {
-        self.bestWeekLabel.text = tempArray[0];
-        self.bestWeekEndLabel.text = tempArray[1];
+        NSArray *tempArray = [self.bestDayLabel.text componentsSeparatedByString:@","];
+        NSArray *tempArray1 = [tempArray[0] componentsSeparatedByString:@" "];
+        self.bestDay = tempArray1[1];
+        self.bestDayMonth = tempArray1[0];
+        self.bestDayYear = tempArray[1];
         
-        tempArray1 = [tempArray[0] componentsSeparatedByString:@","];
-        NSArray *tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
+        // BEST WEEK
+        tempArray = [user.bestWeek componentsSeparatedByString:@"-"];
+        if ( (tempArray != nil) && ( [tempArray count] > 0) )
+        {
+            self.bestWeekLabel.text = tempArray[0];
+            self.bestWeekEndLabel.text = tempArray[1];
+            
+            tempArray1 = [tempArray[0] componentsSeparatedByString:@","];
+            NSArray *tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
+            
+            self.bestWeekFromMonth = tempArray2[0];
+            self.bestWeekFromDay = tempArray2[1];
+            self.bestWeekFromYear = tempArray1[1];
+            
+            tempArray1 = [tempArray[1] componentsSeparatedByString:@","];
+            tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
+            self.bestWeekToMonth = tempArray2[0];
+            self.bestWeekToDay = tempArray2[1];
+            self.bestWeekToYear = tempArray1[1];
+        }
         
-        self.bestWeekFromMonth = tempArray2[0];
-        self.bestWeekFromDay = tempArray2[1];
-        self.bestWeekFromYear = tempArray1[1];
+        // BEST MONTH
+        tempArray = [self.bestMonthLabel.text componentsSeparatedByString:@","];
+        self.bestMonth = tempArray[0];
+        self.bestMonthYear = tempArray[1];
         
-        tempArray1 = [tempArray[1] componentsSeparatedByString:@","];
-        tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
-        self.bestWeekToMonth = tempArray2[0];
-        self.bestWeekToDay = tempArray2[1];
-        self.bestWeekToYear = tempArray1[1];
+        
+        // LEADER
+        // BEST DAY
+        tempArray = [self.leaderBestDayLabel.text componentsSeparatedByString:@","];
+        tempArray1 = [tempArray[0] componentsSeparatedByString:@" "];
+        self.leaderBestDay = tempArray1[1];
+        self.leaderBestDayMonth = tempArray1[0];
+        self.leaderBestDayYear = tempArray[1];
+        
+        // BEST WEEK
+        tempArray = [user.bestWeekLeader componentsSeparatedByString:@"-"];
+        if ( (tempArray != nil) && ( [tempArray count] > 0) )
+        {
+            self.leaderBestWeekStartLabel.text = tempArray[0];
+            self.leaderBestWeekEndLabel.text = tempArray[1];
+            
+            tempArray1 = [tempArray[0] componentsSeparatedByString:@","];
+            NSArray *tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
+            
+            self.leaderBestWeekFromMonth = tempArray2[0];
+            self.leaderBestWeekFromDay = tempArray2[1];
+            self.leaderBestWeekFromYear = tempArray1[1];
+            
+            tempArray1 = [tempArray[1] componentsSeparatedByString:@","];
+            tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
+            self.leaderBestWeekToMonth = tempArray2[0];
+            self.leaderBestWeekToDay = tempArray2[1];
+            self.leaderBestWeekToYear = tempArray1[1];
+        }
+        
+        // BEST MONTH
+        tempArray = [self.leaderBestMonthLabel.text componentsSeparatedByString:@","];
+        self.leaderBestMonth = tempArray[0];
+        self.leaderBestMonthYear = tempArray[1];
     }
-    
-    
-    // BEST MONTH
-    tempArray = [self.bestMonthLabel.text componentsSeparatedByString:@","];
-    self.bestMonth = tempArray[0];
-    self.bestMonthYear = tempArray[1];
-    
-    
-    // LEADER
-    // BEST DAY
-    tempArray = [self.leaderBestDayLabel.text componentsSeparatedByString:@","];
-    tempArray1 = [tempArray[0] componentsSeparatedByString:@" "];
-    self.leaderBestDay = tempArray1[1];
-    self.leaderBestDayMonth = tempArray1[0];
-    self.leaderBestDayYear = tempArray[1];
-    
-    // BEST WEEK
-    tempArray = [user.bestWeekLeader componentsSeparatedByString:@"-"];
-    if ( (tempArray != nil) && ( [tempArray count] > 0) )
+    else
     {
-        self.leaderBestWeekStartLabel.text = tempArray[0];
-        self.leaderBestWeekEndLabel.text = tempArray[1];
-        
-        tempArray1 = [tempArray[0] componentsSeparatedByString:@","];
-        NSArray *tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
-        
-        self.leaderBestWeekFromMonth = tempArray2[0];
-        self.leaderBestWeekFromDay = tempArray2[1];
-        self.leaderBestWeekFromYear = tempArray1[1];
-        
-        tempArray1 = [tempArray[1] componentsSeparatedByString:@","];
-        tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
-        self.leaderBestWeekToMonth = tempArray2[0];
-        self.leaderBestWeekToDay = tempArray2[1];
-        self.leaderBestWeekToYear = tempArray1[1];
+        self.bestDayButton.enabled = NO;
+        self.bestWeekButton.enabled = NO;
+        self.bestMonthButton.enabled = NO;
+        self.bestYearButton.enabled = NO;
     }
-    
-    // BEST MONTH
-    tempArray = [self.leaderBestMonthLabel.text componentsSeparatedByString:@","];
-    self.leaderBestMonth = tempArray[0];
-    self.leaderBestMonthYear = tempArray[1];
 }
 - (IBAction)personalStatsButtonClicked:(id) sender
 {

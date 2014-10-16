@@ -30,7 +30,7 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 - (NSMutableDictionary*) getActivityListWithResponseUsingPost;
 
 // FRIENDS
-- (NSMutableArray*) getFriendsList;
+- (void) getFriendsList;
 - (BOOL) addFriendWithId:(NSString*) friendId;
 - (NSDictionary*) findFriendWithId:(NSString*) friendId;
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byActivityFromDate:(NSString *) fromDate toDate:(NSString*) toDate;

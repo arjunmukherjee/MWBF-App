@@ -9,9 +9,7 @@
 @interface NewUserViewController :  UIViewController <UITextFieldDelegate>
 
 
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 
-@property (weak, nonatomic) IBOutlet UIButton *registerButton;
 
 - (IBAction) registerUserClicked:(id)sender;
 - (IBAction)backgroundTap:(id)sender;

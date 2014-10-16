@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet FBLoginView *fbLoginView;
 @property (strong, nonatomic) UIAlertView *noNetworkAlert;
 @property int runCount;
+@property (weak, nonatomic) IBOutlet UILabel *mwbfTitle;
+@property (weak, nonatomic) IBOutlet UIButton *registerWithEmailButton;
+@property (weak, nonatomic) IBOutlet UIButton *aboutButton;
 
 @end
 
@@ -34,6 +37,8 @@
 @synthesize fbLoginView;
 @synthesize noNetworkAlert;
 @synthesize runCount;
+@synthesize mwbfTitle;
+@synthesize registerWithEmailButton,aboutButton;
 
 NSString* ADMIN_USERNAME = @"admin";
 NSString* ADMIN_PASSWORD = @"admin";
@@ -47,6 +52,8 @@ NSString* ADMIN_PASSWORD = @"admin";
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
+    self.mwbfTitle.hidden = YES;
+    
     self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     CGPoint point = CGPointMake(self.view.center.x, self.view.center.y +20);
     self.activityIndicator.center = point;
@@ -59,8 +66,40 @@ NSString* ADMIN_PASSWORD = @"admin";
     self.fbLoginView.delegate = self;
     self.fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
   
+    [Utils setMaskTo:self.fbLoginView byRoundingCorners:UIRectCornerAllCorners];
     [self.view addSubview:self.fbLoginView];
     [self.fbLoginView sizeToFit];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"alreadyLaunched"])
+    {
+        // is NOT initial launch...
+        NSLog(@"Not Initial Launch");
+        self.fbLoginView.hidden = YES;
+        self.mwbfTitle.hidden = NO;
+        self.registerWithEmailButton.hidden = YES;
+        self.aboutButton.hidden = YES;
+    }
+    else
+    {
+        // is initial launch...
+        NSLog(@"Initial Launch");
+        self.fbLoginView.hidden = NO;
+        self.mwbfTitle.hidden = YES;
+        self.registerWithEmailButton.hidden = NO;
+        self.aboutButton.hidden = NO;
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"useFB"])
+    {
+        NSLog(@"Use FB Login");
+    }
+    else
+    {
+        NSLog(@"Do not user FB Login");
+    }
 }
 
 // Check for a valid network/data connection
@@ -148,7 +187,16 @@ NSString* ADMIN_PASSWORD = @"admin";
                     self.view.userInteractionEnabled = YES;
                     
                     if (self.success && self.fbSuccess)
+                    {
+                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"alreadyLaunched"];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        
+                        // Set the login method to FB
+                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"useFB"];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        
                         [self performSegueWithIdentifier:@"login_success" sender:self];
+                    }
                 }
             });
         });

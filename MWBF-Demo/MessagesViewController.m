@@ -76,7 +76,8 @@
     
     [self.activitiesBoardTable reloadData];
     
-    [self.activitiesBoardTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scrollIndex inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    if (scrollIndex > 0)
+        [self.activitiesBoardTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scrollIndex inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
     
     float leader = 0.0;
     if ([user.weeklyPointsUser floatValue] > [user.weeklyPointsLeader floatValue])
