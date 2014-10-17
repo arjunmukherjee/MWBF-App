@@ -167,7 +167,7 @@
         if (user.activityNotifications && user.friendsAndChallengesNotifications)
         {
             if (newFriendCount > 0 && newChallengeCount > 0 && newMessageCount > 0)
-                messageBody = [NSString stringWithFormat:@"You have %d new %@ and %d new or removed %@ and %d new %@.",newFriendCount,friendStr,newChallengeCount,challengeStr,newMessageCount,notificationStr];
+                messageBody = [NSString stringWithFormat:@"You have %d new %@, %d new or removed %@ and %d new %@.",newFriendCount,friendStr,newChallengeCount,challengeStr,newMessageCount,notificationStr];
             
             else if (newFriendCount > 0 && newChallengeCount > 0)
                 messageBody = [NSString stringWithFormat:@"You have %ld new %@ and %ld new or removed %@.",(long)newFriendCount,friendStr,(long)newChallengeCount,challengeStr];
