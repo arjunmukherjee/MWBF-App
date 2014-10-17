@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mwbfTitle;
 @property (weak, nonatomic) IBOutlet UIButton *registerWithEmailButton;
 @property (weak, nonatomic) IBOutlet UIButton *aboutButton;
+@property (weak, nonatomic) IBOutlet UIImageView *emailIcon;
 
 @end
 
@@ -38,7 +39,7 @@
 @synthesize noNetworkAlert;
 @synthesize runCount;
 @synthesize mwbfTitle;
-@synthesize registerWithEmailButton,aboutButton;
+@synthesize registerWithEmailButton,aboutButton,emailIcon;
 
 - (void)viewDidLoad
 {
@@ -77,6 +78,7 @@
         self.mwbfTitle.hidden = NO;
         self.registerWithEmailButton.hidden = YES;
         self.aboutButton.hidden = YES;
+        self.emailIcon.hidden = YES;
     }
     else
     {
@@ -85,11 +87,12 @@
         self.mwbfTitle.hidden = YES;
         self.registerWithEmailButton.hidden = NO;
         self.aboutButton.hidden = NO;
+        self.emailIcon.hidden = NO;
     }
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"MWBFUseFB"])
     {
-        NSLog(@"Use FB Login");
+        //NSLog(@"Use FB Login");
     }
     else
     {

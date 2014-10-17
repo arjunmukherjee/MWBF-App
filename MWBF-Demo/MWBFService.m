@@ -23,6 +23,7 @@
 #define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/friends/feed"
 #define USER_COMPARISONS_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf/user/weeklyComparisons"
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf/user/findFriend"
+#define USER_FIND_FRIEND_V1_ENDPOINT_FORMAT             @"http://localhost:8080/MWBFServer/mwbf/user/v1/findFriends"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://localhost:8080/MWBFServer/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/fbLogin"
 #define USER_HIGHS_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/allTimeHighs"
@@ -45,6 +46,7 @@
 #define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/friends/feed"
 #define USER_COMPARISONS_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf/user/weeklyComparisons"
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf/user/findFriend"
+#define USER_FIND_FRIEND_V1_ENDPOINT_FORMAT             @"http://mwbf.herokuapp.com/mwbf/user/v1/findFriends"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://mwbf.herokuapp.com/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/fbLogin"
 #define USER_HIGHS_ENDPOINT_FORMAT                      @"http://mwbf.herokuapp.com/mwbf/user/allTimeHighs"
@@ -408,6 +410,20 @@
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
     
     return jsonDict;
+}
+
+- (void) findFriendV1WithId:(NSString*) friendId
+{
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"userIdentification\"=\"%@\"}",friendId];
+    NSURL *url=[NSURL URLWithString:USER_FIND_FRIEND_V1_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+    
+    NSLog(@"Friends [%@]",jsonDict);
 }
 
 

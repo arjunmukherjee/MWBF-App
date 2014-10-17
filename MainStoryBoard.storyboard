@@ -72,6 +72,7 @@
                     <navigationItem key="navigationItem" title="MWBF" id="V2P-a2-zuC"/>
                     <connections>
                         <outlet property="aboutButton" destination="yo9-ZM-HBH" id="ysN-Lc-U8a"/>
+                        <outlet property="emailIcon" destination="Zz0-bg-6LM" id="z6F-ez-YfU"/>
                         <outlet property="fbLoginView" destination="RaP-yg-dr3" id="7US-aG-Bey"/>
                         <outlet property="mwbfTitle" destination="xgt-8A-xeb" id="uBR-E5-q7L"/>
                         <outlet property="registerWithEmailButton" destination="AYE-oZ-TRr" id="INB-c9-4bl"/>
@@ -2652,8 +2653,8 @@ activities anymore).</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your friends email" minimumFontSize="17" clearButtonMode="always" id="ohE-MO-57L">
-                                <rect key="frame" x="20" y="108" width="242" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Friend's email, first name or last name" minimumFontSize="17" clearButtonMode="always" id="ohE-MO-57L">
+                                <rect key="frame" x="11" y="108" width="266" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2661,7 +2662,7 @@ activities anymore).</string>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PFA-Ph-oTg">
-                                <rect key="frame" x="267" y="107" width="33" height="31"/>
+                                <rect key="frame" x="279" y="107" width="33" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="search_08_256.png"/>
                                 <connections>
@@ -2669,35 +2670,35 @@ activities anymore).</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HVZ-gW-NwO">
-                                <rect key="frame" x="20" y="313" width="105" height="21"/>
+                                <rect key="frame" x="20" y="313" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7gF-Ko-nYI">
-                                <rect key="frame" x="20" y="257" width="105" height="21"/>
+                                <rect key="frame" x="20" y="257" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="friend@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Bf-Bh-QO0">
-                                <rect key="frame" x="133" y="315" width="181" height="21"/>
+                                <rect key="frame" x="112" y="315" width="202" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ggN-US-sok">
-                                <rect key="frame" x="133" y="259" width="80" height="21"/>
+                                <rect key="frame" x="112" y="259" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LastName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Okq-fO-qaP">
-                                <rect key="frame" x="207" y="259" width="89" height="21"/>
+                                <rect key="frame" x="209" y="259" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2920,7 +2921,7 @@ activities anymore).</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="23S-Zz-DKi"/>
+        <segue reference="E5a-mP-1Xm"/>
         <segue reference="hzw-FB-gU0"/>
         <segue reference="cBP-Lf-BHj"/>
     </inferredMetricsTieBreakers>

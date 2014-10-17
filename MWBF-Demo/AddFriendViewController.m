@@ -94,6 +94,9 @@
     MWBFService *service = [[MWBFService alloc] init];
     NSDictionary *friendData = [service findFriendWithId:self.friendsEmailTextField.text];
     
+    // TODO : Use the method below to conduct friend searches
+    //[service findFriendV1WithId:self.friendsEmailTextField.text];
+    
     NSString *email = friendData[@"email"];
     NSString *firstName = friendData[@"firstName"];
     NSString *lastName = friendData[@"lastName"];
