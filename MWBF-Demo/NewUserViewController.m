@@ -92,13 +92,13 @@
     else
     {
     
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"alreadyLaunched"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"MWBFAlreadyLaunched"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"useFB"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"MWBFUseFB"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-        [[NSUserDefaults standardUserDefaults] setObject:self.emailTextField.text forKey:@"userId"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.emailTextField.text forKey:@"MWBFUserId"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         // TODO : If email id is already registered, it logs in anyway

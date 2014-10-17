@@ -70,7 +70,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"alreadyLaunched"])
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"MWBFAlreadyLaunched"])
     {
         // is NOT initial launch...
         self.fbLoginView.hidden = YES;
@@ -87,13 +87,13 @@
         self.aboutButton.hidden = NO;
     }
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"useFB"])
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"MWBFUseFB"])
     {
         NSLog(@"Use FB Login");
     }
     else
     {
-        NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+        NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFUserId"];
         if ( (userId == nil) || ( [userId length] < 1 ) )
         {
             
@@ -205,11 +205,11 @@
                     
                     if (self.success && self.fbSuccess)
                     {
-                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"alreadyLaunched"];
+                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"MWBFAlreadyLaunched"];
                         [[NSUserDefaults standardUserDefaults] synchronize];
                         
                         // Set the login method to FB
-                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"useFB"];
+                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"MWBFUseFB"];
                         [[NSUserDefaults standardUserDefaults] synchronize];
                         
                         [self performSegueWithIdentifier:@"login_success" sender:self];
