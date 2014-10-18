@@ -249,10 +249,20 @@
     NSData *urlData = [service sendPostRequest:post toURL:url];
     
     NSError *error = nil;
-    NSArray *jsonData = [NSJSONSerialization
+    NSArray *jsonData = nil;
+    @try
+    {
+        jsonData = [NSJSONSerialization
                          JSONObjectWithData:urlData
                          options:NSJSONReadingMutableContainers
                          error:&error];
+        id temp = jsonData[0];
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"Exception: %@", exception);
+        jsonData = [NSArray array];
+    }
     
     return jsonData;
 }

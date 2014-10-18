@@ -95,7 +95,7 @@
     NSDictionary *friendData = [service findFriendWithId:self.friendsEmailTextField.text];
     
     // TODO : Use the method below to conduct friend searches
-    //[service findFriendV1WithId:self.friendsEmailTextField.text];
+    [service findFriendV1WithId:self.friendsEmailTextField.text];
     
     NSString *email = friendData[@"email"];
     NSString *firstName = friendData[@"firstName"];
