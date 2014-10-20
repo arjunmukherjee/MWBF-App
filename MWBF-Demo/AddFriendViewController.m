@@ -12,46 +12,30 @@
 #import "User.h"
 #import "Friend.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "FriendCell.h"
 
 
 @interface AddFriendViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *friendsEmailTextField;
 @property (weak, nonatomic) IBOutlet UIButton *searchFriendButton;
-@property (weak, nonatomic) IBOutlet UILabel *friendEmailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *friendNameLabel;
-@property (weak, nonatomic) IBOutlet UIButton *addFriendButton;
-@property (weak, nonatomic) IBOutlet UILabel *friendEmail;
-@property (weak, nonatomic) IBOutlet UILabel *friendFirstName;
-@property (weak, nonatomic) IBOutlet UILabel *friendLastName;
-@property (weak, nonatomic) IBOutlet FBProfilePictureView *friendProfilePicView;
+@property (strong, nonatomic) IBOutlet UITableView *friendsListTable;
+@property (strong,nonatomic) NSMutableArray *searchResults;
+@property (weak, nonatomic) IBOutlet UITextField *friendIdTextField;
 
 @end
 
 @implementation AddFriendViewController
 
-@synthesize friendsEmailTextField,searchFriendButton,friendEmailLabel,friendNameLabel,addFriendButton;
-@synthesize friendEmail,friendFirstName,friendLastName;
-@synthesize friendProfilePicView;
+@synthesize searchFriendButton;
+@synthesize friendsListTable;
+@synthesize searchResults;
+@synthesize friendIdTextField;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.friendProfilePicView.hidden = YES;
-    
-    self.friendsEmailTextField.delegate = self;
-    
-    self.friendEmailLabel.hidden = NO;
-    self.friendNameLabel.hidden = NO;
-    
-    self.addFriendButton.hidden = NO;
-    self.addFriendButton.enabled = NO;
-    
-    self.friendEmail.hidden = YES;
-    self.friendFirstName.hidden = YES;
-    self.friendLastName.hidden = YES;
-    
-    [Utils setRoundedView:self.friendProfilePicView toDiameter:75];
+    self.searchResults = [NSMutableArray array];
+    self.friendsListTable.hidden = YES;
 }
 
 // Dismiss the keyboard when the GO button is hit
@@ -65,16 +49,8 @@
 {
     [self backgroundTap:nil];
     
-    self.friendsEmailTextField.text = [self.friendsEmailTextField.text lowercaseString];
-    
-    if ([self.friendsEmailTextField.text length] <= 0 )
-    {
-        [Utils alertStatus:@"Please provide your friend's email address" :@"Oops! Miss something ?" :0];
-        return;
-    }
-    
     User *user = [User getInstance];
-    if ([self.friendsEmailTextField.text isEqualToString: user.userEmail] )
+    if ([self.friendIdTextField.text isEqualToString: user.userEmail] )
     {
         [Utils alertStatus:@"That's your own email." :@"Nice try.." :0];
         return;
@@ -84,7 +60,7 @@
     for(Friend *friendObj in user.friendsList)
     {
         // Check to see if the friend is already in your friend list
-        if ( [friendObj.email isEqualToString:self.friendsEmailTextField.text] )
+        if ( [friendObj.email isEqualToString:self.friendIdTextField.text] )
         {
             [Utils alertStatus:@"User is already on your friends list." :@"It's a small world!" :0];
             return;
@@ -92,64 +68,54 @@
     }
     
     MWBFService *service = [[MWBFService alloc] init];
-    NSDictionary *friendData = [service findFriendWithId:self.friendsEmailTextField.text];
     
-    // TODO : Use the method below to conduct friend searches
-    [service findFriendV1WithId:self.friendsEmailTextField.text];
+    [self.searchResults removeAllObjects];
+    NSMutableArray *tempSearchResults = [service findFriendV1WithId:self.friendIdTextField.text];
     
-    NSString *email = friendData[@"email"];
-    NSString *firstName = friendData[@"firstName"];
-    NSString *lastName = friendData[@"lastName"];
-    NSString *profileId = friendData[@"fbProfileId"];
+    // Remove all friends from the search results that are already the user's friends
+    for (Friend *friend in tempSearchResults)
+    {
+        BOOL friendFound = NO;
+        for (Friend *usersFriend in user.friendsList)
+        {
+            if ([friend.email isEqualToString:usersFriend.email])
+            {
+                friendFound = YES;
+                continue;
+            }
+        }
+        
+        if ( !friendFound )
+            [self.searchResults addObject:friend];
+    }
     
-    //NSLog(@"Email[%@],FirstName[%@],LastName[%@],MemberSince[%@]",email,firstName,lastName,memberSince);
     
-    if ([email length] <= 1)
+    
+    if ([self.searchResults count] < 1)
     {
         [Utils alertStatus:@"Friend not found, do ask them to join us." :@"Where is this person ?" :0];
-        
-        self.addFriendButton.enabled = NO;
-        
-        self.friendEmail.hidden = YES;
-        self.friendFirstName.hidden = YES;
-        self.friendLastName.hidden = YES;
-        self.friendProfilePicView.hidden = YES;
+        self.friendsListTable.hidden = YES;
     }
     else
     {
-        self.friendProfilePicView.hidden = NO;
-        self.friendEmail.hidden = NO;
-        self.friendFirstName.hidden = NO;
-        self.friendLastName.hidden = NO;
-        self.friendEmail.text = email;
-        self.friendFirstName.text = firstName;
-        self.friendLastName.text = lastName;
-        self.friendProfilePicView.profileID = profileId;
-        
-        self.addFriendButton.hidden = NO;
-        self.addFriendButton.enabled = YES;
+        self.friendsListTable.hidden = NO;
+        [self.friendsListTable reloadData];
     }
 }
 
 
-- (IBAction)addButtonClicked:(id)sender
+- (void)addFriend:(Friend *)friend
 {
     MWBFService *service = [[MWBFService alloc] init];
-    if ( [service addFriendWithId:self.friendEmail.text] )
+    if ( [service addFriendWithId:friend.email] )
     {
-       [Utils alertStatus:[NSString stringWithFormat:@"%@ added to your friends list.",self.friendFirstName.text] :@"Yippee" :0];
+       [Utils alertStatus:[NSString stringWithFormat:@"%@ added to your friends list.",friend.firstName] :@"Yippee" :0];
         
         User *user = [User getInstance];
         
-        // Construct the new friend object
-        Friend *newFriend = [[Friend alloc] init];
-        newFriend.email = self.friendEmail.text;
-        newFriend.firstName = self.friendFirstName.text;
-        newFriend.lastName = self.friendLastName.text;
-        newFriend.fbProfileID = self.friendProfilePicView.profileID;
-        
+        // Add the new friend to the users list of friends
         NSMutableArray *tempFriendsNameArray = [NSMutableArray array];
-        [tempFriendsNameArray addObject:newFriend];
+        [tempFriendsNameArray addObject:friend];
     
         // Add the current list of friends to the temp list
         for (Friend *existingFriend in user.friendsList)
@@ -158,17 +124,10 @@
         // Add the newly added friend to the users friends list
         user.friendsList = [NSMutableArray arrayWithArray:tempFriendsNameArray];
         
-        self.addFriendButton.enabled = NO;
-        
-        self.friendProfilePicView.hidden = YES;
-        self.friendEmail.hidden = YES;
-        self.friendFirstName.hidden = YES;
-        self.friendLastName.hidden = YES;
-        
         [self.navigationController popViewControllerAnimated:YES];
     }
     else
-        [Utils alertStatus:[NSString stringWithFormat:@"Unable to add %@ to your friends list.",self.friendFirstName.text]  :@"Oops!" :0];
+        [Utils alertStatus:[NSString stringWithFormat:@"Unable to add %@ to your friends list.",friend.firstName]  :@"Oops!" :0];
         
 }
 
@@ -177,5 +136,48 @@
 {
     [self.view endEditing:YES];
 }
+
+///////// UITABLEVIEW METHODS /////////
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.searchResults count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"FriendDetailsCell";
+    FriendCell *cell = [self.friendsListTable dequeueReusableCellWithIdentifier:CellIdentifier];
+    Friend *friendObj = [self.searchResults objectAtIndex:indexPath.row];
+    cell.friendNameLabel.text = [NSString stringWithFormat:@"%@ %@",friendObj.firstName,friendObj.lastName];
+    cell.friendFbProfilePicView.profileID = friendObj.fbProfileID;
+    [Utils setRoundedView:cell.friendFbProfilePicView toDiameter:40];
+    
+    UIColor *selectionColor = [[UIColor alloc] initWithRed:20.0 / 255 green:59.0 / 255 blue:102.0 / 255 alpha:0.5];
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = selectionColor;
+    [cell setSelectedBackgroundView:bgColorView];
+    
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Friend *friendObj = [self.searchResults objectAtIndex:indexPath.row];
+    
+    [self addFriend:friendObj];
+}
+
 
 @end

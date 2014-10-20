@@ -15,7 +15,6 @@
 #import "Friend.h"
 #import "Challenge.h"
 
-
 /*
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/login"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/friends"
@@ -422,7 +421,7 @@
     return jsonDict;
 }
 
-- (void) findFriendV1WithId:(NSString*) friendId
+- (NSMutableArray*) findFriendV1WithId:(NSString*) friendId
 {
     NSString *post =[[NSString alloc] initWithFormat:@"{\"userIdentification\"=\"%@\"}",friendId];
     NSURL *url=[NSURL URLWithString:USER_FIND_FRIEND_V1_ENDPOINT_FORMAT];
@@ -431,9 +430,29 @@
     NSData *urlData = [service sendPostRequest:post toURL:url];
     
     NSError *error = nil;
-    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
     
-    NSLog(@"Friends [%@]",jsonDict);
+    NSMutableArray *searchResults = [NSMutableArray array];
+    @try
+    {
+        for (id key in jsonArray)
+        {
+            Friend *friend = [[Friend alloc] init];
+            
+            friend.email = [key objectForKey:@"email"];
+            friend.fbProfileID = [key objectForKey:@"fbProfileId"];
+            friend.firstName = [key objectForKey:@"firstName"];
+            friend.lastName = [key objectForKey:@"lastName"];
+            
+            [searchResults addObject:friend];
+        }
+    }
+    @catch (NSException * e)
+    {
+        NSLog(@"Exception: %@", e);
+    }
+
+    return searchResults;
 }
 
 

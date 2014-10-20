@@ -79,10 +79,19 @@
         return;
     }
     
+    // Check to ensure the email address is formatted correctly
+    // TODO : Maybe use a Regex here
+    if ( ![self.emailTextField.text containsString:@"@"] || ![self.emailTextField.text containsString:@"."] )
+    {
+        [Utils alertStatus:@"Invalid email address." :@"Oops! Forget something ?" :0];
+        return;
+    }
+    
     NSString *response = nil;
     self.emailTextField.text = [self.emailTextField.text lowercaseString];
     MWBFService *service = [[MWBFService alloc] init];
-    Boolean success = [service loginFaceBookUser:self.emailTextField.text withFirstName:self.firstNameTextField.text withLastName:self.lastNameTextField.text withProfileId:@"" withResponse:&response];
+    Boolean success = NO;
+    success = [service loginFaceBookUser:self.emailTextField.text withFirstName:self.firstNameTextField.text withLastName:self.lastNameTextField.text withProfileId:@"" withResponse:&response];
     
     if ( !(success) )
     {

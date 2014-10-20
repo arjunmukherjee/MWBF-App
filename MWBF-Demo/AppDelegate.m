@@ -54,6 +54,8 @@
 {
     User *user = [User getInstance];
     
+    NSLog(@"Refreshing user data in background");
+    
     // Get the data before the refresh
     NSArray *friendsListOld = [NSArray arrayWithArray:user.friendsList];
     NSArray *challengeListOld = [NSArray arrayWithArray:user.challengesList];
