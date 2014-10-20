@@ -27,6 +27,16 @@
     [alertView show];
 }
 
++ (BOOL) isStringNullOrEmpty:(NSString *) text
+{
+    if (text == nil)
+        return YES;
+    if ([text length] < 1)
+        return YES;
+    
+    return NO;
+}
+
 + (void) refreshUserData
 {
     MWBFService *service = [[MWBFService alloc] init];

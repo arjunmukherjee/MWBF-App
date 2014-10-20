@@ -49,6 +49,12 @@
 {
     [self backgroundTap:nil];
     
+    if ([Utils isStringNullOrEmpty:self.friendIdTextField.text ] )
+    {
+        [Utils alertStatus:@"Please provide your friend's email or name." :@"Oops ! Miss Something ?" :0];
+        return;
+    }
+    
     User *user = [User getInstance];
     if ([self.friendIdTextField.text isEqualToString: user.userEmail] )
     {

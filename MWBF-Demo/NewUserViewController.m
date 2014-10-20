@@ -73,7 +73,7 @@
 - (IBAction) registerUserClicked:(id)sender
 {
     
-    if ( ![self isTextFieldValid:self.emailTextField.text] || ![self isTextFieldValid:self.firstNameTextField.text] || ![self isTextFieldValid:self.lastNameTextField.text])
+    if ( [Utils isStringNullOrEmpty:self.emailTextField.text] || [Utils isStringNullOrEmpty:self.firstNameTextField.text] || ![Utils isStringNullOrEmpty:self.lastNameTextField.text])
     {
         [Utils alertStatus:@"Please provide all your information" :@"Oops! Forget something ?" :0];
         return;
@@ -126,16 +126,5 @@
         [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
     }
 }
-
-- (BOOL) isTextFieldValid:(NSString *) text
-{
-    if (text == nil)
-        return NO;
-    if ([text length] < 1)
-        return NO;
-    
-    return YES;
-}
-
 
 @end

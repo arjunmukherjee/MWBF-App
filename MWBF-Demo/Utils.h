@@ -21,6 +21,7 @@
 
 
 + (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag;
++ (BOOL) isStringNullOrEmpty:(NSString *) text;
 
 + (void) refreshUserData;
 
