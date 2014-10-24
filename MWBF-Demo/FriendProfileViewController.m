@@ -69,7 +69,6 @@
     
     self.activeChallengesLabel.text = [NSString stringWithFormat:@"%@",self.friend.stats.numberOfActiveChallenges];
     self.challengesWonLabel.text = @"0";
-     
 }
 
 - (void) viewWillAppear:(BOOL)animated

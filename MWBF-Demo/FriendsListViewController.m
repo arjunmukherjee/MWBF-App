@@ -18,12 +18,6 @@
 @interface FriendsListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *friendsListTable;
 @property (strong,nonatomic) User *user;
-@property (strong,nonatomic) UIActivityIndicatorView *activityIndicator;
-@property (strong,nonatomic) NSArray *jsonArrayByActivity;
-@property (strong,nonatomic) NSArray *jsonArrayByTime;
-@property (strong,nonatomic) NSString *activityDate;
-@property (strong,nonatomic) NSString *title;
-@property (strong,nonatomic) NSString *numberOfRestDays;
 @property (nonatomic) NSInteger numberOfFriends;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addFriendButton;
 @property (strong,nonatomic) Friend *selectedFriend;
@@ -35,10 +29,6 @@
 
 @synthesize friendsListTable;
 @synthesize user;
-@synthesize activityIndicator;
-@synthesize jsonArrayByActivity, jsonArrayByTime;
-@synthesize activityDate, title;
-@synthesize numberOfRestDays;
 @synthesize numberOfFriends;
 @synthesize addFriendButton;
 @synthesize selectedFriend;
@@ -116,69 +106,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedFriend = [self.user.friendsList objectAtIndex:indexPath.row];
-    self.title = [NSString stringWithFormat:@"%@'s Stats",self.selectedFriend.firstName];
   
-    // Get the friends activity details
-    self.activityIndicator.hidden = NO;
-    [self.activityIndicator startAnimating];
-    self.view.userInteractionEnabled = NO;
-    
-    
-    dispatch_queue_t queue = dispatch_get_global_queue(0,0);
-    
-    dispatch_async(queue, ^{
-        
-        // Year
-        NSDate *currentTime = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"YYYY"];
-        NSString *year = [dateFormatter stringFromDate: currentTime] ;
-        
-        // Month
-        [dateFormatter setDateFormat:@"MM"];
-        NSInteger monthInteger = [[dateFormatter stringFromDate: currentTime] integerValue];
-        NSString *month  = [Utils getMonthStringFromInt:monthInteger];
-        
-        NSInteger daysInMonth = [Utils getNumberOfDaysInMonth:monthInteger];
-        
-        NSString *fromDate = [NSString stringWithFormat:@"%@ 01, %@ 00:00:01 AM",month,year];
-        NSString *toDate = [NSString stringWithFormat:@"%@ %ld, %@ 11:59:59 PM",month,(long)daysInMonth,year];
-        
-        self.activityDate = [NSString stringWithFormat:@"%@, %@",month,year];
-        
-        // Get the list of activities from the server
-        MWBFService *service = [[MWBFService alloc] init];
-        self.jsonArrayByActivity = [service getActivitiesForFriend:self.selectedFriend byActivityFromDate:fromDate toDate:toDate];
-        self.jsonArrayByTime = [service getActivitiesForFriend:self.selectedFriend byTimeFromDate:fromDate toDate:toDate];
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.activityIndicator stopAnimating];
-            self.activityIndicator.hidden = YES;
-            self.view.userInteractionEnabled = YES;
-            
-            self.numberOfRestDays = [Utils getNumberOfRestDaysFromDate:fromDate toDate:toDate withActiveDays:[self.jsonArrayByTime count]];
-            
-            if ([self.jsonArrayByActivity count] <= 0 )
-                [Utils alertStatus:[NSString stringWithFormat:@"No activity found for %@ for this month",self.selectedFriend.firstName] :@"Ask them to get to work!" :0];
-            else
-                [self performSegueWithIdentifier:@"FriendProfile" sender:self];
-        });
-    });
+    [self performSegueWithIdentifier:@"FriendProfile" sender:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    /*
-    if ([segue.identifier isEqualToString:@"FriendDetails"] )
-    {
-        ActivityViewController *controller = [segue destinationViewController];
-        controller.userActivitiesByTimeJsonArray = self.jsonArrayByTime;
-        controller.userActivitiesByActivityJsonArray = self.jsonArrayByActivity;
-        controller.activityDateString = self.activityDate;
-        controller.title = self.title;
-        controller.numberOfRestDays = self.numberOfRestDays;
-    }
-     */
     if ([segue.identifier isEqualToString:@"FriendProfile"] )
     {
         FriendProfileViewController *controller = [segue destinationViewController];
