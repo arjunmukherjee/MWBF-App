@@ -62,7 +62,6 @@
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://mwbf.herokuapp.com/mwbf/user/deleteUserActivities"
 
 
-
 #define RANDOM_QUOTE_ENDPOINT @"http://www.iheartquotes.com/api/v1/random?source=oneliners&max_lines=1&show_source=0&format=json"
  
 @implementation MWBFService
@@ -364,13 +363,46 @@
     {
         for (int i=0; i < [jsonData count]; i++)
         {
-            NSDictionary *friendDict = [jsonData[i] objectForKey:@"friend"];
+            NSDictionary *friendDict = [jsonData[i] objectForKey:@"user"];
         
             Friend *friend = [[Friend alloc] init];
             friend.email = [friendDict objectForKey:@"email"];
             friend.firstName = [friendDict objectForKey:@"firstName"];
             friend.lastName = [friendDict objectForKey:@"lastName"];
             friend.fbProfileID = [friendDict objectForKey:@"fbProfileId"];
+            
+            NSDictionary *bestDayDict = [jsonData[i] objectForKey:@"bestDay"];
+            NSDictionary *bestWeekDict = [jsonData[i] objectForKey:@"bestWeek"];
+            NSDictionary *bestMonthDict = [jsonData[i] objectForKey:@"bestMonth"];
+            NSDictionary *bestYearDict = [jsonData[i] objectForKey:@"bestYear"];
+            
+            UserStats *stats = [[UserStats alloc] init];
+            stats.bestDay = bestDayDict[@"date"];
+            stats.bestWeek = bestWeekDict[@"date"];
+            stats.bestMonth = bestMonthDict[@"date"];
+            stats.bestYear = bestYearDict[@"date"];
+            
+            stats.bestDayPoints = bestDayDict[@"points"];
+            stats.bestWeekPoints = bestWeekDict[@"points"];
+            stats.bestMonthPoints = bestMonthDict[@"points"];
+            stats.bestYearPoints = bestYearDict[@"points"];
+            
+            float bestDayPointsFloat = [stats.bestDayPoints floatValue];
+            stats.bestDayPoints = [NSString stringWithFormat:@"%0.1f",bestDayPointsFloat];
+            
+            float bestWeekPointsFloat = [stats.bestWeekPoints floatValue];
+            stats.bestWeekPoints = [NSString stringWithFormat:@"%0.1f",bestWeekPointsFloat];
+            
+            float bestMonthPointsFloat = [stats.bestMonthPoints floatValue];
+            stats.bestMonthPoints = [NSString stringWithFormat:@"%0.1f",bestMonthPointsFloat];
+            
+            float bestYearPointsFloat = [stats.bestYearPoints floatValue];
+            stats.bestYearPoints = [NSString stringWithFormat:@"%0.1f",bestYearPointsFloat];
+            
+            stats.currentWeekPoints = [jsonData[i] objectForKey:@"currentWeekPoints"];
+            stats.numberOfActiveChallenges = [jsonData[i] objectForKey:@"activeNumberOfChallanges"];
+            
+            friend.stats = stats;
             
             [returnFriendsArray addObject:friend];
         }
@@ -577,6 +609,7 @@
                          error:&error];
     
     int i = 0;
+    UserStats *stat = [[UserStats alloc] init];
     for (id key in jsonData)
     {
         NSString *date = [key objectForKey:@"date"];
@@ -584,27 +617,28 @@
         
         if (i == 0)
         {
-            user.bestDay = date;
-            user.bestDayPoints = points;
+            stat.bestDay = date;
+            stat.bestDayPoints = points;
         }
         else if (i == 1)
         {
-            user.bestWeek = date;
-            user.bestWeekPoints = points;
+            stat.bestWeek = date;
+            stat.bestWeekPoints = points;
         }
         else if (i == 2)
         {
-            user.bestMonth = date;
-            user.bestMonthPoints = points;
+            stat.bestMonth = date;
+            stat.bestMonthPoints = points;
         }
         else
         {
-            user.bestYear = date;
-            user.bestYearPoints = points;
+            stat.bestYear = date;
+            stat.bestYearPoints = points;
         }
         
         i = i + 1;
     }
+    user.userStats = stat;
 }
 
 - (void) getLeaderAllTimeHighs

@@ -141,18 +141,16 @@
 {
     User *user = [User getInstance];
     
-    
     // SELF
-    self.bestDayLabel.text = [NSString stringWithFormat:@"%@",user.bestDay];
-    self.bestWeekLabel.text = [NSString stringWithFormat:@"%@",user.bestWeek];
-    self.bestMonthLabel.text = [NSString stringWithFormat:@"%@",user.bestMonth];
-    self.bestYearLabel.text = [NSString stringWithFormat:@"%@",user.bestYear];
+    self.bestDayLabel.text = [NSString stringWithFormat:@"%@",user.userStats.bestDay];
+    self.bestWeekLabel.text = [NSString stringWithFormat:@"%@",user.userStats.bestWeek];
+    self.bestMonthLabel.text = [NSString stringWithFormat:@"%@",user.userStats.bestMonth];
+    self.bestYearLabel.text = [NSString stringWithFormat:@"%@",user.userStats.bestYear];
     
-    self.bestDayPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.bestDayPoints];
-    self.bestWeekPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.bestWeekPoints];
-    self.bestMonthPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.bestMonthPoints];
-    self.bestYearPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.bestYearPoints];
-    
+    self.bestDayPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.userStats.bestDayPoints];
+    self.bestWeekPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.userStats.bestWeekPoints];
+    self.bestMonthPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.userStats.bestMonthPoints];
+    self.bestYearPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.userStats.bestYearPoints];
     
     // LEADER
     self.leaderBestDayLabel.text = [NSString stringWithFormat:@"%@",user.bestDayLeader];
@@ -222,7 +220,7 @@
         self.bestDayYear = tempArray[1];
         
         // BEST WEEK
-        tempArray = [user.bestWeek componentsSeparatedByString:@"-"];
+        tempArray = [user.userStats.bestWeek componentsSeparatedByString:@"-"];
         if ( (tempArray != nil) && ( [tempArray count] > 0) )
         {
             self.bestWeekLabel.text = tempArray[0];
@@ -234,7 +232,7 @@
             self.bestWeekFromMonth = tempArray2[0];
             self.bestWeekFromDay = tempArray2[1];
             self.bestWeekFromYear = tempArray1[1];
-            
+         
             tempArray1 = [tempArray[1] componentsSeparatedByString:@","];
             tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
             self.bestWeekToMonth = tempArray2[0];
@@ -246,7 +244,6 @@
         tempArray = [self.bestMonthLabel.text componentsSeparatedByString:@","];
         self.bestMonth = tempArray[0];
         self.bestMonthYear = tempArray[1];
-        
         
         // LEADER
         // BEST DAY

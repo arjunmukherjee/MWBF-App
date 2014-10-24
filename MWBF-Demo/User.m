@@ -14,7 +14,8 @@
 @synthesize userEmail = _userEmail;
 @synthesize userName = _userName;
 @synthesize friendsList = _friendsList;
-@synthesize bestDay,bestWeek,bestMonth,bestYear,bestDayPoints,bestWeekPoints,bestMonthPoints,bestYearPoints;
+//@synthesize bestDay,bestWeek,bestMonth,bestYear,bestDayPoints,bestWeekPoints,bestMonthPoints,bestYearPoints;
+@synthesize userStats;
 @synthesize challengesList;
 @synthesize fbProfileID;
 @synthesize notificationsList,friendsActivitiesList;
@@ -59,15 +60,15 @@
         self.backgroundImageName = @"background.jpg";
         
         // Initialize personal stats, so they don't show as "null"
-        self.bestDay = @" ";
-        self.bestWeek = @"-";
-        self.bestMonth = @" ";
-        self.bestYear = @" ";
+        self.userStats.bestDay = @" ";
+        self.userStats.bestWeek = @"-";
+        self.userStats.bestMonth = @" ";
+        self.userStats.bestYear = @" ";
         
-        self.bestDayPoints = @" ";
-        self.bestWeekPoints = @" ";
-        self.bestMonthPoints = @" ";
-        self.bestYearPoints = @" ";
+        self.userStats.bestDayPoints = @" ";
+        self.userStats.bestWeekPoints = @" ";
+        self.userStats.bestMonthPoints = @" ";
+        self.userStats.bestYearPoints = @" ";
 
         // Initialize the leader stats, so they don't show as "null"
         self.bestDayLeader = @" ";

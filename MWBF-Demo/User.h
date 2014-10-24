@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Friend.h"
+#import "UserStats.h"
 
 @interface User : NSObject
 
@@ -21,6 +22,7 @@
 @property (strong,nonatomic) NSMutableArray *challengesList;
 
 // STATS
+/*
 @property (strong,nonatomic) NSString *bestDay;
 @property (strong,nonatomic) NSString *bestWeek;
 @property (strong,nonatomic) NSString *bestMonth;
@@ -29,6 +31,8 @@
 @property (strong,nonatomic) NSString *bestWeekPoints;
 @property (strong,nonatomic) NSString *bestMonthPoints;
 @property (strong,nonatomic) NSString *bestYearPoints;
+ */
+@property (strong,nonatomic) UserStats *userStats;
 
 // Weekly Comparisons
 @property (strong,nonatomic) NSString *weeklyPointsUser;

@@ -141,6 +141,9 @@
 		91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB0427199C7AC1000014A7 /* icn_menu_20.png */; };
 		91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */; };
 		91ED786319F4BD8900D58D9E /* crossTrainingBonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 91ED786219F4BD8900D58D9E /* crossTrainingBonus.png */; };
+		91ED786619F8AD9100D58D9E /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ED786519F8AD9100D58D9E /* FriendProfileViewController.m */; };
+		91ED786819F8AFE700D58D9E /* grey-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91ED786719F8AFE700D58D9E /* grey-background.jpg */; };
+		91FAF1DD19F9E63D00655CBE /* UserStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FAF1DC19F9E63D00655CBE /* UserStats.m */; };
 		DDB2196019EF7A8C00190309 /* email-register.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB2195F19EF7A8C00190309 /* email-register.png */; };
 		EC6C4E21FFAA4C6A9C12A6B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429F78ACE8DF4BD8A4A9C08F /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -346,6 +349,11 @@
 		91DB0427199C7AC1000014A7 /* icn_menu_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icn_menu_20.png; sourceTree = "<group>"; };
 		91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon560x60_2x.png; sourceTree = "<group>"; };
 		91ED786219F4BD8900D58D9E /* crossTrainingBonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crossTrainingBonus.png; sourceTree = "<group>"; };
+		91ED786419F8AD9100D58D9E /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendProfileViewController.h; sourceTree = "<group>"; };
+		91ED786519F8AD9100D58D9E /* FriendProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendProfileViewController.m; sourceTree = "<group>"; };
+		91ED786719F8AFE700D58D9E /* grey-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grey-background.jpg"; sourceTree = "<group>"; };
+		91FAF1DB19F9E63D00655CBE /* UserStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStats.h; sourceTree = "<group>"; };
+		91FAF1DC19F9E63D00655CBE /* UserStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStats.m; sourceTree = "<group>"; };
 		DDB2195F19EF7A8C00190309 /* email-register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-register.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -448,6 +456,7 @@
 				912C419519D501FE0096C951 /* pointsScheme.png */,
 				912C419919D502C50096C951 /* about.png */,
 				912C419119D500F50096C951 /* notifications.png */,
+				91ED786719F8AFE700D58D9E /* grey-background.jpg */,
 				912C418219D4FCB40096C951 /* settings.png */,
 				912C418B19D4FF620096C951 /* personalBestIcon.png */,
 				91CAC68F19D11E30006A6C06 /* background-3.png */,
@@ -530,6 +539,8 @@
 				91CF0EEA19A2FB97007B668A /* FriendsListViewController.m */,
 				91CF0EE419A2F2D6007B668A /* AddFriendViewController.h */,
 				91CF0EE519A2F2D6007B668A /* AddFriendViewController.m */,
+				91ED786419F8AD9100D58D9E /* FriendProfileViewController.h */,
+				91ED786519F8AD9100D58D9E /* FriendProfileViewController.m */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -729,6 +740,8 @@
 				91CFEBE119A42A9B00B0C27A /* Friend.m */,
 				9152133D19AA407E00EF7E18 /* Challenge.h */,
 				9152133E19AA407E00EF7E18 /* Challenge.m */,
+				91FAF1DB19F9E63D00655CBE /* UserStats.h */,
+				91FAF1DC19F9E63D00655CBE /* UserStats.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -931,6 +944,7 @@
 				91B239D819CBD4A000601E7F /* yogaIcon.png in Resources */,
 				918F694E198893C000776052 /* reasons-to-run.jpg in Resources */,
 				91D329A919CA50DE0035B651 /* Silver_button.png in Resources */,
+				91ED786819F8AFE700D58D9E /* grey-background.jpg in Resources */,
 				91CECA3419EA12370052AA8C /* go-next.png in Resources */,
 				91B28A3019CE23CA00CC2E24 /* ellipticalIcon.png in Resources */,
 				912E349319C40EAE00F4745A /* personalBest.png in Resources */,
@@ -1006,6 +1020,7 @@
 				91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */,
 				912E34A419C7ED4E00F4745A /* MessagesViewController.m in Sources */,
 				918D5EE819909ED600597147 /* MoreViewController.m in Sources */,
+				91FAF1DD19F9E63D00655CBE /* UserStats.m in Sources */,
 				915B425B19ABE74C00DC79FE /* PMSelectionView.m in Sources */,
 				91C665181991790F00A56D61 /* DLPieChart.m in Sources */,
 				915B425719ABE74C00DC79FE /* PMCalendarBackgroundView.m in Sources */,
@@ -1013,6 +1028,7 @@
 				918D5EE519909E5100597147 /* ChallengeViewController.m in Sources */,
 				919EE963198BEBB700F12411 /* User.m in Sources */,
 				912C417719D3B2140096C951 /* NotificationsViewController.m in Sources */,
+				91ED786619F8AD9100D58D9E /* FriendProfileViewController.m in Sources */,
 				918F693819886CE300776052 /* LogActivityViewController.m in Sources */,
 				918F695A198B080A00776052 /* UserActivity.m in Sources */,
 				912C418019D4FB5B0096C951 /* SettingsViewController.m in Sources */,

@@ -12,6 +12,7 @@
 #import "Friend.h"
 #import "FriendCell.h"
 #import "MWBFService.h"
+#import "FriendProfileViewController.h"
 
 
 @interface FriendsListViewController ()
@@ -25,6 +26,7 @@
 @property (strong,nonatomic) NSString *numberOfRestDays;
 @property (nonatomic) NSInteger numberOfFriends;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addFriendButton;
+@property (strong,nonatomic) Friend *selectedFriend;
 
 
 @end
@@ -39,6 +41,7 @@
 @synthesize numberOfRestDays;
 @synthesize numberOfFriends;
 @synthesize addFriendButton;
+@synthesize selectedFriend;
 
 - (void)viewDidLoad
 {
@@ -46,7 +49,6 @@
     
     [self loadData];
     self.numberOfFriends = [self.user.friendsList count];
-    self.addFriendButton.enabled = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -61,7 +63,6 @@
         self.numberOfFriends = [self.user.friendsList count];
     }
     
-    self.addFriendButton.enabled = YES;
     self.navigationItem.rightBarButtonItem = self.addFriendButton;
 }
 
@@ -114,8 +115,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Friend *friend = [self.user.friendsList objectAtIndex:indexPath.row];
-    self.title = [NSString stringWithFormat:@"%@'s Stats",friend.firstName];
+    self.selectedFriend = [self.user.friendsList objectAtIndex:indexPath.row];
+    self.title = [NSString stringWithFormat:@"%@'s Stats",self.selectedFriend.firstName];
   
     // Get the friends activity details
     self.activityIndicator.hidden = NO;
@@ -147,8 +148,8 @@
         
         // Get the list of activities from the server
         MWBFService *service = [[MWBFService alloc] init];
-        self.jsonArrayByActivity = [service getActivitiesForFriend:friend byActivityFromDate:fromDate toDate:toDate];
-        self.jsonArrayByTime = [service getActivitiesForFriend:friend byTimeFromDate:fromDate toDate:toDate];
+        self.jsonArrayByActivity = [service getActivitiesForFriend:self.selectedFriend byActivityFromDate:fromDate toDate:toDate];
+        self.jsonArrayByTime = [service getActivitiesForFriend:self.selectedFriend byTimeFromDate:fromDate toDate:toDate];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.activityIndicator stopAnimating];
@@ -158,15 +159,16 @@
             self.numberOfRestDays = [Utils getNumberOfRestDaysFromDate:fromDate toDate:toDate withActiveDays:[self.jsonArrayByTime count]];
             
             if ([self.jsonArrayByActivity count] <= 0 )
-                [Utils alertStatus:[NSString stringWithFormat:@"No activity found for %@ for this month",friend.firstName] :@"Ask them to get to work!" :0];
+                [Utils alertStatus:[NSString stringWithFormat:@"No activity found for %@ for this month",self.selectedFriend.firstName] :@"Ask them to get to work!" :0];
             else
-                [self performSegueWithIdentifier:@"FriendDetails" sender:self];
+                [self performSegueWithIdentifier:@"FriendProfile" sender:self];
         });
     });
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    /*
     if ([segue.identifier isEqualToString:@"FriendDetails"] )
     {
         ActivityViewController *controller = [segue destinationViewController];
@@ -175,6 +177,12 @@
         controller.activityDateString = self.activityDate;
         controller.title = self.title;
         controller.numberOfRestDays = self.numberOfRestDays;
+    }
+     */
+    if ([segue.identifier isEqualToString:@"FriendProfile"] )
+    {
+        FriendProfileViewController *controller = [segue destinationViewController];
+        controller.friend = self.selectedFriend;
     }
 }
 
