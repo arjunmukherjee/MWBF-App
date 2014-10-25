@@ -144,6 +144,7 @@
 		91ED786619F8AD9100D58D9E /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ED786519F8AD9100D58D9E /* FriendProfileViewController.m */; };
 		91ED786819F8AFE700D58D9E /* grey-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91ED786719F8AFE700D58D9E /* grey-background.jpg */; };
 		91FAF1DD19F9E63D00655CBE /* UserStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FAF1DC19F9E63D00655CBE /* UserStats.m */; };
+		91FAF1ED19FBFF4900655CBE /* friendStats.png in Resources */ = {isa = PBXBuildFile; fileRef = 91FAF1EC19FBFF4900655CBE /* friendStats.png */; };
 		DDB2196019EF7A8C00190309 /* email-register.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB2195F19EF7A8C00190309 /* email-register.png */; };
 		EC6C4E21FFAA4C6A9C12A6B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429F78ACE8DF4BD8A4A9C08F /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -354,6 +355,7 @@
 		91ED786719F8AFE700D58D9E /* grey-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grey-background.jpg"; sourceTree = "<group>"; };
 		91FAF1DB19F9E63D00655CBE /* UserStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStats.h; sourceTree = "<group>"; };
 		91FAF1DC19F9E63D00655CBE /* UserStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStats.m; sourceTree = "<group>"; };
+		91FAF1EC19FBFF4900655CBE /* friendStats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friendStats.png; sourceTree = "<group>"; };
 		DDB2195F19EF7A8C00190309 /* email-register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-register.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -449,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB2195F19EF7A8C00190309 /* email-register.png */,
+				91FAF1EC19FBFF4900655CBE /* friendStats.png */,
 				91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */,
 				912C417A19D3C0E10096C951 /* wall.png */,
 				912C419D19D503D00096C951 /* appsAndDevices.png */,
@@ -950,6 +953,7 @@
 				912E349319C40EAE00F4745A /* personalBest.png in Resources */,
 				9127FB9619BD1E16001C85D8 /* appIcon152x152.png in Resources */,
 				91CF0ED419A27B17007B668A /* Default-568h@2x.png in Resources */,
+				91FAF1ED19FBFF4900655CBE /* friendStats.png in Resources */,
 				91CAC68E19D11D52006A6C06 /* background-2.png in Resources */,
 				91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */,
 				912C417419D3AA020096C951 /* message-board.png in Resources */,

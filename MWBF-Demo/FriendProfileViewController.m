@@ -25,7 +25,8 @@
 @property (strong,nonatomic) NSString *numberOfRestDays;
 
 @property (weak, nonatomic) IBOutlet UILabel *challengesWonLabel;
-@property (weak, nonatomic) IBOutlet UILabel *activeChallengesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *challengesActiveLabel;
+@property (weak, nonatomic) IBOutlet UILabel *challengesTotalLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *currentWeekLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentMonthLabel;
@@ -55,9 +56,10 @@
 @synthesize friend;
 @synthesize nameLabel;
 @synthesize jsonArrayByActivity,jsonArrayByTime,activityDate,title,numberOfRestDays;
-@synthesize challengesWonLabel,activeChallengesLabel,currentWeekLabel,bestDayLabel,bestWeekLabel,bestMonthLabel,bestYearLabel;
+@synthesize currentWeekLabel,bestDayLabel,bestWeekLabel,bestMonthLabel,bestYearLabel;
 @synthesize bestDayPoints,bestWeekPoints,bestMonthPoints,bestYearPoints;
 @synthesize currentMonthLabel,currentYearLabel;
+@synthesize challengesActiveLabel,challengesTotalLabel,challengesWonLabel;
 
 - (void)viewDidLoad
 {
@@ -82,8 +84,9 @@
     self.currentMonthLabel.text = [NSString stringWithFormat:@"%@ pts",self.friend.stats.currentMonthPoints];
     self.currentYearLabel.text = [NSString stringWithFormat:@"%@ pts",self.friend.stats.currentYearPoints];
     
-    self.activeChallengesLabel.text = [NSString stringWithFormat:@"%@",self.friend.stats.numberOfActiveChallenges];
-    self.challengesWonLabel.text = @"0";
+    self.challengesActiveLabel.text = [NSString stringWithFormat:@"%@",self.friend.stats.numberOfActiveChallenges];
+    self.challengesTotalLabel.text = [NSString stringWithFormat:@"%@",self.friend.stats.numberOfTotalChallenges];
+    self.challengesWonLabel.text = [NSString stringWithFormat:@"%@",self.friend.stats.numberOfWonChallenges];
     
     [self.view bringSubviewToFront:self.currentYearLabel];
     [self.view bringSubviewToFront:self.currentMonthLabel];
@@ -144,7 +147,8 @@
             
             if ([self.jsonArrayByActivity count] <= 0 )
             {
-                [Utils alertStatus:[NSString stringWithFormat:@"No activity found for %@ for this month",self.friend.firstName] :@"Ask them to get to work!" :0];
+                NSString *message = [NSString stringWithFormat:@"No activity found for %@ for this %@",self.friend.firstName,timeInterval];
+                [Utils alertStatus:message :@"Ask them to get to work!" :0];
                 return;
             }
             else

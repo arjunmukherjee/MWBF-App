@@ -403,7 +403,9 @@
             stats.currentMonthPoints = [jsonData[i] objectForKey:@"currentMonthPoints"];
             stats.currentYearPoints = [jsonData[i] objectForKey:@"currentYearPoints"];
             
-            stats.numberOfActiveChallenges = [jsonData[i] objectForKey:@"activeNumberOfChallanges"];
+            stats.numberOfTotalChallenges = [jsonData[i] objectForKey:@"numberOfTotalChallenges"];
+            stats.numberOfActiveChallenges = [jsonData[i] objectForKey:@"numberOfActiveChallenges"];
+            stats.numberOfWonChallenges = [jsonData[i] objectForKey:@"numberOfWonChallenges"];
             
             friend.stats = stats;
             

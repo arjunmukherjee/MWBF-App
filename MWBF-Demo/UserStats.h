@@ -26,7 +26,9 @@
 @property (strong,nonatomic) NSString *bestMonthPoints;
 @property (strong,nonatomic) NSString *bestYearPoints;
 
+@property (strong,nonatomic) NSString *numberOfTotalChallenges;
 @property (strong,nonatomic) NSString *numberOfActiveChallenges;
+@property (strong,nonatomic) NSString *numberOfWonChallenges;
 
 
 @end
