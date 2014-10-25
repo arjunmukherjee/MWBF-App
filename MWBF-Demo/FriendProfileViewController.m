@@ -91,7 +91,6 @@
     [self.view bringSubviewToFront:self.currentYearHeaderLabel];
     [self.view bringSubviewToFront:self.currentMonthHeaderLabel];
     [self.view bringSubviewToFront:self.currentWeekHeaderLabel];
-    
 }
 
 - (void) viewWillAppear:(BOOL)animated

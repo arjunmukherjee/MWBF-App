@@ -37,9 +37,9 @@
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
-    [Utils addLine:self.emailTextField addTop:NO addBottom:YES];
-    [Utils addLine:self.firstNameTextField addTop:NO addBottom:YES];
-    [Utils addLine:self.lastNameTextField addTop:NO addBottom:YES];
+    [Utils addLine:self.emailTextField addTop:NO addBottom:YES withWidth:2 withColor:[UIColor grayColor]];
+    [Utils addLine:self.firstNameTextField addTop:NO addBottom:YES withWidth:2 withColor:[UIColor grayColor]];
+    [Utils addLine:self.lastNameTextField addTop:NO addBottom:YES withWidth:2 withColor:[UIColor grayColor]];
 }
 
 - (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag

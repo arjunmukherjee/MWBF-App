@@ -63,7 +63,7 @@
     [service getRandomQuote];
 }
 
-+ (void) addLine:(UIView *) view addTop:(BOOL) addTopLine addBottom:(BOOL) addBottomLine
++ (void) addLine:(UIView *) view addTop:(BOOL) addTopLine addBottom:(BOOL) addBottomLine withWidth: (NSInteger)width withColor: (UIColor *) color
 {
     CGRect layerFrame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
     CGMutablePathRef path = CGPathCreateMutable();
@@ -79,9 +79,9 @@
     
     CAShapeLayer * line = [CAShapeLayer layer];
     line.path = path;
-    line.lineWidth = 2;
+    line.lineWidth = width;
     line.frame = layerFrame;
-    line.strokeColor = [UIColor grayColor].CGColor;
+    line.strokeColor = color.CGColor;
     [view.layer addSublayer:line];
 }
 
