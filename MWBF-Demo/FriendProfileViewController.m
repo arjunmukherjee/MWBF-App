@@ -10,11 +10,13 @@
 #import "ActivityViewController.h"
 #import "MWBFService.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "Utils.h"
 
 @interface FriendProfileViewController ()
+
+
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *fbProfilePic;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *activitiesButton;
 
 @property (strong,nonatomic) NSArray *jsonArrayByActivity;
 @property (strong,nonatomic) NSArray *jsonArrayByTime;
@@ -24,7 +26,14 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *challengesWonLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activeChallengesLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *currentWeekLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentMonthLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentYearLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *currentWeekHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentMonthHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentYearHeaderLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *bestDayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bestWeekLabel;
@@ -35,16 +44,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *bestMonthPoints;
 @property (weak, nonatomic) IBOutlet UILabel *bestYearPoints;
 
+@property (weak, nonatomic) IBOutlet UIButton *weekActivityButton;
+@property (weak, nonatomic) IBOutlet UIButton *monthActivityButton;
+@property (weak, nonatomic) IBOutlet UIButton *yearActivityButton;
 
 @end
 
 @implementation FriendProfileViewController
 
 @synthesize friend;
-@synthesize nameLabel,activitiesButton;
+@synthesize nameLabel;
 @synthesize jsonArrayByActivity,jsonArrayByTime,activityDate,title,numberOfRestDays;
 @synthesize challengesWonLabel,activeChallengesLabel,currentWeekLabel,bestDayLabel,bestWeekLabel,bestMonthLabel,bestYearLabel;
 @synthesize bestDayPoints,bestWeekPoints,bestMonthPoints,bestYearPoints;
+@synthesize currentMonthLabel,currentYearLabel;
 
 - (void)viewDidLoad
 {
@@ -66,23 +79,48 @@
     self.bestYearPoints.text = [NSString stringWithFormat:@"%@ pts",self.friend.stats.bestYearPoints];
     
     self.currentWeekLabel.text = [NSString stringWithFormat:@"%@ pts",self.friend.stats.currentWeekPoints];
+    self.currentMonthLabel.text = [NSString stringWithFormat:@"%@ pts",self.friend.stats.currentMonthPoints];
+    self.currentYearLabel.text = [NSString stringWithFormat:@"%@ pts",self.friend.stats.currentYearPoints];
     
     self.activeChallengesLabel.text = [NSString stringWithFormat:@"%@",self.friend.stats.numberOfActiveChallenges];
     self.challengesWonLabel.text = @"0";
+    
+    [self.view bringSubviewToFront:self.currentYearLabel];
+    [self.view bringSubviewToFront:self.currentMonthLabel];
+    [self.view bringSubviewToFront:self.currentWeekLabel];
+    [self.view bringSubviewToFront:self.currentYearHeaderLabel];
+    [self.view bringSubviewToFront:self.currentMonthHeaderLabel];
+    [self.view bringSubviewToFront:self.currentWeekHeaderLabel];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    self.navigationItem.rightBarButtonItem = self.activitiesButton;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)activitiesButtonClicked:(id)sender
+- (void)didReceiveMemoryWarning
 {
+    [super didReceiveMemoryWarning];
+}
+
+
+- (IBAction)activityButtonClicked:(UIButton *) button
+{
+    NSString *fromDate = [[NSString alloc] init];
+    NSString *toDate = [[NSString alloc] init];
+    NSString *timeInterval = [[NSString alloc] init];
+    NSString *titleForPage = [[NSString alloc] init];
+    
+    
+    if ( button == self.weekActivityButton )
+        timeInterval = @"week";
+    else if ( button == self.monthActivityButton )
+        timeInterval = @"month";
+    else
+        timeInterval = @"year";
+    
+    [Utils getFromDate:&fromDate toDate:&toDate withTitle:&titleForPage For:timeInterval];
+    self.activityDate = titleForPage;
     self.title = [NSString stringWithFormat:@"%@'s Stats",self.friend.firstName];
     
     // Get the friends activity details
@@ -90,27 +128,10 @@
     [self.activityIndicator startAnimating];
     self.view.userInteractionEnabled = NO;
     
+    
     dispatch_queue_t queue = dispatch_get_global_queue(0,0);
     
     dispatch_async(queue, ^{
-        
-        // Year
-        NSDate *currentTime = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"YYYY"];
-        NSString *year = [dateFormatter stringFromDate: currentTime] ;
-        
-        // Month
-        [dateFormatter setDateFormat:@"MM"];
-        NSInteger monthInteger = [[dateFormatter stringFromDate: currentTime] integerValue];
-        NSString *month  = [Utils getMonthStringFromInt:monthInteger];
-        
-        NSInteger daysInMonth = [Utils getNumberOfDaysInMonth:monthInteger];
-        
-        NSString *fromDate = [NSString stringWithFormat:@"%@ 01, %@ 00:00:01 AM",month,year];
-        NSString *toDate = [NSString stringWithFormat:@"%@ %ld, %@ 11:59:59 PM",month,(long)daysInMonth,year];
-        
-        self.activityDate = [NSString stringWithFormat:@"%@, %@",month,year];
         
         // Get the list of activities from the server
         MWBFService *service = [[MWBFService alloc] init];
@@ -129,13 +150,12 @@
             }
             else
             {
-                NSString *numberOfRestDays = [Utils getNumberOfRestDaysFromDate:fromDate toDate:toDate withActiveDays:[jsonArrayByTime count]];
+                self.numberOfRestDays = [Utils getNumberOfRestDaysFromDate:fromDate toDate:toDate withActiveDays:[jsonArrayByTime count]];
                 [self performSegueWithIdentifier:@"FriendDetails" sender:self];
             }
         });
     });
- 
-    
+
 }
 
 #pragma mark - Navigation

@@ -14,6 +14,9 @@
 
 // STATS
 @property (strong,nonatomic) NSString *currentWeekPoints;
+@property (strong,nonatomic) NSString *currentMonthPoints;
+@property (strong,nonatomic) NSString *currentYearPoints;
+
 @property (strong,nonatomic) NSString *bestDay;
 @property (strong,nonatomic) NSString *bestWeek;
 @property (strong,nonatomic) NSString *bestMonth;

@@ -359,6 +359,68 @@
 
 
 
++ (void) getFromDate:(NSString **)fromDate toDate:(NSString **)toDate withTitle:(NSString **) title For:(NSString *) timeInterval
+{
+    // Year
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY"];
+    NSString *year = [dateFormatter stringFromDate: currentTime] ;
+    
+    // Month
+    [dateFormatter setDateFormat:@"MM"];
+    NSInteger monthInteger = [[dateFormatter stringFromDate: currentTime] integerValue];
+    NSString *month  = [Utils getMonthStringFromInt:monthInteger];
+    
+    if ([timeInterval isEqualToString:@"week"])
+    {
+        *title = @"This week";
+        
+        NSDate *this_start = nil, *this_end = nil;
+        [self startDate:&this_start andEndDate:&this_end ofWeekOn:[NSDate date]];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MMM dd, YYYY"];
+        
+        *fromDate = [dateFormatter stringFromDate: this_start];
+        *toDate = [dateFormatter stringFromDate: this_end];
+        
+        *fromDate = [NSString stringWithFormat:@"%@ 00:00:01 AM",*fromDate];
+        *toDate = [NSString stringWithFormat:@"%@ 11:59:59 PM",*toDate];
+    }
+    else if ([timeInterval isEqualToString:@"month"])
+    {
+        *title = [NSString stringWithFormat:@"%@",month];
+        
+        *fromDate = [NSString stringWithFormat:@"%@ 01, %@ 00:00:01 AM",month,year];
+        *toDate = [NSString stringWithFormat:@"%@ %lu, %@ 11:59:59 PM",month,[Utils getNumberOfDaysInMonth:0],year];
+    }
+    else // YEAR
+    {
+        *title = [NSString stringWithFormat:@"%@",year];
+        
+        *fromDate = [NSString stringWithFormat:@"Jan 01, %@ 00:00:01 AM",year];
+        *toDate = [NSString stringWithFormat:@"Dec 31, %@ 11:59:59 PM",year];
+    }
+    
+}
+
+// Gets the start and end date for a week , given a date in the week
++ (void)startDate:(NSDate **)start andEndDate:(NSDate **)end ofWeekOn:(NSDate *)date
+{
+    NSDate *startDate = nil;
+    NSTimeInterval duration = 0;
+    BOOL b = [[NSCalendar currentCalendar] rangeOfUnit:NSWeekCalendarUnit startDate:&startDate interval:&duration forDate:date];
+    if(! b){
+        *start = nil;
+        *end = nil;
+        return;
+    }
+    NSDate *endDate = [startDate dateByAddingTimeInterval:duration-1];
+    
+    *start = startDate;
+    *end = endDate;
+}
 
 
 @end

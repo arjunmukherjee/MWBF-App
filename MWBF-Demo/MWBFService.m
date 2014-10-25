@@ -400,6 +400,9 @@
             stats.bestYearPoints = [NSString stringWithFormat:@"%0.1f",bestYearPointsFloat];
             
             stats.currentWeekPoints = [jsonData[i] objectForKey:@"currentWeekPoints"];
+            stats.currentMonthPoints = [jsonData[i] objectForKey:@"currentMonthPoints"];
+            stats.currentYearPoints = [jsonData[i] objectForKey:@"currentYearPoints"];
+            
             stats.numberOfActiveChallenges = [jsonData[i] objectForKey:@"activeNumberOfChallanges"];
             
             friend.stats = stats;

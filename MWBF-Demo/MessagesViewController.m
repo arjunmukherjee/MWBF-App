@@ -11,6 +11,7 @@
 #import "ActivityNotificationCell.h"
 #import "ActivityViewController.h"
 #import "Friend.h"
+#import "FriendProfileViewController.h"
 
 
 @interface MessagesViewController ()
@@ -231,34 +232,17 @@
         if (self.selectedFriend == nil)
             [Utils alertStatus:@"Could not find friend" :@"Oops!Something went wrong" :0];
         else
-            [self performSegueWithIdentifier:@"FriendDetails" sender:self];
+            [self performSegueWithIdentifier:@"FriendProfile" sender:self];
     }
 }
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"FriendDetails"] )
+    if ([segue.identifier isEqualToString:@"FriendProfile"] )
     {
-        NSDictionary *returnDict = [Utils getActivityDetailsForFriend:self.selectedFriend];
-        NSArray *jsonArrayByTime = returnDict[@"jsonArrayByTime"];
-        NSArray *jsonArrayByActivity = returnDict[@"jsonArrayByActivity"];
-        NSString *activityDate = returnDict[@"activityDate"];
-        NSString *title = returnDict[@"title"];
-        NSString *numberOfRestDays = returnDict[@"numberOfRestDays"];
-        
-        if ([jsonArrayByActivity count] <= 0 )
-        {
-            [Utils alertStatus:[NSString stringWithFormat:@"No activity found for %@ for this month",self.selectedFriend.firstName] :@"Ask them to get to work!" :0];
-            return;
-        }
-        
-        ActivityViewController *controller = [segue destinationViewController];
-        controller.userActivitiesByTimeJsonArray = jsonArrayByTime;
-        controller.userActivitiesByActivityJsonArray = jsonArrayByActivity;
-        controller.activityDateString = activityDate;
-        controller.title = title;
-        controller.numberOfRestDays = numberOfRestDays;
+        FriendProfileViewController *controller = [segue destinationViewController];
+        controller.friend = self.selectedFriend;
     }
 }
 

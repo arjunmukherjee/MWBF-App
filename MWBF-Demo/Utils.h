@@ -30,16 +30,21 @@
 + (void) convertJsonArrayByTimeToActivityObjectArrayWith:(NSArray*)jsonArray withLabelArray:(NSMutableArray*)labelArray withPointsArray:(NSMutableArray*)pointsArray;
 + (NSMutableArray*) convertJsonArrayByActivityToActivityObjectArrayWith:(NSArray*)jsonArray;
 
-+ (NSString*) getMonthStringFromInt:(NSInteger) monthInt;
 + (void) setMaskTo:(UIView*)view byRoundingCorners:(UIRectCorner)corners;
 + (NSString*) getNumberOfRestDaysFromDate:(NSString *) fromDate toDate:(NSString*) toDate withActiveDays:(NSInteger) numberOfActiveDays;
-+ (NSInteger) getNumberOfDaysInMonth:(NSInteger)monthInt;
 + (void)setRoundedView:(UIView *)roundedView toDiameter:(float)newSize;
-+ (BOOL) isTimeIn24HourFormat:(NSString *) dateString;
-+ (NSString *)changeformatStringTo12hr:(NSString *)date;
 + (NSString *) getImageNameFromMessage:(NSString*)message;
 + (void) changeAbsoluteDateToRelativeDays: (NSMutableArray*) messageList;
 
 + (NSDictionary*)getActivityDetailsForFriend:(Friend *)friend;
+
+// DATE METHODS
++ (void)startDate:(NSDate **)start andEndDate:(NSDate **)end ofWeekOn:(NSDate *)date;
++ (void) getFromDate:(NSString **)fromDate toDate:(NSString **)toDate withTitle:(NSString **) title For:(NSString *) timeInterval;
++ (NSString*) getMonthStringFromInt:(NSInteger) monthInt;
++ (BOOL) isTimeIn24HourFormat:(NSString *) dateString;
++ (NSString *)changeformatStringTo12hr:(NSString *)date;
++ (NSInteger) getNumberOfDaysInMonth:(NSInteger)monthInt;
+
 
 @end

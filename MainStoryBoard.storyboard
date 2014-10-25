@@ -2529,7 +2529,7 @@ activities anymore).</string>
                         <outlet property="randomQuoteLabel" destination="Yhd-1D-123" id="SdZ-40-yUJ"/>
                         <outlet property="yourProgressBar" destination="WaI-fa-nfR" id="ngB-e8-uPP"/>
                         <outlet property="yourProgressLabel" destination="djY-RW-N9y" id="tvj-Sm-uih"/>
-                        <segue destination="EPn-Zb-cx1" kind="push" identifier="FriendDetails" id="uaB-Qj-Lcb"/>
+                        <segue destination="JDi-gT-osO" kind="push" identifier="FriendProfile" id="vgr-12-NhC"/>
                     </connections>
                 </viewController>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This week " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xJ0-aR-VtP">
@@ -2730,12 +2730,12 @@ activities anymore).</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="2Ul-oT-LTo" customClass="FBProfilePictureView">
-                                <rect key="frame" x="23" y="83" width="70" height="77"/>
+                                <rect key="frame" x="19" y="79" width="70" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="btZ-VF-n7V">
-                                <rect key="frame" x="0.0" y="194" width="320" height="1"/>
+                                <rect key="frame" x="0.0" y="221" width="320" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2750,43 +2750,43 @@ activities anymore).</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vS5-fB-IaV">
-                                <rect key="frame" x="123" y="102" width="177" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="vS5-fB-IaV">
+                                <rect key="frame" x="111" y="98" width="191" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenges won " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sfb-II-UKH">
-                                <rect key="frame" x="23" y="215" width="127" height="21"/>
+                                <rect key="frame" x="23" y="235" width="127" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active challenges " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5ob-3F-M8k">
-                                <rect key="frame" x="23" y="259" width="139" height="21"/>
+                                <rect key="frame" x="23" y="268" width="139" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DZL-Sf-haJ">
                                 <rect key="frame" x="23" y="318" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dj5-8Z-gA2">
-                                <rect key="frame" x="200" y="216" width="42" height="21"/>
+                                <rect key="frame" x="200" y="236" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IpR-fH-bMd">
-                                <rect key="frame" x="200" y="260" width="42" height="21"/>
+                                <rect key="frame" x="200" y="269" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2802,7 +2802,7 @@ activities anymore).</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HT5-Xb-zZr">
                                 <rect key="frame" x="23" y="365" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2816,7 +2816,7 @@ activities anymore).</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best month" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zOO-fS-1gi">
                                 <rect key="frame" x="23" y="413" width="89" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2830,7 +2830,7 @@ activities anymore).</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dxp-QX-dsX">
                                 <rect key="frame" x="23" y="461" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2870,14 +2870,78 @@ activities anymore).</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5AD-Vh-IlY">
-                                <rect key="frame" x="123" y="139" width="43" height="21"/>
+                                <rect key="frame" x="32" y="178" width="43" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6wk-42-vNO">
-                                <rect key="frame" x="123" y="154" width="62" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6wk-42-vNO" userLabel="WeekPoints">
+                                <rect key="frame" x="32" y="197" width="62" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qdf-2A-gBW">
+                                <rect key="frame" x="136" y="178" width="43" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UHT-NB-VLk" userLabel="MonthsPoints">
+                                <rect key="frame" x="136" y="197" width="62" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.39999999999999997" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="npz-XE-fxA">
+                                <rect key="frame" x="0.0" y="175" width="105" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="activityButtonClicked:" destination="JDi-gT-osO" eventType="touchUpInside" id="EiX-c4-rSm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.39999999999999997" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5zu-rn-Hdl">
+                                <rect key="frame" x="212" y="175" width="108" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="activityButtonClicked:" destination="JDi-gT-osO" eventType="touchUpInside" id="cn9-ea-BL0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.39999999999999997" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J4v-lv-i35">
+                                <rect key="frame" x="106" y="175" width="105" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="activityButtonClicked:" destination="JDi-gT-osO" eventType="touchUpInside" id="rKe-Dd-vj8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CtX-ed-DuP">
+                                <rect key="frame" x="245" y="178" width="43" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CQB-qO-0Yh" userLabel="Year Points">
+                                <rect key="frame" x="245" y="197" width="62" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2886,16 +2950,9 @@ activities anymore).</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xXT-Af-RBy">
-                        <barButtonItem key="rightBarButtonItem" title="Activities" id="vCb-Sl-Mjp">
-                            <connections>
-                                <action selector="activitiesButtonClicked:" destination="JDi-gT-osO" id="xlt-Tb-LwR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="xXT-Af-RBy"/>
                     <connections>
                         <outlet property="activeChallengesLabel" destination="IpR-fH-bMd" id="vyf-Ui-lEq"/>
-                        <outlet property="activitiesButton" destination="vCb-Sl-Mjp" id="KDo-oz-UkP"/>
                         <outlet property="bestDayLabel" destination="38U-I2-lJW" id="nnj-fy-1Z6"/>
                         <outlet property="bestDayPoints" destination="Fsd-Rr-VCc" id="3V6-8c-sXp"/>
                         <outlet property="bestMonthLabel" destination="bcJ-Bc-DhU" id="mld-KI-Rs2"/>
@@ -2905,9 +2962,17 @@ activities anymore).</string>
                         <outlet property="bestYearLabel" destination="n2B-Pl-IMT" id="RVK-b4-eUs"/>
                         <outlet property="bestYearPoints" destination="Ba3-HL-IG1" id="v1O-MG-5db"/>
                         <outlet property="challengesWonLabel" destination="dj5-8Z-gA2" id="ilF-O4-IJb"/>
-                        <outlet property="currentWeekLabel" destination="6wk-42-vNO" id="hDF-go-FQb"/>
+                        <outlet property="currentMonthHeaderLabel" destination="qdf-2A-gBW" id="DOP-zY-JbB"/>
+                        <outlet property="currentMonthLabel" destination="UHT-NB-VLk" id="ENC-9h-C6V"/>
+                        <outlet property="currentWeekHeaderLabel" destination="5AD-Vh-IlY" id="trd-bA-QPj"/>
+                        <outlet property="currentWeekLabel" destination="6wk-42-vNO" id="3zM-qI-CUR"/>
+                        <outlet property="currentYearHeaderLabel" destination="CtX-ed-DuP" id="YJg-VE-xq3"/>
+                        <outlet property="currentYearLabel" destination="CQB-qO-0Yh" id="jb6-xX-xFX"/>
                         <outlet property="fbProfilePic" destination="2Ul-oT-LTo" id="HDP-dK-pAb"/>
+                        <outlet property="monthActivityButton" destination="J4v-lv-i35" id="d8w-96-Y23"/>
                         <outlet property="nameLabel" destination="vS5-fB-IaV" id="IM4-AG-bPR"/>
+                        <outlet property="weekActivityButton" destination="npz-XE-fxA" id="p6m-gh-19U"/>
+                        <outlet property="yearActivityButton" destination="5zu-rn-Hdl" id="5U4-8p-R8E"/>
                         <segue destination="EPn-Zb-cx1" kind="push" identifier="FriendDetails" id="It8-jh-Nh1"/>
                     </connections>
                 </viewController>
@@ -3089,6 +3154,7 @@ activities anymore).</string>
     <inferredMetricsTieBreakers>
         <segue reference="E5a-mP-1Xm"/>
         <segue reference="hzw-FB-gU0"/>
+        <segue reference="vgr-12-NhC"/>
         <segue reference="It8-jh-Nh1"/>
     </inferredMetricsTieBreakers>
 </document>
