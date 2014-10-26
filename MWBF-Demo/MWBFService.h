@@ -19,7 +19,7 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 - (BOOL) loginFaceBookUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withProfileId:(NSString *)profileId withResponse:(NSString**) response;
 
 // STATS
-- (void) getAllTimeHighs;
+- (void) getUserInfo;
 - (void) getLeaderAllTimeHighs;
 
 // ACTIVITIES
@@ -37,7 +37,7 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byActivityFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byTimeFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
 - (void) getFeed;
-- (void) getWeeklyComparisons;
+
 
 // CHALLENGES
 - (BOOL) addChallenge:(NSString*) post;

@@ -20,12 +20,11 @@
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/friends"
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf/user/friends/activities"
 #define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/friends/feed"
-#define USER_COMPARISONS_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf/user/weeklyComparisons"
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf/user/findFriend"
 #define USER_FIND_FRIEND_V1_ENDPOINT_FORMAT             @"http://localhost:8080/MWBFServer/mwbf/user/v1/findFriends"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://localhost:8080/MWBFServer/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/fbLogin"
-#define USER_HIGHS_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/allTimeHighs"
+#define USER_INFO_ENDPOINT_FORMAT                       @"http://localhost:8080/MWBFServer/mwbf/user/userInfo"
 #define LEADER_HIGHS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/leaderAllTimeHighs"
 #define USER_ADD_ENDPOINT_FORMAT                        @"http://localhost:8080/MWBFServer/mwbf/user/add"
 #define FB_USER_ADD_ENDPOINT_FORMAT                     @"http://localhost:8080/MWBFServer/mwbf/user/fbAdd"
@@ -43,12 +42,11 @@
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf/user/friends"
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/user/friends/activities"
 #define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/friends/feed"
-#define USER_COMPARISONS_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf/user/weeklyComparisons"
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf/user/findFriend"
 #define USER_FIND_FRIEND_V1_ENDPOINT_FORMAT             @"http://mwbf.herokuapp.com/mwbf/user/v1/findFriends"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://mwbf.herokuapp.com/mwbf/user/addFriend"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/fbLogin"
-#define USER_HIGHS_ENDPOINT_FORMAT                      @"http://mwbf.herokuapp.com/mwbf/user/allTimeHighs"
+#define USER_INFO_ENDPOINT_FORMAT                       @"http://mwbf.herokuapp.com/mwbf/user/userInfo"
 #define LEADER_HIGHS_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf/user/leaderAllTimeHighs"
 #define USER_ADD_ENDPOINT_FORMAT                        @"http://mwbf.herokuapp.com/mwbf/user/add"
 #define FB_USER_ADD_ENDPOINT_FORMAT                     @"http://mwbf.herokuapp.com/mwbf/user/fbAdd"
@@ -293,36 +291,6 @@
         NSLog(@"Exception: %@", e);
     }
 }
-
-// Send a request to the server to get the friends activites
-- (void) getWeeklyComparisons
-{
-    User *user = [User getInstance];
-    NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\"}",user.userId];
-    NSURL *url=[NSURL URLWithString:USER_COMPARISONS_ENDPOINT_FORMAT];
-    
-    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
-    NSData *urlData = [service sendPostRequest:post toURL:url];
-    
-    NSError *error = nil;
-    NSDictionary *jsonData;
-    if ( urlData )
-        jsonData = [NSJSONSerialization
-                    JSONObjectWithData:urlData
-                    options:NSJSONReadingMutableContainers
-                    error:&error];
-    
-    user.weeklyPointsUser = jsonData[@"userPoints"];
-    user.weeklyPointsFriendsAverage = jsonData[@"friendsPointsAverage"];
-    user.weeklyPointsLeader = jsonData[@"leaderPoints"];
-    
-    float wkFrAvgPts = [user.weeklyPointsFriendsAverage floatValue];
-    float wkUserPts = [user.weeklyPointsUser floatValue];
-    
-    user.weeklyPointsFriendsAverage = [NSString stringWithFormat:@"%0.1f",wkFrAvgPts];
-    user.weeklyPointsUser = [NSString stringWithFormat:@"%0.1f",wkUserPts];
-}
-
 
 // Send a request to the server to get the users activites for a given date
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byTimeFromDate:(NSString *) fromDate toDate:(NSString*) toDate
@@ -596,54 +564,66 @@
     return NO;
 }
 
-- (void) getAllTimeHighs
+- (void) getUserInfo
 {
     
     User *user = [User getInstance];
     
     NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\"}",user.userId];
-    NSURL *url=[NSURL URLWithString:USER_HIGHS_ENDPOINT_FORMAT];
+    NSURL *url=[NSURL URLWithString:USER_INFO_ENDPOINT_FORMAT];
     
     HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
     NSData *urlData = [service sendPostRequest:post toURL:url];
     
     NSError *error = nil;
-    NSArray *jsonData = [NSJSONSerialization
+    NSDictionary *jsonData = [NSJSONSerialization
                          JSONObjectWithData:urlData
                          options:0
                          error:&error];
     
-    int i = 0;
-    UserStats *stat = [[UserStats alloc] init];
-    for (id key in jsonData)
-    {
-        NSString *date = [key objectForKey:@"date"];
-        NSString *points = [key objectForKey:@"points"];
-        
-        if (i == 0)
-        {
-            stat.bestDay = date;
-            stat.bestDayPoints = points;
-        }
-        else if (i == 1)
-        {
-            stat.bestWeek = date;
-            stat.bestWeekPoints = points;
-        }
-        else if (i == 2)
-        {
-            stat.bestMonth = date;
-            stat.bestMonthPoints = points;
-        }
-        else
-        {
-            stat.bestYear = date;
-            stat.bestYearPoints = points;
-        }
-        
-        i = i + 1;
-    }
-    user.userStats = stat;
+    UserStats *stats = [[UserStats alloc] init];
+    
+    NSDictionary *bestDayDict = [jsonData objectForKey:@"bestDay"];
+    NSDictionary *bestWeekDict = [jsonData objectForKey:@"bestWeek"];
+    NSDictionary *bestMonthDict = [jsonData objectForKey:@"bestMonth"];
+    NSDictionary *bestYearDict = [jsonData objectForKey:@"bestYear"];
+    
+    stats.bestDay = bestDayDict[@"date"];
+    stats.bestWeek = bestWeekDict[@"date"];
+    stats.bestMonth = bestMonthDict[@"date"];
+    stats.bestYear = bestYearDict[@"date"];
+    
+    stats.bestDayPoints = bestDayDict[@"points"];
+    stats.bestWeekPoints = bestWeekDict[@"points"];
+    stats.bestMonthPoints = bestMonthDict[@"points"];
+    stats.bestYearPoints = bestYearDict[@"points"];
+    
+    float bestDayPointsFloat = [stats.bestDayPoints floatValue];
+    stats.bestDayPoints = [NSString stringWithFormat:@"%0.1f",bestDayPointsFloat];
+    
+    float bestWeekPointsFloat = [stats.bestWeekPoints floatValue];
+    stats.bestWeekPoints = [NSString stringWithFormat:@"%0.1f",bestWeekPointsFloat];
+    
+    float bestMonthPointsFloat = [stats.bestMonthPoints floatValue];
+    stats.bestMonthPoints = [NSString stringWithFormat:@"%0.1f",bestMonthPointsFloat];
+    
+    float bestYearPointsFloat = [stats.bestYearPoints floatValue];
+    stats.bestYearPoints = [NSString stringWithFormat:@"%0.1f",bestYearPointsFloat];
+    
+    stats.currentWeekPoints = [jsonData objectForKey:@"currentWeekPoints"];
+    stats.currentMonthPoints = [jsonData objectForKey:@"currentMonthPoints"];
+    stats.currentYearPoints = [jsonData objectForKey:@"currentYearPoints"];
+    
+    stats.numberOfTotalChallenges = [jsonData objectForKey:@"numberOfTotalChallenges"];
+    stats.numberOfActiveChallenges = [jsonData objectForKey:@"numberOfActiveChallenges"];
+    stats.numberOfWonChallenges = [jsonData objectForKey:@"numberOfWonChallenges"];
+    
+    NSDictionary *weeklyComparisons = [jsonData objectForKey:@"weeklyComparisons"];
+    user.weeklyPointsUser = weeklyComparisons[@"userPoints"];
+    user.weeklyPointsFriendsAverage = weeklyComparisons[@"friendsPointsAverage"];
+    user.weeklyPointsLeader = weeklyComparisons[@"leaderPoints"];
+    
+    user.userStats = stats;
 }
 
 - (void) getLeaderAllTimeHighs

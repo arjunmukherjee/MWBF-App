@@ -1,5 +1,5 @@
 //
-//  FriendProfileViewController.h
+//  ProfileViewController.h
 //  MWBF
 //
 //  Created by ARJUN MUKHERJEE on 10/22/14.
@@ -8,8 +8,9 @@
 
 #import "BaseClassViewController.h"
 
-@interface FriendProfileViewController : BaseClassViewController
+@interface ProfileViewController : BaseClassViewController
 
 @property (strong,nonatomic) Friend *friend;
+@property (strong,nonatomic) NSString *pageTitle;
 
 @end

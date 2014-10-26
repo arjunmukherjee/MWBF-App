@@ -11,7 +11,7 @@
 #import "ActivityNotificationCell.h"
 #import "ActivityViewController.h"
 #import "Friend.h"
-#import "FriendProfileViewController.h"
+#import "ProfileViewController.h"
 
 
 @interface MessagesViewController ()
@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *friendsProgressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *leaderProgressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *randomQuoteLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *userProfileButton;
+@property (weak,nonatomic) NSString *pageTitle;
 
 @end
 
@@ -43,6 +45,7 @@
 @synthesize yourProgressBar,friendAverageProgressBar,leaderProgressBar;
 @synthesize yourProgressLabel,friendsProgressLabel,leaderProgressLabel;
 @synthesize randomQuoteLabel;
+@synthesize pageTitle;
 
 - (void)viewDidLoad
 {
@@ -118,6 +121,24 @@
     self.randomQuoteLabel.text = self.user.randomQuote;
 }
 
+- (IBAction) userProfileButtonClicked:(id)sender
+{
+    User *userObj = [User getInstance];
+    Friend *friendObj = [[Friend alloc] init];
+    
+    friendObj.firstName = userObj.firstName;
+    friendObj.lastName = userObj.lastName;
+    friendObj.email = userObj.userEmail;
+    friendObj.stats = userObj.userStats;
+    friendObj.stats.currentWeekPoints = userObj.weeklyPointsUser;
+    friendObj.stats.numberOfTotalChallenges = [NSString stringWithFormat:@"%lu",(unsigned long)[userObj.challengesList count]];
+    friendObj.fbProfileID = userObj.fbProfileID;
+    
+    self.selectedFriend = friendObj;
+    self.pageTitle = @"You";
+    
+    [self performSegueWithIdentifier:@"Profile" sender:self];
+}
 
 - (void) viewDidDisappear:(BOOL)animated
 {
@@ -219,7 +240,7 @@
     id feedItem = [self.user.friendsActivitiesList objectAtIndex:(indexPath.row/2)];
     
     if ([feedItem[@"userId"] isEqualToString:user.userEmail])
-        [Utils alertStatus:@"Use the Stats page, to see details of all your hard work." :@"That's you." :0];
+        [Utils alertStatus:@"Click on the button on the top right of the screen, to see details of all your hard work." :@"That's you." :0];
     else
     {
         for (int i=0; i<[self.user.friendsList count]; i++)
@@ -232,17 +253,21 @@
         if (self.selectedFriend == nil)
             [Utils alertStatus:@"Could not find friend" :@"Oops!Something went wrong" :0];
         else
-            [self performSegueWithIdentifier:@"FriendProfile" sender:self];
+        {
+            self.pageTitle = self.selectedFriend.firstName;
+            [self performSegueWithIdentifier:@"Profile" sender:self];
+        }
     }
 }
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"FriendProfile"] )
+    if ([segue.identifier isEqualToString:@"Profile"] )
     {
-        FriendProfileViewController *controller = [segue destinationViewController];
+        ProfileViewController *controller = [segue destinationViewController];
         controller.friend = self.selectedFriend;
+        controller.pageTitle = self.pageTitle;
     }
 }
 

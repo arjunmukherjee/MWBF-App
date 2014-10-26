@@ -12,9 +12,9 @@
 
 @synthesize userId = _userId;
 @synthesize userEmail = _userEmail;
+@synthesize firstName,lastName;
 @synthesize userName = _userName;
 @synthesize friendsList = _friendsList;
-//@synthesize bestDay,bestWeek,bestMonth,bestYear,bestDayPoints,bestWeekPoints,bestMonthPoints,bestYearPoints;
 @synthesize userStats;
 @synthesize challengesList;
 @synthesize fbProfileID;

@@ -1,18 +1,18 @@
 //
-//  FriendProfileViewController.m
+//  ProfileViewController.m
 //  MWBF
 //
 //  Created by ARJUN MUKHERJEE on 10/22/14.
 //  Copyright (c) 2014 ___Arjun Mukherjee___. All rights reserved.
 //
 
-#import "FriendProfileViewController.h"
+#import "ProfileViewController.h"
 #import "ActivityViewController.h"
 #import "MWBFService.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "Utils.h"
 
-@interface FriendProfileViewController ()
+@interface ProfileViewController ()
 
 
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *fbProfilePic;
@@ -51,7 +51,7 @@
 
 @end
 
-@implementation FriendProfileViewController
+@implementation ProfileViewController
 
 @synthesize friend;
 @synthesize nameLabel;
@@ -60,6 +60,7 @@
 @synthesize bestDayPoints,bestWeekPoints,bestMonthPoints,bestYearPoints;
 @synthesize currentMonthLabel,currentYearLabel;
 @synthesize challengesActiveLabel,challengesTotalLabel,challengesWonLabel;
+@synthesize pageTitle;
 
 - (void)viewDidLoad
 {
@@ -94,6 +95,8 @@
     [self.view bringSubviewToFront:self.currentYearHeaderLabel];
     [self.view bringSubviewToFront:self.currentMonthHeaderLabel];
     [self.view bringSubviewToFront:self.currentWeekHeaderLabel];
+    
+    self.navigationItem.title = self.pageTitle;
 }
 
 - (void) viewWillAppear:(BOOL)animated

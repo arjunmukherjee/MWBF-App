@@ -12,28 +12,11 @@
 #import "MWBFService.h"
 #import <FacebookSDK/FacebookSDK.h>
 
-#define TIME_INDEX 0
+#define LEADER_INDEX 0
 #define ACTIVITY_INDEX 1
 
 @interface PersonalHealthStatsViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *bestDayLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bestMonthLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bestYearLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bestDayPointsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bestMonthPointsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bestYearPointsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bestDayHeader;
-@property (weak, nonatomic) IBOutlet UILabel *bestMonthHeader;
-@property (weak, nonatomic) IBOutlet UILabel *bestYearHeader;
-@property (weak, nonatomic) IBOutlet UILabel *bestWeekHeader;
-@property (weak, nonatomic) IBOutlet UILabel *bestWeekLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bestWeekPointsLabel;
-@property (weak, nonatomic) IBOutlet UIButton *bestDayButton;
-@property (weak, nonatomic) IBOutlet UIButton *bestWeekButton;
-@property (weak, nonatomic) IBOutlet UIButton *bestMonthButton;
-@property (weak, nonatomic) IBOutlet UIButton *bestYearButton;
-@property (weak, nonatomic) IBOutlet UILabel *bestWeekEndLabel;
-@property (weak, nonatomic) IBOutlet UIView *statsByTimeView;
+
 @property (weak, nonatomic) IBOutlet UIView *statsByActivityView;
 @property (weak, nonatomic) IBOutlet UIView *statsByLeaderView;
 
@@ -92,19 +75,14 @@
 
 @implementation PersonalHealthStatsViewController
 
-@synthesize bestDayLabel,bestMonthLabel,bestYearLabel;
-@synthesize bestDayPointsLabel,bestMonthPointsLabel,bestYearPointsLabel,bestWeekLabel,bestWeekPointsLabel;
-@synthesize bestDayHeader,bestWeekHeader,bestMonthHeader,bestYearHeader;
-@synthesize bestDayButton,bestMonthButton,bestWeekButton,bestYearButton;
 @synthesize title;
 
 @synthesize userActivitiesArrayByActivity,userActivitiesArrayByTime,activityDate,numberOfRestDays;
 @synthesize bestDay,bestDayMonth,bestDayYear;
 @synthesize bestMonth,bestMonthYear;
-@synthesize bestWeekEndLabel;
 @synthesize bestWeekFromDay,bestWeekFromMonth,bestWeekFromYear,bestWeekToDay,bestWeekToMonth,bestWeekToYear;
 
-@synthesize statsByTimeView,statsSelector;
+@synthesize statsSelector;
 @synthesize statsByActivityView,statsByLeaderView;
 
 // LEADER
@@ -130,27 +108,15 @@
 {
     [self loadData];
     
-    self.statsByTimeView.hidden = NO;
     self.statsByActivityView.hidden = YES;
-    self.statsByLeaderView.hidden = YES;
+    self.statsByLeaderView.hidden = NO;
     
-    self.statsSelector.selectedSegmentIndex = TIME_INDEX;
+    self.statsSelector.selectedSegmentIndex = LEADER_INDEX;
 }
 
 - (void) loadData
 {
     User *user = [User getInstance];
-    
-    // SELF
-    self.bestDayLabel.text = [NSString stringWithFormat:@"%@",user.userStats.bestDay];
-    self.bestWeekLabel.text = [NSString stringWithFormat:@"%@",user.userStats.bestWeek];
-    self.bestMonthLabel.text = [NSString stringWithFormat:@"%@",user.userStats.bestMonth];
-    self.bestYearLabel.text = [NSString stringWithFormat:@"%@",user.userStats.bestYear];
-    
-    self.bestDayPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.userStats.bestDayPoints];
-    self.bestWeekPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.userStats.bestWeekPoints];
-    self.bestMonthPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.userStats.bestMonthPoints];
-    self.bestYearPointsLabel.text = [NSString stringWithFormat:@"%@ pts",user.userStats.bestYearPoints];
     
     // LEADER
     self.leaderBestDayLabel.text = [NSString stringWithFormat:@"%@",user.bestDayLeader];
@@ -198,11 +164,6 @@
     [Utils setRoundedView:self.leaderBestMonthFriendPic toDiameter:22];
     [Utils setRoundedView:self.leaderBestYearFriendPic toDiameter:22];
     
-    [Utils setMaskTo:bestDayHeader byRoundingCorners:UIRectCornerAllCorners];
-    [Utils setMaskTo:bestWeekHeader byRoundingCorners:UIRectCornerAllCorners];
-    [Utils setMaskTo:bestMonthHeader byRoundingCorners:UIRectCornerAllCorners];
-    [Utils setMaskTo:bestYearHeader byRoundingCorners:UIRectCornerAllCorners];
-    
     [Utils setMaskTo:leaderBestDayHeader byRoundingCorners:UIRectCornerAllCorners];
     [Utils setMaskTo:leaderBestWeekHeader byRoundingCorners:UIRectCornerAllCorners];
     [Utils setMaskTo:leaderBestMonthHeader byRoundingCorners:UIRectCornerAllCorners];
@@ -211,44 +172,12 @@
     
     // SELF
     // BEST DAY
-    if ([self.bestDayLabel.text length] > 2)
+    if ([self.leaderBestDayLabel.text length] > 2)
     {
-        NSArray *tempArray = [self.bestDayLabel.text componentsSeparatedByString:@","];
-        NSArray *tempArray1 = [tempArray[0] componentsSeparatedByString:@" "];
-        self.bestDay = tempArray1[1];
-        self.bestDayMonth = tempArray1[0];
-        self.bestDayYear = tempArray[1];
-        
-        // BEST WEEK
-        tempArray = [user.userStats.bestWeek componentsSeparatedByString:@"-"];
-        if ( (tempArray != nil) && ( [tempArray count] > 0) )
-        {
-            self.bestWeekLabel.text = tempArray[0];
-            self.bestWeekEndLabel.text = tempArray[1];
-            
-            tempArray1 = [tempArray[0] componentsSeparatedByString:@","];
-            NSArray *tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
-            
-            self.bestWeekFromMonth = tempArray2[0];
-            self.bestWeekFromDay = tempArray2[1];
-            self.bestWeekFromYear = tempArray1[1];
-         
-            tempArray1 = [tempArray[1] componentsSeparatedByString:@","];
-            tempArray2 = [tempArray1[0] componentsSeparatedByString:@" "];
-            self.bestWeekToMonth = tempArray2[0];
-            self.bestWeekToDay = tempArray2[1];
-            self.bestWeekToYear = tempArray1[1];
-        }
-        
-        // BEST MONTH
-        tempArray = [self.bestMonthLabel.text componentsSeparatedByString:@","];
-        self.bestMonth = tempArray[0];
-        self.bestMonthYear = tempArray[1];
-        
         // LEADER
         // BEST DAY
-        tempArray = [self.leaderBestDayLabel.text componentsSeparatedByString:@","];
-        tempArray1 = [tempArray[0] componentsSeparatedByString:@" "];
+        NSArray *tempArray = [self.leaderBestDayLabel.text componentsSeparatedByString:@","];
+        NSArray *tempArray1 = [tempArray[0] componentsSeparatedByString:@" "];
         self.leaderBestDay = tempArray1[1];
         self.leaderBestDayMonth = tempArray1[0];
         self.leaderBestDayYear = tempArray[1];
@@ -281,10 +210,10 @@
     }
     else
     {
-        self.bestDayButton.enabled = NO;
-        self.bestWeekButton.enabled = NO;
-        self.bestMonthButton.enabled = NO;
-        self.bestYearButton.enabled = NO;
+        self.leaderBestDayButton.enabled = NO;
+        self.leaderBestWeekButton.enabled = NO;
+        self.leaderBestMonthButton.enabled = NO;
+        self.leaderBestYearButton.enabled = NO;
     }
 }
 - (IBAction)personalStatsButtonClicked:(id) sender
@@ -294,54 +223,7 @@
     Friend *leader = nil;
     User *user = [User getInstance];
     
-    if (sender == self.bestDayButton)
-    {
-        self.title = @"Your best day";
-        self.activityDate = self.bestDayLabel.text;
-        fromDay = self.bestDay;
-        toDay = self.bestDay;
-        fromMonth = self.bestDayMonth;
-        toMonth = self.bestDayMonth;
-        fromYear = self.bestDayYear;
-        toYear = fromYear;
-    }
-    else if (sender == self.bestWeekButton)
-    {
-        self.title = @"Your best week";
-        self.activityDate = [NSString stringWithFormat:@"Week of %@",self.bestWeekLabel.text];
-        
-        fromDay = self.bestWeekFromDay;
-        toDay = self.bestWeekToDay;
-        fromMonth = self.bestWeekFromMonth;
-        toMonth = self.bestWeekToMonth;
-        fromYear = self.bestWeekFromYear;
-        toYear = self.bestWeekToYear;
-    }
-    else if (sender == self.bestMonthButton)
-    {
-        self.title = @"Your best month";
-        self.activityDate = self.bestMonthLabel.text;
-        
-        fromDay = @"1";
-        toDay = @"31";
-        fromMonth = self.bestMonth;
-        toMonth = self.bestMonth;
-        fromYear = self.bestMonthYear;
-        toYear = fromYear;
-    }
-    else if (sender == self.bestYearButton)
-    {
-        self.title = @"Your best year";
-        self.activityDate = self.bestYearLabel.text;
-        
-        fromDay = @"1";
-        toDay = @"31";
-        fromMonth = @"Jan";
-        toMonth = @"Dec";
-        fromYear = self.bestYearLabel.text;
-        toYear = fromYear;
-    }
-    else if (sender == self.leaderBestDayButton)
+    if (sender == self.leaderBestDayButton)
     {
         leader = user.dayLeader;
         self.title = [NSString stringWithFormat:@"%@'s best day",leader.firstName];
@@ -357,7 +239,7 @@
     else if (sender == self.leaderBestWeekButton)
     {
         leader = user.weekLeader;
-        self.activityDate = [NSString stringWithFormat:@"Week of %@",self.bestWeekLabel.text];
+        self.activityDate = [NSString stringWithFormat:@"Week of %@",self.leaderBestWeekStartLabel.text];
         self.title = [NSString stringWithFormat:@"%@'s best week",leader.firstName];
         
         fromDay = self.leaderBestWeekFromDay;
@@ -370,7 +252,7 @@
     else if (sender == self.leaderBestMonthButton)
     {
         leader = user.monthLeader;
-        self.activityDate = self.bestMonthLabel.text;
+        self.activityDate = self.leaderBestMonthLabel.text;
         self.title = [NSString stringWithFormat:@"%@'s best month",leader.firstName];
         
         fromDay = @"1";
@@ -383,7 +265,7 @@
     else
     {
         leader = user.yearLeader;
-        self.activityDate = self.bestYearLabel.text;
+        self.activityDate = self.leaderBestYearLabel.text;
         self.title = [NSString stringWithFormat:@"%@'s best year",leader.firstName];
         
         fromDay = @"1";
@@ -402,23 +284,15 @@
 
 - (IBAction)segmentedControlClicked
 {
-    if (self.statsSelector.selectedSegmentIndex == TIME_INDEX)
+    if (self.statsSelector.selectedSegmentIndex == LEADER_INDEX)
     {
-        self.statsByTimeView.hidden = NO;
-        self.statsByActivityView.hidden = YES;
-        self.statsByLeaderView.hidden = YES;
-    }
-    else if (self.statsSelector.selectedSegmentIndex == ACTIVITY_INDEX)
-    {
-        self.statsByTimeView.hidden = YES;
-        self.statsByActivityView.hidden = NO;
-        self.statsByLeaderView.hidden = YES;
-    }
-    else // Leader
-    {
-        self.statsByTimeView.hidden = YES;
         self.statsByActivityView.hidden = YES;
         self.statsByLeaderView.hidden = NO;
+    }
+    else
+    {
+        self.statsByActivityView.hidden = NO;
+        self.statsByLeaderView.hidden = YES;
     }
 }
 

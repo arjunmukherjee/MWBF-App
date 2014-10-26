@@ -141,10 +141,11 @@
 		91DB0428199C7AC1000014A7 /* icn_menu_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB0427199C7AC1000014A7 /* icn_menu_20.png */; };
 		91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */; };
 		91ED786319F4BD8900D58D9E /* crossTrainingBonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 91ED786219F4BD8900D58D9E /* crossTrainingBonus.png */; };
-		91ED786619F8AD9100D58D9E /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ED786519F8AD9100D58D9E /* FriendProfileViewController.m */; };
+		91ED786619F8AD9100D58D9E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ED786519F8AD9100D58D9E /* ProfileViewController.m */; };
 		91ED786819F8AFE700D58D9E /* grey-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91ED786719F8AFE700D58D9E /* grey-background.jpg */; };
 		91FAF1DD19F9E63D00655CBE /* UserStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FAF1DC19F9E63D00655CBE /* UserStats.m */; };
-		91FAF1ED19FBFF4900655CBE /* friendStats.png in Resources */ = {isa = PBXBuildFile; fileRef = 91FAF1EC19FBFF4900655CBE /* friendStats.png */; };
+		91FAF1FB19FD5CB800655CBE /* userProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = 91FAF1FA19FD5CB800655CBE /* userProfile.png */; };
+		91FAF20119FD628F00655CBE /* userStats.png in Resources */ = {isa = PBXBuildFile; fileRef = 91FAF20019FD628F00655CBE /* userStats.png */; };
 		DDB2196019EF7A8C00190309 /* email-register.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB2195F19EF7A8C00190309 /* email-register.png */; };
 		EC6C4E21FFAA4C6A9C12A6B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429F78ACE8DF4BD8A4A9C08F /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -350,12 +351,13 @@
 		91DB0427199C7AC1000014A7 /* icn_menu_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icn_menu_20.png; sourceTree = "<group>"; };
 		91DB042E199C7EB8000014A7 /* AppIcon560x60_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon560x60_2x.png; sourceTree = "<group>"; };
 		91ED786219F4BD8900D58D9E /* crossTrainingBonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crossTrainingBonus.png; sourceTree = "<group>"; };
-		91ED786419F8AD9100D58D9E /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendProfileViewController.h; sourceTree = "<group>"; };
-		91ED786519F8AD9100D58D9E /* FriendProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendProfileViewController.m; sourceTree = "<group>"; };
+		91ED786419F8AD9100D58D9E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		91ED786519F8AD9100D58D9E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		91ED786719F8AFE700D58D9E /* grey-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grey-background.jpg"; sourceTree = "<group>"; };
 		91FAF1DB19F9E63D00655CBE /* UserStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStats.h; sourceTree = "<group>"; };
 		91FAF1DC19F9E63D00655CBE /* UserStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStats.m; sourceTree = "<group>"; };
-		91FAF1EC19FBFF4900655CBE /* friendStats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friendStats.png; sourceTree = "<group>"; };
+		91FAF1FA19FD5CB800655CBE /* userProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userProfile.png; sourceTree = "<group>"; };
+		91FAF20019FD628F00655CBE /* userStats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userStats.png; sourceTree = "<group>"; };
 		DDB2195F19EF7A8C00190309 /* email-register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-register.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -451,14 +453,15 @@
 			isa = PBXGroup;
 			children = (
 				DDB2195F19EF7A8C00190309 /* email-register.png */,
-				91FAF1EC19FBFF4900655CBE /* friendStats.png */,
 				91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */,
 				912C417A19D3C0E10096C951 /* wall.png */,
 				912C419D19D503D00096C951 /* appsAndDevices.png */,
+				91FAF20019FD628F00655CBE /* userStats.png */,
 				91CECA3319EA12360052AA8C /* go-next.png */,
 				912C419519D501FE0096C951 /* pointsScheme.png */,
 				912C419919D502C50096C951 /* about.png */,
 				912C419119D500F50096C951 /* notifications.png */,
+				91FAF1FA19FD5CB800655CBE /* userProfile.png */,
 				91ED786719F8AFE700D58D9E /* grey-background.jpg */,
 				912C418219D4FCB40096C951 /* settings.png */,
 				912C418B19D4FF620096C951 /* personalBestIcon.png */,
@@ -542,8 +545,8 @@
 				91CF0EEA19A2FB97007B668A /* FriendsListViewController.m */,
 				91CF0EE419A2F2D6007B668A /* AddFriendViewController.h */,
 				91CF0EE519A2F2D6007B668A /* AddFriendViewController.m */,
-				91ED786419F8AD9100D58D9E /* FriendProfileViewController.h */,
-				91ED786519F8AD9100D58D9E /* FriendProfileViewController.m */,
+				91ED786419F8AD9100D58D9E /* ProfileViewController.h */,
+				91ED786519F8AD9100D58D9E /* ProfileViewController.m */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 				91B239C719CBC1A700601E7F /* runIcon.png in Resources */,
 				915B423F19ABE73700DC79FE /* default.plist in Resources */,
 				91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */,
+				91FAF20119FD628F00655CBE /* userStats.png in Resources */,
 				915B426819AC0CD500DC79FE /* calendar3.png in Resources */,
 				919EE996198DCD4100F12411 /* facebook2.png in Resources */,
 				912C419619D501FE0096C951 /* pointsScheme.png in Resources */,
@@ -950,10 +954,10 @@
 				91ED786819F8AFE700D58D9E /* grey-background.jpg in Resources */,
 				91CECA3419EA12370052AA8C /* go-next.png in Resources */,
 				91B28A3019CE23CA00CC2E24 /* ellipticalIcon.png in Resources */,
+				91FAF1FB19FD5CB800655CBE /* userProfile.png in Resources */,
 				912E349319C40EAE00F4745A /* personalBest.png in Resources */,
 				9127FB9619BD1E16001C85D8 /* appIcon152x152.png in Resources */,
 				91CF0ED419A27B17007B668A /* Default-568h@2x.png in Resources */,
-				91FAF1ED19FBFF4900655CBE /* friendStats.png in Resources */,
 				91CAC68E19D11D52006A6C06 /* background-2.png in Resources */,
 				91CF0E6119A10A3E007B668A /* 24-feedback_icon.gif in Resources */,
 				912C417419D3AA020096C951 /* message-board.png in Resources */,
@@ -1032,7 +1036,7 @@
 				918D5EE519909E5100597147 /* ChallengeViewController.m in Sources */,
 				919EE963198BEBB700F12411 /* User.m in Sources */,
 				912C417719D3B2140096C951 /* NotificationsViewController.m in Sources */,
-				91ED786619F8AD9100D58D9E /* FriendProfileViewController.m in Sources */,
+				91ED786619F8AD9100D58D9E /* ProfileViewController.m in Sources */,
 				918F693819886CE300776052 /* LogActivityViewController.m in Sources */,
 				918F695A198B080A00776052 /* UserActivity.m in Sources */,
 				912C418019D4FB5B0096C951 /* SettingsViewController.m in Sources */,

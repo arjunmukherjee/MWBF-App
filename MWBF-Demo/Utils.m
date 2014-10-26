@@ -44,17 +44,14 @@
     // Get the list of friends
     [service getFriendsList];
     
-    // Get the all time highs
-    [service getAllTimeHighs];
+    // Get all the users info, including the stats
+    [service getUserInfo];
     
     // Get the leaders all time highs
     [service getLeaderAllTimeHighs];
     
     // Get the activities for all the users friends
     [service getFeed];
-    
-    // Get the weekly comparisons between the user and his/her friends
-    [service getWeeklyComparisons];
     
     // Get all the challenges the user is involved in
     [service getChallenges];

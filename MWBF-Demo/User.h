@@ -15,6 +15,8 @@
 @property (strong,nonatomic) NSString *userId;
 @property (strong,nonatomic) NSString *userEmail;
 @property (strong,nonatomic) NSString *userName;
+@property (strong,nonatomic) NSString *firstName;
+@property (strong,nonatomic) NSString *lastName;
 @property (strong,nonatomic) NSMutableArray *friendsList;
 @property (strong,nonatomic) NSString *fbProfileID;
 
@@ -22,16 +24,6 @@
 @property (strong,nonatomic) NSMutableArray *challengesList;
 
 // STATS
-/*
-@property (strong,nonatomic) NSString *bestDay;
-@property (strong,nonatomic) NSString *bestWeek;
-@property (strong,nonatomic) NSString *bestMonth;
-@property (strong,nonatomic) NSString *bestYear;
-@property (strong,nonatomic) NSString *bestDayPoints;
-@property (strong,nonatomic) NSString *bestWeekPoints;
-@property (strong,nonatomic) NSString *bestMonthPoints;
-@property (strong,nonatomic) NSString *bestYearPoints;
- */
 @property (strong,nonatomic) UserStats *userStats;
 
 // Weekly Comparisons

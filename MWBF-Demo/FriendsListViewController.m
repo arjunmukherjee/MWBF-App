@@ -12,7 +12,7 @@
 #import "Friend.h"
 #import "FriendCell.h"
 #import "MWBFService.h"
-#import "FriendProfileViewController.h"
+#import "ProfileViewController.h"
 
 
 @interface FriendsListViewController ()
@@ -114,7 +114,7 @@
 {
     if ([segue.identifier isEqualToString:@"FriendProfile"] )
     {
-        FriendProfileViewController *controller = [segue destinationViewController];
+        ProfileViewController *controller = [segue destinationViewController];
         controller.friend = self.selectedFriend;
     }
 }

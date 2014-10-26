@@ -173,6 +173,8 @@
             user.userEmail = fbUser[@"email"];
             user.userId = fbUser[@"email"];
             user.userName = [NSString stringWithFormat:@"%@ %@",[fbUser first_name],[fbUser last_name]];
+            user.firstName = [fbUser first_name];
+            user.lastName = [fbUser last_name];
             
             user.fbProfileID = fbUser.objectID;
             self.fbSuccess = YES;

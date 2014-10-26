@@ -1605,7 +1605,7 @@ You may :
             </objects>
             <point key="canvasLocation" x="539" y="1995"/>
         </scene>
-        <!--Personal Best-->
+        <!--Stats-->
         <scene sceneID="qae-cn-EJI">
             <objects>
                 <viewController id="s8L-IH-iWg" customClass="PersonalHealthStatsViewController" sceneMemberID="viewController">
@@ -1617,156 +1617,13 @@ You may :
                                 <rect key="frame" x="60" y="78" width="179" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Time"/>
-                                    <segment title="Activity"/>
                                     <segment title="Friends"/>
+                                    <segment title="Activity"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlClicked" destination="s8L-IH-iWg" eventType="valueChanged" id="f7T-6g-yKc"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" id="qRv-fE-91N" userLabel="Time View">
-                                <rect key="frame" x="0.0" y="124" width="320" height="362"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YkN-QF-j6C">
-                                        <rect key="frame" x="27" y="121" width="266" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jLB-pC-k1t">
-                                        <rect key="frame" x="34" y="146" width="141" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6QU-Ca-uWV">
-                                        <rect key="frame" x="34" y="166" width="141" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SSe-dF-Cbo">
-                                        <rect key="frame" x="155" y="146" width="92" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b8i-U6-z0P">
-                                        <rect key="frame" x="27" y="38" width="266" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9HO-bq-gbI">
-                                        <rect key="frame" x="34" y="63" width="107" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dNC-ew-h04">
-                                        <rect key="frame" x="155" y="63" width="92" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Owa-Xr-zD4">
-                                        <rect key="frame" x="270" y="63" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="go-next.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="personalStatsButtonClicked:" destination="s8L-IH-iWg" eventType="touchUpInside" id="1NX-9F-beN"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mYK-nO-Y8E">
-                                        <rect key="frame" x="270" y="146" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="go-next.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="personalStatsButtonClicked:" destination="s8L-IH-iWg" eventType="touchUpInside" id="bZT-Q2-bhk"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pLH-Ly-Cbt">
-                                        <rect key="frame" x="27" y="280" width="266" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w1A-ac-auc">
-                                        <rect key="frame" x="34" y="302" width="107" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dir-CI-7e4">
-                                        <rect key="frame" x="155" y="302" width="92" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HIh-Rf-qGn">
-                                        <rect key="frame" x="27" y="206" width="266" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CdK-wY-SAA">
-                                        <rect key="frame" x="34" y="229" width="107" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wzI-E7-3j2">
-                                        <rect key="frame" x="155" y="229" width="92" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fKX-iw-tSF">
-                                        <rect key="frame" x="270" y="302" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="go-next.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="personalStatsButtonClicked:" destination="s8L-IH-iWg" eventType="touchUpInside" id="KJW-gH-jmK"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LM9-su-yqp">
-                                        <rect key="frame" x="270" y="229" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="go-next.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="personalStatsButtonClicked:" destination="s8L-IH-iWg" eventType="touchUpInside" id="539-3s-fzf"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" id="BI3-rq-65Z" userLabel="Activity View">
                                 <rect key="frame" x="0.0" y="124" width="320" height="362"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1975,25 +1832,8 @@ You may :
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Personal Best" id="C6C-2c-Fe8"/>
+                    <navigationItem key="navigationItem" title="Stats" id="C6C-2c-Fe8"/>
                     <connections>
-                        <outlet property="bestDayButton" destination="Owa-Xr-zD4" id="oGX-4t-SI9"/>
-                        <outlet property="bestDayHeader" destination="b8i-U6-z0P" id="aSa-fO-IU8"/>
-                        <outlet property="bestDayLabel" destination="9HO-bq-gbI" id="QIw-5e-JYc"/>
-                        <outlet property="bestDayPointsLabel" destination="dNC-ew-h04" id="SWH-RL-SUm"/>
-                        <outlet property="bestMonthButton" destination="LM9-su-yqp" id="jCJ-DK-4m4"/>
-                        <outlet property="bestMonthHeader" destination="HIh-Rf-qGn" id="Yku-34-FRM"/>
-                        <outlet property="bestMonthLabel" destination="CdK-wY-SAA" id="ZEQ-v5-0sz"/>
-                        <outlet property="bestMonthPointsLabel" destination="wzI-E7-3j2" id="kv1-QE-SIk"/>
-                        <outlet property="bestWeekButton" destination="mYK-nO-Y8E" id="Szf-wQ-PdE"/>
-                        <outlet property="bestWeekEndLabel" destination="6QU-Ca-uWV" id="EbS-2k-giv"/>
-                        <outlet property="bestWeekHeader" destination="YkN-QF-j6C" id="mMD-MC-xM2"/>
-                        <outlet property="bestWeekLabel" destination="jLB-pC-k1t" id="wkE-6L-z7G"/>
-                        <outlet property="bestWeekPointsLabel" destination="SSe-dF-Cbo" id="dFj-iD-RTc"/>
-                        <outlet property="bestYearButton" destination="fKX-iw-tSF" id="pDS-HT-PFH"/>
-                        <outlet property="bestYearHeader" destination="pLH-Ly-Cbt" id="TNe-iY-FtG"/>
-                        <outlet property="bestYearLabel" destination="w1A-ac-auc" id="GJj-b5-Rra"/>
-                        <outlet property="bestYearPointsLabel" destination="Dir-CI-7e4" id="yok-Pu-cN0"/>
                         <outlet property="leaderBestDayButton" destination="eT3-Y1-e0q" id="Bhf-0i-tsr"/>
                         <outlet property="leaderBestDayFriendNameLabel" destination="Ukx-5o-wXK" id="ZAR-6e-mOL"/>
                         <outlet property="leaderBestDayFriendPic" destination="FL9-ZM-wAr" id="wd3-Ps-3BD"/>
@@ -2021,7 +1861,6 @@ You may :
                         <outlet property="leaderBestYearPointsLabel" destination="HqV-SP-XOq" id="imX-jS-Pnu"/>
                         <outlet property="statsByActivityView" destination="BI3-rq-65Z" id="aTT-BQ-fzA"/>
                         <outlet property="statsByLeaderView" destination="GZQ-d5-IAq" id="YGu-Hy-tAH"/>
-                        <outlet property="statsByTimeView" destination="qRv-fE-91N" id="vwF-n0-CdF"/>
                         <outlet property="statsSelector" destination="1y5-Cc-NW3" id="Ui2-wz-Uf6"/>
                         <segue destination="EPn-Zb-cx1" kind="push" identifier="UserActivities" id="cBP-Lf-BHj"/>
                     </connections>
@@ -2519,7 +2358,13 @@ activities anymore).</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Wall" id="8OB-Gg-yvr"/>
+                    <navigationItem key="navigationItem" title="Wall" id="8OB-Gg-yvr">
+                        <barButtonItem key="rightBarButtonItem" image="userProfile.png" id="hFk-WM-Wya">
+                            <connections>
+                                <action selector="userProfileButtonClicked:" destination="faK-iw-DhU" id="3fv-PU-2nQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activitiesBoardTable" destination="DXB-RM-sXd" id="Ewz-BW-Kah"/>
                         <outlet property="friendAverageProgressBar" destination="Utl-ZY-nKD" id="q1t-g7-HEo"/>
@@ -2527,9 +2372,10 @@ activities anymore).</string>
                         <outlet property="leaderProgressBar" destination="vdA-pA-dzW" id="zUV-Nk-kFr"/>
                         <outlet property="leaderProgressLabel" destination="ssO-7X-Rqu" id="BeJ-ay-A7C"/>
                         <outlet property="randomQuoteLabel" destination="Yhd-1D-123" id="SdZ-40-yUJ"/>
+                        <outlet property="userProfileButton" destination="hFk-WM-Wya" id="WvX-Tn-iDT"/>
                         <outlet property="yourProgressBar" destination="WaI-fa-nfR" id="ngB-e8-uPP"/>
                         <outlet property="yourProgressLabel" destination="djY-RW-N9y" id="tvj-Sm-uih"/>
-                        <segue destination="JDi-gT-osO" kind="push" identifier="FriendProfile" id="vgr-12-NhC"/>
+                        <segue destination="JDi-gT-osO" kind="push" identifier="Profile" id="vgr-12-NhC"/>
                     </connections>
                 </viewController>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This week " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xJ0-aR-VtP">
@@ -2719,12 +2565,12 @@ activities anymore).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibk-Oh-uV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4831" y="1985"/>
+            <point key="canvasLocation" x="4825" y="2087"/>
         </scene>
-        <!--Friend Profile View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="HmR-kK-Ffn">
             <objects>
-                <viewController id="JDi-gT-osO" customClass="FriendProfileViewController" sceneMemberID="viewController">
+                <viewController id="JDi-gT-osO" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lab-ML-PXZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2889,8 +2735,8 @@ activities anymore).</string>
                                     <action selector="activityButtonClicked:" destination="JDi-gT-osO" eventType="touchUpInside" id="rKe-Dd-vj8"/>
                                 </connections>
                             </button>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friendStats.png" id="Ufv-in-Bk8">
-                                <rect key="frame" x="197" y="188" width="14" height="10"/>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userStats.png" id="hNt-kJ-Zmv">
+                                <rect key="frame" x="202" y="188" width="10" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" userInteractionEnabled="NO" alpha="0.3000000059604645" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sm1-Pg-Lf8" userLabel="Total Challenges Button">
@@ -2976,12 +2822,12 @@ activities anymore).</string>
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friendStats.png" id="4bR-fS-vgj">
-                                <rect key="frame" x="91" y="188" width="14" height="10"/>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" alpha="0.64999999999999969" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userStats.png" id="4bR-fS-vgj">
+                                <rect key="frame" x="96" y="188" width="10" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friendStats.png" id="c0E-hc-ywc">
-                                <rect key="frame" x="306" y="188" width="14" height="10"/>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userStats.png" id="5Px-Ad-RHO">
+                                <rect key="frame" x="310" y="188" width="10" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -3016,7 +2862,7 @@ activities anymore).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baI-wh-OO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4668" y="873"/>
+            <point key="canvasLocation" x="4546" y="1318"/>
         </scene>
         <!--Friends-->
         <scene sceneID="71W-of-f3l">
@@ -3097,11 +2943,11 @@ activities anymore).</string>
             </objects>
             <point key="canvasLocation" x="2468" y="3524"/>
         </scene>
-        <!--Personal Best-->
+        <!--Stats-->
         <scene sceneID="6a6-yl-f1A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R4D-xB-dQo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Personal Best" image="personalBestIcon.png" id="PsC-Bz-RQb"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="personalBestIcon.png" id="PsC-Bz-RQb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VY9-XD-7oh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -3172,7 +3018,6 @@ activities anymore).</string>
         <image name="background.jpg" width="800" height="584"/>
         <image name="calendar3.png" width="502" height="502"/>
         <image name="email-register.png" width="48" height="48"/>
-        <image name="friendStats.png" width="16" height="16"/>
         <image name="friends-32.png" width="32" height="32"/>
         <image name="go-next.png" width="32" height="32"/>
         <image name="goRight1.png" width="120" height="120"/>
@@ -3183,6 +3028,8 @@ activities anymore).</string>
         <image name="search_08_256.png" width="256" height="256"/>
         <image name="settings.png" width="32" height="32"/>
         <image name="trophy.png" width="128" height="128"/>
+        <image name="userProfile.png" width="24" height="24"/>
+        <image name="userStats.png" width="128" height="128"/>
         <image name="wall.png" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -3194,6 +3041,6 @@ activities anymore).</string>
         <segue reference="E5a-mP-1Xm"/>
         <segue reference="hzw-FB-gU0"/>
         <segue reference="vgr-12-NhC"/>
-        <segue reference="It8-jh-Nh1"/>
+        <segue reference="cBP-Lf-BHj"/>
     </inferredMetricsTieBreakers>
 </document>
