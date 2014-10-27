@@ -76,7 +76,7 @@
     MWBFService *service = [[MWBFService alloc] init];
     
     [self.searchResults removeAllObjects];
-    NSMutableArray *tempSearchResults = [service findFriendV1WithId:self.friendIdTextField.text];
+    NSMutableArray *tempSearchResults = [service findFriendWithId:self.friendIdTextField.text];
     
     // Remove all friends from the search results that are already the user's friends
     for (Friend *friend in tempSearchResults)
