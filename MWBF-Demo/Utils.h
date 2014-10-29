@@ -24,6 +24,7 @@
 + (BOOL) isStringNullOrEmpty:(NSString *) text;
 
 + (void) refreshUserData;
++ (Friend *) convertUserToFriendObj;
 
 + (void) addLine:(UIView *) view addTop:(BOOL) addTopLine addBottom:(BOOL) addBottomLine withWidth: (NSInteger)width withColor: (UIColor *) color;
 

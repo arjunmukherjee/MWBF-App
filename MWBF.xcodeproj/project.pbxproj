@@ -81,6 +81,7 @@
 		918F69521988953500776052 /* runningLong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 918F69511988953500776052 /* runningLong.jpg */; };
 		918F6956198ADB0700776052 /* LogActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 918F6955198ADB0700776052 /* LogActivityListCell.m */; };
 		918F695A198B080A00776052 /* UserActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 918F6959198B080A00776052 /* UserActivity.m */; };
+		919D9F141A00880700C96D6D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919D9F131A00880700C96D6D /* AboutViewController.m */; };
 		919E7A7319933502008D410F /* ActivityStatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 919E7A7219933502008D410F /* ActivityStatCell.m */; };
 		919EE963198BEBB700F12411 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE962198BEBB700F12411 /* User.m */; };
 		919EE96A198BF8EA00F12411 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE969198BF8EA00F12411 /* Activity.m */; };
@@ -275,6 +276,8 @@
 		918F6955198ADB0700776052 /* LogActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogActivityListCell.m; sourceTree = "<group>"; };
 		918F6958198B080A00776052 /* UserActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserActivity.h; sourceTree = "<group>"; };
 		918F6959198B080A00776052 /* UserActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserActivity.m; sourceTree = "<group>"; };
+		919D9F121A00880700C96D6D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		919D9F131A00880700C96D6D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		919E7A7119933502008D410F /* ActivityStatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityStatCell.h; sourceTree = "<group>"; };
 		919E7A7219933502008D410F /* ActivityStatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityStatCell.m; sourceTree = "<group>"; };
 		919EE961198BEBB700F12411 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 		9152133A19A938E700EF7E18 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				919D9F121A00880700C96D6D /* AboutViewController.h */,
+				919D9F131A00880700C96D6D /* AboutViewController.m */,
 				918F691D19844BF500776052 /* LoginViewController.h */,
 				918F691E19844BF500776052 /* LoginViewController.m */,
 				918F692619872A2400776052 /* NewUserViewController.h */,
@@ -1055,6 +1060,7 @@
 				9147D8F11983127100183220 /* AppDelegate.m in Sources */,
 				914720631995DC9900F94A80 /* NewChallengeViewController.m in Sources */,
 				915B425C19ABE74C00DC79FE /* PMDimmingView.m in Sources */,
+				919D9F141A00880700C96D6D /* AboutViewController.m in Sources */,
 				915B427519AEE23A00DC79FE /* DevicesViewController.m in Sources */,
 				91CF0EEB19A2FB97007B668A /* FriendsListViewController.m in Sources */,
 				918F692819872A2400776052 /* NewUserViewController.m in Sources */,

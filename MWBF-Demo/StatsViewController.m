@@ -12,6 +12,7 @@
 #import "ActivityViewController.h"
 #import "SVSegmentedControl.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ProfileViewController.h"
 
 #define TODAY_INDEX 0
 #define WEEK_INDEX 1
@@ -24,7 +25,7 @@
 @property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *profileButton;
 
 @property NSMutableArray *yearsArray;
 @property NSArray *monthsArray;
@@ -34,6 +35,9 @@
 @property NSArray *userActivitiesArrayByTime;
 @property NSString *activityDate;
 @property NSString *numberOfRestDays;
+@property (strong,nonatomic) Friend *userAsFriendObj;
+@property (weak,nonatomic) NSString *pageTitle;
+
 
 @end
 
@@ -46,6 +50,8 @@
 @synthesize infoView;
 @synthesize infoButton;
 @synthesize numberOfRestDays;
+@synthesize profileButton;
+@synthesize userAsFriendObj,pageTitle;
 
 - (void)viewDidLoad
 {
@@ -120,6 +126,13 @@
     
     *start = startDate;
     *end = endDate;
+}
+- (IBAction) profileButtonClicked:(id)sender
+{
+    self.userAsFriendObj = [Utils convertUserToFriendObj];
+    self.pageTitle = @"You";
+    
+    [self performSegueWithIdentifier:@"Profile" sender:self];
 }
 
 - (IBAction)infoButtonClicked:(id)sender
@@ -308,6 +321,12 @@
         controller.userActivitiesByTimeJsonArray = self.userActivitiesArrayByTime;
         controller.activityDateString = self.activityDate;
         controller.numberOfRestDays = self.numberOfRestDays;
+    }
+    else if ([segue.identifier isEqualToString:@"Profile"] )
+    {
+        ProfileViewController *controller = [segue destinationViewController];
+        controller.friend = self.userAsFriendObj;
+        controller.pageTitle = self.pageTitle;
     }
 }
 

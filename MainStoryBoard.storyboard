@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HGk-bn-OWn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HGk-bn-OWn">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--MWBF-->
@@ -172,7 +172,7 @@
         <!--About-->
         <scene sceneID="vel-lB-ZM5">
             <objects>
-                <viewController id="p1F-gQ-n0Z" customClass="BaseClassViewController" sceneMemberID="viewController">
+                <viewController id="p1F-gQ-n0Z" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ygg-NN-aJV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -215,12 +215,23 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9gI-4Y-OjH">
+                                <rect key="frame" x="276" y="36" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonClicked:" destination="p1F-gQ-n0Z" eventType="touchUpInside" id="rSc-7g-xoY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="about.png" id="Pbb-tU-DKe"/>
                     <navigationItem key="navigationItem" id="iUF-Hg-AmQ"/>
                     <connections>
+                        <outlet property="backButton" destination="9gI-4Y-OjH" id="l31-8h-2HR"/>
                         <outlet property="versionLabel" destination="dPq-5I-4uq" id="xaM-Ke-aVe"/>
                     </connections>
                 </viewController>
@@ -570,13 +581,25 @@ You may :
                             <outletCollection property="gestureRecognizers" destination="Ale-yM-u0K" appends="YES" id="4gx-8A-OPO"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="My Stats" id="yJe-sn-M4n"/>
+                    <toolbarItems>
+                        <barButtonItem image="userProfile.png" id="D2P-mU-KLl"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="My Stats" id="yJe-sn-M4n">
+                        <barButtonItem key="rightBarButtonItem" image="userProfile.png" id="vw1-QH-fJN">
+                            <connections>
+                                <action selector="profileButtonClicked:" destination="BwW-eE-215" id="ouN-PR-cby"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="datePicker" destination="EBF-rb-K5v" id="2ZN-Fc-iGU"/>
                         <outlet property="getActivityButton" destination="Gsl-ka-VbX" id="cZ8-fJ-SOQ"/>
                         <outlet property="infoButton" destination="muM-Mc-RXt" id="2Jx-6T-jQe"/>
                         <outlet property="infoView" destination="Cm2-cw-82w" id="30a-J7-1YN"/>
+                        <outlet property="profileButton" destination="vw1-QH-fJN" id="PQC-vl-mt3"/>
                         <segue destination="EPn-Zb-cx1" kind="push" identifier="user_activities" id="Q4w-Ge-8PF"/>
+                        <segue destination="JDi-gT-osO" kind="push" identifier="Profile" id="Cbp-6x-eSj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xV9-Gq-lgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -587,7 +610,7 @@ You may :
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2924" y="867"/>
+            <point key="canvasLocation" x="3444" y="919"/>
         </scene>
         <!--Activity View Controller-->
         <scene sceneID="9k3-zu-uTQ">
@@ -2427,7 +2450,7 @@ activities anymore).</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgA-k1-evK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2468" y="867"/>
+            <point key="canvasLocation" x="2786" y="919"/>
         </scene>
         <!--Challenges-->
         <scene sceneID="F1C-kg-CQf">
@@ -3040,7 +3063,7 @@ activities anymore).</string>
     <inferredMetricsTieBreakers>
         <segue reference="E5a-mP-1Xm"/>
         <segue reference="hzw-FB-gU0"/>
-        <segue reference="vgr-12-NhC"/>
-        <segue reference="cBP-Lf-BHj"/>
+        <segue reference="Cbp-6x-eSj"/>
+        <segue reference="Q4w-Ge-8PF"/>
     </inferredMetricsTieBreakers>
 </document>

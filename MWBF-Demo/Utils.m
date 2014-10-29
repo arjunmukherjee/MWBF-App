@@ -37,6 +37,22 @@
     return NO;
 }
 
++ (Friend *) convertUserToFriendObj
+{
+    User *userObj = [User getInstance];
+    Friend *friendObj = [[Friend alloc] init];
+    
+    friendObj.firstName = userObj.firstName;
+    friendObj.lastName = userObj.lastName;
+    friendObj.email = userObj.userEmail;
+    friendObj.stats = userObj.userStats;
+    friendObj.stats.currentWeekPoints = userObj.weeklyPointsUser;
+    friendObj.stats.numberOfTotalChallenges = [NSString stringWithFormat:@"%lu",(unsigned long)[userObj.challengesList count]];
+    friendObj.fbProfileID = userObj.fbProfileID;
+    
+    return friendObj;
+}
+
 + (void) refreshUserData
 {
     MWBFService *service = [[MWBFService alloc] init];

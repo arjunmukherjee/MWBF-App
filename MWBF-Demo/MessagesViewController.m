@@ -123,18 +123,7 @@
 
 - (IBAction) userProfileButtonClicked:(id)sender
 {
-    User *userObj = [User getInstance];
-    Friend *friendObj = [[Friend alloc] init];
-    
-    friendObj.firstName = userObj.firstName;
-    friendObj.lastName = userObj.lastName;
-    friendObj.email = userObj.userEmail;
-    friendObj.stats = userObj.userStats;
-    friendObj.stats.currentWeekPoints = userObj.weeklyPointsUser;
-    friendObj.stats.numberOfTotalChallenges = [NSString stringWithFormat:@"%lu",(unsigned long)[userObj.challengesList count]];
-    friendObj.fbProfileID = userObj.fbProfileID;
-    
-    self.selectedFriend = friendObj;
+    self.selectedFriend = [Utils convertUserToFriendObj];
     self.pageTitle = @"You";
     
     [self performSegueWithIdentifier:@"Profile" sender:self];
@@ -240,7 +229,7 @@
     id feedItem = [self.user.friendsActivitiesList objectAtIndex:(indexPath.row/2)];
     
     if ([feedItem[@"userId"] isEqualToString:user.userEmail])
-        [Utils alertStatus:@"Click on the button on the top right of the screen, to see details of all your hard work." :@"That's you." :0];
+        [self userProfileButtonClicked:nil];
     else
     {
         for (int i=0; i<[self.user.friendsList count]; i++)
