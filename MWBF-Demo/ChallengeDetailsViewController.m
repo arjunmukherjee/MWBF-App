@@ -81,65 +81,32 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self resetActivityLabels];
     self.activityLabelsDict = [NSMutableDictionary dictionary];
-    
     for (NSString *activityName in [[Activity getInstance].activityDict allKeys])
     {
         if( [activityName isEqualToString:@"Run"] )
-        {
             [self.activityLabelsDict setObject:self.runLabel forKey:activityName];
-            self.runLabel.text = @"--";
-        }
         else if( [activityName isEqualToString:@"Sports"] )
-        {
             [self.activityLabelsDict setObject:self.sportsLabel forKey:activityName];
-            self.sportsLabel.text = @"--";
-        }
         else if( [activityName isEqualToString:@"Stairmaster"] )
-        {
             [self.activityLabelsDict setObject:self.stairsLabel forKey:activityName];
-            self.stairsLabel.text = @"--";
-        }
         else if( [activityName isEqualToString:@"Swim"] )
-        {
             [self.activityLabelsDict setObject:self.swimLabel forKey:activityName];
-            self.swimLabel.text = @"--";
-        }
         else if( [activityName isEqualToString:@"Trek"] )
-        {
             [self.activityLabelsDict setObject:self.trekLabel forKey:activityName];
-            self.trekLabel.text = @"--";
-        }
         else if( [activityName isEqualToString:@"Yoga"] )
-        {
             [self.activityLabelsDict setObject:self.yogaLabel forKey:activityName];
-            self.yogaLabel.text = @"--";
-        }
         else if( [activityName isEqualToString:@"Gym"] )
-        {
             [self.activityLabelsDict setObject:self.gymLabel forKey:activityName];
-            self.gymLabel.text = @"--";
-        }
         else if( [activityName isEqualToString:@"Bike"] )
-        {
             [self.activityLabelsDict setObject:self.bikeLabel forKey:activityName];
-            self.bikeLabel.text = @"--";
-        }
         else if( [activityName isEqualToString:@"Sport Climbing"] )
-        {
             [self.activityLabelsDict setObject:self.climbLabel forKey:activityName];
-            self.climbLabel.text = @"--";
-        }
         else if( [activityName isEqualToString:@"Walk"] )
-        {
             [self.activityLabelsDict setObject:self.walkLabel forKey:activityName];
-            self.walkLabel.text = @"--";
-        }
         else
-        {
             [self.activityLabelsDict setObject:self.ellipticalLabel forKey:activityName];
-            self.ellipticalLabel.text = @"--";
-        }
     }
     
     self.friendEmailArr = [NSMutableArray array];
@@ -253,6 +220,20 @@
     [self.messageTableView reloadData];
 }
 
+- (void) resetActivityLabels
+{
+    self.runLabel.text = @"";
+    self.sportsLabel.text = @"";
+    self.stairsLabel.text = @"";
+    self.swimLabel.text = @"";
+    self.trekLabel.text = @"";
+    self.yogaLabel.text = @"";
+    self.gymLabel.text = @"";
+    self.bikeLabel.text = @"";
+    self.climbLabel.text = @"";
+    self.walkLabel.text = @"";
+    self.ellipticalLabel.text = @"";
+}
 
 
 // Dismiss the keyboard when the background is tapped
@@ -445,6 +426,7 @@
 #pragma -mark- EColumnChartDelegate
 - (void)eColumnChart:(EColumnChart *) columnChartLcl didSelectColumn:(EColumn *)eColumn
 {
+    [self resetActivityLabels];
     NSDictionary *aggActDict = [self.challenge.aggregateActivityMap objectForKey:self.friendEmailArr[eColumn.eColumnDataModel.index]];
     
     for (NSString *activityName in aggActDict )
