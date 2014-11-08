@@ -11,6 +11,7 @@
 #import "EFloatBox.h"
 #import "Friend.h"
 #import "ActivityNotificationCell.h"
+#import "Activity.h"
 
 #define PROGRESS_INDEX 0
 #define DETAILS_INDEX 1
@@ -37,6 +38,23 @@
 @property (strong, nonatomic) NSString *userFirstName;
 @property (nonatomic) NSInteger todayIndex;
 @property (nonatomic) NSInteger yesterdayIndex;
+@property (weak, nonatomic) IBOutlet UIView *challengerDetailsView;
+
+// Multiple labels
+@property (weak, nonatomic) IBOutlet UILabel *runLabel;
+@property (weak, nonatomic) IBOutlet UILabel *walkLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gymLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bikeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stairsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *trekLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yogaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *swimLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sportsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *climbLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ellipticalLabel;
+
+@property (strong,nonatomic) NSMutableArray *friendEmailArr;
+@property (strong,nonatomic) NSMutableDictionary *activityLabelsDict;
 
 @end
 
@@ -52,6 +70,9 @@
 @synthesize userFirstName;
 @synthesize yesterdayIndex;
 @synthesize todayIndex;
+@synthesize challengerDetailsView;
+@synthesize friendEmailArr;
+@synthesize activityLabelsDict;
 
 @synthesize messageTableView;
 
@@ -59,6 +80,70 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.activityLabelsDict = [NSMutableDictionary dictionary];
+    
+    for (NSString *activityName in [[Activity getInstance].activityDict allKeys])
+    {
+        if( [activityName isEqualToString:@"Run"] )
+        {
+            [self.activityLabelsDict setObject:self.runLabel forKey:activityName];
+            self.runLabel.text = @"--";
+        }
+        else if( [activityName isEqualToString:@"Sports"] )
+        {
+            [self.activityLabelsDict setObject:self.sportsLabel forKey:activityName];
+            self.sportsLabel.text = @"--";
+        }
+        else if( [activityName isEqualToString:@"Stairmaster"] )
+        {
+            [self.activityLabelsDict setObject:self.stairsLabel forKey:activityName];
+            self.stairsLabel.text = @"--";
+        }
+        else if( [activityName isEqualToString:@"Swim"] )
+        {
+            [self.activityLabelsDict setObject:self.swimLabel forKey:activityName];
+            self.swimLabel.text = @"--";
+        }
+        else if( [activityName isEqualToString:@"Trek"] )
+        {
+            [self.activityLabelsDict setObject:self.trekLabel forKey:activityName];
+            self.trekLabel.text = @"--";
+        }
+        else if( [activityName isEqualToString:@"Yoga"] )
+        {
+            [self.activityLabelsDict setObject:self.yogaLabel forKey:activityName];
+            self.yogaLabel.text = @"--";
+        }
+        else if( [activityName isEqualToString:@"Gym"] )
+        {
+            [self.activityLabelsDict setObject:self.gymLabel forKey:activityName];
+            self.gymLabel.text = @"--";
+        }
+        else if( [activityName isEqualToString:@"Bike"] )
+        {
+            [self.activityLabelsDict setObject:self.bikeLabel forKey:activityName];
+            self.bikeLabel.text = @"--";
+        }
+        else if( [activityName isEqualToString:@"Sport Climbing"] )
+        {
+            [self.activityLabelsDict setObject:self.climbLabel forKey:activityName];
+            self.climbLabel.text = @"--";
+        }
+        else if( [activityName isEqualToString:@"Walk"] )
+        {
+            [self.activityLabelsDict setObject:self.walkLabel forKey:activityName];
+            self.walkLabel.text = @"--";
+        }
+        else
+        {
+            [self.activityLabelsDict setObject:self.ellipticalLabel forKey:activityName];
+            self.ellipticalLabel.text = @"--";
+        }
+    }
+    
+    self.friendEmailArr = [NSMutableArray array];
+    self.challengerDetailsView.hidden = YES;
     
     // Initializers
     self.navigationBar.title = self.challenge.name;
@@ -101,6 +186,9 @@
         [pointsArr addObject:num];
         
         NSString *friendEmail = [NSString stringWithFormat:@"%@",tempArr[0]];
+        
+        [self.friendEmailArr addObject:friendEmail];
+        
         // Get the friends first name from the friends list
         for (Friend *friend in friendsList)
         {
@@ -129,6 +217,7 @@
         }
     }
     
+   
     // COLUMN CHART by Progress
     NSMutableArray *tempAct = [NSMutableArray array];
     for (int i = 0; i < [pointsArr count]; i++)
@@ -174,6 +263,8 @@
 
 - (IBAction)segmentedControlClicked
 {
+    self.challengerDetailsView.hidden = YES;
+    
     if (self.segmentedControl.selectedSegmentIndex == PROGRESS_INDEX)
     {
         self.activityBarView.hidden = NO;
@@ -354,8 +445,18 @@
 #pragma -mark- EColumnChartDelegate
 - (void)eColumnChart:(EColumnChart *) columnChartLcl didSelectColumn:(EColumn *)eColumn
 {
+    NSDictionary *aggActDict = [self.challenge.aggregateActivityMap objectForKey:self.friendEmailArr[eColumn.eColumnDataModel.index]];
+    
+    for (NSString *activityName in aggActDict )
+    {
+        UILabel *activityLabel = [self.activityLabelsDict objectForKey:activityName];
+        activityLabel.text = [NSString stringWithFormat:@"%@",[aggActDict objectForKey:activityName]];
+    }
+    
     if (self.eColumnSelected)
         self.eColumnSelected.barColor = self.tempColor;
+    
+    self.challengerDetailsView.hidden = NO;
     
     self.eColumnSelected = eColumn;
     self.tempColor = eColumn.barColor;

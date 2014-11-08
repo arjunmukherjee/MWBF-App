@@ -486,6 +486,7 @@
                          error:&error];
     
     NSMutableArray *returnArray = [NSMutableArray array];
+    //NSLog(@"Challenges [%@]",jsonData);
     
     @try
     {
@@ -499,18 +500,34 @@
             NSString *ch_id = [challenge objectForKey:@"id"];
             NSString *creatorId = [challenge objectForKey:@"creatorId"];
             
-            NSArray *playerPointsArr =[challenge objectForKey:@"playerPointsSet"];
             NSArray *activityArr =[challenge objectForKey:@"activitySet"];
             NSArray *messagesArr =[challenge objectForKey:@"messageList"];
-        
+            
             ch.name = name;
             ch.startDate = startDate;
             ch.endDate = endDate;
             ch.challenge_id = ch_id;
             ch.activitySet = [NSArray arrayWithArray:activityArr];
-            ch.playersSet = [NSArray arrayWithArray:playerPointsArr];
+            
             ch.messageList = [NSMutableArray arrayWithArray:messagesArr];
             ch.creatorId  = creatorId;
+            
+            NSMutableArray *playerPointsArray = [NSMutableArray array];
+            NSMutableDictionary *aggregateActivityMap = [NSMutableDictionary dictionary];
+            
+            NSArray *playerActivityList =[challenge objectForKey:@"playerActivityDataList"];
+            for (id playerAct in playerActivityList)
+            {
+                NSString *totalPoints = [playerAct objectForKey:@"totalPoints"];
+                NSString *player = [playerAct objectForKey:@"userId"];
+                NSArray *aggregateActList =[playerAct objectForKey:@"activityAggregateMap"];
+                NSString *playerPoints = [NSString stringWithFormat:@"%@,%@",player,totalPoints];
+                
+                [playerPointsArray addObject:playerPoints];
+                [aggregateActivityMap setObject:aggregateActList forKey:player];
+            }
+            ch.playersSet = [NSArray arrayWithArray:playerPointsArray];
+            ch.aggregateActivityMap = [NSMutableDictionary dictionaryWithDictionary:aggregateActivityMap];
             
             [returnArray addObject:ch];
         }

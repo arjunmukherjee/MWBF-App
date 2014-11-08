@@ -12,6 +12,7 @@
 @implementation Challenge
 
 @synthesize name,creatorId,startDate,endDate,playersSet,activitySet,pointsSet,challenge_id,messageList;
+@synthesize aggregateActivityMap;
 
 - (NSString*) description
 {

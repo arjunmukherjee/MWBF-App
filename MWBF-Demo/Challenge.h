@@ -21,6 +21,7 @@
 @property (strong,nonatomic) NSArray *pointsSet;
 @property (strong,nonatomic) NSArray *activitySet;
 @property (strong,nonatomic) NSMutableArray *messageList;
+@property (strong,nonatomic) NSMutableDictionary *aggregateActivityMap;
 
 
 - (NSMutableDictionary *)toNSDictionary;
