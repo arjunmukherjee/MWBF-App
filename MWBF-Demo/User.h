@@ -47,11 +47,13 @@
 
 
 // New Messages
-@property (strong,nonatomic) NSMutableArray *notificationsList;
 @property (strong,nonatomic) NSMutableArray *friendsActivitiesList;
 
 // Users favorite activities
 @property (strong,nonatomic) NSMutableArray *favActivityList;
+
+// Pending friend requests
+@property (strong,nonatomic) NSMutableArray *friendRequestsList;
 
 // Users notification settings
 @property (nonatomic) BOOL activityNotifications;

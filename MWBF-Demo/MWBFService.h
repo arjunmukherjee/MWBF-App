@@ -32,6 +32,8 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 // FRIENDS
 - (void) getFriendsList;
 - (BOOL) addFriendWithId:(NSString*) friendId;
+- (BOOL) actionFriendRequestWithId:(NSString*) requestId withAction: (NSString *) action;
+- (void) getPendingFriendRequests;
 - (NSMutableArray*) findFriendWithId:(NSString*) friendId;
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byActivityFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
 - (NSArray*) getActivitiesForFriend:(Friend*)friend byTimeFromDate:(NSString *) fromDate toDate:(NSString*) toDate;

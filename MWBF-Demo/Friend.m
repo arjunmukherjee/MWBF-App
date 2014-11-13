@@ -19,7 +19,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"%@, %@, %@",self.firstName,self.email,self.userName];
+    return [NSString stringWithFormat:@"%@ %@, %@, %@, %@ Stats[%@]",self.firstName,self.lastName,self.email,self.userName,self.fbProfileID,self.stats];
 }
 
 - (NSMutableDictionary *)toNSDictionary

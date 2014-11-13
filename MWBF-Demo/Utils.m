@@ -60,6 +60,9 @@
     // Get the list of friends
     [service getFriendsList];
     
+    // Get the list of pending friend requests
+    [service getPendingFriendRequests];
+    
     // Get all the users info, including the stats
     [service getUserInfo];
     

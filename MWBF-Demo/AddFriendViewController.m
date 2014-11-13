@@ -115,25 +115,12 @@
     MWBFService *service = [[MWBFService alloc] init];
     if ( [service addFriendWithId:friend.email] )
     {
-       [Utils alertStatus:[NSString stringWithFormat:@"%@ added to your friends list.",friend.firstName] :@"Yippee" :0];
-        
-        User *user = [User getInstance];
-        
-        // Add the new friend to the users list of friends
-        NSMutableArray *tempFriendsNameArray = [NSMutableArray array];
-        [tempFriendsNameArray addObject:friend];
-    
-        // Add the current list of friends to the temp list
-        for (Friend *existingFriend in user.friendsList)
-            [tempFriendsNameArray addObject:existingFriend];
-        
-        // Add the newly added friend to the users friends list
-        user.friendsList = [NSMutableArray arrayWithArray:tempFriendsNameArray];
+        [Utils alertStatus:[NSString stringWithFormat:@"A request has been sent to %@.",friend.firstName] :@"Yippee" :0];
         
         [self.navigationController popViewControllerAnimated:YES];
     }
     else
-        [Utils alertStatus:[NSString stringWithFormat:@"Unable to add %@ to your friends list.",friend.firstName]  :@"Oops!" :0];
+        [Utils alertStatus:[NSString stringWithFormat:@"Unable to send a friend request to %@.",friend.firstName]  :@"Oops!" :0];
         
 }
 
@@ -181,8 +168,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Friend *friendObj = [self.searchResults objectAtIndex:indexPath.row];
+    User *user = [User getInstance];
     
-    [self addFriend:friendObj];
+    if ([friendObj.email isEqualToString:user.userEmail])
+    {
+        [Utils alertStatus:@"That's your own email." :@"Nice try.." :0];
+        return;
+    }
+    else
+        [self addFriend:friendObj];
 }
 
 

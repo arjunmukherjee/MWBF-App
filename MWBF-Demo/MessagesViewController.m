@@ -131,7 +131,7 @@
 
 - (void) viewDidDisappear:(BOOL)animated
 {
-    [self.user.notificationsList removeAllObjects];
+    //[self.user.notificationsList removeAllObjects];
 }
 
 ///////// UITABLEVIEW METHODS /////////

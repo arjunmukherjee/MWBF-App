@@ -41,20 +41,35 @@
 @property (weak, nonatomic) IBOutlet UIView *challengerDetailsView;
 
 // Multiple labels
-@property (weak, nonatomic) IBOutlet UILabel *runLabel;
-@property (weak, nonatomic) IBOutlet UILabel *walkLabel;
-@property (weak, nonatomic) IBOutlet UILabel *gymLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bikeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *stairsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *trekLabel;
-@property (weak, nonatomic) IBOutlet UILabel *yogaLabel;
-@property (weak, nonatomic) IBOutlet UILabel *swimLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sportsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *climbLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ellipticalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityOneHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTwoHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityThreeHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityFourHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityFiveHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activitySixHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activitySevenHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityEightHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityNineHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTenHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityElevenHeaderLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *activityOneValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTwoValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityThreeValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityFourValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityFiveValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activitySixValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activitySevenValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityEightValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityNineValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTenValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityElevenValueLabel;
+
+
 
 @property (strong,nonatomic) NSMutableArray *friendEmailArr;
 @property (strong,nonatomic) NSMutableDictionary *activityLabelsDict;
+@property (strong,nonatomic) NSMutableDictionary *activityHeaderLabelsDict;
 
 @end
 
@@ -73,6 +88,7 @@
 @synthesize challengerDetailsView;
 @synthesize friendEmailArr;
 @synthesize activityLabelsDict;
+@synthesize activityHeaderLabelsDict;
 
 @synthesize messageTableView;
 
@@ -82,6 +98,32 @@
     // Do any additional setup after loading the view.
     
     [self resetActivityLabels];
+    self.activityLabelsDict = [NSMutableDictionary dictionary];
+    self.activityHeaderLabelsDict = [NSMutableDictionary dictionary];
+    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"1"];
+    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"1"];
+    [self.activityLabelsDict setObject:self.activityTwoValueLabel forKey:@"2"];
+    [self.activityHeaderLabelsDict setObject:self.activityTwoHeaderLabel forKey:@"2"];
+    [self.activityLabelsDict setObject:self.activityThreeValueLabel forKey:@"3"];
+    [self.activityHeaderLabelsDict setObject:self.activityThreeHeaderLabel forKey:@"3"];
+    [self.activityLabelsDict setObject:self.activityFourValueLabel forKey:@"4"];
+    [self.activityHeaderLabelsDict setObject:self.activityFourHeaderLabel forKey:@"4"];
+    [self.activityLabelsDict setObject:self.activityFiveValueLabel forKey:@"5"];
+    [self.activityHeaderLabelsDict setObject:self.activityFiveHeaderLabel forKey:@"5"];
+    [self.activityLabelsDict setObject:self.activitySixValueLabel forKey:@"6"];
+    [self.activityHeaderLabelsDict setObject:self.activitySixHeaderLabel forKey:@"6"];
+    [self.activityLabelsDict setObject:self.activitySevenValueLabel forKey:@"7"];
+    [self.activityHeaderLabelsDict setObject:self.activitySevenHeaderLabel forKey:@"7"];
+    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"8"];
+    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"8"];
+    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"9"];
+    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"9"];
+    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"10"];
+    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"10"];
+    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"11"];
+    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"11"];
+    
+    /*
     self.activityLabelsDict = [NSMutableDictionary dictionary];
     for (NSString *activityName in [[Activity getInstance].activityDict allKeys])
     {
@@ -108,6 +150,7 @@
         else
             [self.activityLabelsDict setObject:self.ellipticalLabel forKey:activityName];
     }
+     */
     
     self.friendEmailArr = [NSMutableArray array];
     self.challengerDetailsView.hidden = YES;
@@ -222,17 +265,41 @@
 
 - (void) resetActivityLabels
 {
-    self.runLabel.text = @"";
-    self.sportsLabel.text = @"";
-    self.stairsLabel.text = @"";
-    self.swimLabel.text = @"";
-    self.trekLabel.text = @"";
-    self.yogaLabel.text = @"";
-    self.gymLabel.text = @"";
-    self.bikeLabel.text = @"";
-    self.climbLabel.text = @"";
-    self.walkLabel.text = @"";
-    self.ellipticalLabel.text = @"";
+    self.activityOneValueLabel.text = @"";
+    self.activityTwoValueLabel.text = @"";
+    self.activityThreeValueLabel.text = @"";
+    self.activityFourValueLabel.text = @"";
+    self.activityFiveValueLabel.text = @"";
+    self.activitySixValueLabel.text = @"";
+    self.activitySevenValueLabel.text = @"";
+    self.activityEightValueLabel.text = @"";
+    self.activityNineValueLabel.text = @"";
+    self.activityTenValueLabel.text = @"";
+    self.activityElevenValueLabel.text = @"";
+    
+    self.activityOneValueLabel.hidden = YES;
+    self.activityTwoValueLabel.hidden = YES;
+    self.activityThreeValueLabel.hidden = YES;
+    self.activityFourValueLabel.hidden = YES;
+    self.activityFiveValueLabel.hidden = YES;
+    self.activitySixValueLabel.hidden = YES;
+    self.activitySevenValueLabel.hidden = YES;
+    self.activityEightValueLabel.hidden = YES;
+    self.activityNineValueLabel.hidden = YES;
+    self.activityTenValueLabel.hidden = YES;
+    self.activityElevenValueLabel.hidden = YES;
+    
+    self.activityOneHeaderLabel.hidden = YES;
+    self.activityTwoHeaderLabel.hidden = YES;
+    self.activityThreeHeaderLabel.hidden = YES;
+    self.activityFourHeaderLabel.hidden = YES;
+    self.activityFiveHeaderLabel.hidden = YES;
+    self.activitySixHeaderLabel.hidden = YES;
+    self.activitySevenHeaderLabel.hidden = YES;
+    self.activityEightHeaderLabel.hidden = YES;
+    self.activityNineHeaderLabel.hidden = YES;
+    self.activityTenHeaderLabel.hidden = YES;
+    self.activityElevenHeaderLabel.hidden = YES;
 }
 
 
@@ -429,10 +496,19 @@
     [self resetActivityLabels];
     NSDictionary *aggActDict = [self.challenge.aggregateActivityMap objectForKey:self.friendEmailArr[eColumn.eColumnDataModel.index]];
     
+    int i = 1;
     for (NSString *activityName in aggActDict )
     {
-        UILabel *activityLabel = [self.activityLabelsDict objectForKey:activityName];
-        activityLabel.text = [NSString stringWithFormat:@"%@",[aggActDict objectForKey:activityName]];
+        UILabel *activityValueLabel = [self.activityLabelsDict objectForKey:[NSString stringWithFormat:@"%d",i]];
+        UILabel *activityHeaderLabel = [self.activityHeaderLabelsDict objectForKey:[NSString stringWithFormat:@"%d",i]];
+        
+        activityValueLabel.text = [NSString stringWithFormat:@"%@",[aggActDict objectForKey:activityName]];
+        activityHeaderLabel.text = activityName;
+        
+        activityValueLabel.hidden = NO;
+        activityHeaderLabel.hidden = NO;
+        
+        i++;
     }
     
     if (self.eColumnSelected)

@@ -29,6 +29,8 @@
 		912E349F19C7EA2700F4745A /* messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E349E19C7EA2700F4745A /* messages.png */; };
 		912E34A119C7EB4D00F4745A /* redCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 912E34A019C7EB4D00F4745A /* redCircle.png */; };
 		912E34A419C7ED4E00F4745A /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912E34A319C7ED4E00F4745A /* MessagesViewController.m */; };
+		91445D0B1A141FB10023BC33 /* FriendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91445D0A1A141FB10023BC33 /* FriendRequest.m */; };
+		91445D111A1446160023BC33 /* FriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91445D101A1446160023BC33 /* FriendRequestCell.m */; };
 		914720631995DC9900F94A80 /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914720621995DC9900F94A80 /* NewChallengeViewController.m */; };
 		9147D8DF1983127100183220 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9147D8DE1983127100183220 /* Foundation.framework */; };
 		9147D8E11983127100183220 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9147D8E01983127100183220 /* CoreGraphics.framework */; };
@@ -193,6 +195,10 @@
 		912E34A019C7EB4D00F4745A /* redCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redCircle.png; sourceTree = "<group>"; };
 		912E34A219C7ED4E00F4745A /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
 		912E34A319C7ED4E00F4745A /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		91445D091A141FB10023BC33 /* FriendRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendRequest.h; sourceTree = "<group>"; };
+		91445D0A1A141FB10023BC33 /* FriendRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendRequest.m; sourceTree = "<group>"; };
+		91445D0F1A1446160023BC33 /* FriendRequestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendRequestCell.h; sourceTree = "<group>"; };
+		91445D101A1446160023BC33 /* FriendRequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendRequestCell.m; sourceTree = "<group>"; };
 		914720611995DC9900F94A80 /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		914720621995DC9900F94A80 /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		9147D8DB1983127100183220 /* MWBF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWBF.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -732,6 +738,8 @@
 				91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */,
 				91CECA3019E9E8A90052AA8C /* PersonalStatsCell.h */,
 				91CECA3119E9E8A90052AA8C /* PersonalStatsCell.m */,
+				91445D0F1A1446160023BC33 /* FriendRequestCell.h */,
+				91445D101A1446160023BC33 /* FriendRequestCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -753,6 +761,8 @@
 				9152133E19AA407E00EF7E18 /* Challenge.m */,
 				91FAF1DB19F9E63D00655CBE /* UserStats.h */,
 				91FAF1DC19F9E63D00655CBE /* UserStats.m */,
+				91445D091A141FB10023BC33 /* FriendRequest.h */,
+				91445D0A1A141FB10023BC33 /* FriendRequest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1031,6 +1041,7 @@
 				91B239CC19CBC94200601E7F /* ActivityNotificationCell.m in Sources */,
 				912E348D19C3F60A00F4745A /* PointsSchemeCell.m in Sources */,
 				91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */,
+				91445D111A1446160023BC33 /* FriendRequestCell.m in Sources */,
 				912E34A419C7ED4E00F4745A /* MessagesViewController.m in Sources */,
 				918D5EE819909ED600597147 /* MoreViewController.m in Sources */,
 				91FAF1DD19F9E63D00655CBE /* UserStats.m in Sources */,
@@ -1066,6 +1077,7 @@
 				918F692819872A2400776052 /* NewUserViewController.m in Sources */,
 				919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */,
 				915B425919ABE74C00DC79FE /* PMCalendarView.m in Sources */,
+				91445D0B1A141FB10023BC33 /* FriendRequest.m in Sources */,
 				91CECA3219E9E8A90052AA8C /* PersonalStatsCell.m in Sources */,
 				918F6956198ADB0700776052 /* LogActivityListCell.m in Sources */,
 				91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */,

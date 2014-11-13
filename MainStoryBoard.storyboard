@@ -469,9 +469,9 @@
                         <segue destination="y1p-n8-rYi" kind="relationship" relationship="viewControllers" id="VBx-JY-74z"/>
                         <segue destination="Jfb-yn-k9K" kind="relationship" relationship="viewControllers" id="XWs-bp-4Qc"/>
                         <segue destination="QvI-JY-hKN" kind="relationship" relationship="viewControllers" id="aaU-Gk-25X"/>
+                        <segue destination="bfq-pe-buw" kind="relationship" relationship="viewControllers" id="FPp-QK-MHn"/>
                         <segue destination="cdY-3G-hxn" kind="relationship" relationship="viewControllers" id="HWd-Qc-yaE"/>
                         <segue destination="UiG-pk-NcL" kind="relationship" relationship="viewControllers" id="Mwr-P4-DeR"/>
-                        <segue destination="bfq-pe-buw" kind="relationship" relationship="viewControllers" id="FPp-QK-MHn"/>
                         <segue destination="R4D-xB-dQo" kind="relationship" relationship="viewControllers" id="yLN-Oq-eXz"/>
                         <segue destination="NBR-IG-5G7" kind="relationship" relationship="viewControllers" id="Fe4-xZ-ktJ"/>
                         <segue destination="wCd-6d-NQW" kind="relationship" relationship="viewControllers" id="Fwo-pv-Pdt"/>
@@ -610,7 +610,7 @@ You may :
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3444" y="919"/>
+            <point key="canvasLocation" x="4540" y="1318"/>
         </scene>
         <!--Activity View Controller-->
         <scene sceneID="9k3-zu-uTQ">
@@ -1450,26 +1450,37 @@ You may :
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="activityBarView" destination="EoM-3s-6OY" id="WXI-IT-AJA"/>
+                        <outlet property="activityEightHeaderLabel" destination="bqG-7K-UW2" id="9Ki-Sm-PQz"/>
+                        <outlet property="activityEightValueLabel" destination="VZm-WN-45u" id="NSk-5p-1Uc"/>
+                        <outlet property="activityElevenHeaderLabel" destination="Pgy-gt-EMO" id="hkb-67-JRO"/>
+                        <outlet property="activityElevenValueLabel" destination="eB2-OI-MeO" id="vUe-KQ-OAj"/>
+                        <outlet property="activityFiveHeaderLabel" destination="yur-La-kER" id="qc1-jp-HPe"/>
+                        <outlet property="activityFiveValueLabel" destination="SGt-QY-dbB" id="tRO-oo-Zfv"/>
+                        <outlet property="activityFourHeaderLabel" destination="QqP-lI-8rB" id="phl-uG-nrb"/>
+                        <outlet property="activityFourValueLabel" destination="TZO-bm-4on" id="LoV-OM-qI5"/>
+                        <outlet property="activityNineHeaderLabel" destination="jL5-DK-EgG" id="9JE-mx-zsW"/>
+                        <outlet property="activityNineValueLabel" destination="Uko-oS-itw" id="ZiZ-bA-lzg"/>
+                        <outlet property="activityOneHeaderLabel" destination="BgG-Rh-hhP" id="beO-Xo-xKJ"/>
+                        <outlet property="activityOneValueLabel" destination="Zur-I7-f6e" id="VMU-uT-0dX"/>
+                        <outlet property="activitySevenHeaderLabel" destination="tUs-A6-cyj" id="rlH-23-wGa"/>
+                        <outlet property="activitySevenValueLabel" destination="31l-Mc-w5Q" id="xEq-3U-nEQ"/>
+                        <outlet property="activitySixHeaderLabel" destination="NgY-oO-Ryn" id="EoO-fw-kFh"/>
+                        <outlet property="activitySixValueLabel" destination="DS2-Ks-dKN" id="6VG-WX-eKG"/>
                         <outlet property="activityTableView" destination="hcb-1X-wo0" id="N19-xQ-Hkw"/>
-                        <outlet property="bikeLabel" destination="TZO-bm-4on" id="HgQ-9A-z20"/>
+                        <outlet property="activityTenHeaderLabel" destination="wNH-Hs-7PA" id="OjG-Qj-YaK"/>
+                        <outlet property="activityTenValueLabel" destination="tB0-9D-N8N" id="QSS-sT-tF8"/>
+                        <outlet property="activityThreeHeaderLabel" destination="YdC-Hz-Xrg" id="sIg-gI-QNl"/>
+                        <outlet property="activityThreeValueLabel" destination="g6S-yV-TeV" id="WMS-nf-j4N"/>
+                        <outlet property="activityTwoHeaderLabel" destination="pfT-RN-Y6e" id="gkv-5r-sig"/>
+                        <outlet property="activityTwoValueLabel" destination="kH0-hE-Mbn" id="Fxz-d2-Vbb"/>
                         <outlet property="challengeDetailsView" destination="LOk-Dy-tAq" id="hJS-pu-aHc"/>
                         <outlet property="challengerDetailsView" destination="TXz-Om-GC5" id="7ci-wN-xSt"/>
-                        <outlet property="climbLabel" destination="tB0-9D-N8N" id="e8q-tF-IL4"/>
-                        <outlet property="ellipticalLabel" destination="eB2-OI-MeO" id="ley-35-NRC"/>
                         <outlet property="endDateLabel" destination="vVp-3T-W0u" id="vrR-Rz-4lL"/>
-                        <outlet property="gymLabel" destination="g6S-yV-TeV" id="hFZ-UA-xcE"/>
                         <outlet property="messageTableView" destination="kxk-UN-ZyE" id="aZx-wo-jbI"/>
                         <outlet property="navigationBar" destination="Y1A-xC-NFC" id="mm2-LU-gmG"/>
                         <outlet property="positionLabel" destination="A1F-Gf-sst" id="bA7-Dt-6fK"/>
-                        <outlet property="runLabel" destination="Zur-I7-f6e" id="rXf-kY-J5a"/>
                         <outlet property="segmentedControl" destination="UbL-Xu-k59" id="eoc-LX-i2I"/>
-                        <outlet property="sportsLabel" destination="Uko-oS-itw" id="nM0-FI-G5g"/>
-                        <outlet property="stairsLabel" destination="SGt-QY-dbB" id="6Tw-aP-tCb"/>
                         <outlet property="startDateLabel" destination="LUf-24-yAZ" id="ICr-So-bQj"/>
-                        <outlet property="swimLabel" destination="VZm-WN-45u" id="CCA-yK-PHR"/>
-                        <outlet property="trekLabel" destination="DS2-Ks-dKN" id="m6O-Va-QvY"/>
-                        <outlet property="walkLabel" destination="kH0-hE-Mbn" id="X5T-M1-Nhn"/>
-                        <outlet property="yogaLabel" destination="31l-Mc-w5Q" id="3W7-Rb-0kE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8x7-36-QME" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1480,7 +1491,7 @@ You may :
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3988" y="475"/>
+            <point key="canvasLocation" x="4380" y="233"/>
         </scene>
         <!--New Challenge-->
         <scene sceneID="VgM-uS-ne5">
@@ -1740,7 +1751,7 @@ You may :
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seT-eU-Dec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3974" y="-221"/>
+            <point key="canvasLocation" x="4380" y="-381"/>
         </scene>
         <!--More-->
         <scene sceneID="O0x-cU-qyO">
@@ -2117,19 +2128,71 @@ You may :
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="22" sectionFooterHeight="22" id="NeA-lZ-GRd" userLabel="Notifications Table">
-                                <rect key="frame" x="0.0" y="64" width="320" height="454"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="NeA-lZ-GRd" userLabel="Notifications Table">
+                                <rect key="frame" x="0.0" y="112" width="320" height="406"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Notifications" id="bBs-0J-2eH">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PendingRequests" rowHeight="50" id="bBs-0J-2eH" customClass="FriendRequestCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bBs-0J-2eH" id="SX5-Vv-eVK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="H9K-LV-MpR" customClass="FBProfilePictureView">
+                                                    <rect key="frame" x="8" y="4" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vivek Pasari" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hll-Sh-x13">
+                                                    <rect key="frame" x="55" y="3" width="167" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wants to be your friend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9cj-UO-7Qm">
+                                                    <rect key="frame" x="55" y="25" width="177" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LfM-WA-UUn">
+                                                    <rect key="frame" x="232" y="-1" width="65" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="Sure">
+                                                        <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="acceptButtonClicked:" destination="c97-rG-FgO" eventType="touchUpInside" id="0F4-8B-qxz"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Kpn-nG-ejr">
+                                                    <rect key="frame" x="237" y="21" width="54" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="Nope">
+                                                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="rejectButtonClicked:" destination="c97-rG-FgO" eventType="touchUpInside" id="gnB-qM-gyL"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="acceptButton" destination="LfM-WA-UUn" id="2T5-fi-wip"/>
+                                            <outlet property="friendFbProfilePicView" destination="H9K-LV-MpR" id="2Dc-tr-tRO"/>
+                                            <outlet property="friendNameLabel" destination="hll-Sh-x13" id="63e-pY-k6H"/>
+                                            <outlet property="notificationTextLabel" destination="9cj-UO-7Qm" id="EpR-89-wtT"/>
+                                            <outlet property="rejectButton" destination="Kpn-nG-ejr" id="SYz-X8-V4p"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2137,12 +2200,21 @@ You may :
                                     <outlet property="delegate" destination="c97-rG-FgO" id="IdU-yV-aYJ"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="L2q-cq-Cq3">
+                                <rect key="frame" x="79" y="76" width="163" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Friends"/>
+                                    <segment title="Challenges"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Notifications" id="Lru-Ao-OJX"/>
                     <connections>
                         <outlet property="notificationsBoardTable" destination="NeA-lZ-GRd" id="DS3-iG-1fc"/>
+                        <segue destination="JDi-gT-osO" kind="push" identifier="Profile" id="zAs-NX-IvI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zt1-F7-xt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2805,7 +2877,7 @@ activities anymore).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibk-Oh-uV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4825" y="2087"/>
+            <point key="canvasLocation" x="5187" y="2099"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="HmR-kK-Ffn">
@@ -3102,7 +3174,7 @@ activities anymore).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baI-wh-OO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4546" y="1318"/>
+            <point key="canvasLocation" x="4622" y="2860"/>
         </scene>
         <!--Friends-->
         <scene sceneID="71W-of-f3l">
@@ -3280,7 +3352,7 @@ activities anymore).</string>
     <inferredMetricsTieBreakers>
         <segue reference="E5a-mP-1Xm"/>
         <segue reference="hzw-FB-gU0"/>
-        <segue reference="Cbp-6x-eSj"/>
-        <segue reference="It8-jh-Nh1"/>
+        <segue reference="cBP-Lf-BHj"/>
+        <segue reference="zAs-NX-IvI"/>
     </inferredMetricsTieBreakers>
 </document>

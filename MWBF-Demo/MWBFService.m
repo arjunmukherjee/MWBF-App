@@ -13,6 +13,7 @@
 #import "User.h"
 #import "MWBFActivities.h"
 #import "Friend.h"
+#import "FriendRequest.h"
 #import "Challenge.h"
 
 /*
@@ -21,6 +22,8 @@
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf/user/friends/activities"
 #define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/friends/feed"
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf/user/friends/find"
+#define USER_ACTION_FRIEND_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf/user/friends/actionRequest"
+#define USER_PENDING_FRIENDS_ENDPOINT_FORMAT            @"http://localhost:8080/MWBFServer/mwbf/user/friends/pendingRequests"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://localhost:8080/MWBFServer/mwbf/user/friends/add"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf/user/fbLogin"
 #define USER_INFO_ENDPOINT_FORMAT                       @"http://localhost:8080/MWBFServer/mwbf/user/userInfo"
@@ -42,6 +45,8 @@
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/user/friends/activities"
 #define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/friends/feed"
 #define USER_FIND_FRIEND_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf/user/friends/find"
+#define USER_ACTION_FRIEND_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/user/friends/actionRequest"
+#define USER_PENDING_FRIENDS_ENDPOINT_FORMAT            @"http://mwbf.herokuapp.com/mwbf/user/friends/pendingRequests"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://mwbf.herokuapp.com/mwbf/user/friends/add"
 #define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf/user/fbLogin"
 #define USER_INFO_ENDPOINT_FORMAT                       @"http://mwbf.herokuapp.com/mwbf/user/userInfo"
@@ -409,6 +414,112 @@
     
     return NO;
 }
+
+- (BOOL) actionFriendRequestWithId:(NSString*) requestId withAction: (NSString *) action
+{
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"friend_request_id\"=\"%@\",\"friend_request_action\"=\"%@\"}",requestId,action];
+    NSURL *url=[NSURL URLWithString:USER_ACTION_FRIEND_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSDictionary *jsonData = [NSJSONSerialization
+                              JSONObjectWithData:urlData
+                              options:NSJSONReadingMutableContainers
+                              error:&error];
+    NSInteger success = [jsonData[@"success"] integerValue];
+    if(success == 1)
+        return YES;
+    else
+        return NO;
+    
+    return NO;
+}
+
+- (void) getPendingFriendRequests
+{
+    User *user = [User getInstance];
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"user_id\"=\"%@\"}",user.userId];
+    NSURL *url=[NSURL URLWithString:USER_PENDING_FRIENDS_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+    
+    NSMutableArray *requestResults = [NSMutableArray array];
+    @try
+    {
+        for (id key in jsonArray)
+        {
+            FriendRequest *friendRequest = [[FriendRequest alloc] init];
+            
+            friendRequest.requestId = [key objectForKey:@"id"];
+            friendRequest.userId = [key objectForKey:@"userId"];
+            
+            NSDictionary *friendDict =[key objectForKey:@"friend"];
+            NSDictionary *userDict =[friendDict objectForKey:@"user"];
+       
+            Friend *friend = [[Friend alloc] init];
+            friend.email = [userDict objectForKey:@"email"];
+            friend.firstName = [userDict objectForKey:@"firstName"];
+            friend.lastName = [userDict objectForKey:@"lastName"];
+            friend.fbProfileID = [userDict objectForKey:@"fbProfileId"];
+            
+            NSDictionary *bestDayDict = [friendDict objectForKey:@"bestDay"];
+            NSDictionary *bestWeekDict = [friendDict objectForKey:@"bestWeek"];
+            NSDictionary *bestMonthDict = [friendDict objectForKey:@"bestMonth"];
+            NSDictionary *bestYearDict = [friendDict objectForKey:@"bestYear"];
+            
+            UserStats *stats = [[UserStats alloc] init];
+            stats.bestDay = bestDayDict[@"date"];
+            stats.bestWeek = bestWeekDict[@"date"];
+            stats.bestMonth = bestMonthDict[@"date"];
+            stats.bestYear = bestYearDict[@"date"];
+            
+            stats.bestDayPoints = bestDayDict[@"points"];
+            stats.bestWeekPoints = bestWeekDict[@"points"];
+            stats.bestMonthPoints = bestMonthDict[@"points"];
+            stats.bestYearPoints = bestYearDict[@"points"];
+            
+            float bestDayPointsFloat = [stats.bestDayPoints floatValue];
+            stats.bestDayPoints = [NSString stringWithFormat:@"%0.1f",bestDayPointsFloat];
+            
+            float bestWeekPointsFloat = [stats.bestWeekPoints floatValue];
+            stats.bestWeekPoints = [NSString stringWithFormat:@"%0.1f",bestWeekPointsFloat];
+            
+            float bestMonthPointsFloat = [stats.bestMonthPoints floatValue];
+            stats.bestMonthPoints = [NSString stringWithFormat:@"%0.1f",bestMonthPointsFloat];
+            
+            float bestYearPointsFloat = [stats.bestYearPoints floatValue];
+            stats.bestYearPoints = [NSString stringWithFormat:@"%0.1f",bestYearPointsFloat];
+            
+            stats.currentWeekPoints = [friendDict objectForKey:@"currentWeekPoints"];
+            stats.currentMonthPoints = [friendDict objectForKey:@"currentMonthPoints"];
+            stats.currentYearPoints = [friendDict objectForKey:@"currentYearPoints"];
+            
+            stats.numberOfTotalChallenges = [friendDict objectForKey:@"numberOfTotalChallenges"];
+            stats.numberOfActiveChallenges = [friendDict objectForKey:@"numberOfActiveChallenges"];
+            stats.numberOfWonChallenges = [friendDict objectForKey:@"numberOfWonChallenges"];
+            
+            friend.stats = stats;
+          
+            friendRequest.friend = friend;
+
+            [requestResults addObject:friendRequest];
+        }
+    }
+    @catch (NSException * e)
+    {
+        NSLog(@"Exception: %@", e);
+    }
+    
+    user.friendRequestsList = [NSMutableArray arrayWithArray:requestResults];
+}
+
 
 - (NSMutableArray*) findFriendWithId:(NSString*) friendId
 {

@@ -18,7 +18,7 @@
 @synthesize userStats;
 @synthesize challengesList;
 @synthesize fbProfileID;
-@synthesize notificationsList,friendsActivitiesList;
+@synthesize friendsActivitiesList;
 @synthesize favActivityList;
 @synthesize activityNotifications,friendsAndChallengesNotifications;
 @synthesize backgroundImageName;
@@ -28,6 +28,7 @@
 @synthesize bestDayLeader,bestWeekLeader,bestMonthLeader,bestYearLeader;
 @synthesize bestDayLeaderPoints,bestWeekLeaderPoints,bestMonthLeaderPoints,bestYearLeaderPoints;
 @synthesize dayLeader,weekLeader,monthLeader,yearLeader;
+@synthesize friendRequestsList;
 
 + (User *) getInstance
 {
@@ -52,9 +53,9 @@
     if (self)
     {
         self.friendsList = [NSMutableArray array];
-        self.notificationsList = [NSMutableArray array];
         self.friendsActivitiesList = [NSMutableArray array];
         self.favActivityList = [NSMutableArray array];
+        self.friendRequestsList = [NSMutableArray array];
         self.activityNotifications = YES;
         self.friendsAndChallengesNotifications = YES;
         self.backgroundImageName = @"background.jpg";

@@ -13,6 +13,12 @@
 @synthesize bestDay,bestWeek,bestMonth,bestYear;
 @synthesize bestDayPoints,bestWeekPoints,bestMonthPoints,bestYearPoints;
 @synthesize currentWeekPoints;
-@synthesize numberOfActiveChallenges;
+@synthesize numberOfActiveChallenges,numberOfTotalChallenges;
+
+- (NSString*) description
+{
+    return [NSString stringWithFormat:@"BD[%@] BM[%@], CW[%@], TC[%@], AC[%@]",self.bestDay,self.bestMonth,self.currentWeekPoints,self.numberOfTotalChallenges,self.numberOfActiveChallenges];
+}
+
 
 @end
