@@ -12,6 +12,7 @@
 #import "User.h"
 #import "Challenge.h"
 #import "Utils.h"
+#import "FriendRequest.h"
 
 
 @interface AppDelegate ()
@@ -58,6 +59,10 @@
     for (int i=0; i < [user.friendsActivitiesList count]; i++)
          [messageListOld addObject:user.friendsActivitiesList[i][@"feedPrettyString"]];
     
+    NSMutableArray *friendRequestListOld = [NSMutableArray array];
+    for (int i=0; i < [user.friendRequestsList count]; i++)
+        [friendRequestListOld addObject:user.friendRequestsList[i]];
+    
     // Refresh the user's data
     [Utils refreshUserData];
     
@@ -78,7 +83,23 @@
         }
     }
     
-    self.numberOfMessages = (newMessageCount);
+    // Look for new friend requests
+    int newFriendRequestCount = 0;
+    NSMutableArray *friendRequestListNew = [NSMutableArray array];
+    for (int i=0; i < [user.friendRequestsList count]; i++)
+        [friendRequestListNew addObject:user.friendsActivitiesList[i]];
+    
+    for (int i=0; i <[friendRequestListNew count]; i++)
+    {
+        FriendRequest *frReq = messageListNew[i];
+        if (![friendRequestListOld containsObject:frReq])
+        {
+            newMessage = [NSString stringWithFormat:@"%@ wants to be your friend",frReq.friend.firstName];
+            newFriendRequestCount++;
+        }
+    }
+    
+    self.numberOfMessages = newMessageCount + newFriendRequestCount;
     
     // Set up Local Notifications
     if (self.numberOfMessages > 0 )
@@ -92,6 +113,9 @@
         NSString *notificationStr = @"activity notifications";
         if (newMessageCount == 1)
             notificationStr = @"activity notification";
+        NSString *friendNotificationStr = @"friend requests";
+        if (newFriendRequestCount == 1)
+            friendNotificationStr = @"friend request";
         
         // Convert the new feed message into relative days (today, yesterday)
         NSMutableArray *tempArray = [NSMutableArray array];
@@ -101,14 +125,26 @@
         
         // Construct the notification string
         NSString *messageBody = [[NSString alloc] init];
-        if (newMessageCount > 0 )
-            {
-                // If there is only one message then just display that
-                if (newMessageCount == 1 )
-                    messageBody = newMessage;
-                else
-                    messageBody = [NSString stringWithFormat:@"You have %d new %@.",newMessageCount,notificationStr];
-            }
+        if ( newMessageCount > 0 && newFriendRequestCount > 0)
+        {
+            messageBody = [NSString stringWithFormat:@"You have %d new %@ and %d new %@.",newMessageCount,notificationStr,newFriendRequestCount,friendNotificationStr];
+        }
+        else if (newFriendRequestCount > 0 )
+        {
+            // If there is only one friend request then just display that
+            if (newFriendRequestCount == 1 )
+                messageBody = newMessage;
+            else
+                messageBody = [NSString stringWithFormat:@"You have %d new %@.",newFriendRequestCount,friendNotificationStr];
+        }
+        else
+        {
+            // If there is only one message then just display that
+            if (newMessageCount == 1 )
+                messageBody = newMessage;
+            else
+                messageBody = [NSString stringWithFormat:@"You have %d new %@.",newMessageCount,notificationStr];
+        }
         
         
         localNotification.alertBody = messageBody;
@@ -120,19 +156,6 @@
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
-- (Friend*) findFriendWithId:(NSString*) friendId
-{
-    NSArray *friendsList = [User getInstance].friendsList;
-    
-    for (int i=0; i < [friendsList count]; i++)
-    {
-        Friend *friendObj = friendsList[i];
-        if ([friendObj.email isEqual:friendId])
-            return friendObj;
-    }
-    
-    return nil;
-}
 
 -(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

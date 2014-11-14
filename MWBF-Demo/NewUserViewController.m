@@ -72,8 +72,7 @@
 
 - (IBAction) registerUserClicked:(id)sender
 {
-    
-    if ( [Utils isStringNullOrEmpty:self.emailTextField.text] || [Utils isStringNullOrEmpty:self.firstNameTextField.text] || ![Utils isStringNullOrEmpty:self.lastNameTextField.text])
+    if ( [Utils isStringNullOrEmpty:self.emailTextField.text] || [Utils isStringNullOrEmpty:self.firstNameTextField.text] || [Utils isStringNullOrEmpty:self.lastNameTextField.text])
     {
         [Utils alertStatus:@"Please provide all your information" :@"Oops! Forget something ?" :0];
         return;
@@ -116,6 +115,8 @@
         user.userEmail = self.emailTextField.text;
         user.userId = self.emailTextField.text;;
         user.userName = [NSString stringWithFormat:@"%@ %@",self.firstNameTextField.text,self.lastNameTextField.text];
+        user.firstName = self.firstNameTextField.text;
+        user.lastName = self.lastNameTextField.text;
         
         // Makes a call to the server to get a list of all the valid activities
         [Activity getInstance];

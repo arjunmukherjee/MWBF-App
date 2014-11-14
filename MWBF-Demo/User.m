@@ -28,7 +28,7 @@
 @synthesize bestDayLeader,bestWeekLeader,bestMonthLeader,bestYearLeader;
 @synthesize bestDayLeaderPoints,bestWeekLeaderPoints,bestMonthLeaderPoints,bestYearLeaderPoints;
 @synthesize dayLeader,weekLeader,monthLeader,yearLeader;
-@synthesize friendRequestsList;
+@synthesize friendRequestsList,challengeRequestsList;
 
 + (User *) getInstance
 {
@@ -56,6 +56,7 @@
         self.friendsActivitiesList = [NSMutableArray array];
         self.favActivityList = [NSMutableArray array];
         self.friendRequestsList = [NSMutableArray array];
+        self.challengeRequestsList = [NSMutableArray array];
         self.activityNotifications = YES;
         self.friendsAndChallengesNotifications = YES;
         self.backgroundImageName = @"background.jpg";

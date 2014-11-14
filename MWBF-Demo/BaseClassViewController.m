@@ -53,6 +53,23 @@
     NSString *buildVersion = infoDictionary[(NSString*)kCFBundleVersionKey];
     
     self.versionLabel.text = [NSString stringWithFormat:@"Version : %@(%@)",appVersion,buildVersion];
+    
+    NSInteger requestCount = [user.friendRequestsList count] + [user.challengeRequestsList count];
+    if (requestCount > 0 )
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:4] setBadgeValue:[NSString stringWithFormat:@"%ld",(long)requestCount]];
+    
+    /*
+    UIViewController *tbMore = ((UIViewController*) [self.tabBarController.moreNavigationController.viewControllers objectAtIndex:0]);
+    int nRows = [((UITableView *)tbMore.view) numberOfRowsInSection:0];
+    for (int i = 0; i < nRows; i++)
+    {
+        UIViewController *c = [((UITableView *)tbMore.view) cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+       // [c set]
+        //c.backgroundColor = [UIColor grayColor];
+        // Do any additional customization here!
+    }
+    */
+
 }
 
 // Dismiss the keyboard when the GO button is hit

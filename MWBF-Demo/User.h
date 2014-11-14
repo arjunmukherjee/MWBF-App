@@ -55,6 +55,9 @@
 // Pending friend requests
 @property (strong,nonatomic) NSMutableArray *friendRequestsList;
 
+// Pending challenges requests
+@property (strong,nonatomic) NSMutableArray *challengeRequestsList;
+
 // Users notification settings
 @property (nonatomic) BOOL activityNotifications;
 @property (nonatomic) BOOL friendsAndChallengesNotifications;

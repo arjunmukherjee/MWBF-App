@@ -24,7 +24,6 @@
 + (BOOL) isStringNullOrEmpty:(NSString *) text;
 
 + (void) refreshUserData;
-+ (Friend *) convertUserToFriendObj;
 
 + (void) addLine:(UIView *) view addTop:(BOOL) addTopLine addBottom:(BOOL) addBottomLine withWidth: (NSInteger)width withColor: (UIColor *) color;
 
@@ -46,6 +45,11 @@
 + (BOOL) isTimeIn24HourFormat:(NSString *) dateString;
 + (NSString *)changeformatStringTo12hr:(NSString *)date;
 + (NSInteger) getNumberOfDaysInMonth:(NSInteger)monthInt;
+
+
+// FRIEND METHODS
++ (Friend*) findFriendWithId:(NSString*) friendId;
++ (Friend *) convertUserToFriendObj;
 
 
 @end

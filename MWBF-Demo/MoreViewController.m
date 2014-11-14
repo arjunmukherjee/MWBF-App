@@ -60,6 +60,7 @@
     self.user = [User getInstance];
     //if ([self.user.notificationsList count] > 0 || [self.user.friendsActivitiesList count] > 0 )
     // TODO : Must check the FriendActivityList count too and show the red circle for something new
+    /*
     if ([self.user.notificationsList count] > 0 )
     {
         self.numberOfNotificationsButton.hidden = NO;
@@ -68,6 +69,7 @@
     }
     else
         self.numberOfNotificationsButton.hidden = YES;
+     */
 }
 
 - (IBAction)infoButtonClicked:(id)sender

@@ -2128,8 +2128,8 @@ You may :
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="NeA-lZ-GRd" userLabel="Notifications Table">
-                                <rect key="frame" x="0.0" y="112" width="320" height="406"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="NeA-lZ-GRd" userLabel="Friends Notifications Table">
+                                <rect key="frame" x="0.0" y="113" width="320" height="406"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2162,7 +2162,7 @@ You may :
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LfM-WA-UUn">
                                                     <rect key="frame" x="232" y="-1" width="65" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <state key="normal" title="Sure">
                                                         <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2174,7 +2174,7 @@ You may :
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Kpn-nG-ejr">
                                                     <rect key="frame" x="237" y="21" width="54" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <state key="normal" title="Nope">
                                                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2207,13 +2207,43 @@ You may :
                                     <segment title="Friends"/>
                                     <segment title="Challenges"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlClicked:" destination="c97-rG-FgO" eventType="valueChanged" id="OU8-18-j5J"/>
+                                </connections>
                             </segmentedControl>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8tw-LQ-cth">
+                                <rect key="frame" x="64" y="64" width="25" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="1" backgroundImage="redCircle.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YoL-ew-daB">
+                                <rect key="frame" x="232" y="64" width="25" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="1" backgroundImage="redCircle.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="ehE-NP-AMx" userLabel="Challenge Notifications Table">
+                                <rect key="frame" x="0.0" y="113" width="320" height="406"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Notifications" id="Lru-Ao-OJX"/>
                     <connections>
-                        <outlet property="notificationsBoardTable" destination="NeA-lZ-GRd" id="DS3-iG-1fc"/>
+                        <outlet property="challengeNotificationsTable" destination="ehE-NP-AMx" id="t02-Ee-6s1"/>
+                        <outlet property="challengeReqCountAlert" destination="YoL-ew-daB" id="y7c-Kc-niv"/>
+                        <outlet property="friendReqCountAlert" destination="8tw-LQ-cth" id="IWj-xw-8gO"/>
+                        <outlet property="friendsNotificationsTable" destination="NeA-lZ-GRd" id="4ga-Ch-7Gw"/>
+                        <outlet property="notificationsSegmentedControl" destination="L2q-cq-Cq3" id="z4I-db-I1L"/>
                         <segue destination="JDi-gT-osO" kind="push" identifier="Profile" id="zAs-NX-IvI"/>
                     </connections>
                 </viewController>
@@ -3240,7 +3270,7 @@ activities anymore).</string>
         <scene sceneID="kf6-Rs-8bY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bfq-pe-buw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="notifications.png" id="cvW-2x-BCw"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Notifications" image="notifications.png" id="cvW-2x-BCw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LWL-2R-zzW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -3337,6 +3367,7 @@ activities anymore).</string>
         <image name="notifications.png" width="32" height="32"/>
         <image name="personalBestIcon.png" width="48" height="48"/>
         <image name="pointsScheme.png" width="32" height="32"/>
+        <image name="redCircle.png" width="600" height="600"/>
         <image name="search_08_256.png" width="256" height="256"/>
         <image name="settings.png" width="32" height="32"/>
         <image name="trophy.png" width="128" height="128"/>
@@ -3350,7 +3381,7 @@ activities anymore).</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="E5a-mP-1Xm"/>
+        <segue reference="23S-Zz-DKi"/>
         <segue reference="hzw-FB-gU0"/>
         <segue reference="cBP-Lf-BHj"/>
         <segue reference="zAs-NX-IvI"/>

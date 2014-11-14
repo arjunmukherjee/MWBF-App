@@ -53,6 +53,20 @@
     return friendObj;
 }
 
++ (Friend*) findFriendWithId:(NSString*) friendId
+{
+    NSArray *friendsList = [User getInstance].friendsList;
+    
+    for (int i=0; i < [friendsList count]; i++)
+    {
+        Friend *friendObj = friendsList[i];
+        if ([friendObj.email isEqual:friendId])
+            return friendObj;
+    }
+    
+    return nil;
+}
+
 + (void) refreshUserData
 {
     MWBFService *service = [[MWBFService alloc] init];
