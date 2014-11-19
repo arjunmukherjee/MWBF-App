@@ -417,8 +417,6 @@
 
 - (BOOL) actionFriendRequestWithId:(NSString*) requestId withAction: (NSString *) action
 {
-    return YES;
-    
     NSString *post =[[NSString alloc] initWithFormat:@"{\"friend_request_id\"=\"%@\",\"friend_request_action\"=\"%@\"}",requestId,action];
     NSURL *url=[NSURL URLWithString:USER_ACTION_FRIEND_ENDPOINT_FORMAT];
     

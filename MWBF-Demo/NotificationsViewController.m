@@ -103,9 +103,40 @@
         [[[[[self tabBarController] tabBar] items] objectAtIndex:4] setBadgeValue:nil];
     else
         [[[[[self tabBarController] tabBar] items] objectAtIndex:4] setBadgeValue:[NSString stringWithFormat:@"%ld",(long)requestCount]];
+   
+    [self setCountOnNotificationCellWithValue:requestCount];
     
     [self.challengeNotificationsTable reloadData];
 }
+
+- (void) setCountOnNotificationCellWithValue : (NSInteger) requestCount
+{
+    UIViewController *tbMore = ((UIViewController*) [self.tabBarController.moreNavigationController.viewControllers objectAtIndex:0]);
+    int nRows = [((UITableView *)tbMore.view) numberOfRowsInSection:0];
+    for (int i = 0; i < nRows; i++)
+    {
+        // Only modify the notifications cell
+        if (i == 0)
+        {
+            UITableViewCell *cell = [((UITableView *)tbMore.view) cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            
+            UILabel *commentsCount = [[UILabel alloc]initWithFrame:CGRectMake(0, 4, 28, 20)];
+            commentsCount.text = [NSString stringWithFormat:@"%ld",(long)requestCount];
+            commentsCount.textColor = [UIColor whiteColor];
+            commentsCount.font = [UIFont fontWithName:@"Trebuchet MS" size:14];
+            if (requestCount == 0)
+                commentsCount.backgroundColor = [UIColor clearColor];
+            else
+                commentsCount.backgroundColor = [UIColor lightGrayColor];
+            
+            commentsCount.textAlignment = NSTextAlignmentCenter;
+            [Utils setMaskTo:commentsCount byRoundingCorners:UIRectCornerAllCorners];
+            
+            cell.accessoryView = commentsCount;
+        }
+    }
+}
+
 
 - (IBAction)segmentedControlClicked:(id)sender
 {

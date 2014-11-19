@@ -56,20 +56,35 @@
     
     NSInteger requestCount = [user.friendRequestsList count] + [user.challengeRequestsList count];
     if (requestCount > 0 )
+    {
         [[[[[self tabBarController] tabBar] items] objectAtIndex:4] setBadgeValue:[NSString stringWithFormat:@"%ld",(long)requestCount]];
-    
-    /*
+        [self setCountOnNotificationCellWithValue:requestCount];
+    }
+  
+}
+
+- (void) setCountOnNotificationCellWithValue : (NSInteger) requestCount
+{
     UIViewController *tbMore = ((UIViewController*) [self.tabBarController.moreNavigationController.viewControllers objectAtIndex:0]);
     int nRows = [((UITableView *)tbMore.view) numberOfRowsInSection:0];
     for (int i = 0; i < nRows; i++)
     {
-        UIViewController *c = [((UITableView *)tbMore.view) cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-       // [c set]
-        //c.backgroundColor = [UIColor grayColor];
-        // Do any additional customization here!
+        // Only modify the notifications cell
+        if (i == 0)
+        {
+            UITableViewCell *cell = [((UITableView *)tbMore.view) cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            
+            UILabel *commentsCount = [[UILabel alloc]initWithFrame:CGRectMake(0, 4, 28, 20)];
+            commentsCount.text = [NSString stringWithFormat:@"%ld",(long)requestCount];
+            commentsCount.textColor = [UIColor whiteColor];
+            commentsCount.font = [UIFont fontWithName:@"Trebuchet MS" size:14];
+            commentsCount.backgroundColor = [UIColor lightGrayColor];
+            commentsCount.textAlignment = NSTextAlignmentCenter;
+            [Utils setMaskTo:commentsCount byRoundingCorners:UIRectCornerAllCorners];
+            
+            cell.accessoryView = commentsCount;
+        }
     }
-    */
-
 }
 
 // Dismiss the keyboard when the GO button is hit
