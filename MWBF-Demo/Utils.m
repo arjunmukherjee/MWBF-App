@@ -329,6 +329,8 @@
         return @"ellipticalIcon.png";
     if ([message rangeOfString:@" climbed " options:NSCaseInsensitiveSearch].location != NSNotFound )
         return @"stairmasterIcon.png";
+    if ([message rangeOfString:@"climbing " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"climbingIcon.png";
     if ([message rangeOfString:@"Bonus " options:NSCaseInsensitiveSearch].location != NSNotFound )
         return @"crossTrainingBonus.png";
     

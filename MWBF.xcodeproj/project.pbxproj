@@ -146,6 +146,7 @@
 		91ED786319F4BD8900D58D9E /* crossTrainingBonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 91ED786219F4BD8900D58D9E /* crossTrainingBonus.png */; };
 		91ED786619F8AD9100D58D9E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ED786519F8AD9100D58D9E /* ProfileViewController.m */; };
 		91ED786819F8AFE700D58D9E /* grey-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91ED786719F8AFE700D58D9E /* grey-background.jpg */; };
+		91EF87061A1C50D8004399BC /* climbingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91EF87051A1C50D8004399BC /* climbingIcon.png */; };
 		91FAF1DD19F9E63D00655CBE /* UserStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FAF1DC19F9E63D00655CBE /* UserStats.m */; };
 		91FAF1FB19FD5CB800655CBE /* userProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = 91FAF1FA19FD5CB800655CBE /* userProfile.png */; };
 		91FAF20119FD628F00655CBE /* userStats.png in Resources */ = {isa = PBXBuildFile; fileRef = 91FAF20019FD628F00655CBE /* userStats.png */; };
@@ -363,6 +364,7 @@
 		91ED786419F8AD9100D58D9E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		91ED786519F8AD9100D58D9E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		91ED786719F8AFE700D58D9E /* grey-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grey-background.jpg"; sourceTree = "<group>"; };
+		91EF87051A1C50D8004399BC /* climbingIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = climbingIcon.png; sourceTree = "<group>"; };
 		91FAF1DB19F9E63D00655CBE /* UserStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStats.h; sourceTree = "<group>"; };
 		91FAF1DC19F9E63D00655CBE /* UserStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStats.m; sourceTree = "<group>"; };
 		91FAF1FA19FD5CB800655CBE /* userProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userProfile.png; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 				91B239E819CBDC6D00601E7F /* stairmasterIcon.png */,
 				91ED786219F4BD8900D58D9E /* crossTrainingBonus.png */,
 				91CECA2E19E3A8E30052AA8C /* defaultActivityIcon.png */,
+				91EF87051A1C50D8004399BC /* climbingIcon.png */,
 				91CECA2C19E3A8B50052AA8C /* bonusIcon.png */,
 				91B239D519CBD3A800601E7F /* sportsIcon.png */,
 				91B239D319CBD39E00601E7F /* bikeIcon.png */,
@@ -933,6 +936,7 @@
 				915B426C19AEC04000DC79FE /* arrow_right.png in Resources */,
 				912C417B19D3C0E10096C951 /* wall.png in Resources */,
 				912C419A19D502C50096C951 /* about.png in Resources */,
+				91EF87061A1C50D8004399BC /* climbingIcon.png in Resources */,
 				91B239D219CBD21100601E7F /* swimmingIcon.png in Resources */,
 				9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */,
 				912E348A19C3F32F00F4745A /* friends.png in Resources */,
