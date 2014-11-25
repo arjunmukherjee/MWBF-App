@@ -481,7 +481,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxa-de-x1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="1147"/>
+            <point key="canvasLocation" x="2154" y="1147"/>
         </scene>
         <!--My Stats-->
         <scene sceneID="bA1-4G-w2c">
@@ -610,7 +610,7 @@ You may :
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4540" y="1318"/>
+            <point key="canvasLocation" x="5072" y="1318"/>
         </scene>
         <!--Activity View Controller-->
         <scene sceneID="9k3-zu-uTQ">
@@ -833,7 +833,7 @@ You may :
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5104" y="1318"/>
+            <point key="canvasLocation" x="5636" y="1318"/>
         </scene>
         <!--Challenges-->
         <scene sceneID="okr-KR-QPX">
@@ -1768,33 +1768,6 @@ You may :
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="S81-Ih-T31" userLabel="InfoButton">
-                                <rect key="frame" x="289" y="69" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="infoButtonClicked:" destination="xUN-mq-44E" eventType="touchUpInside" id="zfw-8u-PfA"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="scaleToFill" editable="NO" id="ZRE-pA-ahU">
-                                <rect key="frame" x="24" y="104" width="280" height="389"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Use this page to do a variety of things.
-
-- Take a look at your friends activities by clicking on the friends button. You can also add friends form there.
-- Check your personal stats (and try to beat them). Click on the button that looks like a trophy.
-- You can (if you really want to) delete all your looged activities by clicking on the button that looks like a trash can.
-- Refresh your data (if you feel your data is not up-to-date), by hitting the refresh button on the top right (of the navigation bar).
-- Add a device or app to automatically sync activities from.
-- Find out about the app by clicking on the About button.
-- Send us feedback about your experience using the app, by clicking on the Feedback button.</string>
-                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
                             <view contentMode="scaleToFill" id="AOJ-oF-Tue" customClass="FBProfilePictureView">
                                 <rect key="frame" x="11" y="72" width="52" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1808,6 +1781,26 @@ You may :
                                 </state>
                                 <connections>
                                     <action selector="sendFeedback:" destination="xUN-mq-44E" eventType="touchUpInside" id="Gob-jx-iQU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4un-ho-t39" userLabel="FeedBackButton">
+                                <rect key="frame" x="60" y="234" width="57" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="icon_addfriend.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="inviteFriend:" destination="xUN-mq-44E" eventType="touchUpInside" id="EXW-7B-0M4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zqj-2g-kw3" userLabel="FeedBackButton">
+                                <rect key="frame" x="46" y="240" width="39" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="email.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="inviteFriend:" destination="xUN-mq-44E" eventType="touchUpInside" id="I0p-jb-RGR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AHd-KH-e5k" userLabel="DeleteButton">
@@ -1838,8 +1831,6 @@ You may :
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="feedbackButton" destination="nQB-59-BZL" id="E1S-y6-Tob"/>
-                        <outlet property="infoButton" destination="S81-Ih-T31" id="1Ak-KL-iHE"/>
-                        <outlet property="infoView" destination="ZRE-pA-ahU" id="rQe-Wq-lEd"/>
                         <outlet property="profilePic" destination="AOJ-oF-Tue" id="stL-6N-JsA"/>
                         <outlet property="refreshButton" destination="G4q-ba-wga" id="oEb-6X-AqA"/>
                         <outlet property="resetUserDataButton" destination="AHd-KH-e5k" id="coa-j7-NBW"/>
@@ -2616,7 +2607,7 @@ activities anymore).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5F-pr-HCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3988" y="1651"/>
+            <point key="canvasLocation" x="4520" y="1651"/>
         </scene>
         <!--Wall-->
         <scene sceneID="sNB-Lq-73g">
@@ -2817,7 +2808,7 @@ activities anymore).</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgA-k1-evK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2786" y="919"/>
+            <point key="canvasLocation" x="3318" y="919"/>
         </scene>
         <!--Challenges-->
         <scene sceneID="F1C-kg-CQf">
@@ -3281,7 +3272,7 @@ activities anymore).</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AiB-Bu-jV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3532" y="1651"/>
+            <point key="canvasLocation" x="4064" y="1651"/>
         </scene>
         <!--Wall-->
         <scene sceneID="mZb-0X-1Z7">
@@ -3416,6 +3407,7 @@ activities anymore).</string>
         <image name="background.jpg" width="800" height="584"/>
         <image name="calendar3.png" width="502" height="502"/>
         <image name="email-register.png" width="48" height="48"/>
+        <image name="email.png" width="128" height="128"/>
         <image name="friends-32.png" width="32" height="32"/>
         <image name="go-next.png" width="32" height="32"/>
         <image name="goRight1.png" width="120" height="120"/>
@@ -3438,9 +3430,9 @@ activities anymore).</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="23S-Zz-DKi"/>
-        <segue reference="hzw-FB-gU0"/>
-        <segue reference="cBP-Lf-BHj"/>
+        <segue reference="enD-cY-u8c"/>
         <segue reference="zAs-NX-IvI"/>
         <segue reference="4sH-40-u8k"/>
+        <segue reference="cBP-Lf-BHj"/>
     </inferredMetricsTieBreakers>
 </document>

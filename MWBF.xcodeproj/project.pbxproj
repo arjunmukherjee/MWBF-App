@@ -109,6 +109,8 @@
 		91BBC4C219AA51DF00EBFD25 /* ChallengeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */; };
 		91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */; };
 		91C3D8791A22F023005EF360 /* FBFriendNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3D8781A22F023005EF360 /* FBFriendNotificationCell.m */; };
+		91C3D87F1A242F9A005EF360 /* inviteFriends.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C3D87E1A242F9A005EF360 /* inviteFriends.png */; };
+		91C3D8841A243BF4005EF360 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C3D8831A243BF4005EF360 /* email.png */; };
 		91C665181991790F00A56D61 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C665171991790F00A56D61 /* DLPieChart.m */; };
 		91C6651B1992775300A56D61 /* MWBFActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C6651A1992775300A56D61 /* MWBFActivities.m */; };
 		91CAC68E19D11D52006A6C06 /* background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CAC68D19D11D52006A6C06 /* background-2.png */; };
@@ -320,6 +322,8 @@
 		91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeCell.m; sourceTree = "<group>"; };
 		91C3D8771A22F023005EF360 /* FBFriendNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBFriendNotificationCell.h; sourceTree = "<group>"; };
 		91C3D8781A22F023005EF360 /* FBFriendNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBFriendNotificationCell.m; sourceTree = "<group>"; };
+		91C3D87E1A242F9A005EF360 /* inviteFriends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inviteFriends.png; sourceTree = "<group>"; };
+		91C3D8831A243BF4005EF360 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
 		91C665161991790F00A56D61 /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPieChart.h; sourceTree = "<group>"; };
 		91C665171991790F00A56D61 /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
 		91C665191992775300A56D61 /* MWBFActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWBFActivities.h; sourceTree = "<group>"; };
@@ -473,6 +477,7 @@
 				91FAF20019FD628F00655CBE /* userStats.png */,
 				91CECA3319EA12360052AA8C /* go-next.png */,
 				912C419519D501FE0096C951 /* pointsScheme.png */,
+				91C3D8831A243BF4005EF360 /* email.png */,
 				912C419919D502C50096C951 /* about.png */,
 				912C419119D500F50096C951 /* notifications.png */,
 				91FAF1FA19FD5CB800655CBE /* userProfile.png */,
@@ -494,6 +499,7 @@
 				91D329A619CA50DE0035B651 /* Light_blue_button.png */,
 				91D329A719CA50DE0035B651 /* Silver_button.png */,
 				91CF0EE719A2F3F8007B668A /* search_08_256.png */,
+				91C3D87E1A242F9A005EF360 /* inviteFriends.png */,
 				912E349219C40EAE00F4745A /* personalBest.png */,
 				91D2D0F319AF6AA6009C83E9 /* 1409251657_7-48.png */,
 				91D357CA19BAB51E005D0F26 /* save-icon.png */,
@@ -947,6 +953,7 @@
 				912E348A19C3F32F00F4745A /* friends.png in Resources */,
 				91CF0E7919A19B17007B668A /* icon_addfriend.png in Resources */,
 				91D357CB19BAB51E005D0F26 /* save-icon.png in Resources */,
+				91C3D8841A243BF4005EF360 /* email.png in Resources */,
 				9147D8EB1983127100183220 /* InfoPlist.strings in Resources */,
 				91CAC69019D11E30006A6C06 /* background-3.png in Resources */,
 				91B239D619CBD3A800601E7F /* sportsIcon.png in Resources */,
@@ -979,6 +986,7 @@
 				91CECA3419EA12370052AA8C /* go-next.png in Resources */,
 				91B28A3019CE23CA00CC2E24 /* ellipticalIcon.png in Resources */,
 				91FAF1FB19FD5CB800655CBE /* userProfile.png in Resources */,
+				91C3D87F1A242F9A005EF360 /* inviteFriends.png in Resources */,
 				912E349319C40EAE00F4745A /* personalBest.png in Resources */,
 				9127FB9619BD1E16001C85D8 /* appIcon152x152.png in Resources */,
 				91CF0ED419A27B17007B668A /* Default-568h@2x.png in Resources */,

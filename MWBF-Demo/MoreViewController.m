@@ -114,6 +114,18 @@
     }
 }
 
+- (IBAction)inviteFriend:(id)sender
+{
+    MFMailComposeViewController *mcvc = [[MFMailComposeViewController alloc] init];
+    mcvc.mailComposeDelegate = self;
+    [mcvc setSubject:@"Check out this app MWBF"];
+    UIImage *image = [UIImage imageNamed:@"Icon"];
+    [mcvc addAttachmentData:UIImageJPEGRepresentation(image, 1) mimeType:@"image/jpg" fileName:@"runningLong.jpg"];
+    NSString *defaultBody =@"Check out this app MWBF, link....";
+    [mcvc setMessageBody:defaultBody isHTML:YES];
+    [self presentViewController:mcvc animated:YES completion:nil];
+}
+
 
 - (IBAction)sendFeedback:(id)sender
 {
