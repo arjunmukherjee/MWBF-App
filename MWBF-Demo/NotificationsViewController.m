@@ -389,7 +389,7 @@
     else if ([segue.identifier isEqualToString:@"FindFriend"] )
     {
         AddFriendViewController *controller = [segue destinationViewController];
-        controller.friendName = [NSString stringWithFormat:@"%@",self.selectedFriendNotification.firstName];
+        controller.friendName = [NSString stringWithFormat:@"%@ %@",self.selectedFriendNotification.firstName,self.selectedFriendNotification.lastName];
     }
 }
 

@@ -41,9 +41,14 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.friendIdTextField.enabled = YES;
+    self.searchFriendButton.enabled = YES;
+    
     if (self.friendName != nil)
     {
         self.friendIdTextField.text = self.friendName;
+        self.friendIdTextField.enabled = NO;
+        self.searchFriendButton.enabled = NO;
         [self searchButtonClicked:nil];
     }
 }
