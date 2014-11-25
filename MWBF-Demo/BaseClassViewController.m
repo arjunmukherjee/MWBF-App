@@ -54,7 +54,7 @@
     
     self.versionLabel.text = [NSString stringWithFormat:@"Version : %@(%@)",appVersion,buildVersion];
     
-    NSInteger requestCount = [user.friendRequestsList count] + [user.challengeRequestsList count];
+    NSInteger requestCount = [user.friendRequestsList count] + [user.challengeRequestsList count] + [user.fbFriendNotificationsList count];
     if (requestCount > 0 )
     {
         [[[[[self tabBarController] tabBar] items] objectAtIndex:4] setBadgeValue:[NSString stringWithFormat:@"%ld",(long)requestCount]];
@@ -63,6 +63,7 @@
   
 }
 
+// TODO : Same method and code in NotificationsViewController.m
 - (void) setCountOnNotificationCellWithValue : (NSInteger) requestCount
 {
     UIViewController *tbMore = ((UIViewController*) [self.tabBarController.moreNavigationController.viewControllers objectAtIndex:0]);

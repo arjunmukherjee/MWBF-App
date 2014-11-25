@@ -16,7 +16,7 @@
 #import "FriendRequest.h"
 #import "Challenge.h"
 
-/*
+
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/login"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf/user/friends"
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf/user/friends/activities"
@@ -38,8 +38,9 @@
 #define USER_ACTIVITIES_BY_TIME_ENDPOINT_FORMAT         @"http://localhost:8080/MWBFServer/mwbf/user/activitiesByTime"
 #define MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf/mwbf/activities"
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://localhost:8080/MWBFServer/mwbf/user/deleteUserActivities"
-*/
+#define USER_NOTIFICATIONS_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf/user/notifications"
 
+/*
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://mwbf.herokuapp.com/mwbf/user/login"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf/user/friends"
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/user/friends/activities"
@@ -61,7 +62,8 @@
 #define USER_ACTIVITIES_BY_TIME_ENDPOINT_FORMAT         @"http://mwbf.herokuapp.com/mwbf/user/activitiesByTime"
 #define MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/mwbf/activities"
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://mwbf.herokuapp.com/mwbf/user/deleteUserActivities"
-
+#define USER_NOTIFICATIONS_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf/user/notifications"
+*/
 
 #define RANDOM_QUOTE_ENDPOINT @"http://www.iheartquotes.com/api/v1/random?source=oneliners&max_lines=1&show_source=0&format=json"
  
@@ -801,6 +803,42 @@
             }
         }
     }
+}
+
+// Check for FB friends that have joined and notify the user of them
+- (void) postNotifications:(NSString*) post
+{
+    NSURL *url=[NSURL URLWithString:USER_NOTIFICATIONS_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+    
+    NSMutableArray *notificationsArr = [NSMutableArray array];
+    @try
+    {
+        for (id key in jsonArray)
+        {
+            NSDictionary *userDict = [key objectForKey:@"user"];
+            
+            Friend *friend = [[Friend alloc] init];
+            friend.email = [userDict objectForKey:@"email"];
+            friend.fbProfileID = [userDict objectForKey:@"fbProfileId"];
+            friend.firstName = [userDict objectForKey:@"firstName"];
+            friend.lastName = [userDict objectForKey:@"lastName"];
+            
+            [notificationsArr addObject:friend];
+        }
+    }
+    @catch (NSException * e)
+    {
+        NSLog(@"Exception: %@", e);
+    }
+    
+    User *user = [User getInstance];
+    user.fbFriendNotificationsList = [NSMutableArray arrayWithArray:notificationsArr];
 }
 
 

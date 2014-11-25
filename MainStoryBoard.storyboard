@@ -2118,7 +2118,7 @@ You may :
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yaz-HF-pek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2924" y="4267"/>
+            <point key="canvasLocation" x="3000" y="4267"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="jJQ-A3-JJC">
@@ -2128,8 +2128,37 @@ You may :
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="L2q-cq-Cq3">
+                                <rect key="frame" x="45" y="76" width="232" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Friends"/>
+                                    <segment title="Notifications"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlClicked:" destination="c97-rG-FgO" eventType="valueChanged" id="OU8-18-j5J"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8tw-LQ-cth">
+                                <rect key="frame" x="31" y="64" width="25" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="1" backgroundImage="redCircle.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YoL-ew-daB">
+                                <rect key="frame" x="100" y="64" width="25" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="1" backgroundImage="redCircle.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" id="NeA-lZ-GRd" userLabel="Friends Notifications Table">
-                                <rect key="frame" x="0.0" y="113" width="320" height="406"/>
+                                <rect key="frame" x="0.0" y="112" width="320" height="407"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2200,40 +2229,56 @@ You may :
                                     <outlet property="delegate" destination="c97-rG-FgO" id="IdU-yV-aYJ"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="L2q-cq-Cq3">
-                                <rect key="frame" x="79" y="76" width="163" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Friends"/>
-                                    <segment title="Challenges"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentedControlClicked:" destination="c97-rG-FgO" eventType="valueChanged" id="OU8-18-j5J"/>
-                                </connections>
-                            </segmentedControl>
-                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8tw-LQ-cth">
-                                <rect key="frame" x="64" y="64" width="25" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="1" backgroundImage="redCircle.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YoL-ew-daB">
-                                <rect key="frame" x="232" y="64" width="25" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="1" backgroundImage="redCircle.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" id="ehE-NP-AMx" userLabel="Challenge Notifications Table">
-                                <rect key="frame" x="0.0" y="113" width="320" height="406"/>
+                                <rect key="frame" x="0.0" y="112" width="320" height="407"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" id="iIu-ux-tFz" userLabel="Notifications Table">
+                                <rect key="frame" x="0.0" y="112" width="320" height="407"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FBFriendNotifications" id="9oD-mc-Tp3" customClass="FBFriendNotificationCell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9oD-mc-Tp3" id="OKX-Fa-5GS">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="R5n-p9-fFu" customClass="FBProfilePictureView">
+                                                    <rect key="frame" x="8" y="8" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YRu-l3-uLO">
+                                                    <rect key="frame" x="56" y="13" width="256" height="34.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="friendFbProfilePicView" destination="R5n-p9-fFu" id="Dzt-Jn-oc2"/>
+                                            <outlet property="notificationMessage" destination="YRu-l3-uLO" id="DQF-66-s7b"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="c97-rG-FgO" id="wQA-en-dGD"/>
+                                    <outlet property="delegate" destination="c97-rG-FgO" id="ofp-vB-112"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MZ6-RW-MzV">
+                                <rect key="frame" x="264" y="64" width="25" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="1" backgroundImage="redCircle.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -2243,13 +2288,16 @@ You may :
                         <outlet property="challengeReqCountAlert" destination="YoL-ew-daB" id="y7c-Kc-niv"/>
                         <outlet property="friendReqCountAlert" destination="8tw-LQ-cth" id="IWj-xw-8gO"/>
                         <outlet property="friendsNotificationsTable" destination="NeA-lZ-GRd" id="4ga-Ch-7Gw"/>
+                        <outlet property="notificationsCountAlert" destination="MZ6-RW-MzV" id="ntH-rf-cwS"/>
                         <outlet property="notificationsSegmentedControl" destination="L2q-cq-Cq3" id="z4I-db-I1L"/>
+                        <outlet property="notificationsTable" destination="iIu-ux-tFz" id="vqN-0Q-9SQ"/>
                         <segue destination="JDi-gT-osO" kind="push" identifier="Profile" id="zAs-NX-IvI"/>
+                        <segue destination="ZrJ-8S-67J" kind="push" identifier="FindFriend" id="4sH-40-u8k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zt1-F7-xt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2924" y="3524"/>
+            <point key="canvasLocation" x="2924" y="3508"/>
         </scene>
         <!--Points Scheme-->
         <scene sceneID="x1i-A4-xwS">
@@ -2907,7 +2955,7 @@ activities anymore).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibk-Oh-uV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5187" y="2099"/>
+            <point key="canvasLocation" x="3610" y="3535"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="HmR-kK-Ffn">
@@ -3204,7 +3252,7 @@ activities anymore).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baI-wh-OO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4622" y="2860"/>
+            <point key="canvasLocation" x="4778" y="2805"/>
         </scene>
         <!--Friends-->
         <scene sceneID="71W-of-f3l">
@@ -3385,5 +3433,6 @@ activities anymore).</string>
         <segue reference="hzw-FB-gU0"/>
         <segue reference="cBP-Lf-BHj"/>
         <segue reference="zAs-NX-IvI"/>
+        <segue reference="4sH-40-u8k"/>
     </inferredMetricsTieBreakers>
 </document>

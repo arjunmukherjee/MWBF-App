@@ -108,6 +108,7 @@
 		91BB880119B3CA0D0068D961 /* patience-calm-quiet-plain.gif in Resources */ = {isa = PBXBuildFile; fileRef = 91BB87FF19B3CA0D0068D961 /* patience-calm-quiet-plain.gif */; };
 		91BBC4C219AA51DF00EBFD25 /* ChallengeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */; };
 		91BBC4C519AA59FA00EBFD25 /* ChallengeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */; };
+		91C3D8791A22F023005EF360 /* FBFriendNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3D8781A22F023005EF360 /* FBFriendNotificationCell.m */; };
 		91C665181991790F00A56D61 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C665171991790F00A56D61 /* DLPieChart.m */; };
 		91C6651B1992775300A56D61 /* MWBFActivities.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C6651A1992775300A56D61 /* MWBFActivities.m */; };
 		91CAC68E19D11D52006A6C06 /* background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CAC68D19D11D52006A6C06 /* background-2.png */; };
@@ -317,6 +318,8 @@
 		91BBC4C119AA51DF00EBFD25 /* ChallengeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeDetailsViewController.m; sourceTree = "<group>"; };
 		91BBC4C319AA59FA00EBFD25 /* ChallengeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeCell.h; sourceTree = "<group>"; };
 		91BBC4C419AA59FA00EBFD25 /* ChallengeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeCell.m; sourceTree = "<group>"; };
+		91C3D8771A22F023005EF360 /* FBFriendNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBFriendNotificationCell.h; sourceTree = "<group>"; };
+		91C3D8781A22F023005EF360 /* FBFriendNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBFriendNotificationCell.m; sourceTree = "<group>"; };
 		91C665161991790F00A56D61 /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPieChart.h; sourceTree = "<group>"; };
 		91C665171991790F00A56D61 /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
 		91C665191992775300A56D61 /* MWBFActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWBFActivities.h; sourceTree = "<group>"; };
@@ -742,6 +745,8 @@
 				91CECA3119E9E8A90052AA8C /* PersonalStatsCell.m */,
 				91445D0F1A1446160023BC33 /* FriendRequestCell.h */,
 				91445D101A1446160023BC33 /* FriendRequestCell.m */,
+				91C3D8771A22F023005EF360 /* FBFriendNotificationCell.h */,
+				91C3D8781A22F023005EF360 /* FBFriendNotificationCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1064,6 +1069,7 @@
 				918F69221987076700776052 /* HTTPPostRequest.m in Sources */,
 				919EE96A198BF8EA00F12411 /* Activity.m in Sources */,
 				915B425819ABE74C00DC79FE /* PMCalendarController.m in Sources */,
+				91C3D8791A22F023005EF360 /* FBFriendNotificationCell.m in Sources */,
 				915B425E19ABE74C00DC79FE /* PMThemeShadow.m in Sources */,
 				915B425D19ABE74C00DC79FE /* PMThemeEngine.m in Sources */,
 				9152133F19AA407E00EF7E18 /* Challenge.m in Sources */,

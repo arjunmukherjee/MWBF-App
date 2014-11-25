@@ -29,6 +29,7 @@
 @synthesize friendsListTable;
 @synthesize searchResults;
 @synthesize friendIdTextField;
+@synthesize friendName;
 
 - (void)viewDidLoad
 {
@@ -36,6 +37,15 @@
     
     self.searchResults = [NSMutableArray array];
     self.friendsListTable.hidden = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (self.friendName != nil)
+    {
+        self.friendIdTextField.text = self.friendName;
+        [self searchButtonClicked:nil];
+    }
 }
 
 // Dismiss the keyboard when the GO button is hit
@@ -94,8 +104,6 @@
         if ( !friendFound )
             [self.searchResults addObject:friend];
     }
-    
-    
     
     if ([self.searchResults count] < 1)
     {

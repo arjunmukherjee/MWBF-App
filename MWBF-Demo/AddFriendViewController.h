@@ -10,4 +10,6 @@
 
 @interface AddFriendViewController : BaseClassViewController <UITextFieldDelegate>
 
+@property (strong,nonatomic) NSString *friendName;
+
 @end

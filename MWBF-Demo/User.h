@@ -58,6 +58,9 @@
 // Pending challenges requests
 @property (strong,nonatomic) NSMutableArray *challengeRequestsList;
 
+// FB Friends joined notifications
+@property (strong,nonatomic) NSMutableArray *fbFriendNotificationsList;
+
 // Users notification settings
 @property (nonatomic) BOOL activityNotifications;
 @property (nonatomic) BOOL friendsAndChallengesNotifications;

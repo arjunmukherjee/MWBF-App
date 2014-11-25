@@ -230,18 +230,52 @@
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
                                                   NSDictionary* result,
-                                                  NSError *error) {
-        NSArray* friends = [result objectForKey:@"data"];
+                                                  NSError *error)
+    {
+        User *user = [User getInstance];
+        NSArray *friendsList = user.friendsList;
         
-      //  for (NSDictionary<FBGraphUser>* friend in friends)
-      //      NSLog(@"I have a friend named %@ with id %@", friend.name, friend.objectID);
+        NSMutableArray *notificationsList = [NSMutableArray array];
+        
+        NSArray* friends = [result objectForKey:@"data"];
+        for (NSDictionary<FBGraphUser>* friend in friends)
+        {
+            BOOL alreadyMyFriend = NO;
+            for (int i=0; i < [friendsList count]; i++)
+            {
+                Friend *friendObj = friendsList[i];
+                if ([friendObj.fbProfileID isEqual:friend.objectID])
+                    alreadyMyFriend = YES;
+            }
+            
+            if ( !alreadyMyFriend )
+            {
+                NSString *message = [NSString stringWithFormat:@"Your Facebook friend %@ has joined MWBF, connect with them.",friend.name];
+                
+                NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+                [dictionary setValue:user.userEmail forKey:@"userId"];
+                [dictionary setValue:message forKey:@"notificationMessage"];
+                [dictionary setValue:friend.objectID forKey:@"fbProfileId"];
+                
+                [notificationsList addObject:dictionary];
+            }
+        }
+        
+        if ( [notificationsList count] > 0 )
+        {
+            MWBFService *service = [[MWBFService alloc] init];
+            
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:notificationsList options:NSJSONWritingPrettyPrinted error:&error];
+            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
+            [service postNotifications:jsonString];
+        }
             
        // NSArray *friendIDs = [friends collect:^id(NSDictionary<FBGraphUser>* friend) {
        //     return friend.objectID;
        // }];
         
     }];
-    
 }
 
 // Implement the loginViewShowingLoggedInUser: delegate method to modify your app's UI for a logged-in user experience
