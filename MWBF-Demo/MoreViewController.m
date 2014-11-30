@@ -72,17 +72,6 @@
      */
 }
 
-- (IBAction)infoButtonClicked:(id)sender
-{
-    if (self.infoView.hidden == YES)
-    {
-        [self.view bringSubviewToFront:self.infoView];
-        self.infoView.hidden = NO;
-    }
-    else
-        self.infoView.hidden = YES;
-}
-
 // Dismiss the keyboard when the background is tapped
 - (IBAction)backgroundTap:(id)sender
 {
@@ -116,14 +105,14 @@
 
 - (IBAction)inviteFriend:(id)sender
 {
-    MFMailComposeViewController *mcvc = [[MFMailComposeViewController alloc] init];
-    mcvc.mailComposeDelegate = self;
-    [mcvc setSubject:@"Check out this app MWBF"];
-    UIImage *image = [UIImage imageNamed:@"Icon"];
-    [mcvc addAttachmentData:UIImageJPEGRepresentation(image, 1) mimeType:@"image/jpg" fileName:@"runningLong.jpg"];
-    NSString *defaultBody =@"Check out this app MWBF, link....";
-    [mcvc setMessageBody:defaultBody isHTML:YES];
-    [self presentViewController:mcvc animated:YES completion:nil];
+            MFMailComposeViewController *mcvc = [[MFMailComposeViewController alloc] init];
+        mcvc.mailComposeDelegate = self;
+        [mcvc setSubject:@"Check out this app MWBF"];
+        UIImage *image = [UIImage imageNamed:@"runningLong"];
+        [mcvc addAttachmentData:UIImageJPEGRepresentation(image, 1) mimeType:@"image/jpg" fileName:@"runningLong.jpg"];
+        NSString *defaultBody =@"Check out this app : MWBF, link....";
+        [mcvc setMessageBody:defaultBody isHTML:YES];
+        [self presentViewController:mcvc animated:YES completion:nil];
 }
 
 

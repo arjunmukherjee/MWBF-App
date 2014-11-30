@@ -12,20 +12,23 @@
 #import "MWBFActivities.h"
 
 @interface PointsSchemeController ()
-@property (weak, nonatomic) IBOutlet UITableView *pointsSchemeTable;
+@property (strong, nonatomic) IBOutlet UITableView *pointsSchemeTable;
 @property (strong,nonatomic) NSArray *activityList;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroller;
 
 @end
 
 @implementation PointsSchemeController
 @synthesize pointsSchemeTable;
+@synthesize scroller;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
+    [self.scroller setScrollEnabled:YES];
+    [self.scroller setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height)];
     self.activityList = [[Activity getInstance].activityDict allValues];
     
     // Sort the activites by the total points
