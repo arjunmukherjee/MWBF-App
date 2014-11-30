@@ -23,10 +23,6 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *statsSelector;
 
 // LEADER
-@property (weak, nonatomic) IBOutlet UILabel *leaderBestDayHeader;
-@property (weak, nonatomic) IBOutlet UILabel *leaderBestWeekHeader;
-@property (weak, nonatomic) IBOutlet UILabel *leaderBestMonthHeader;
-@property (weak, nonatomic) IBOutlet UILabel *leaderBestYearHeader;
 
 @property (weak, nonatomic) IBOutlet UILabel *leaderBestDayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *leaderBestDayPointsLabel;
@@ -86,10 +82,10 @@
 @synthesize statsByActivityView,statsByLeaderView;
 
 // LEADER
-@synthesize leaderBestDayHeader,leaderBestDayLabel,leaderBestDayPointsLabel;
-@synthesize leaderBestMonthHeader,leaderBestMonthLabel,leaderBestMonthPointsLabel;
-@synthesize leaderBestWeekEndLabel,leaderBestWeekHeader,leaderBestWeekStartLabel,leaderBestWeekPointsLabel;
-@synthesize leaderBestYearHeader,leaderBestYearLabel,leaderBestYearPointsLabel;
+@synthesize leaderBestDayLabel,leaderBestDayPointsLabel;
+@synthesize leaderBestMonthLabel,leaderBestMonthPointsLabel;
+@synthesize leaderBestWeekEndLabel,leaderBestWeekStartLabel,leaderBestWeekPointsLabel;
+@synthesize leaderBestYearLabel,leaderBestYearPointsLabel;
 @synthesize leaderBestDayButton,leaderBestMonthButton,leaderBestWeekButton,leaderBestYearButton;
 @synthesize leaderBestDay,leaderBestDayMonth,leaderBestDayYear;
 @synthesize leaderBestMonth,leaderBestMonthYear;
@@ -163,12 +159,6 @@
     [Utils setRoundedView:self.leaderBestWeekFriendPic toDiameter:22];
     [Utils setRoundedView:self.leaderBestMonthFriendPic toDiameter:22];
     [Utils setRoundedView:self.leaderBestYearFriendPic toDiameter:22];
-    
-    [Utils setMaskTo:leaderBestDayHeader byRoundingCorners:UIRectCornerAllCorners];
-    [Utils setMaskTo:leaderBestWeekHeader byRoundingCorners:UIRectCornerAllCorners];
-    [Utils setMaskTo:leaderBestMonthHeader byRoundingCorners:UIRectCornerAllCorners];
-    [Utils setMaskTo:leaderBestYearHeader byRoundingCorners:UIRectCornerAllCorners];
-    
     
     // SELF
     // BEST DAY
