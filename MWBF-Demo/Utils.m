@@ -71,6 +71,9 @@
 {
     MWBFService *service = [[MWBFService alloc] init];
     
+    // Get all the challenges the user is involved in
+    [service getChallenges];
+    
     // Get the list of friends
     [service getFriendsList];
     
@@ -85,9 +88,6 @@
     
     // Get the activities for all the users friends
     [service getFeed];
-    
-    // Get all the challenges the user is involved in
-    [service getChallenges];
     
     // Get a motivational quote
     [service getRandomQuote];

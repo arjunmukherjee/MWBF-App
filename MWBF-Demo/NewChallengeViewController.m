@@ -249,8 +249,8 @@
         [Utils alertStatus:@"Please choose a challenge name without commas." :@"Oops!" :0];
     else if ( daysInChallenge < 1 )
         [Utils alertStatus:@"Please choose an end date that falls after the start date." :@"Oops! Date issues.." :0];
-    else if ( daysFromToday < 0 )
-        [Utils alertStatus:@"Please choose an end date in the future." :@"Oops! Date issues.." :0];
+    //else if ( daysFromToday < 0 )
+    //    [Utils alertStatus:@"Please choose an end date in the future." :@"Oops! Date issues.." :0];
     else
     {
         // Year
