@@ -28,7 +28,7 @@
     [super viewDidLoad];
 
     [self.scroller setScrollEnabled:YES];
-    [self.scroller setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height)];
+    [self.scroller setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+30)];
     self.activityList = [[Activity getInstance].activityDict allValues];
     
     // Sort the activites by the total points
