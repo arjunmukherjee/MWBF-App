@@ -146,6 +146,9 @@
                 messageBody = [NSString stringWithFormat:@"You have %d new %@.",newMessageCount,notificationStr];
         }
         
+        // Check if the old messages got deallocated
+        if ([messageListOld count] <= 0 )
+            messageBody = [NSString stringWithFormat:@"%@..", messageBody ];
         
         localNotification.alertBody = messageBody;
         localNotification.soundName = UILocalNotificationDefaultSoundName;

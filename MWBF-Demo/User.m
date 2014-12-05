@@ -53,12 +53,12 @@
     self = [super init];
     if (self)
     {
-        self.friendsList = [NSMutableArray array];
-        self.friendsActivitiesList = [NSMutableArray array];
-        self.favActivityList = [NSMutableArray array];
-        self.friendRequestsList = [NSMutableArray array];
-        self.challengeRequestsList = [NSMutableArray array];
-        self.fbFriendNotificationsList = [NSMutableArray array];
+        self.friendsList = [[NSMutableArray alloc] init];
+        self.friendsActivitiesList = [[NSMutableArray alloc] initWithCapacity:101];
+        self.favActivityList = [[NSMutableArray alloc] init];
+        self.friendRequestsList = [[NSMutableArray alloc] init];
+        self.challengeRequestsList = [[NSMutableArray alloc] init];
+        self.fbFriendNotificationsList = [[NSMutableArray alloc] init];
         self.activityNotifications = YES;
         self.friendsAndChallengesNotifications = YES;
         self.backgroundImageName = @"background.jpg";

@@ -733,9 +733,21 @@
     stats.numberOfWonChallenges = [jsonData objectForKey:@"numberOfWonChallenges"];
     
     NSDictionary *weeklyComparisons = [jsonData objectForKey:@"weeklyComparisons"];
-    user.weeklyPointsUser = weeklyComparisons[@"userPoints"];
-    user.weeklyPointsFriendsAverage = weeklyComparisons[@"friendsPointsAverage"];
-    user.weeklyPointsLeader = weeklyComparisons[@"leaderPoints"];
+    
+    if ([weeklyComparisons[@"userPoints"] floatValue] > [weeklyComparisons[@"userPoints"] integerValue])
+        user.weeklyPointsUser = [NSString stringWithFormat:@"%0.1f",[weeklyComparisons[@"userPoints"] floatValue]];
+    else
+        user.weeklyPointsUser = weeklyComparisons[@"userPoints"];
+    
+    if ([weeklyComparisons[@"friendsPointsAverage"] floatValue] > [weeklyComparisons[@"friendsPointsAverage"] integerValue])
+        user.weeklyPointsFriendsAverage = [NSString stringWithFormat:@"%0.1f",[weeklyComparisons[@"friendsPointsAverage"] floatValue]];
+    else
+        user.weeklyPointsFriendsAverage = weeklyComparisons[@"friendsPointsAverage"];
+    
+    if ([weeklyComparisons[@"leaderPoints"] floatValue] > [weeklyComparisons[@"leaderPoints"] integerValue])
+        user.weeklyPointsLeader = [NSString stringWithFormat:@"%0.1f",[weeklyComparisons[@"leaderPoints"] floatValue]];
+    else
+        user.weeklyPointsLeader = weeklyComparisons[@"leaderPoints"];
     
     user.userStats = stats;
 }
