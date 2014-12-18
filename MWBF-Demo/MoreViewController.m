@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *messagesButton;
 @property (weak, nonatomic) IBOutlet UIButton *numberOfNotificationsButton;
 @property (strong,nonatomic) User *user;
+@property (strong,nonatomic) MFMailComposeViewController *mcvc;
 
 @end
 
@@ -38,6 +39,7 @@
 @synthesize profilePic;
 @synthesize messagesButton,numberOfNotificationsButton;
 @synthesize user;
+@synthesize mcvc;
 
 - (void)viewDidLoad
 {
@@ -52,6 +54,9 @@
     
     // Only show this if you have new messages.
     self.numberOfNotificationsButton.hidden = YES;
+    
+    self.mcvc = [[MFMailComposeViewController alloc] init];
+    self.mcvc.mailComposeDelegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -105,31 +110,42 @@
 
 - (IBAction)inviteFriend:(id)sender
 {
-            MFMailComposeViewController *mcvc = [[MFMailComposeViewController alloc] init];
-        mcvc.mailComposeDelegate = self;
-        [mcvc setSubject:@"Check out this app MWBF"];
-        UIImage *image = [UIImage imageNamed:@"runningLong"];
-        [mcvc addAttachmentData:UIImageJPEGRepresentation(image, 1) mimeType:@"image/jpg" fileName:@"runningLong.jpg"];
-        NSString *defaultBody =@"Check out this app : MWBF, link....";
-        [mcvc setMessageBody:defaultBody isHTML:YES];
-        [self presentViewController:mcvc animated:YES completion:nil];
+    [self.mcvc.navigationBar setBackgroundImage:[UIImage imageNamed:@"background-2.png"] forBarMetrics:UIBarMetricsDefault];
+    self.mcvc.navigationBar.tintColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
+    [self.mcvc setSubject:@"Check out this app : MWBF"];
+    [self.mcvc setMessageBody:@"\nLet's get fit together : MWBF, http://signup.mwbflife.com" isHTML:YES];
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    UIImage *ui = [UIImage imageNamed:@"mwbf_collage-png"];
+    pasteboard.image = ui;
+    NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(ui)];
+    [self.mcvc addAttachmentData:imageData mimeType:@"image/png" fileName:@" "];
+
+    [self presentViewController:self.mcvc animated:YES completion:nil];
 }
+
 
 
 - (IBAction)sendFeedback:(id)sender
 {
-    MFMailComposeViewController *mailcontroller = [[MFMailComposeViewController alloc] init];
-    [mailcontroller setMailComposeDelegate:self];
+    [self.mcvc setMailComposeDelegate:self];
     NSString *email =@"feedback@mwbflife.com";
     NSArray *emailArray = [[NSArray alloc] initWithObjects:email, nil];
-    [mailcontroller setToRecipients:emailArray];
-    [mailcontroller setSubject:@"MWBF Feedback"];
-    [self presentViewController:mailcontroller animated:YES completion:nil];
+    [self.mcvc setToRecipients:emailArray];
+    [self.mcvc setSubject:@"MWBF Feedback"];
+    [self presentViewController:self.mcvc animated:YES completion:nil];
 }
 
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self cycleTheGlobalMailComposer];
+}
+
+-(void)cycleTheGlobalMailComposer
+{
+    // we are cycling the damned GlobalMailComposer... due to horrible iOS issue
+    self.mcvc = nil;
+    self.mcvc = [[MFMailComposeViewController alloc] init];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

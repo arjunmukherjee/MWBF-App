@@ -49,6 +49,7 @@
 		9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9147D913198312B200183220 /* MainStoryBoard.storyboard */; };
 		9147D91B1983162800183220 /* MWBFService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9147D9191983162800183220 /* MWBFService.m */; };
 		9152133F19AA407E00EF7E18 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9152133E19AA407E00EF7E18 /* Challenge.m */; };
+		91542D541A42B1DA00C8CB6D /* mwbf_collage-png.png in Resources */ = {isa = PBXBuildFile; fileRef = 91542D531A42B1DA00C8CB6D /* mwbf_collage-png.png */; };
 		915B423D19ABE73700DC79FE /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 915B423919ABE73700DC79FE /* background.png */; };
 		915B423E19ABE73700DC79FE /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 915B423A19ABE73700DC79FE /* background@2x.png */; };
 		915B423F19ABE73700DC79FE /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 915B423B19ABE73700DC79FE /* default.plist */; };
@@ -227,6 +228,7 @@
 		9147D9191983162800183220 /* MWBFService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBFService.m; sourceTree = "<group>"; };
 		9152133D19AA407E00EF7E18 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
 		9152133E19AA407E00EF7E18 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Challenge.m; sourceTree = "<group>"; };
+		91542D531A42B1DA00C8CB6D /* mwbf_collage-png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mwbf_collage-png.png"; sourceTree = "<group>"; };
 		915B423819ABE72300DC79FE /* PMCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendar.h; sourceTree = "<group>"; };
 		915B423919ABE73700DC79FE /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		915B423A19ABE73700DC79FE /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 				9127FB9119BD1CAD001C85D8 /* rsz_ipadicon.png */,
 				9127FB9319BD1E16001C85D8 /* appIcon76x76.png */,
 				9127FB9419BD1E16001C85D8 /* appIcon152x152.png */,
+				91542D531A42B1DA00C8CB6D /* mwbf_collage-png.png */,
 				91CF0ED319A27B17007B668A /* Default@2x.png */,
 				9147D8EF1983127100183220 /* AppDelegate.h */,
 				9147D8F01983127100183220 /* AppDelegate.m */,
@@ -948,6 +951,7 @@
 				912C417B19D3C0E10096C951 /* wall.png in Resources */,
 				912C419A19D502C50096C951 /* about.png in Resources */,
 				91EF87061A1C50D8004399BC /* climbingIcon.png in Resources */,
+				91542D541A42B1DA00C8CB6D /* mwbf_collage-png.png in Resources */,
 				91B239D219CBD21100601E7F /* swimmingIcon.png in Resources */,
 				9147D914198312B200183220 /* MainStoryBoard.storyboard in Resources */,
 				912E348A19C3F32F00F4745A /* friends.png in Resources */,

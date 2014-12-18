@@ -15,6 +15,7 @@
 #import "Friend.h"
 #import "FriendRequest.h"
 #import "Challenge.h"
+#import "Utils.h"
 
 /*
 #define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf/user/login"
@@ -355,26 +356,14 @@
             stats.bestMonth = bestMonthDict[@"date"];
             stats.bestYear = bestYearDict[@"date"];
             
-            stats.bestDayPoints = bestDayDict[@"points"];
-            stats.bestWeekPoints = bestWeekDict[@"points"];
-            stats.bestMonthPoints = bestMonthDict[@"points"];
-            stats.bestYearPoints = bestYearDict[@"points"];
+            stats.bestDayPoints = [Utils reducePrecisionOfFloat:bestDayDict[@"points"]];
+            stats.bestWeekPoints = [Utils reducePrecisionOfFloat:bestWeekDict[@"points"]];
+            stats.bestMonthPoints = [Utils reducePrecisionOfFloat:bestMonthDict[@"points"]];
+            stats.bestYearPoints = [Utils reducePrecisionOfFloat:bestYearDict[@"points"]];
             
-            float bestDayPointsFloat = [stats.bestDayPoints floatValue];
-            stats.bestDayPoints = [NSString stringWithFormat:@"%0.1f",bestDayPointsFloat];
-            
-            float bestWeekPointsFloat = [stats.bestWeekPoints floatValue];
-            stats.bestWeekPoints = [NSString stringWithFormat:@"%0.1f",bestWeekPointsFloat];
-            
-            float bestMonthPointsFloat = [stats.bestMonthPoints floatValue];
-            stats.bestMonthPoints = [NSString stringWithFormat:@"%0.1f",bestMonthPointsFloat];
-            
-            float bestYearPointsFloat = [stats.bestYearPoints floatValue];
-            stats.bestYearPoints = [NSString stringWithFormat:@"%0.1f",bestYearPointsFloat];
-            
-            stats.currentWeekPoints = [jsonData[i] objectForKey:@"currentWeekPoints"];
-            stats.currentMonthPoints = [jsonData[i] objectForKey:@"currentMonthPoints"];
-            stats.currentYearPoints = [jsonData[i] objectForKey:@"currentYearPoints"];
+            stats.currentWeekPoints = [Utils reducePrecisionOfFloat:[jsonData[i] objectForKey:@"currentWeekPoints"]];
+            stats.currentMonthPoints = [Utils reducePrecisionOfFloat:[jsonData[i] objectForKey:@"currentMonthPoints"]];
+            stats.currentYearPoints = [Utils reducePrecisionOfFloat:[jsonData[i] objectForKey:@"currentYearPoints"]];
             
             stats.numberOfTotalChallenges = [jsonData[i] objectForKey:@"numberOfTotalChallenges"];
             stats.numberOfActiveChallenges = [jsonData[i] objectForKey:@"numberOfActiveChallenges"];
@@ -482,26 +471,14 @@
             stats.bestMonth = bestMonthDict[@"date"];
             stats.bestYear = bestYearDict[@"date"];
             
-            stats.bestDayPoints = bestDayDict[@"points"];
-            stats.bestWeekPoints = bestWeekDict[@"points"];
-            stats.bestMonthPoints = bestMonthDict[@"points"];
-            stats.bestYearPoints = bestYearDict[@"points"];
+            stats.bestDayPoints = [Utils reducePrecisionOfFloat:bestDayDict[@"points"]];
+            stats.bestWeekPoints = [Utils reducePrecisionOfFloat:bestWeekDict[@"points"]];
+            stats.bestMonthPoints = [Utils reducePrecisionOfFloat:bestMonthDict[@"points"]];
+            stats.bestYearPoints = [Utils reducePrecisionOfFloat:bestYearDict[@"points"]];
             
-            float bestDayPointsFloat = [stats.bestDayPoints floatValue];
-            stats.bestDayPoints = [NSString stringWithFormat:@"%0.1f",bestDayPointsFloat];
-            
-            float bestWeekPointsFloat = [stats.bestWeekPoints floatValue];
-            stats.bestWeekPoints = [NSString stringWithFormat:@"%0.1f",bestWeekPointsFloat];
-            
-            float bestMonthPointsFloat = [stats.bestMonthPoints floatValue];
-            stats.bestMonthPoints = [NSString stringWithFormat:@"%0.1f",bestMonthPointsFloat];
-            
-            float bestYearPointsFloat = [stats.bestYearPoints floatValue];
-            stats.bestYearPoints = [NSString stringWithFormat:@"%0.1f",bestYearPointsFloat];
-            
-            stats.currentWeekPoints = [friendDict objectForKey:@"currentWeekPoints"];
-            stats.currentMonthPoints = [friendDict objectForKey:@"currentMonthPoints"];
-            stats.currentYearPoints = [friendDict objectForKey:@"currentYearPoints"];
+            stats.currentWeekPoints = [Utils reducePrecisionOfFloat:[friendDict objectForKey:@"currentWeekPoints"]];
+            stats.currentMonthPoints = [Utils reducePrecisionOfFloat:[friendDict objectForKey:@"currentMonthPoints"]];
+            stats.currentYearPoints = [Utils reducePrecisionOfFloat:[friendDict objectForKey:@"currentYearPoints"]];
             
             stats.numberOfTotalChallenges = [friendDict objectForKey:@"numberOfTotalChallenges"];
             stats.numberOfActiveChallenges = [friendDict objectForKey:@"numberOfActiveChallenges"];
@@ -707,26 +684,14 @@
     stats.bestMonth = bestMonthDict[@"date"];
     stats.bestYear = bestYearDict[@"date"];
     
-    stats.bestDayPoints = bestDayDict[@"points"];
-    stats.bestWeekPoints = bestWeekDict[@"points"];
-    stats.bestMonthPoints = bestMonthDict[@"points"];
-    stats.bestYearPoints = bestYearDict[@"points"];
+    stats.bestDayPoints = [Utils reducePrecisionOfFloat:bestDayDict[@"points"]];
+    stats.bestWeekPoints = [Utils reducePrecisionOfFloat:bestWeekDict[@"points"]];
+    stats.bestMonthPoints = [Utils reducePrecisionOfFloat:bestMonthDict[@"points"]];
+    stats.bestYearPoints = [Utils reducePrecisionOfFloat:bestYearDict[@"points"]];
     
-    float bestDayPointsFloat = [stats.bestDayPoints floatValue];
-    stats.bestDayPoints = [NSString stringWithFormat:@"%0.1f",bestDayPointsFloat];
-    
-    float bestWeekPointsFloat = [stats.bestWeekPoints floatValue];
-    stats.bestWeekPoints = [NSString stringWithFormat:@"%0.1f",bestWeekPointsFloat];
-    
-    float bestMonthPointsFloat = [stats.bestMonthPoints floatValue];
-    stats.bestMonthPoints = [NSString stringWithFormat:@"%0.1f",bestMonthPointsFloat];
-    
-    float bestYearPointsFloat = [stats.bestYearPoints floatValue];
-    stats.bestYearPoints = [NSString stringWithFormat:@"%0.1f",bestYearPointsFloat];
-    
-    stats.currentWeekPoints = [jsonData objectForKey:@"currentWeekPoints"];
-    stats.currentMonthPoints = [jsonData objectForKey:@"currentMonthPoints"];
-    stats.currentYearPoints = [jsonData objectForKey:@"currentYearPoints"];
+    stats.currentWeekPoints = [Utils reducePrecisionOfFloat:[jsonData objectForKey:@"currentWeekPoints"]];
+    stats.currentMonthPoints = [Utils reducePrecisionOfFloat:[jsonData objectForKey:@"currentMonthPoints"]];
+    stats.currentYearPoints = [Utils reducePrecisionOfFloat:[jsonData objectForKey:@"currentYearPoints"]];
     
     stats.numberOfTotalChallenges = [jsonData objectForKey:@"numberOfTotalChallenges"];
     stats.numberOfActiveChallenges = [jsonData objectForKey:@"numberOfActiveChallenges"];
@@ -734,20 +699,9 @@
     
     NSDictionary *weeklyComparisons = [jsonData objectForKey:@"weeklyComparisons"];
     
-    if ([weeklyComparisons[@"userPoints"] floatValue] > [weeklyComparisons[@"userPoints"] integerValue])
-        user.weeklyPointsUser = [NSString stringWithFormat:@"%0.1f",[weeklyComparisons[@"userPoints"] floatValue]];
-    else
-        user.weeklyPointsUser = weeklyComparisons[@"userPoints"];
-    
-    if ([weeklyComparisons[@"friendsPointsAverage"] floatValue] > [weeklyComparisons[@"friendsPointsAverage"] integerValue])
-        user.weeklyPointsFriendsAverage = [NSString stringWithFormat:@"%0.1f",[weeklyComparisons[@"friendsPointsAverage"] floatValue]];
-    else
-        user.weeklyPointsFriendsAverage = weeklyComparisons[@"friendsPointsAverage"];
-    
-    if ([weeklyComparisons[@"leaderPoints"] floatValue] > [weeklyComparisons[@"leaderPoints"] integerValue])
-        user.weeklyPointsLeader = [NSString stringWithFormat:@"%0.1f",[weeklyComparisons[@"leaderPoints"] floatValue]];
-    else
-        user.weeklyPointsLeader = weeklyComparisons[@"leaderPoints"];
+    user.weeklyPointsUser = [Utils reducePrecisionOfFloat:weeklyComparisons[@"userPoints"]];
+    user.weeklyPointsFriendsAverage = [Utils reducePrecisionOfFloat:weeklyComparisons[@"friendsPointsAverage"]];
+    user.weeklyPointsLeader = [Utils reducePrecisionOfFloat:weeklyComparisons[@"leaderPoints"]];
     
     user.userStats = stats;
 }

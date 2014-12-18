@@ -52,6 +52,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *activityNineHeaderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityTenHeaderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityElevenHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTwelveHeaderLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *activityOneValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityTwoValueLabel;
@@ -64,6 +65,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *activityNineValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityTenValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityElevenValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTwelveValueLabel;
 
 
 
@@ -114,44 +116,19 @@
     [self.activityHeaderLabelsDict setObject:self.activitySixHeaderLabel forKey:@"6"];
     [self.activityLabelsDict setObject:self.activitySevenValueLabel forKey:@"7"];
     [self.activityHeaderLabelsDict setObject:self.activitySevenHeaderLabel forKey:@"7"];
-    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"8"];
-    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"8"];
-    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"9"];
-    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"9"];
-    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"10"];
-    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"10"];
-    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"11"];
-    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"11"];
     
-    /*
-    self.activityLabelsDict = [NSMutableDictionary dictionary];
-    for (NSString *activityName in [[Activity getInstance].activityDict allKeys])
-    {
-        if( [activityName isEqualToString:@"Run"] )
-            [self.activityLabelsDict setObject:self.runLabel forKey:activityName];
-        else if( [activityName isEqualToString:@"Sports"] )
-            [self.activityLabelsDict setObject:self.sportsLabel forKey:activityName];
-        else if( [activityName isEqualToString:@"Stairmaster"] )
-            [self.activityLabelsDict setObject:self.stairsLabel forKey:activityName];
-        else if( [activityName isEqualToString:@"Swim"] )
-            [self.activityLabelsDict setObject:self.swimLabel forKey:activityName];
-        else if( [activityName isEqualToString:@"Trek"] )
-            [self.activityLabelsDict setObject:self.trekLabel forKey:activityName];
-        else if( [activityName isEqualToString:@"Yoga"] )
-            [self.activityLabelsDict setObject:self.yogaLabel forKey:activityName];
-        else if( [activityName isEqualToString:@"Gym"] )
-            [self.activityLabelsDict setObject:self.gymLabel forKey:activityName];
-        else if( [activityName isEqualToString:@"Bike"] )
-            [self.activityLabelsDict setObject:self.bikeLabel forKey:activityName];
-        else if( [activityName isEqualToString:@"Sport Climbing"] )
-            [self.activityLabelsDict setObject:self.climbLabel forKey:activityName];
-        else if( [activityName isEqualToString:@"Walk"] )
-            [self.activityLabelsDict setObject:self.walkLabel forKey:activityName];
-        else
-            [self.activityLabelsDict setObject:self.ellipticalLabel forKey:activityName];
-    }
-     */
+    [self.activityLabelsDict setObject:self.activityEightValueLabel forKey:@"8"];
+    [self.activityHeaderLabelsDict setObject:self.activityEightHeaderLabel forKey:@"8"];
+    [self.activityLabelsDict setObject:self.activityNineValueLabel forKey:@"9"];
+    [self.activityHeaderLabelsDict setObject:self.activityNineHeaderLabel forKey:@"9"];
+    [self.activityLabelsDict setObject:self.activityTenValueLabel forKey:@"10"];
+    [self.activityHeaderLabelsDict setObject:self.activityTenHeaderLabel forKey:@"10"];
+    [self.activityLabelsDict setObject:self.activityElevenValueLabel forKey:@"11"];
+    [self.activityHeaderLabelsDict setObject:self.activityElevenHeaderLabel forKey:@"11"];
+    [self.activityLabelsDict setObject:self.activityTwelveValueLabel forKey:@"12"];
+    [self.activityHeaderLabelsDict setObject:self.activityTwelveHeaderLabel forKey:@"12"];
     
+
     self.friendEmailArr = [NSMutableArray array];
     self.challengerDetailsView.hidden = YES;
     
@@ -276,6 +253,7 @@
     self.activityNineValueLabel.text = @"";
     self.activityTenValueLabel.text = @"";
     self.activityElevenValueLabel.text = @"";
+    self.activityTwelveValueLabel.text = @"";
     
     self.activityOneValueLabel.hidden = YES;
     self.activityTwoValueLabel.hidden = YES;
@@ -288,6 +266,7 @@
     self.activityNineValueLabel.hidden = YES;
     self.activityTenValueLabel.hidden = YES;
     self.activityElevenValueLabel.hidden = YES;
+    self.activityTwelveValueLabel.hidden = YES;
     
     self.activityOneHeaderLabel.hidden = YES;
     self.activityTwoHeaderLabel.hidden = YES;
@@ -300,6 +279,7 @@
     self.activityNineHeaderLabel.hidden = YES;
     self.activityTenHeaderLabel.hidden = YES;
     self.activityElevenHeaderLabel.hidden = YES;
+    self.activityTwelveHeaderLabel.hidden = YES;
 }
 
 
@@ -502,7 +482,7 @@
         UILabel *activityValueLabel = [self.activityLabelsDict objectForKey:[NSString stringWithFormat:@"%d",i]];
         UILabel *activityHeaderLabel = [self.activityHeaderLabelsDict objectForKey:[NSString stringWithFormat:@"%d",i]];
         
-        activityValueLabel.text = [NSString stringWithFormat:@"%@",[aggActDict objectForKey:activityName]];
+        activityValueLabel.text = [NSString stringWithFormat:@"%@", [Utils reducePrecisionOfFloat:[aggActDict objectForKey:activityName]]];
         activityHeaderLabel.text = activityName;
         
         activityValueLabel.hidden = NO;

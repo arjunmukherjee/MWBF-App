@@ -22,6 +22,7 @@
 
 + (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag;
 + (BOOL) isStringNullOrEmpty:(NSString *) text;
++ (NSString*) reducePrecisionOfFloat:(NSString *) stringValue;
 
 + (void) refreshUserData;
 

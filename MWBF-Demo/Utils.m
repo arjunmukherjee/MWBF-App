@@ -115,6 +115,17 @@
     [view.layer addSublayer:line];
 }
 
++ (NSString*) reducePrecisionOfFloat:(NSString *) stringValue
+{
+    if ([stringValue floatValue] > [stringValue integerValue])
+    {
+        float floatValue = [stringValue floatValue];
+        stringValue = [NSString stringWithFormat:@"%0.1f",floatValue];
+    }
+    
+    return stringValue;
+}
+
 // Convert a jsonArray of objects into an Array of UserActivity objects (aggregated by Time)
 + (void) convertJsonArrayByTimeToActivityObjectArrayWith:(NSArray*)jsonArray withLabelArray:(NSMutableArray*)labelArray withPointsArray:(NSMutableArray*)pointsArray
 {
