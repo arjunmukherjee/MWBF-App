@@ -55,13 +55,19 @@
 {
     User *user = [User getInstance];
     
+    /*
     NSMutableArray *messageListOld = [NSMutableArray array];
     for (int i=0; i < [user.friendsActivitiesList count]; i++)
          [messageListOld addObject:user.friendsActivitiesList[i][@"feedPrettyString"]];
-    
-    NSMutableArray *friendRequestListOld = [NSMutableArray array];
-    for (int i=0; i < [user.friendRequestsList count]; i++)
-        [friendRequestListOld addObject:user.friendRequestsList[i]];
+     
+     NSMutableArray *friendRequestListOld = [NSMutableArray array];
+     for (int i=0; i < [user.friendRequestsList count]; i++)
+     [friendRequestListOld addObject:user.friendRequestsList[i]];
+    */
+ 
+    // Get the stored data from the pLists
+    NSArray *messageListOld = [[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFActivityFeed"];
+    NSArray *friendRequestListOld = [[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFFriendRequests"];
     
     // Refresh the user's data
     [Utils refreshUserData];

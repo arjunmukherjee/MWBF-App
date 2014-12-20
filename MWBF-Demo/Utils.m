@@ -91,6 +91,21 @@
     
     // Get a motivational quote
     [service getRandomQuote];
+    
+    // Store the activity list in the pList
+    User *user = [User getInstance];
+    NSMutableArray *messageList = [NSMutableArray array];
+    for (int i=0; i < [user.friendsActivitiesList count]; i++)
+        [messageList addObject:user.friendsActivitiesList[i][@"feedPrettyString"]];
+    [[NSUserDefaults standardUserDefaults] setObject:messageList forKey:@"MWBFActivityFeed"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    // Store the friend request list
+    NSMutableArray *friendRequestList = [NSMutableArray array];
+    for (int i=0; i < [user.friendRequestsList count]; i++)
+        [friendRequestList addObject:user.friendRequestsList[i]];
+    [[NSUserDefaults standardUserDefaults] setObject:friendRequestList forKey:@"MWBFFriendRequests"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void) addLine:(UIView *) view addTop:(BOOL) addTopLine addBottom:(BOOL) addBottomLine withWidth: (NSInteger)width withColor: (UIColor *) color
