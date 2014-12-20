@@ -53,25 +53,24 @@
 // Background refresh (Will refresh all the user data from the server in the background, scheduled by iOS)
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    User *user = [User getInstance];
-    
     /*
-    NSMutableArray *messageListOld = [NSMutableArray array];
-    for (int i=0; i < [user.friendsActivitiesList count]; i++)
-         [messageListOld addObject:user.friendsActivitiesList[i][@"feedPrettyString"]];
+     NSMutableArray *messageListOld = [NSMutableArray array];
+     for (int i=0; i < [user.friendsActivitiesList count]; i++)
+        [messageListOld addObject:user.friendsActivitiesList[i][@"feedPrettyString"]];
      
      NSMutableArray *friendRequestListOld = [NSMutableArray array];
      for (int i=0; i < [user.friendRequestsList count]; i++)
-     [friendRequestListOld addObject:user.friendRequestsList[i]];
+        [friendRequestListOld addObject:user.friendRequestsList[i]];
     */
  
     // Get the stored data from the pLists
-    NSArray *messageListOld = [[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFActivityFeed"];
-    NSArray *friendRequestListOld = [[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFFriendRequests"];
+    NSArray *messageListOld = [NSArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFActivityFeed"]];
+    NSArray *friendRequestListOld = [NSArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFFriendRequests"]];
     
     // Refresh the user's data
     [Utils refreshUserData];
     
+    User *user = [User getInstance];
     // Look for new messages
     int newMessageCount = 0;
     NSString *newMessage = [[NSString alloc] init];
