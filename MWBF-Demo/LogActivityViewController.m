@@ -167,9 +167,6 @@
             MWBFService *service = [[MWBFService alloc] init];
             success = [service logActivity:jsonString withResponse:&response];
             
-            // Refresh the users data
-            [Utils refreshUserData];
-            
             dispatch_sync(dispatch_get_main_queue(), ^{
                 [self.activityIndicator stopAnimating];
                 self.activityIndicator.hidden = YES;
@@ -186,14 +183,15 @@
                 }
                 else
                 {
-                    NSString *message = [NSString stringWithFormat:@"You just earned %.1f points.",self.pointsEarned];
-                    [Utils alertStatus:message :@"Wohoo!!" :0];
+                    [Utils alertStatus:[NSString stringWithFormat:@"You just earned %.1f points.",self.pointsEarned] :@"Wohoo!!" :0];
+                   
+                    // Refresh the users data
+                    [Utils refreshUserData];
                     
                     self.addActivityButton.hidden = NO;
                     self.activityPicker.hidden = NO;
                     
                     // Hidden components
-                    
                     self.logActivityButton.hidden = NO;
                     self.activityTable.hidden = NO;
                     self.activityNameHeaderLable.hidden = NO;

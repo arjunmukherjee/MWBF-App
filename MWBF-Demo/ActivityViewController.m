@@ -68,6 +68,36 @@
 @property (weak, nonatomic) IBOutlet UILabel *restDaysHeaderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *restDaysValueLabel;
 
+// Individual activity details
+@property (weak, nonatomic) IBOutlet UIView *activityDetailsView;
+
+// Multiple labels
+@property (weak, nonatomic) IBOutlet UILabel *activityOneHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTwoHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityThreeHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityFourHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityFiveHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activitySixHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activitySevenHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityEightHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityNineHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTenHeaderLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *activityOneValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTwoValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityThreeValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityFourValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityFiveValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activitySixValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activitySevenValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityEightValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityNineValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTenValueLabel;
+
+@property (strong,nonatomic) NSMutableDictionary *activityLabelsDict;
+@property (strong,nonatomic) NSMutableDictionary *activityHeaderLabelsDict;
+
+
 
 @property float totalPoints;
 
@@ -96,6 +126,8 @@
 @synthesize totalPoints,totalHeaderLabel,totalValueLabel;
 @synthesize rightButton,leftButton;
 @synthesize restDaysHeaderLabel,restDaysValueLabel,numberOfRestDays;
+@synthesize activityLabelsDict;
+@synthesize activityHeaderLabelsDict;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -116,9 +148,34 @@
     self.activityBarView.hidden = YES;
     self.barResultsLabel.hidden = YES;
     self.activityBarViewByTime.hidden = YES;
+    self.activityDetailsView.hidden = YES;
     
     // Hide the table
     [self hideTableDislplay];
+    
+    [self resetActivityLabels];
+    self.activityLabelsDict = [NSMutableDictionary dictionary];
+    self.activityHeaderLabelsDict = [NSMutableDictionary dictionary];
+    [self.activityLabelsDict setObject:self.activityOneValueLabel forKey:@"1"];
+    [self.activityHeaderLabelsDict setObject:self.activityOneHeaderLabel forKey:@"1"];
+    [self.activityLabelsDict setObject:self.activityTwoValueLabel forKey:@"2"];
+    [self.activityHeaderLabelsDict setObject:self.activityTwoHeaderLabel forKey:@"2"];
+    [self.activityLabelsDict setObject:self.activityThreeValueLabel forKey:@"3"];
+    [self.activityHeaderLabelsDict setObject:self.activityThreeHeaderLabel forKey:@"3"];
+    [self.activityLabelsDict setObject:self.activityFourValueLabel forKey:@"4"];
+    [self.activityHeaderLabelsDict setObject:self.activityFourHeaderLabel forKey:@"4"];
+    [self.activityLabelsDict setObject:self.activityFiveValueLabel forKey:@"5"];
+    [self.activityHeaderLabelsDict setObject:self.activityFiveHeaderLabel forKey:@"5"];
+    [self.activityLabelsDict setObject:self.activitySixValueLabel forKey:@"6"];
+    [self.activityHeaderLabelsDict setObject:self.activitySixHeaderLabel forKey:@"6"];
+    [self.activityLabelsDict setObject:self.activitySevenValueLabel forKey:@"7"];
+    [self.activityHeaderLabelsDict setObject:self.activitySevenHeaderLabel forKey:@"7"];
+    [self.activityLabelsDict setObject:self.activityEightValueLabel forKey:@"8"];
+    [self.activityHeaderLabelsDict setObject:self.activityEightHeaderLabel forKey:@"8"];
+    [self.activityLabelsDict setObject:self.activityNineValueLabel forKey:@"9"];
+    [self.activityHeaderLabelsDict setObject:self.activityNineHeaderLabel forKey:@"9"];
+    [self.activityLabelsDict setObject:self.activityTenValueLabel forKey:@"10"];
+    [self.activityHeaderLabelsDict setObject:self.activityTenHeaderLabel forKey:@"10"];
     
     // Initializations
     self.userActivityArray = [NSMutableArray array];
@@ -143,6 +200,10 @@
     
     // Convert the jsonArrays to object arrays
     self.userActivityArray = [Utils convertJsonArrayByActivityToActivityObjectArrayWith:self.userActivitiesByActivityJsonArray];
+    
+    //NSLog(@"ArrActNorm [%@]",self.userActivityArray);
+    //NSLog(@"ArrAct [%@]",self.userActivitiesByActivityJsonArray);
+    
     [Utils convertJsonArrayByTimeToActivityObjectArrayWith:self.userActivitiesByTimeJsonArray withLabelArray:self.labelArrayByTime withPointsArray:self.pointsArrayByTime];
     
     // Sort the activites by the total points
@@ -211,6 +272,42 @@
         [self.activityPieViewByTime renderInLayer:self.activityPieViewByTime dataArray:self.pointsArrayByTime labelArray:self.labelArrayByTime];
 }
 
+- (void) resetActivityLabels
+{
+    self.activityOneValueLabel.text = @"";
+    self.activityTwoValueLabel.text = @"";
+    self.activityThreeValueLabel.text = @"";
+    self.activityFourValueLabel.text = @"";
+    self.activityFiveValueLabel.text = @"";
+    self.activitySixValueLabel.text = @"";
+    self.activitySevenValueLabel.text = @"";
+    self.activityEightValueLabel.text = @"";
+    self.activityNineValueLabel.text = @"";
+    self.activityTenValueLabel.text = @"";
+    
+    self.activityOneValueLabel.hidden = YES;
+    self.activityTwoValueLabel.hidden = YES;
+    self.activityThreeValueLabel.hidden = YES;
+    self.activityFourValueLabel.hidden = YES;
+    self.activityFiveValueLabel.hidden = YES;
+    self.activitySixValueLabel.hidden = YES;
+    self.activitySevenValueLabel.hidden = YES;
+    self.activityEightValueLabel.hidden = YES;
+    self.activityNineValueLabel.hidden = YES;
+    self.activityTenValueLabel.hidden = YES;
+    
+    self.activityOneHeaderLabel.hidden = YES;
+    self.activityTwoHeaderLabel.hidden = YES;
+    self.activityThreeHeaderLabel.hidden = YES;
+    self.activityFourHeaderLabel.hidden = YES;
+    self.activityFiveHeaderLabel.hidden = YES;
+    self.activitySixHeaderLabel.hidden = YES;
+    self.activitySevenHeaderLabel.hidden = YES;
+    self.activityEightHeaderLabel.hidden = YES;
+    self.activityNineHeaderLabel.hidden = YES;
+    self.activityTenHeaderLabel.hidden = YES;
+}
+
 - (IBAction)segmentedControlClicked
 {
     [self hideTableDislplay];
@@ -233,6 +330,7 @@
         {
             self.activityPieView.hidden = YES;
             self.activityPieViewByTime.hidden = NO;
+            self.activityDetailsView.hidden = NO;
         }
     }
     else if (self.chartTypeSegmentedControl.selectedSegmentIndex == BAR_INDEX)
@@ -255,6 +353,7 @@
             self.activityBarViewByTime.hidden = NO;
             self.activityBarView.hidden = YES;
             self.barResultsLabel.hidden = YES;
+            self.activityDetailsView.hidden = NO;
         }
     }
     else // Table
@@ -441,6 +540,28 @@
         self.eFloatBoxByTime.frame = CGRectMake(eFloatBoxX, eFloatBoxY, self.eFloatBoxByTime.frame.size.width, self.eFloatBoxByTime.frame.size.height);
         self.eFloatBoxByTime.alpha = 1.0;
         [columnChartLcl addSubview:self.eFloatBoxByTime];
+        
+        /*
+         NSLog(@"Column selected");
+         
+         [self resetActivityLabels];
+         NSDictionary *aggActDict = [self.challenge.aggregateActivityMap objectForKey:self.friendEmailArr[eColumn.eColumnDataModel.index]];
+         
+         int i = 1;
+         for (NSString *activityName in aggActDict )
+         {
+         UILabel *activityValueLabel = [self.activityLabelsDict objectForKey:[NSString stringWithFormat:@"%d",i]];
+         UILabel *activityHeaderLabel = [self.activityHeaderLabelsDict objectForKey:[NSString stringWithFormat:@"%d",i]];
+         
+         activityValueLabel.text = [NSString stringWithFormat:@"%@", [Utils reducePrecisionOfFloat:[aggActDict objectForKey:activityName]]];
+         activityHeaderLabel.text = activityName;
+         
+         activityValueLabel.hidden = NO;
+         activityHeaderLabel.hidden = NO;
+         
+         i++;
+         }
+         */
     }
  }
 
@@ -564,6 +685,8 @@
     
     if (self.eColumnSelectedByTime)
         self.eColumnSelectedByTime.barColor = self.tempColorByTime;
+    
+    [self resetActivityLabels];
 }
 
 @end

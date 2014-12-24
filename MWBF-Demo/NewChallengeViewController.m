@@ -211,6 +211,9 @@
     [self.addedActivityArray addObject:activity];
     [self.activityTable reloadData];
     
+    [self.activityListArray removeObject:activity];
+    [self.activityPicker reloadAllComponents];
+   
     if([self.activityListArray count] <=0 )
         self.addActivityButton.enabled = NO;
 }
