@@ -101,11 +101,14 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     // Store the friend request list
+    /*
+     TODO : Persist the friends request
     NSMutableArray *friendRequestList = [NSMutableArray array];
     for (int i=0; i < [user.friendRequestsList count]; i++)
         [friendRequestList addObject:user.friendRequestsList[i]];
     [[NSUserDefaults standardUserDefaults] setObject:friendRequestList forKey:@"MWBFFriendRequests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+     */
 }
 
 + (void) addLine:(UIView *) view addTop:(BOOL) addTopLine addBottom:(BOOL) addBottomLine withWidth: (NSInteger)width withColor: (UIColor *) color

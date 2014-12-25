@@ -16,7 +16,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"%@:%@:%@:%@:%@",self.name,self.startDate,self.endDate,self.playersSet,self.activitySet];
+    return [NSString stringWithFormat:@"Id-%@:%@:%@:%@:%@:%@",self.challenge_id,self.name,self.startDate,self.endDate,self.playersSet,self.activitySet];
 }
 
 - (NSMutableDictionary *)toNSDictionary

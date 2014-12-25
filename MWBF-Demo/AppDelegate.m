@@ -58,19 +58,19 @@
      for (int i=0; i < [user.friendsActivitiesList count]; i++)
         [messageListOld addObject:user.friendsActivitiesList[i][@"feedPrettyString"]];
      
-     NSMutableArray *friendRequestListOld = [NSMutableArray array];
-     for (int i=0; i < [user.friendRequestsList count]; i++)
-        [friendRequestListOld addObject:user.friendRequestsList[i]];
+     NSArray *friendRequestListOld = [NSArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFFriendRequests"]];
     */
  
     // Get the stored data from the pLists
+    User *user = [User getInstance];
     NSArray *messageListOld = [NSArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFActivityFeed"]];
-    NSArray *friendRequestListOld = [NSArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"MWBFFriendRequests"]];
+    NSMutableArray *friendRequestListOld = [NSMutableArray array];
+    for (int i=0; i < [user.friendRequestsList count]; i++)
+        [friendRequestListOld addObject:user.friendRequestsList[i]];
     
     // Refresh the user's data
     [Utils refreshUserData];
     
-    User *user = [User getInstance];
     // Look for new messages
     int newMessageCount = 0;
     NSString *newMessage = [[NSString alloc] init];

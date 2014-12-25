@@ -323,6 +323,8 @@
             return;
         }
         
+        NSLog(@"Here 1 [%@]", challengeObj);
+        
         [tempArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
@@ -330,6 +332,8 @@
         self.activityIndicator.hidden = NO;
         [self.activityIndicator startAnimating];
         self.view.userInteractionEnabled = NO;
+        
+        NSLog(@"Here 2 [%@], [%@]",challengeObj.challenge_id,challengeObj);
         
         dispatch_queue_t queue = dispatch_get_global_queue(0,0);
         
