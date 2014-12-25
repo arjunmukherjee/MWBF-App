@@ -256,18 +256,13 @@
     //    [Utils alertStatus:@"Please choose an end date in the future." :@"Oops! Date issues.." :0];
     else
     {
-        // Year
-        NSDate *currentTime = [NSDate date];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"YYYY"];
-        NSString *year = [dateFormatter stringFromDate: currentTime] ;
-        
-        [dateFormatter setDateFormat:@"MMM dd"];
+        [dateFormatter setDateFormat:@"MMM dd, YYYY"];
         NSString *fromCalDate = [dateFormatter stringFromDate: [self.startDateCalendar.period startDate]];
         NSString *toCalDate = [dateFormatter stringFromDate: [self.endDateCalendar.period startDate]];
         
-        NSString *fromDate = fromDate = [NSString stringWithFormat:@"%@, %@ 00:00:01 AM",fromCalDate,year];
-        NSString *toDate = [NSString stringWithFormat:@"%@, %@ 11:59:59 PM",toCalDate,year];
+        NSString *fromDate = fromDate = [NSString stringWithFormat:@"%@ 00:00:01 AM",fromCalDate];
+        NSString *toDate = [NSString stringWithFormat:@"%@ 11:59:59 PM",toCalDate];
         
         // Construct the new challenge object
         Challenge *newChallenge = [[Challenge alloc] init];
