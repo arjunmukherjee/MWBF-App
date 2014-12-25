@@ -295,6 +295,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        
         Challenge *challengeObj = [[Challenge alloc] init];
         NSMutableArray *tempArray;
         
@@ -302,19 +303,16 @@
         {
             challengeObj = [self.currentChallengesArray objectAtIndex:indexPath.row];
             tempArray = self.currentChallengesArray;
-            //[self.currentChallengesArray removeObject:challengeObj];
         }
         else if (tableView == self.pastChallengesTableView)
         {
             challengeObj = [self.pastChallengesArray objectAtIndex:indexPath.row];
             tempArray = self.pastChallengesArray;
-            //[self.pastChallengesArray removeObject:challengeObj];
         }
         else
         {
             challengeObj = [self.futureChallengesArray objectAtIndex:indexPath.row];
             tempArray = self.futureChallengesArray;
-            //[self.futureChallengesArray removeObject:challengeObj];
         }
         
         
@@ -325,9 +323,8 @@
             return;
         }
         
-        [tempArray removeObject:challengeObj];
+        [tempArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
         
         // Delete the challenge from the server
         self.activityIndicator.hidden = NO;
@@ -340,7 +337,6 @@
             MWBFService *service = [[MWBFService alloc] init];
             
             dispatch_sync(dispatch_get_main_queue(), ^{
-                
                 
                 if ([service deleteChallenge:challengeObj.challenge_id] )
                     [Utils alertStatus:@"Challenge deleted." :@"It's done" :0];
