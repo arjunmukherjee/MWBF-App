@@ -323,17 +323,10 @@
             return;
         }
         
-        NSLog(@"Here 1 [%@]", challengeObj);
-        
-        [tempArray removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
         // Delete the challenge from the server
         self.activityIndicator.hidden = NO;
         [self.activityIndicator startAnimating];
         self.view.userInteractionEnabled = NO;
-        
-        NSLog(@"Here 2 [%@], [%@]",challengeObj.challenge_id,challengeObj);
         
         dispatch_queue_t queue = dispatch_get_global_queue(0,0);
         
@@ -343,7 +336,11 @@
             dispatch_sync(dispatch_get_main_queue(), ^{
                 
                 if ([service deleteChallenge:challengeObj.challenge_id] )
+                {
                     [Utils alertStatus:@"Challenge deleted." :@"It's done" :0];
+                    [tempArray removeObjectAtIndex:indexPath.row];
+                    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                }
                 else
                     [Utils alertStatus:@"Unable to delete the challenge. Please try again." :@"Oops! Embarassing" :0];
                 
