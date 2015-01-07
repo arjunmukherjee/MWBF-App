@@ -316,7 +316,7 @@
         }
         
         
-        if ( ![challengeObj.creatorId isEqualToString:[User getInstance].userEmail])
+        if ( ![challengeObj.creatorId isEqualToString:[User getInstance].userEmail] && ![challengeObj.creatorId isEqualToString:[User getInstance].adminId] )
         {
             [Utils alertStatus:@"Sorry, only the creator of a challenge can delete the challenge." :@"Nope.." :0];
             [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
