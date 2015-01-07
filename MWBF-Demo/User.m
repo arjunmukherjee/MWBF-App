@@ -10,6 +10,7 @@
 
 @implementation User
 
+@synthesize adminId;
 @synthesize userId = _userId;
 @synthesize userEmail = _userEmail;
 @synthesize firstName,lastName;
@@ -84,6 +85,8 @@
         self.bestWeekLeaderPoints = @" ";
         self.bestMonthLeaderPoints = @" ";
         self.bestYearLeaderPoints = @" ";
+        
+        self.adminId = @"arjunmuk@gmail.com";
     }
     
     return self;

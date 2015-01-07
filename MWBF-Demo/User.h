@@ -12,6 +12,8 @@
 
 @interface User : NSObject
 
+@property (strong,nonatomic) NSString *adminId;
+
 @property (strong,nonatomic) NSString *userId;
 @property (strong,nonatomic) NSString *userEmail;
 @property (strong,nonatomic) NSString *userName;
