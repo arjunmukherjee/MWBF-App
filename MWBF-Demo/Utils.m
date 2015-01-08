@@ -135,6 +135,9 @@
 
 + (NSString*) reducePrecisionOfFloat:(NSString *) stringValue
 {
+    if ( stringValue == nil)
+        return @"0";
+    
     if ([stringValue floatValue] > [stringValue integerValue])
     {
         float floatValue = [stringValue floatValue];
