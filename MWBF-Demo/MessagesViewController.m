@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *activitiesBoardTable;
 @property (strong,nonatomic) NSMutableArray *friendActivitiesList;
+@property (strong,nonatomic) NSMutableArray *duplicateFriendActivitiesList;
 @property (strong,nonatomic) NSMutableArray *unreadActivitiesList;
 @property (strong,nonatomic) User *user;
 @property (nonatomic) NSInteger todayIndex;
@@ -38,6 +39,7 @@
 @implementation MessagesViewController
 
 @synthesize activitiesBoardTable;
+@synthesize duplicateFriendActivitiesList;
 @synthesize unreadActivitiesList;
 @synthesize user;
 @synthesize friendActivitiesList;
@@ -55,6 +57,7 @@
     self.user = [User getInstance];
     
     self.friendActivitiesList = [NSMutableArray array];
+    self.duplicateFriendActivitiesList = [NSMutableArray array];
     self.unreadActivitiesList = [NSMutableArray array];
     
     self.activitiesBoardTable.hidden = NO;
@@ -77,31 +80,23 @@
     self.todayIndex = 0;
     self.yesterdayIndex = 0;
     
-    NSArray *currentFeedList = [NSArray arrayWithArray:self.friendActivitiesList];
-    NSMutableArray *refreshedFeedList = [NSMutableArray array];
+    NSArray *oldFeedList = [NSArray arrayWithArray:self.duplicateFriendActivitiesList];
     
     [self.friendActivitiesList removeAllObjects];
+    [self.duplicateFriendActivitiesList removeAllObjects];
     [self.unreadActivitiesList removeAllObjects];
     
-    // Get all the new user and friend activities
-    self.user = [User getInstance];
     for (int i=0; i <[self.user.friendsActivitiesList count]; i++)
     {
         NSString *feedItem = self.user.friendsActivitiesList[i][@"feedPrettyString"];
-        [refreshedFeedList addObject:feedItem];
-    }
-    [Utils changeAbsoluteDateToRelativeDays:refreshedFeedList];
-    
-    for (int i=0; i <[refreshedFeedList count]; i++)
-    {
-        NSString *feedItem = refreshedFeedList[i];
         [self.friendActivitiesList addObject:feedItem];
+        [self.duplicateFriendActivitiesList addObject:feedItem];
         
         // Check if the activity is a new activity (only if it is not the first time)
-        if ( [currentFeedList count] > 0 )
+        if ( [oldFeedList count] > 0 )
         {
-            if ( ![currentFeedList containsObject:feedItem] )
-                [self.unreadActivitiesList addObject:feedItem];
+            if ( ![oldFeedList containsObject:feedItem] )
+                [self.unreadActivitiesList addObject:[NSNumber numberWithInt:i]];
         }
     }
     
@@ -210,7 +205,7 @@
         NSString *message = [self.friendActivitiesList objectAtIndex:(indexPath.row/2)];
         
         // Check if it is a new activity
-        if ( [self.unreadActivitiesList containsObject:message] )
+        if ( [self.unreadActivitiesList containsObject:[NSNumber numberWithInteger:(indexPath.row/2)]] )
             cell.unreadActivityImage.hidden = NO;
         else
             cell.unreadActivityImage.hidden = YES;

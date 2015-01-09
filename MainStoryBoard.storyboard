@@ -2923,7 +2923,7 @@ activities anymore).</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new.png" id="xg7-cf-mp4">
-                                                    <rect key="frame" x="275" y="1" width="16" height="16"/>
+                                                    <rect key="frame" x="283" y="1" width="10" height="10"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -3684,7 +3684,7 @@ activities anymore).</string>
         <image name="friends-32.png" width="32" height="32"/>
         <image name="goRight1.png" width="120" height="120"/>
         <image name="icon_addfriend.png" width="128" height="128"/>
-        <image name="new.png" width="32" height="32"/>
+        <image name="new.png" width="20" height="20"/>
         <image name="notifications.png" width="32" height="32"/>
         <image name="personalBestIcon.png" width="48" height="48"/>
         <image name="pointsScheme.png" width="32" height="32"/>
