@@ -64,14 +64,21 @@
     [self.yourProgressBar setTransform:CGAffineTransformMakeScale(1.0, 2.0)];
     [self.friendAverageProgressBar setTransform:CGAffineTransformMakeScale(1.0, 2.0)];
     [self.leaderProgressBar setTransform:CGAffineTransformMakeScale(1.0, 2.0)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(redrawUserWall:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
 }
 
-- (void) viewWillAppear:(BOOL)animated
+
+- (void) redrawUserWall:(NSNotification *)notification
 {
     self.todayIndex = 0;
     self.yesterdayIndex = 0;
     
-    NSArray *wallFeedList = [NSArray arrayWithArray:self.friendActivitiesList];
+    NSArray *currentFeedList = [NSArray arrayWithArray:self.friendActivitiesList];
+    NSMutableArray *refreshedFeedList = [NSMutableArray array];
     
     [self.friendActivitiesList removeAllObjects];
     [self.unreadActivitiesList removeAllObjects];
@@ -80,18 +87,26 @@
     self.user = [User getInstance];
     for (int i=0; i <[self.user.friendsActivitiesList count]; i++)
     {
-        [self.friendActivitiesList addObject:self.user.friendsActivitiesList[i][@"feedPrettyString"]];
+        NSString *feedItem = self.user.friendsActivitiesList[i][@"feedPrettyString"];
+        [refreshedFeedList addObject:feedItem];
+    }
+    [Utils changeAbsoluteDateToRelativeDays:refreshedFeedList];
+    
+    for (int i=0; i <[refreshedFeedList count]; i++)
+    {
+        NSString *feedItem = refreshedFeedList[i];
+        [self.friendActivitiesList addObject:feedItem];
         
         // Check if the activity is a new activity (only if it is not the first time)
-        if ( [wallFeedList count] != 0 )
+        if ( [currentFeedList count] > 0 )
         {
-            if ( ![wallFeedList containsObject:self.user.friendsActivitiesList[i][@"feedPrettyString"]] )
-                [self.unreadActivitiesList addObject:self.user.friendsActivitiesList[i][@"feedPrettyString"]];
+            if ( ![currentFeedList containsObject:feedItem] )
+                [self.unreadActivitiesList addObject:feedItem];
         }
     }
     
     [Utils changeAbsoluteDateToRelativeDays:self.friendActivitiesList];
-   
+    
     NSInteger scrollIndex = ([self.friendActivitiesList count]*2)-1;
     
     [self.activitiesBoardTable reloadData];
@@ -115,7 +130,7 @@
     self.yourProgressBar.progress = [user.weeklyPointsUser floatValue]/leader;
     self.friendAverageProgressBar.progress = [user.weeklyPointsFriendsAverage floatValue]/leader;
     self.leaderProgressBar.progress = 1;
-
+    
     self.yourProgressLabel.text = [NSString stringWithFormat:@"You (%@)",user.weeklyPointsUser];
     self.friendsProgressLabel.text = [NSString stringWithFormat:@"Friends (%@)",user.weeklyPointsFriendsAverage];
     self.leaderProgressLabel.text = [NSString stringWithFormat:@"Leader (%@)",leaderStr];
@@ -135,6 +150,11 @@
     
     // Set the random quote
     self.randomQuoteLabel.text = self.user.randomQuote;
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self redrawUserWall:nil];
 }
 
 - (IBAction) userProfileButtonClicked:(id)sender
