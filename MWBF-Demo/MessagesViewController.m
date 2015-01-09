@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *activitiesBoardTable;
 @property (strong,nonatomic) NSMutableArray *friendActivitiesList;
+@property (strong,nonatomic) NSMutableArray *unreadActivitiesList;
 @property (strong,nonatomic) User *user;
 @property (nonatomic) NSInteger todayIndex;
 @property (nonatomic) NSInteger yesterdayIndex;
@@ -37,6 +38,7 @@
 @implementation MessagesViewController
 
 @synthesize activitiesBoardTable;
+@synthesize unreadActivitiesList;
 @synthesize user;
 @synthesize friendActivitiesList;
 @synthesize todayIndex;
@@ -53,6 +55,7 @@
     self.user = [User getInstance];
     
     self.friendActivitiesList = [NSMutableArray array];
+    self.unreadActivitiesList = [NSMutableArray array];
     
     self.activitiesBoardTable.hidden = NO;
     self.todayIndex = 0;
@@ -68,11 +71,24 @@
     self.todayIndex = 0;
     self.yesterdayIndex = 0;
     
-    [self.friendActivitiesList removeAllObjects];
+    NSArray *wallFeedList = [NSArray arrayWithArray:self.friendActivitiesList];
     
+    [self.friendActivitiesList removeAllObjects];
+    [self.unreadActivitiesList removeAllObjects];
+    
+    // Get all the new user and friend activities
     self.user = [User getInstance];
     for (int i=0; i <[self.user.friendsActivitiesList count]; i++)
+    {
         [self.friendActivitiesList addObject:self.user.friendsActivitiesList[i][@"feedPrettyString"]];
+        
+        // Check if the activity is a new activity (only if it is not the first time)
+        if ( [wallFeedList count] != 0 )
+        {
+            if ( ![wallFeedList containsObject:self.user.friendsActivitiesList[i][@"feedPrettyString"]] )
+                [self.unreadActivitiesList addObject:self.user.friendsActivitiesList[i][@"feedPrettyString"]];
+        }
+    }
     
     [Utils changeAbsoluteDateToRelativeDays:self.friendActivitiesList];
    
@@ -163,6 +179,7 @@
    
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    // Even rows have the data, Odd rows are thinner and blank
     if (indexPath.row % 2 == 1)
     {
         static NSString *CellIdentifier = @"MessageCell";
@@ -171,6 +188,12 @@
         cell.backgroundColor = CELL_COLOR;
         cell.activityMessage.font = [UIFont fontWithName:@"Trebuchet MS" size:13];
         NSString *message = [self.friendActivitiesList objectAtIndex:(indexPath.row/2)];
+        
+        // Check if it is a new activity
+        if ( [self.unreadActivitiesList containsObject:message] )
+            cell.unreadActivityImage.hidden = NO;
+        else
+            cell.unreadActivityImage.hidden = YES;
         
         NSRange start = [message rangeOfString:@" "];
         NSString *activityMessage = @"";
