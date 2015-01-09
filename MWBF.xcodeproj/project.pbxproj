@@ -136,6 +136,7 @@
 		91CFEBE219A42A9B00B0C27A /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CFEBE119A42A9B00B0C27A /* Friend.m */; };
 		91CFEBE419A42E8D00B0C27A /* README in Resources */ = {isa = PBXBuildFile; fileRef = 91CFEBE319A42E8D00B0C27A /* README */; };
 		91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */; };
+		91D230861A5F840500D88F7F /* new.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D230851A5F840500D88F7F /* new.png */; };
 		91D2D0F419AF6AA6009C83E9 /* 1409251657_7-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D2D0F319AF6AA6009C83E9 /* 1409251657_7-48.png */; };
 		91D2D0F619AF6B6B009C83E9 /* 1409251867_stats-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */; };
 		91D2D10219AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */; };
@@ -357,6 +358,7 @@
 		91CFEBE319A42E8D00B0C27A /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		91CFEBE519A5A4D500B0C27A /* PersonalHealthStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHealthStatsViewController.h; sourceTree = "<group>"; };
 		91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHealthStatsViewController.m; sourceTree = "<group>"; };
+		91D230851A5F840500D88F7F /* new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new.png; sourceTree = "<group>"; };
 		91D2D0F319AF6AA6009C83E9 /* 1409251657_7-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1409251657_7-48.png"; sourceTree = "<group>"; };
 		91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1409251867_stats-up.png"; sourceTree = "<group>"; };
 		91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1409252422_grey_new_seo2-30-32.png"; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				912C419119D500F50096C951 /* notifications.png */,
 				91FAF1FA19FD5CB800655CBE /* userProfile.png */,
 				91ED786719F8AFE700D58D9E /* grey-background.jpg */,
+				91D230851A5F840500D88F7F /* new.png */,
 				912C418219D4FCB40096C951 /* settings.png */,
 				912C418B19D4FF620096C951 /* personalBestIcon.png */,
 				91CAC68F19D11E30006A6C06 /* background-3.png */,
@@ -999,6 +1002,7 @@
 				912C417419D3AA020096C951 /* message-board.png in Resources */,
 				912E34A119C7EB4D00F4745A /* redCircle.png in Resources */,
 				91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */,
+				91D230861A5F840500D88F7F /* new.png in Resources */,
 				91D2D10219AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png in Resources */,
 				91D357C719BAB2B1005D0F26 /* Full_dustbin.png in Resources */,
 				915B424019ABE73700DC79FE /* apple calendar.plist in Resources */,

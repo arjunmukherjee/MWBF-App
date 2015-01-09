@@ -2922,12 +2922,17 @@ activities anymore).</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new.png" id="xg7-cf-mp4">
+                                                    <rect key="frame" x="275" y="1" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="activityMessage" destination="Lfk-wd-yVP" id="DGZ-IE-FOD"/>
                                             <outlet property="activityPic" destination="RiC-UA-MPb" id="NbL-M3-bTo"/>
+                                            <outlet property="unreadActivityImage" destination="xg7-cf-mp4" id="5tF-NK-fx0"/>
                                             <outlet property="userName" destination="wbN-jS-08r" id="1Xw-s1-X6E"/>
                                         </connections>
                                     </tableViewCell>
@@ -3221,7 +3226,7 @@ activities anymore).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibk-Oh-uV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3974" y="3508"/>
+            <point key="canvasLocation" x="4152" y="3508"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="HmR-kK-Ffn">
@@ -3679,6 +3684,7 @@ activities anymore).</string>
         <image name="friends-32.png" width="32" height="32"/>
         <image name="goRight1.png" width="120" height="120"/>
         <image name="icon_addfriend.png" width="128" height="128"/>
+        <image name="new.png" width="32" height="32"/>
         <image name="notifications.png" width="32" height="32"/>
         <image name="personalBestIcon.png" width="48" height="48"/>
         <image name="pointsScheme.png" width="32" height="32"/>
@@ -3698,8 +3704,8 @@ activities anymore).</string>
     <inferredMetricsTieBreakers>
         <segue reference="23S-Zz-DKi"/>
         <segue reference="enD-cY-u8c"/>
-        <segue reference="4sH-40-u8k"/>
-        <segue reference="zAs-NX-IvI"/>
+        <segue reference="vgr-12-NhC"/>
         <segue reference="It8-jh-Nh1"/>
+        <segue reference="4sH-40-u8k"/>
     </inferredMetricsTieBreakers>
 </document>
