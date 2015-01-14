@@ -96,6 +96,24 @@
     [self setSegmentedControlDisplay];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    // Set the default date value in the text box to today
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd"];
+    NSString *date = [dateFormatter stringFromDate: [NSDate date]];
+    self.dateLabel.text = date;
+    
+    // Calendar
+    self.pmCC = [[PMCalendarController alloc] initWithThemeName:@"default"];
+    self.pmCC.delegate = self;
+    
+    self.pmCC.mondayFirstDayOfWeek = NO;
+    self.pmCC.allowsPeriodSelection = NO;
+    self.pmCC.title = @"Activity Date";
+
+}
+
 - (void) setSegmentedControlDisplay
 {
     for (int i=0; i < 3; i++)
@@ -266,17 +284,16 @@
     // Get the activity time
     NSDate *currentTime = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy hh:mm:ss a"];
-    NSString *yearTimeStr = [dateFormatter stringFromDate: currentTime];
+    [dateFormatter setDateFormat:@"hh:mm:ss a"];
+    NSString *timeStr = [dateFormatter stringFromDate: currentTime];
     
     
     NSDate *selectedDate = [self.pmCC.period startDate];
     if ( selectedDate == NULL )
         selectedDate = [NSDate date];
-    [dateFormatter setDateFormat:@"MMM dd"];
-    NSString *date = [dateFormatter stringFromDate: selectedDate];
-    date = [NSString stringWithFormat:@"%@, %@",date,yearTimeStr];
-    
+    [dateFormatter setDateFormat:@"MMM dd, yyyy"];
+    NSString *dateStr = [dateFormatter stringFromDate: selectedDate];
+    dateStr = [NSString stringWithFormat:@"%@ %@",dateStr,timeStr];
     
     NSDate *today = [NSDate date];
     
@@ -298,7 +315,7 @@
         UserActivity *userActivityObj = [[UserActivity alloc] init];
         userActivityObj.activity = activity;
         userActivityObj.activityValue = activityValue;
-        userActivityObj.date = date;
+        userActivityObj.date = dateStr;
         
         MWBFActivities *mwbfActivities = [self.activity.activityDict objectForKey:activity];
         
