@@ -18,7 +18,8 @@
 #import "Utils.h"
 
 /*
-#define USER_LOGIN_ENDPOINT_FORMAT                      @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/login"
+#define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/fbLogin"
+#define EMAIL_USER_LOGIN_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/emailLogin"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/friends"
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/friends/activities"
 #define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/friends/feed"
@@ -26,11 +27,8 @@
 #define USER_ACTION_FRIEND_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/friends/actionRequest"
 #define USER_PENDING_FRIENDS_ENDPOINT_FORMAT            @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/friends/pendingRequests"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/friends/add"
-#define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/fbLogin"
 #define USER_INFO_ENDPOINT_FORMAT                       @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/userInfo"
 #define LEADER_HIGHS_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/leaderAllTimeHighs"
-#define USER_ADD_ENDPOINT_FORMAT                        @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/add"
-#define FB_USER_ADD_ENDPOINT_FORMAT                     @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/fbAdd"
 #define LOG_ACTIVITY_ENDPOINT_FORMAT                    @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/activity/log"
 #define ADD_CHALLENGE_ENDPOINT_FORMAT                   @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/challenge/add"
 #define DELETE_CHALLENGE_ENDPOINT_FORMAT                @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/challenge/delete"
@@ -42,7 +40,10 @@
 #define USER_NOTIFICATIONS_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/notifications"
 */
 
-#define USER_LOGIN_ENDPOINT_FORMAT                      @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/login"
+#define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/fbLogin"
+#define EMAIL_USER_LOGIN_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/emailLogin"
+#define USER_INFO_ENDPOINT_FORMAT                       @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/userInfo"
+#define LEADER_HIGHS_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/leaderAllTimeHighs"
 #define USER_FRIENDS_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/friends"
 #define FRIENDS_ACTIVITIES_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/friends/activities"
 #define FRIENDS_FEEDS_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/friends/feed"
@@ -50,11 +51,6 @@
 #define USER_ACTION_FRIEND_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/friends/actionRequest"
 #define USER_PENDING_FRIENDS_ENDPOINT_FORMAT            @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/friends/pendingRequests"
 #define USER_ADD_FRIEND_ENDPOINT_FORMAT                 @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/friends/add"
-#define FB_USER_LOGIN_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/fbLogin"
-#define USER_INFO_ENDPOINT_FORMAT                       @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/userInfo"
-#define LEADER_HIGHS_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/leaderAllTimeHighs"
-#define USER_ADD_ENDPOINT_FORMAT                        @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/add"
-#define FB_USER_ADD_ENDPOINT_FORMAT                     @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/fbAdd"
 #define LOG_ACTIVITY_ENDPOINT_FORMAT                    @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/activity/log"
 #define ADD_CHALLENGE_ENDPOINT_FORMAT                   @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/challenge/add"
 #define DELETE_CHALLENGE_ENDPOINT_FORMAT                @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/challenge/delete"
@@ -91,7 +87,7 @@
         user.randomQuote = quote;
 }
 
-- (BOOL) loginFaceBookUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withProfileId:(NSString *)profileId withResponse:(NSString**) response;
+- (BOOL) loginFaceBookUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withProfileId:(NSString *)profileId withResponse:(NSString**) response
 {
     
     NSString *post =[[NSString alloc] initWithFormat:@"{\"email\"=\"%@\",\"firstName\"=\"%@\",\"lastName\"=\"%@\",\"profileId\"=\"%@\"}",email,firstName,lastName,profileId];
@@ -115,6 +111,32 @@
     
     return NO;
 }
+
+- (BOOL) loginEmailUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withResponse:(NSString**) response
+{
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"email\"=\"%@\",\"firstName\"=\"%@\",\"lastName\"=\"%@\"}",email,firstName,lastName];
+    NSURL *url=[NSURL URLWithString:EMAIL_USER_LOGIN_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSDictionary *jsonData = [NSJSONSerialization
+                              JSONObjectWithData:urlData
+                              options:NSJSONReadingMutableContainers
+                              error:&error];
+    
+    *response = (NSString *) jsonData[@"message"];
+    NSInteger success = [jsonData[@"success"] integerValue];
+    if(success == 1)
+        return YES;
+    else
+        return NO;
+    
+    return NO;
+}
+
 
 /////////////////////////////
 // ACTIVITY /////////////////

@@ -90,7 +90,7 @@
     self.emailTextField.text = [self.emailTextField.text lowercaseString];
     MWBFService *service = [[MWBFService alloc] init];
     Boolean success = NO;
-    success = [service loginFaceBookUser:self.emailTextField.text withFirstName:self.firstNameTextField.text withLastName:self.lastNameTextField.text withProfileId:@"" withResponse:&response];
+    success = [service loginEmailUser:self.emailTextField.text withFirstName:self.firstNameTextField.text withLastName:self.lastNameTextField.text withResponse:&response];
     
     if ( !(success) )
     {

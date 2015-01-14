@@ -17,6 +17,7 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 
 // LOGIN
 - (BOOL) loginFaceBookUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withProfileId:(NSString *)profileId withResponse:(NSString**) response;
+- (BOOL) loginEmailUser:(NSString *) email withFirstName:(NSString *)firstName withLastName:(NSString*) lastName withResponse:(NSString**) response;
 
 // STATS
 - (void) getUserInfo;
