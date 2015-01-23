@@ -29,6 +29,7 @@ typedef void(^ServiceCompletionBlock)(id result, NSError *error);
 - (NSArray*) getActivitiesForUserByTimeFromDate:(NSString *) fromDate toDate:(NSString*) toDate;
 - (BOOL) deleteAllActivitiesForUser;
 - (NSMutableDictionary*) getActivityListWithResponseUsingPost;
+- (BOOL) deleteUserActivityWithId:(NSString*) activityId;
 
 // FRIENDS
 - (void) getFriendsList;

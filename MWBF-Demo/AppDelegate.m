@@ -152,13 +152,15 @@
         }
         
         // Check if the old messages got deallocated
-        if ([messageListOld count] <= 0 )
-            messageBody = [NSString stringWithFormat:@"%@..", messageBody ];
-        
-        localNotification.alertBody = messageBody;
-        localNotification.soundName = UILocalNotificationDefaultSoundName;
-        localNotification.applicationIconBadgeNumber = self.numberOfMessages;
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        if ([messageListOld count] <= 0 || (self.numberOfMessages == 100) )
+            NSLog(@"Old message list deallocated.. 100 new messages.");
+        else
+        {
+            localNotification.alertBody = messageBody;
+            localNotification.soundName = UILocalNotificationDefaultSoundName;
+            localNotification.applicationIconBadgeNumber = self.numberOfMessages;
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        }
     }
     
     completionHandler(UIBackgroundFetchResultNewData);

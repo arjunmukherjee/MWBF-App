@@ -95,6 +95,10 @@
 		919EE989198D297700F12411 /* add-icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE985198D297700F12411 /* add-icon1.png */; };
 		919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE98D198DBAA000F12411 /* StatsViewController.m */; };
 		919EE996198DCD4100F12411 /* facebook2.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE991198DCD4100F12411 /* facebook2.png */; };
+		91B07F971A70AB8A0049C75E /* new.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B07F961A70AB8A0049C75E /* new.png */; };
+		91B07F9D1A70B0290049C75E /* Skiing.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B07F9C1A70B0290049C75E /* Skiing.png */; };
+		91B07F9F1A70B0680049C75E /* snowboarding.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B07F9E1A70B0680049C75E /* snowboarding.png */; };
+		91B07FA21A71C35E0049C75E /* ActivityEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B07FA11A71C35E0049C75E /* ActivityEditor.m */; };
 		91B239C719CBC1A700601E7F /* runIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239C319CBC1A700601E7F /* runIcon.png */; };
 		91B239CC19CBC94200601E7F /* ActivityNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */; };
 		91B239D019CBD1B000601E7F /* gymIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239CF19CBD1B000601E7F /* gymIcon.png */; };
@@ -136,7 +140,6 @@
 		91CFEBE219A42A9B00B0C27A /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CFEBE119A42A9B00B0C27A /* Friend.m */; };
 		91CFEBE419A42E8D00B0C27A /* README in Resources */ = {isa = PBXBuildFile; fileRef = 91CFEBE319A42E8D00B0C27A /* README */; };
 		91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */; };
-		91D230881A5F98E900D88F7F /* new.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D230871A5F98E900D88F7F /* new.png */; };
 		91D2D0F419AF6AA6009C83E9 /* 1409251657_7-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D2D0F319AF6AA6009C83E9 /* 1409251657_7-48.png */; };
 		91D2D0F619AF6B6B009C83E9 /* 1409251867_stats-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */; };
 		91D2D10219AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */; };
@@ -306,6 +309,11 @@
 		919EE98C198DBAA000F12411 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		919EE98D198DBAA000F12411 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		919EE991198DCD4100F12411 /* facebook2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook2.png; sourceTree = "<group>"; };
+		91B07F961A70AB8A0049C75E /* new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new.png; sourceTree = "<group>"; };
+		91B07F9C1A70B0290049C75E /* Skiing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Skiing.png; sourceTree = "<group>"; };
+		91B07F9E1A70B0680049C75E /* snowboarding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowboarding.png; sourceTree = "<group>"; };
+		91B07FA01A71C35E0049C75E /* ActivityEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityEditor.h; sourceTree = "<group>"; };
+		91B07FA11A71C35E0049C75E /* ActivityEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityEditor.m; sourceTree = "<group>"; };
 		91B239C319CBC1A700601E7F /* runIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runIcon.png; sourceTree = "<group>"; };
 		91B239CA19CBC94200601E7F /* ActivityNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityNotificationCell.h; sourceTree = "<group>"; };
 		91B239CB19CBC94200601E7F /* ActivityNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityNotificationCell.m; sourceTree = "<group>"; };
@@ -358,7 +366,6 @@
 		91CFEBE319A42E8D00B0C27A /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		91CFEBE519A5A4D500B0C27A /* PersonalHealthStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHealthStatsViewController.h; sourceTree = "<group>"; };
 		91CFEBE619A5A4D500B0C27A /* PersonalHealthStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHealthStatsViewController.m; sourceTree = "<group>"; };
-		91D230871A5F98E900D88F7F /* new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new.png; sourceTree = "<group>"; };
 		91D2D0F319AF6AA6009C83E9 /* 1409251657_7-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1409251657_7-48.png"; sourceTree = "<group>"; };
 		91D2D0F519AF6B6B009C83E9 /* 1409251867_stats-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1409251867_stats-up.png"; sourceTree = "<group>"; };
 		91D2D10119AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1409252422_grey_new_seo2-30-32.png"; sourceTree = "<group>"; };
@@ -480,11 +487,11 @@
 				912C419D19D503D00096C951 /* appsAndDevices.png */,
 				91FAF20019FD628F00655CBE /* userStats.png */,
 				91CECA3319EA12360052AA8C /* go-next.png */,
+				91B07F961A70AB8A0049C75E /* new.png */,
 				912C419519D501FE0096C951 /* pointsScheme.png */,
 				91C3D8831A243BF4005EF360 /* email.png */,
 				912C419919D502C50096C951 /* about.png */,
 				912C419119D500F50096C951 /* notifications.png */,
-				91D230871A5F98E900D88F7F /* new.png */,
 				91FAF1FA19FD5CB800655CBE /* userProfile.png */,
 				91ED786719F8AFE700D58D9E /* grey-background.jpg */,
 				912C418219D4FCB40096C951 /* settings.png */,
@@ -690,6 +697,8 @@
 				918D5F06199127B200597147 /* ActivityViewController.m */,
 				919EE98C198DBAA000F12411 /* StatsViewController.h */,
 				919EE98D198DBAA000F12411 /* StatsViewController.m */,
+				91B07FA01A71C35E0049C75E /* ActivityEditor.h */,
+				91B07FA11A71C35E0049C75E /* ActivityEditor.m */,
 			);
 			name = Stats;
 			sourceTree = "<group>";
@@ -797,12 +806,14 @@
 			isa = PBXGroup;
 			children = (
 				91B28A2F19CE23CA00CC2E24 /* ellipticalIcon.png */,
+				91B07F9E1A70B0680049C75E /* snowboarding.png */,
 				91B239DC19CBD75000601E7F /* trekkingIcon.png */,
 				91B239E819CBDC6D00601E7F /* stairmasterIcon.png */,
 				91ED786219F4BD8900D58D9E /* crossTrainingBonus.png */,
 				91CECA2E19E3A8E30052AA8C /* defaultActivityIcon.png */,
 				91EF87051A1C50D8004399BC /* climbingIcon.png */,
 				91CECA2C19E3A8B50052AA8C /* bonusIcon.png */,
+				91B07F9C1A70B0290049C75E /* Skiing.png */,
 				91B239D519CBD3A800601E7F /* sportsIcon.png */,
 				91B239D319CBD39E00601E7F /* bikeIcon.png */,
 				91B239E019CBD89D00601E7F /* walkingIcon.png */,
@@ -979,6 +990,7 @@
 				91CF0EE819A2F3F8007B668A /* search_08_256.png in Resources */,
 				91B239C719CBC1A700601E7F /* runIcon.png in Resources */,
 				915B423F19ABE73700DC79FE /* default.plist in Resources */,
+				91B07F9F1A70B0680049C75E /* snowboarding.png in Resources */,
 				91DB0432199C7EB8000014A7 /* AppIcon560x60_2x.png in Resources */,
 				91FAF20119FD628F00655CBE /* userStats.png in Resources */,
 				915B426819AC0CD500DC79FE /* calendar3.png in Resources */,
@@ -989,6 +1001,7 @@
 				91B239D819CBD4A000601E7F /* yogaIcon.png in Resources */,
 				918F694E198893C000776052 /* reasons-to-run.jpg in Resources */,
 				91D329A919CA50DE0035B651 /* Silver_button.png in Resources */,
+				91B07F9D1A70B0290049C75E /* Skiing.png in Resources */,
 				91ED786819F8AFE700D58D9E /* grey-background.jpg in Resources */,
 				91CECA3419EA12370052AA8C /* go-next.png in Resources */,
 				91B28A3019CE23CA00CC2E24 /* ellipticalIcon.png in Resources */,
@@ -1002,7 +1015,7 @@
 				912C417419D3AA020096C951 /* message-board.png in Resources */,
 				912E34A119C7EB4D00F4745A /* redCircle.png in Resources */,
 				91CF0E6F19A10EAC007B668A /* acount-information.png in Resources */,
-				91D230881A5F98E900D88F7F /* new.png in Resources */,
+				91B07F971A70AB8A0049C75E /* new.png in Resources */,
 				91D2D10219AF6D8C009C83E9 /* 1409252422_grey_new_seo2-30-32.png in Resources */,
 				91D357C719BAB2B1005D0F26 /* Full_dustbin.png in Resources */,
 				915B424019ABE73700DC79FE /* apple calendar.plist in Resources */,
@@ -1068,6 +1081,7 @@
 				91CFEBE719A5A4D500B0C27A /* PersonalHealthStatsViewController.m in Sources */,
 				91445D111A1446160023BC33 /* FriendRequestCell.m in Sources */,
 				912E34A419C7ED4E00F4745A /* MessagesViewController.m in Sources */,
+				91B07FA21A71C35E0049C75E /* ActivityEditor.m in Sources */,
 				918D5EE819909ED600597147 /* MoreViewController.m in Sources */,
 				91FAF1DD19F9E63D00655CBE /* UserStats.m in Sources */,
 				915B425B19ABE74C00DC79FE /* PMSelectionView.m in Sources */,

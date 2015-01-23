@@ -365,7 +365,11 @@
         return @"climbingIcon.png";
     if ([message rangeOfString:@"Bonus " options:NSCaseInsensitiveSearch].location != NSNotFound )
         return @"crossTrainingBonus.png";
-    
+    if ([message rangeOfString:@"skiing " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"skiing.png";
+    if ([message rangeOfString:@"snowboarding " options:NSCaseInsensitiveSearch].location != NSNotFound )
+        return @"snowboarding.png";
+
     return @"defaultActivityIcon.png";
     
 }

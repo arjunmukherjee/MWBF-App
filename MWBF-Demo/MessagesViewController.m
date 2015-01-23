@@ -12,6 +12,7 @@
 #import "ActivityViewController.h"
 #import "Friend.h"
 #import "ProfileViewController.h"
+#import "ActivityEditor.h"
 
 
 @interface MessagesViewController ()
@@ -50,6 +51,7 @@
 @synthesize yourProgressLabel,friendsProgressLabel,leaderProgressLabel;
 @synthesize randomQuoteLabel;
 @synthesize pageTitle;
+
 
 - (void)viewDidLoad
 {
@@ -152,12 +154,12 @@
     [self redrawUserWall:nil];
 }
 
-- (IBAction) userProfileButtonClicked:(id)sender
+- (IBAction) userProfileButtonClicked:(id)userActivity
 {
     self.selectedFriend = [Utils convertUserToFriendObj];
     self.pageTitle = @"You";
     
-    [self performSegueWithIdentifier:@"Profile" sender:self];
+    [self performSegueWithIdentifier:@"ActivityEdit" sender:userActivity];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
@@ -267,7 +269,7 @@
     id feedItem = [self.user.friendsActivitiesList objectAtIndex:(indexPath.row/2)];
     
     if ([feedItem[@"userId"] isEqualToString:user.userEmail])
-        [self userProfileButtonClicked:nil];
+        [self userProfileButtonClicked:feedItem];
     else
     {
         for (int i=0; i<[self.user.friendsList count]; i++)
@@ -288,13 +290,23 @@
 }
 
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)userActivityObject
 {
     if ([segue.identifier isEqualToString:@"Profile"] )
     {
         ProfileViewController *controller = [segue destinationViewController];
         controller.friend = self.selectedFriend;
         controller.pageTitle = self.pageTitle;
+    }
+    else if ([segue.identifier isEqualToString:@"ActivityEdit"] )
+    {
+        ActivityEditor *controller = [segue destinationViewController];
+        controller.activityName = userActivityObject[@"activityName"];
+        controller.activityValue = userActivityObject[@"activityValue"];
+        controller.activityUnits = userActivityObject[@"activityUnit"];
+        controller.activityId = userActivityObject[@"id"];
+        controller.activityDate = userActivityObject[@"activityDate"];
+        controller.points = userActivityObject[@"points"];
     }
 }
 

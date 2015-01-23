@@ -37,6 +37,7 @@
 #define USER_ACTIVITIES_BY_TIME_ENDPOINT_FORMAT         @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/activitiesByTime"
 #define MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf-api/ver1/mwbf/activities"
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/deleteUserActivities"
+#define DELETE_USER_ACTIVITY_ENDPOINT_FORMAT            @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/deleteUserActivity"
 #define USER_NOTIFICATIONS_ENDPOINT_FORMAT              @"http://localhost:8080/MWBFServer/mwbf-api/ver1/user/notifications"
 */
 
@@ -59,6 +60,7 @@
 #define USER_ACTIVITIES_BY_TIME_ENDPOINT_FORMAT         @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/activitiesByTime"
 #define MWBF_ACTIVITY_LIST_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf-api/ver1/mwbf/activities"
 #define DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT          @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/deleteUserActivities"
+#define DELETE_USER_ACTIVITY_ENDPOINT_FORMAT            @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/deleteUserActivity"
 #define USER_NOTIFICATIONS_ENDPOINT_FORMAT              @"http://mwbf.herokuapp.com/mwbf-api/ver1/user/notifications"
 
 
@@ -242,6 +244,31 @@
     
     NSString *post =[[NSString alloc] initWithFormat:@"{\"email\"=\"%@\",\"user_id\"=\"%@\"}",user.userEmail,user.userId];
     NSURL *url=[NSURL URLWithString:DELETE_USER_ACTIVITIES_ENDPOINT_FORMAT];
+    
+    HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
+    NSData *urlData = [service sendPostRequest:post toURL:url];
+    
+    NSError *error = nil;
+    NSDictionary *jsonData = [NSJSONSerialization
+                              JSONObjectWithData:urlData
+                              options:NSJSONReadingMutableContainers
+                              error:&error];
+    
+    NSInteger success = [jsonData[@"success"] integerValue];
+    if(success == 1)
+        return YES;
+    else
+        return NO;
+    
+    return NO;
+}
+
+- (BOOL) deleteUserActivityWithId:(NSString*) activityId
+{
+    User *user = [User getInstance];
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"{\"activityId\"=\"%@\",\"userId\"=\"%@\"}",activityId,user.userId];
+    NSURL *url=[NSURL URLWithString:DELETE_USER_ACTIVITY_ENDPOINT_FORMAT];
     
     HTTPPostRequest *service = [[HTTPPostRequest alloc] init];
     NSData *urlData = [service sendPostRequest:post toURL:url];

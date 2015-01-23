@@ -2923,7 +2923,7 @@ activities anymore).</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new.png" id="xg7-cf-mp4">
-                                                    <rect key="frame" x="283" y="1" width="10" height="10"/>
+                                                    <rect key="frame" x="283" y="1" width="12" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -3029,6 +3029,7 @@ activities anymore).</string>
                         <outlet property="yourProgressBar" destination="WaI-fa-nfR" id="ngB-e8-uPP"/>
                         <outlet property="yourProgressLabel" destination="djY-RW-N9y" id="tvj-Sm-uih"/>
                         <segue destination="JDi-gT-osO" kind="push" identifier="Profile" id="vgr-12-NhC"/>
+                        <segue destination="LxL-y5-M5y" kind="push" identifier="ActivityEdit" id="mNq-ty-swG"/>
                     </connections>
                 </viewController>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This week " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xJ0-aR-VtP">
@@ -3227,6 +3228,104 @@ activities anymore).</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibk-Oh-uV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4152" y="3508"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="6jg-rZ-gve">
+            <objects>
+                <viewController id="LxL-y5-M5y" customClass="ActivityEditor" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6DG-o7-4Xa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HUY-9X-WSL">
+                                <rect key="frame" x="99" y="339" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete Activity">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteActivityClicked:" destination="LxL-y5-M5y" eventType="touchUpInside" id="eSP-6a-AQ8"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kXL-DY-vaj">
+                                <rect key="frame" x="17" y="366" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Update Activity">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Provide a description for your activity " textAlignment="center" minimumFontSize="13" clearButtonMode="always" id="2up-hQ-39D">
+                                <rect key="frame" x="31" y="252" width="258" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gch-Ho-ihf">
+                                <rect key="frame" x="17" y="92" width="287" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="S4b-2j-EJ6">
+                                <rect key="frame" x="17" y="140" width="287" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n7m-b3-EN1">
+                                <rect key="frame" x="17" y="188" width="287" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UlB-0C-pLU">
+                                <rect key="frame" x="26" y="105" width="268" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VGS-Np-xDx">
+                                <rect key="frame" x="26" y="153" width="268" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BZo-k7-T7P">
+                                <rect key="frame" x="26" y="201" width="268" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit" id="iFp-Ln-z8E"/>
+                    <connections>
+                        <outlet property="activityDescriptionTextField" destination="2up-hQ-39D" id="5sG-VP-cTV"/>
+                        <outlet property="activityLabel" destination="UlB-0C-pLU" id="Moy-9x-eli"/>
+                        <outlet property="dateLabel" destination="VGS-Np-xDx" id="Asl-wt-JI5"/>
+                        <outlet property="deleteActivityButton" destination="HUY-9X-WSL" id="Gcn-FV-wlu"/>
+                        <outlet property="pointsLabel" destination="BZo-k7-T7P" id="lDD-vi-dRh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U26-r3-9iu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4776" y="3275"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="HmR-kK-Ffn">
@@ -3523,7 +3622,7 @@ activities anymore).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baI-wh-OO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4778" y="2805"/>
+            <point key="canvasLocation" x="4776" y="2583"/>
         </scene>
         <!--Friends-->
         <scene sceneID="71W-of-f3l">
@@ -3684,7 +3783,7 @@ activities anymore).</string>
         <image name="friends-32.png" width="32" height="32"/>
         <image name="goRight1.png" width="120" height="120"/>
         <image name="icon_addfriend.png" width="128" height="128"/>
-        <image name="new.png" width="20" height="20"/>
+        <image name="new.png" width="512" height="512"/>
         <image name="notifications.png" width="32" height="32"/>
         <image name="personalBestIcon.png" width="48" height="48"/>
         <image name="pointsScheme.png" width="32" height="32"/>
