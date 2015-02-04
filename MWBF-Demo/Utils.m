@@ -366,7 +366,7 @@
     if ([message rangeOfString:@"Bonus " options:NSCaseInsensitiveSearch].location != NSNotFound )
         return @"crossTrainingBonus.png";
     if ([message rangeOfString:@"skiing " options:NSCaseInsensitiveSearch].location != NSNotFound )
-        return @"skiing.png";
+        return @"skiing_new.png";
     if ([message rangeOfString:@"snowboarding " options:NSCaseInsensitiveSearch].location != NSNotFound )
         return @"snowboarding.png";
 

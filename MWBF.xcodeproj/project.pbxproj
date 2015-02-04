@@ -96,7 +96,7 @@
 		919EE98E198DBAA000F12411 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EE98D198DBAA000F12411 /* StatsViewController.m */; };
 		919EE996198DCD4100F12411 /* facebook2.png in Resources */ = {isa = PBXBuildFile; fileRef = 919EE991198DCD4100F12411 /* facebook2.png */; };
 		91B07F971A70AB8A0049C75E /* new.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B07F961A70AB8A0049C75E /* new.png */; };
-		91B07F9D1A70B0290049C75E /* skiing.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B07F9C1A70B0290049C75E /* skiing.png */; };
+		91B07F9D1A70B0290049C75E /* skiing_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B07F9C1A70B0290049C75E /* skiing_new.png */; };
 		91B07F9F1A70B0680049C75E /* snowboarding.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B07F9E1A70B0680049C75E /* snowboarding.png */; };
 		91B07FA21A71C35E0049C75E /* ActivityEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B07FA11A71C35E0049C75E /* ActivityEditor.m */; };
 		91B239C719CBC1A700601E7F /* runIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91B239C319CBC1A700601E7F /* runIcon.png */; };
@@ -310,7 +310,7 @@
 		919EE98D198DBAA000F12411 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		919EE991198DCD4100F12411 /* facebook2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook2.png; sourceTree = "<group>"; };
 		91B07F961A70AB8A0049C75E /* new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new.png; sourceTree = "<group>"; };
-		91B07F9C1A70B0290049C75E /* skiing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skiing.png; sourceTree = "<group>"; };
+		91B07F9C1A70B0290049C75E /* skiing_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skiing_new.png; sourceTree = "<group>"; };
 		91B07F9E1A70B0680049C75E /* snowboarding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowboarding.png; sourceTree = "<group>"; };
 		91B07FA01A71C35E0049C75E /* ActivityEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityEditor.h; sourceTree = "<group>"; };
 		91B07FA11A71C35E0049C75E /* ActivityEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityEditor.m; sourceTree = "<group>"; };
@@ -813,7 +813,7 @@
 				91CECA2E19E3A8E30052AA8C /* defaultActivityIcon.png */,
 				91EF87051A1C50D8004399BC /* climbingIcon.png */,
 				91CECA2C19E3A8B50052AA8C /* bonusIcon.png */,
-				91B07F9C1A70B0290049C75E /* skiing.png */,
+				91B07F9C1A70B0290049C75E /* skiing_new.png */,
 				91B239D519CBD3A800601E7F /* sportsIcon.png */,
 				91B239D319CBD39E00601E7F /* bikeIcon.png */,
 				91B239E019CBD89D00601E7F /* walkingIcon.png */,
@@ -1001,7 +1001,7 @@
 				91B239D819CBD4A000601E7F /* yogaIcon.png in Resources */,
 				918F694E198893C000776052 /* reasons-to-run.jpg in Resources */,
 				91D329A919CA50DE0035B651 /* Silver_button.png in Resources */,
-				91B07F9D1A70B0290049C75E /* skiing.png in Resources */,
+				91B07F9D1A70B0290049C75E /* skiing_new.png in Resources */,
 				91ED786819F8AFE700D58D9E /* grey-background.jpg in Resources */,
 				91CECA3419EA12370052AA8C /* go-next.png in Resources */,
 				91B28A3019CE23CA00CC2E24 /* ellipticalIcon.png in Resources */,
