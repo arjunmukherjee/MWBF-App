@@ -159,7 +159,7 @@
     self.selectedFriend = [Utils convertUserToFriendObj];
     self.pageTitle = @"You";
     
-    [self performSegueWithIdentifier:@"ActivityEdit" sender:userActivity];
+    [self performSegueWithIdentifier:@"Profile" sender:userActivity];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
@@ -269,7 +269,9 @@
     id feedItem = [self.user.friendsActivitiesList objectAtIndex:(indexPath.row/2)];
     
     if ([feedItem[@"userId"] isEqualToString:user.userEmail])
-        [self userProfileButtonClicked:feedItem];
+    {
+        [self performSegueWithIdentifier:@"ActivityEdit" sender:feedItem];
+    }
     else
     {
         for (int i=0; i<[self.user.friendsList count]; i++)
