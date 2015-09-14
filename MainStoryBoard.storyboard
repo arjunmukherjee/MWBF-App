@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HGk-bn-OWn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HGk-bn-OWn">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -13,54 +13,41 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="RaP-yg-dr3" customClass="FBLoginView">
-                                <rect key="frame" x="20" y="229" width="210" height="42"/>
+                                <rect key="frame" x="20" y="241" width="210" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="Yr2-sU-Yxs" id="A9U-c8-RW6"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AYE-oZ-TRr">
-                                <rect key="frame" x="20" y="296" width="217" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Sign-up with Email">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="pHU-cC-bRx" kind="push" id="Wja-Mo-Jh9"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MWBF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xgt-8A-xeb">
-                                <rect key="frame" x="88" y="220" width="144" height="68"/>
+                                <rect key="frame" x="88" y="232" width="144" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="51"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email-register.png" id="Zz0-bg-6LM">
-                                <rect key="frame" x="33" y="305" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yo9-ZM-HBH">
-                                <rect key="frame" x="14" y="356" width="70" height="22"/>
+                                <rect key="frame" x="90" y="340" width="70" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="About"/>
+                                <state key="normal" title="About">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="p1F-gQ-n0Z" kind="push" id="hzw-FB-gU0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MWBF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lk9-Vd-Z0w">
+                                <rect key="frame" x="0.0" y="29" width="144" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -71,10 +58,9 @@
                     <navigationItem key="navigationItem" title="MWBF" id="V2P-a2-zuC"/>
                     <connections>
                         <outlet property="aboutButton" destination="yo9-ZM-HBH" id="ysN-Lc-U8a"/>
-                        <outlet property="emailIcon" destination="Zz0-bg-6LM" id="z6F-ez-YfU"/>
                         <outlet property="fbLoginView" destination="RaP-yg-dr3" id="7US-aG-Bey"/>
-                        <outlet property="mwbfTitle" destination="xgt-8A-xeb" id="uBR-E5-q7L"/>
-                        <outlet property="registerWithEmailButton" destination="AYE-oZ-TRr" id="INB-c9-4bl"/>
+                        <outlet property="mwbfTitleMiddle" destination="xgt-8A-xeb" id="MXX-t9-ce2"/>
+                        <outlet property="mwbfTitleTop" destination="lk9-Vd-Z0w" id="p7Q-cF-cIu"/>
                         <segue destination="13T-VZ-Q8y" kind="modal" identifier="login_success" id="E5a-mP-1Xm"/>
                     </connections>
                 </viewController>
@@ -177,9 +163,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MWBF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V5q-aH-xQm">
-                                <rect key="frame" x="101" y="67" width="118" height="52"/>
+                                <rect key="frame" x="116" y="58" width="88" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="43"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -188,23 +174,23 @@
                                 <rect key="frame" x="9" y="106" width="302" height="426"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Get out, get fit.
+                                <mutableString key="text">Get out, get fit.
 
 1.  Log your daily activities.
 2.  See your progress over time and by activity.
 3.  Compete with friends.
 4.  Create challenges, win something, or just bragging rights.
-5.  The app needs you to login using either your Facebook account or your email address. So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf.
+5.  The app needs you to login using either your Facebook account or your email address (next release). So, when prompted please allow the app the permissions to do so. We do not store any of your personal information (other than your email, first name and last name) and do not post to FB on your behalf.
 6.  Do let us know what you think about the app using the feedback button (in the more tab).
-</string>
+</mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May We Be Fit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cIl-DK-UYL">
-                                <rect key="frame" x="110" y="100" width="93" height="24"/>
+                                <rect key="frame" x="116" y="97" width="93" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dPq-5I-4uq">
@@ -480,7 +466,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxa-de-x1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="1147"/>
+            <point key="canvasLocation" x="2114" y="1187"/>
         </scene>
         <!--My Stats-->
         <scene sceneID="bA1-4G-w2c">
@@ -1058,7 +1044,7 @@ You may :
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FutureChallengeDetailsCell" rowHeight="54" id="lIW-ju-N2E" customClass="ChallengeCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="86" width="320" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lIW-ju-N2E" id="q4i-cu-Iwu">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
@@ -2826,7 +2812,7 @@ activities anymore).</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FriendDetailsCell" id="FUt-Ih-375" customClass="FriendCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FUt-Ih-375" id="7sW-sI-vcG">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -3779,7 +3765,6 @@ activities anymore).</string>
         <image name="background.jpg" width="800" height="584"/>
         <image name="calendar3.png" width="502" height="502"/>
         <image name="crossTrainingBonus.png" width="128" height="128"/>
-        <image name="email-register.png" width="48" height="48"/>
         <image name="email.png" width="128" height="128"/>
         <image name="friends-32.png" width="32" height="32"/>
         <image name="goRight1.png" width="120" height="120"/>
@@ -3803,9 +3788,9 @@ activities anymore).</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="23S-Zz-DKi"/>
-        <segue reference="hzw-FB-gU0"/>
         <segue reference="vgr-12-NhC"/>
         <segue reference="It8-jh-Nh1"/>
         <segue reference="4sH-40-u8k"/>
+        <segue reference="hzw-FB-gU0"/>
     </inferredMetricsTieBreakers>
 </document>

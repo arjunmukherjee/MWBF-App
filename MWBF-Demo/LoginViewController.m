@@ -23,7 +23,8 @@
 @property (weak, nonatomic) IBOutlet FBLoginView *fbLoginView;
 @property (strong, nonatomic) UIAlertView *noNetworkAlert;
 @property int runCount;
-@property (weak, nonatomic) IBOutlet UILabel *mwbfTitle;
+@property (weak, nonatomic) IBOutlet UILabel *mwbfTitleMiddle;
+@property (weak, nonatomic) IBOutlet UILabel *mwbfTitleTop;
 @property (weak, nonatomic) IBOutlet UIButton *registerWithEmailButton;
 @property (weak, nonatomic) IBOutlet UIButton *aboutButton;
 @property (weak, nonatomic) IBOutlet UIImageView *emailIcon;
@@ -38,7 +39,7 @@
 @synthesize fbLoginView;
 @synthesize noNetworkAlert;
 @synthesize runCount;
-@synthesize mwbfTitle;
+@synthesize mwbfTitleMiddle;
 @synthesize registerWithEmailButton,aboutButton,emailIcon;
 
 - (void)viewDidLoad
@@ -50,7 +51,7 @@
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
-    self.mwbfTitle.hidden = YES;
+    self.mwbfTitleMiddle.hidden = NO;
     
     self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     CGPoint point = CGPointMake(self.view.center.x, self.view.center.y +20);
@@ -75,7 +76,8 @@
     {
         // is NOT initial launch...
         self.fbLoginView.hidden = YES;
-        self.mwbfTitle.hidden = NO;
+        self.mwbfTitleMiddle.hidden = NO;
+        self.mwbfTitleTop.hidden = YES;
         self.registerWithEmailButton.hidden = YES;
         self.aboutButton.hidden = YES;
         self.emailIcon.hidden = YES;
@@ -84,7 +86,8 @@
     {
         // is initial launch...
         self.fbLoginView.hidden = NO;
-        self.mwbfTitle.hidden = YES;
+        self.mwbfTitleMiddle.hidden = YES;
+        self.mwbfTitleTop.hidden = NO;
         self.registerWithEmailButton.hidden = NO;
         self.aboutButton.hidden = NO;
         self.emailIcon.hidden = NO;
