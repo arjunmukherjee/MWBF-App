@@ -12,3 +12,5 @@ iOS App for MWBF
 ![notifications](https://github.com/arjunmukherjee/MWBF-App/blob/MWBF-Prod/app-images/notifications.jpg)
 ![user-friend-profile](https://github.com/arjunmukherjee/MWBF-App/blob/MWBF-Prod/app-images/user-friend-profile.jpg)
 ![wall](https://github.com/arjunmukherjee/MWBF-App/blob/MWBF-Prod/app-images/wall.jpg)
+![wall](https://github.com/arjunmukherjee/MWBF-App/blob/MWBF-Prod/app-images/login.jpg)
+![wall](https://github.com/arjunmukherjee/MWBF-App/blob/MWBF-Prod/app-images/activity.jpg)
