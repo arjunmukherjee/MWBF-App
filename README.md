@@ -1,5 +1,6 @@
 # MWBF-App
 iOS App for MWBF
+Gamifying the process of fitness. Extract motivation from your social circle, use it to get in shape, train for your next marathon....
 
 
 <img src="app-images/collage.jpg" alt="collage" width="400" height="400"/>
